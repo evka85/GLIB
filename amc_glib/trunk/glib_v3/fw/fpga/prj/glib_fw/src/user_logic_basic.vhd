@@ -244,6 +244,10 @@ architecture user_logic_arch of user_logic is
     signal l1_led               : std_logic := '0';
     signal bc0_led              : std_logic := '0';
 
+    -- Counters
+    signal cnt_reset            : std_logic;
+    signal cnt_ttc_trigger      : std_logic_vector(31 downto 0) := (others => '0');
+
 begin
 
     --ip_addr_o <= x"c0a8007d";  -- c0a80073 = 192.168.0.115 -- 898A7392 = 137.138.115.146
@@ -425,7 +429,7 @@ begin
             end if;
             
             if (l1accept = '1') then
-                i := 400;
+                i := 400_000;
             elsif (i > 0) then
                 i := i - 1;
             else
@@ -441,7 +445,7 @@ begin
         m_en_i      => l1accept,
         s_clk_i     => gtx_clk,
         s_en_o      => ttc_trigger
-    );    
+    );
 
     --================================--
     -- Register mapping
@@ -456,5 +460,12 @@ begin
     sbit_configuration_reg : entity work.reg port map(fabric_clk_i => ipb_clk_i, reset_i => reset_i, wbus_i => request_write(1), wbus_t => request_tri(1), rbus_o => request_read(1));
     sbit_configuration <= request_read(1)(2 downto 0);
 
+    -- Counters reset
+    cnt_reset <= request_tri(2);
+    
+	-- TTC trigger counter
+    ttc_trigger_counter : entity work.counter port map(fabric_clk_i => gtx_clk, reset_i => cnt_reset, en_i => ttc_trigger, data_o => cnt_ttc_trigger);
+    request_read(3) <= cnt_ttc_trigger;
+    
 
 end user_logic_arch;
