@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.xst" -ofn "/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.syr" 

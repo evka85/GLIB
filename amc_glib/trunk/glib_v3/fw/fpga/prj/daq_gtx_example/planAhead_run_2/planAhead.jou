@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Fri Jul 31 18:05:45 2015
+# Process ID: 28040
+# Log file: /opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/planAhead_run_2/planAhead.log
+# Journal file: /opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/pa.fromNetlist.tcl

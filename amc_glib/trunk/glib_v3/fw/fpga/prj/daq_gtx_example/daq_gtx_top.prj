@@ -1,0 +1,5 @@
+vhdl work "daq_gtx_gtx.vhd"
+vhdl work "frame_gen.vhd"
+vhdl work "frame_check.vhd"
+vhdl work "daq_gtx.vhd"
+vhdl work "daq_gtx_top.vhd"

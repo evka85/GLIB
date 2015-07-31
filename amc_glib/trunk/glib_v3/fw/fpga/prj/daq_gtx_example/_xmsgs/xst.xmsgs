@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd" Line 598: Assignment to <arg fmt="%s" index="1">tied_to_vcc_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd" Line 599: Assignment to <arg fmt="%s" index="1">tied_to_vcc_vec_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx.vhd" Line 237: Assignment to <arg fmt="%s" index="1">tied_to_vcc_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_gtx.vhd" Line 432: Assignment to <arg fmt="%s" index="1">rxchariscomma_float_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_gtx.vhd" Line 434: Assignment to <arg fmt="%s" index="1">rxcharisk_float_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_gtx.vhd" Line 437: Assignment to <arg fmt="%s" index="1">rxdisperr_float_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_gtx.vhd" Line 439: Assignment to <arg fmt="%s" index="1">rxnotintable_float_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd" Line 878: Assignment to <arg fmt="%s" index="1">gtx0_txdata_float_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd" Line 881: Assignment to <arg fmt="%s" index="1">gtx0_txcharisk_float_i</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/frame_check.vhd" Line 380: Assignment to <arg fmt="%s" index="1">rx_chanbond_seq_r3</arg> ignored, since the identifier is never used
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="89" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd" Line 401: &lt;<arg fmt="%s" index="1">data_vio</arg>&gt; remains a black-box since it has no binding entity.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="89" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd" Line 416: &lt;<arg fmt="%s" index="1">icon</arg>&gt; remains a black-box since it has no binding entity.
+</msg>
+
+<msg type="warning" file="HDLCompiler" num="89" delta="new" >"/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd" Line 429: &lt;<arg fmt="%s" index="1">ila</arg>&gt; remains a black-box since it has no binding entity.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">GTXTXRESET_IN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">GTXRXRESET_IN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd</arg>&quot; line <arg fmt="%s" index="2">911</arg>: Output port &lt;<arg fmt="%s" index="3">RX_ENCHAN_SYNC</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">gtx0_frame_check</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd</arg>&quot; line <arg fmt="%s" index="2">911</arg>: Output port &lt;<arg fmt="%s" index="3">INC_OUT</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">gtx0_frame_check</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx_top.vhd</arg>&quot; line <arg fmt="%s" index="2">1032</arg>: Output port &lt;<arg fmt="%s" index="3">sync_out</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">chipscope.shared_vio_i</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="2774" delta="new" >HDL ADVISOR - <arg fmt="%s" index="1">MAX_FANOUT</arg> <arg fmt="%s" index="2">property</arg> attached to signal <arg fmt="%s" index="3">gtx0_rxresetdone_i_r</arg> may hinder XST clustering optimizations.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/daq_gtx_example/daq_gtx.vhd</arg>&quot; line <arg fmt="%s" index="2">251</arg>: Output port &lt;<arg fmt="%s" index="3">TXPLLLKDET_OUT</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">gtx0_daq_gtx_i</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">INC_IN</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">rx_chanbond_seq_r</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">FRAME_CHECK</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">rx_chanbond_seq_r2</arg>&lt;<arg fmt="%d" index="2">0</arg>:<arg fmt="%d" index="3">0</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">FRAME_CHECK</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2261" delta="new" >The FF/Latch &lt;<arg fmt="%s" index="1">TX_DATA_32</arg>&gt; in Unit &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt; is equivalent to the following <arg fmt="%s" index="3">7 FFs/Latches</arg>, which will be removed : <arg fmt="%s" index="4">&lt;TX_DATA_33&gt; &lt;TX_DATA_34&gt; &lt;TX_DATA_35&gt; &lt;TX_DATA_36&gt; &lt;TX_DATA_37&gt; &lt;TX_DATA_38&gt; &lt;TX_DATA_39&gt; </arg>
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sel_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">gtx0_frame_check</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_CHARISK_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_CHARISK_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">TX_DATA_32</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">gtx0_frame_gen</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2404" delta="new" > FFs/Latches &lt;<arg fmt="%s" index="1">TX_DATA</arg>&lt;<arg fmt="%d" index="2">39</arg>:<arg fmt="%d" index="3">32</arg>&gt;&gt; (without init value) have a constant value of <arg fmt="%c" index="4">0</arg> in block &lt;<arg fmt="%s" index="5">FRAME_GEN</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1710" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">sel_1</arg>&gt; (without init value) has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">FRAME_CHECK</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">error_count_r_8</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">FRAME_CHECK</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">dual_port_block_ram_i</arg> in unit <arg fmt="%s" index="2">dual_port_block_ram_i</arg> of type <arg fmt="%s" index="3">RAMB16_S36_S36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">dual_port_block_ram_i</arg> in unit <arg fmt="%s" index="2">dual_port_block_ram_i</arg> of type <arg fmt="%s" index="3">RAMB16_S36_S36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_31</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_30</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_29</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_28</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_27</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_26</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_25</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_24</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_23</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_22</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_21</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_20</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_19</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_18</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_17</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_DATA_16</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_CHARISK_3</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="2677" delta="new" >Node &lt;<arg fmt="%s" index="1">gtx0_frame_gen/TX_CHARISK_2</arg>&gt; of sequential type is unconnected in block &lt;<arg fmt="%s" index="2">daq_gtx_top</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="warning" file="Xst" num="1293" delta="new" >FF/Latch &lt;<arg fmt="%s" index="1">gtx0_frame_check/register_chan_seq[0].case_i_equal_to_0.rx_chanbond_reg_0</arg>&gt; has a constant value of <arg fmt="%d" index="2">0</arg> in block &lt;<arg fmt="%s" index="3">daq_gtx_top</arg>&gt;. This FF/Latch will be trimmed during the optimization process.
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+</msg>
+
+</messages>
+
