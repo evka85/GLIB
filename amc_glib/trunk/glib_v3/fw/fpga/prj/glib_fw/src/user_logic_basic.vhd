@@ -466,6 +466,8 @@ begin
 	-- TTC trigger counter
     ttc_trigger_counter : entity work.counter port map(fabric_clk_i => gtx_clk, reset_i => cnt_reset, en_i => ttc_trigger, data_o => cnt_ttc_trigger);
     request_read(3) <= cnt_ttc_trigger;
+	 
+	 request_read(4) <= x"FAFABABA";
     
 
 end user_logic_arch;
