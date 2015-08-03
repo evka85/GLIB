@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-04-23T11:40:52</DateModified>
+  <DateModified>2015-08-03T11:12:42</DateModified>
   <ModuleName>glib_top</ModuleName>
   <SummaryTimeStamp>2015-04-17T10:53:30</SummaryTimeStamp>
-  <SavedFilePath>Z:/Documents/PhD/Code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/iseconfig/glib_top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>Z:/Documents/PhD/Code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw\</ImplementationReportsDirectory>
+  <SavedFilePath>/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/iseconfig/glib_top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/</ImplementationReportsDirectory>
   <DateInitialized>2014-11-05T15:32:11</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

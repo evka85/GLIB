@@ -1,0 +1,177 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: user_logic.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/tracking_data_fifo.vhd" into library work
+Parsing entity <tracking_data_fifo>.
+Parsing architecture <tracking_data_fifo_a> of entity <tracking_data_fifo>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/trigger_data_fifo.vhd" into library work
+Parsing entity <trigger_data_fifo>.
+Parsing architecture <trigger_data_fifo_a> of entity <trigger_data_fifo>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/RAM32x6Db.vhd" into library work
+Parsing entity <RAM32x6Db>.
+Parsing architecture <Behavioral> of entity <ram32x6db>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/Hamming.vhd" into library work
+Parsing entity <Hamming>.
+Parsing architecture <my_arch> of entity <hamming>.
+Parsing VHDL file "/home/evka/code/GLIB/ipbus_2_0_v1/firmware/ipbus_core/hdl/ipbus_package.vhd" into library work
+Parsing package <ipbus>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/system/sys/system_package.vhd" into library work
+Parsing package <system_package>.
+Parsing package body <system_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_package_basic.vhd" into library work
+Parsing package <user_package>.
+Parsing package body <user_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/TTS_TRIG_if.vhd" into library work
+Parsing entity <TTS_TRIG_if>.
+Parsing architecture <Behavioral> of entity <tts_trig_if>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/fifo66X512.vhd" into library work
+Parsing entity <fifo66X512>.
+Parsing architecture <Behavioral> of entity <fifo66x512>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/EthernetCRCD32.vhd" into library work
+Parsing entity <EthernetCRCD32>.
+Parsing architecture <Behavioral> of entity <ethernetcrcd32>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/crc16D16.vhd" into library work
+Parsing entity <crc16D16>.
+Parsing architecture <my_arch> of entity <crc16d16>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/clock_bridge.vhd" into library work
+Parsing entity <clock_bridge>.
+Parsing architecture <behavioral> of entity <clock_bridge>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/user/usr/user_sys_pcie_constants_package.vhd" into library work
+Parsing package <user_sys_pcie_constants_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/trigger_tx.vhd" into library work
+Parsing entity <trigger_tx>.
+Parsing architecture <Behavioral> of entity <trigger_tx>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/trigger_sbits.vhd" into library work
+Parsing entity <trigger_sbits>.
+Parsing architecture <Behavioral> of entity <trigger_sbits>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/trigger_data_decoder.vhd" into library work
+Parsing entity <trigger_data_decoder>.
+Parsing architecture <Behavioral> of entity <trigger_data_decoder>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/registers.vhd" into library work
+Parsing entity <reg>.
+Parsing architecture <Behavioral> of entity <reg>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/ipb_vi2c.vhd" into library work
+Parsing entity <ipb_vi2c>.
+Parsing architecture <rtl> of entity <ipb_vi2c>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/ipb_trigger.vhd" into library work
+Parsing entity <ipb_trigger>.
+Parsing architecture <rtl> of entity <ipb_trigger>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/ipb_tracking.vhd" into library work
+Parsing entity <ipb_tracking>.
+Parsing architecture <rtl> of entity <ipb_tracking>.
+WARNING:HDLCompiler:946 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/ipb_tracking.vhd" Line 42: Actual for formal port rst is neither a static name nor a globally static expression
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/ipb_registers.vhd" into library work
+Parsing entity <ipb_registers>.
+Parsing architecture <rtl> of entity <ipb_registers>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/ipb_info.vhd" into library work
+Parsing entity <ipb_info>.
+Parsing architecture <rtl> of entity <ipb_info>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/gtx_tx_mux.vhd" into library work
+Parsing entity <gtx_tx_mux>.
+Parsing architecture <Behavioral> of entity <gtx_tx_mux>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/gtx_rx_mux.vhd" into library work
+Parsing entity <gtx_rx_mux>.
+Parsing architecture <Behavioral> of entity <gtx_rx_mux>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/DAQ_Link_V6.vhd" into library work
+Parsing entity <DAQ_Link_V6>.
+Parsing architecture <Behavioral> of entity <daq_link_v6>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/DAQLINK_gtx.vhd" into library work
+Parsing entity <DAQLINK_gtx>.
+Parsing architecture <RTL> of entity <daqlink_gtx>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/counter.vhd" into library work
+Parsing entity <counter>.
+Parsing architecture <Behavioral> of entity <counter>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/amc13.vhd" into library work
+Parsing entity <TTC_decoder>.
+Parsing architecture <Behavioral> of entity <ttc_decoder>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/gtx_gtx.vhd" into library work
+Parsing entity <gtx_gtx>.
+Parsing architecture <RTL> of entity <gtx_gtx>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/user/usr/user_version_package.vhd" into library work
+Parsing package <user_version_package>.
+Parsing package body <user_version_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/system/wb/wb_package.vhd" into library work
+Parsing package <wb_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/system/pcie/system_pcie_package.vhd" into library work
+Parsing package <system_pcie_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/system/mem/system_flash_sram_package.vhd" into library work
+Parsing package <system_flash_sram_package>.
+Parsing package body <system_flash_sram_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/system/fmc/fmc_package.vhd" into library work
+Parsing package <fmc_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/link_trigger.vhd" into library work
+Parsing entity <link_trigger>.
+Parsing architecture <Behavioral> of entity <link_trigger>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/link_tracking.vhd" into library work
+Parsing entity <link_tracking>.
+Parsing architecture <Behavioral> of entity <link_tracking>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/gtx.vhd" into library work
+Parsing entity <gtx_wrapper>.
+Parsing architecture <Behavioral> of entity <gtx_wrapper>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/daqlink_wrapper.vhd" into library work
+Parsing entity <daqlink_wrapper>.
+Parsing architecture <Behavioral> of entity <daqlink_wrapper>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/clock_bridge_simple.vhd" into library work
+Parsing entity <clock_bridge_simple>.
+Parsing architecture <behavioral> of entity <clock_bridge_simple>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/amc13_top.vhd" into library work
+Parsing entity <amc13_top>.
+Parsing architecture <Behavioral> of entity <amc13_top>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" into library work
+Parsing entity <user_logic>.
+Parsing architecture <user_logic_arch> of entity <user_logic>.
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.33 secs
+ 
+--> 
+
+
+Total memory usage is 352496 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    1 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

@@ -239,7 +239,7 @@ architecture user_logic_arch of user_logic is
     signal brcst                : std_logic_vector(5 downto 0) := (others => '0');
     signal brcststr             : std_logic := '0';
     signal l1accept	            : std_logic := '0';
-    signal tcc_clock            : std_logic := '0';
+    signal ttc_clock            : std_logic := '0';
     
     signal l1_led               : std_logic := '0';
     signal bc0_led              : std_logic := '0';
@@ -248,6 +248,16 @@ architecture user_logic_arch of user_logic is
     signal cnt_reset            : std_logic;
     signal cnt_ttc_trigger      : std_logic_vector(31 downto 0) := (others => '0');
 
+    -- DAQ
+    signal daq_reset            : std_logic := '1';
+    signal daq_event_data       : std_logic_vector(63 downto 0) := (others => '0');
+    signal daq_event_write_en   : std_logic := '0';
+    signal daq_event_header     : std_logic := '0';
+    signal daq_event_trailer    : std_logic := '0';
+    signal daq_ready            : std_logic := '0';
+    signal daq_almost_full      : std_logic := '0';
+    signal daq_tts_state        : std_logic_vector(3 downto 0) := (others => '0');
+    
 begin
 
     --ip_addr_o <= x"c0a8007d";  -- c0a80073 = 192.168.0.115 -- 898A7392 = 137.138.115.146
@@ -389,7 +399,7 @@ begin
         ttc_clk_n  => xpoint1_clk3_n,
         ttc_data_p => amc_port_rx_p(3),
         ttc_data_n => amc_port_rx_n(3),
-        ttc_clk    => tcc_clock,
+        ttc_clk    => ttc_clock,
         ttcready   => open,
         l1accept   => l1accept,
         bcntres    => bcntres,
@@ -400,10 +410,10 @@ begin
         brcst      => brcst
     );    
     
-    process(tcc_clock)
+    process(ttc_clock)
         variable i : integer := 0;
     begin
-        if (rising_edge(tcc_clock)) then
+        if (rising_edge(ttc_clock)) then
             if (i < 2_500_000) then
                 bc0_led <= '0';
             else
@@ -418,10 +428,10 @@ begin
         end if;
     end process;
     
-    process(tcc_clock)
+    process(ttc_clock)
         variable i : integer := 0;
     begin
-        if (rising_edge(tcc_clock)) then
+        if (rising_edge(ttc_clock)) then
             if (i > 0) then
                 l1_led <= '1';
             else
@@ -441,10 +451,47 @@ begin
     clock_bridge_trigger_inst : entity work.clock_bridge_simple
     port map(
         reset_i     => '0',
-        m_clk_i     => tcc_clock,
+        m_clk_i     => ttc_clock,
         m_en_i      => l1accept,
         s_clk_i     => gtx_clk,
         s_en_o      => ttc_trigger
+    );
+
+    --================================--
+    -- DAQ Link
+    --================================--
+
+    -- DAQ reset after powerup
+    process(ttc_clock)
+        variable countdown : integer := 40_000_000; -- way too long, but who cares (this is only used after powerup)
+    begin
+        if (rising_edge(ttc_clock)) then
+            if (countdown > 0) then
+              daq_reset <= '1';
+              countdown := countdown - 1;
+            else
+              daq_reset <= '0';
+            end if;
+        end if;
+    end process;
+
+    daq_link : entity work.daqlink_wrapper
+    port map(
+        RESET_IN              =>  daq_reset,
+        MGT_REF_CLK_IN        => clk125_2_i,
+        GTX_TXN_OUT           => amc_port_tx_n(1),
+        GTX_TXP_OUT           => amc_port_tx_p(1),
+        GTX_RXN_IN            => amc_port_rx_n(1),
+        GTX_RXP_IN            => amc_port_rx_p(1),
+        DATA_CLK_IN           => ttc_clock,
+        EVENT_DATA_IN         => daq_event_data,
+        EVENT_DATA_HEADER_IN  => daq_event_header,
+        EVENT_DATA_TRAILER_IN => daq_event_trailer,
+        DATA_WRITE_EN_IN      => daq_event_write_en,
+        READY_OUT             => daq_ready,
+        ALMOST_FULL_OUT       => daq_almost_full,
+        TTS_CLK_IN            => ttc_clock,
+        TTS_STATE_IN          => daq_tts_state
     );
 
     --================================--
