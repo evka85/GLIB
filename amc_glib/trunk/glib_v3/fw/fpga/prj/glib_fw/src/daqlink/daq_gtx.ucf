@@ -277,8 +277,8 @@ INST usr/daq_link/daqlink_gtx_i/gtxe1_i TRANS_TIME_RATE                        =
 INST usr/daq_link/daqlink_gtx_i/gtxe1_i TRANS_TIME_TO_P2                       = 10'h064;
 
 
-NET "usr/daq_link/gtx0_mgt_ref_clk_2b" TNM_NET = "gtx0_mgt_ref_clk_2b";
-TIMESPEC "TS_gtx0_mgt_ref_clk_2b" = PERIOD "gtx0_mgt_ref_clk_2b" 8.0;
+NET "usr/daq_link/MGT_REF_CLK_IN" TNM_NET = "MGT_REF_CLK_IN";
+TIMESPEC "TS_MGT_REF_CLK_IN" = PERIOD "MGT_REF_CLK_IN" 8.0;
 
 # User Clock Constraints
 NET "usr/daq_link/gtx0_usr_clk" TNM_NET = "gtx0_usr_clk";
