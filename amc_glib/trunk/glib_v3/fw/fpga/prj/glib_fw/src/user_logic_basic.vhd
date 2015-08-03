@@ -440,6 +440,11 @@ begin
             
             if (l1accept = '1') then
                 i := 400_000;
+                
+                -- send a dummy event to AMC13
+                
+                ------------------------------
+                
             elsif (i > 0) then
                 i := i - 1;
             else
@@ -514,7 +519,7 @@ begin
     ttc_trigger_counter : entity work.counter port map(fabric_clk_i => gtx_clk, reset_i => cnt_reset, en_i => ttc_trigger, data_o => cnt_ttc_trigger);
     request_read(3) <= cnt_ttc_trigger;
 	 
-	 request_read(4) <= x"FAFABABA";
+	 request_read(4) <= x"FAFA000" & "000" & daq_ready;
     
 
 end user_logic_arch;
