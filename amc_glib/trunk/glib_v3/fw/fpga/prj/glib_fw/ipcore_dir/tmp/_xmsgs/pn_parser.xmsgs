@@ -8,19 +8,7 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/daq_gtx.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/daq_gtx/example_design/daq_gtx_top.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/daq_gtx/example_design/frame_check.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/daq_gtx/example_design/frame_gen.vhd&quot; into library work</arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/opt/evka/code/GEM/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/daq_gtx_gtx.vhd&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/tmp/_cg/clk_wiz_v3_6.vhd&quot; into library work</arg>
 </msg>
 
 </messages>

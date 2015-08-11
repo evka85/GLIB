@@ -1,37 +1,31 @@
-Release 14.7 ngdbuild P.20131013 (nt64)
+Release 14.7 ngdbuild P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Command Line: C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\ngdbuild.exe
--intstyle ise -dd _ngo -sd ipcore_dir -sd
-../../src/system/cdce/cdce_phase_mon_v2/dpram -sd
-../../src/system/ethernet/ipcore_dir/basex -sd
+Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
+ise -dd _ngo -sd ipcore_dir -sd ../../src/system/cdce/cdce_phase_mon_v2/dpram
+-sd ../../src/system/ethernet/ipcore_dir/basex -sd
 ../../src/system/ethernet/ipcore_dir/sgmii -sd
 ../../src/system/pcie/sys_pcie/ezdma2_ipbus_int/cores/ezdma2_ctrl_dpram -sd
 ../../src/system/pcie/sys_pcie/ezdma2_ipbus_int/cores/ipbus_ctrl_dpram -sd
 ../../src/system/pcie/sys_pcie/ezdma2_ipbus_int/cores/slv_rd_fifo -sd
 ../../src/system/pcie/sys_pcie/ezdma2_ipbus_int/cores/slv_wr_fifo -sd
 ../../src/system/cdce/cdce_phase_mon_v2/pll -sd ../../src/system/pll -nt
-timestamp -uc src/system.ucf -uc user_fabric_clk.ucf -uc src/system_clk.ucf -uc
-src/gtx.ucf -p xc6vlx130t-ff1156-1 glib_top.ngc glib_top.ngd
+timestamp -uc src/system.ucf -uc src/system_clk.ucf -uc src/gtx.ucf -uc
+user_fabric_clk.ucf -uc src/user_mgt_amc.ucf -uc src/usr.ucf -p
+xc6vlx130t-ff1156-1 glib_top_cs.ngc glib_top.ngd
 
 Reading NGO file
-"Z:/Documents/PhD/Code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.
-ngc" ...
-Loading design module "ipcore_dir/tracking_data_fifo.ngc"...
-Loading design module "ipcore_dir/trigger_data_fifo.ngc"...
-Loading design module
-"../../src/system/ethernet/ipcore_dir/basex/v6_emac_v2_3_basex.ngc"...
-Loading design module
-"../../src/system/ethernet/ipcore_dir/sgmii/v6_emac_v2_3_sgmii.ngc"...
-Loading design module
-"../../src/system/cdce/cdce_phase_mon_v2/dpram/ttclk_distributed_dpram.ngc"...
+"/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top_cs.ngc
+" ...
 Gathering constraint information from source properties...
 Done.
 
 Annotating constraints to design from ucf file "src/system.ucf" ...
-Annotating constraints to design from ucf file "user_fabric_clk.ucf" ...
 Annotating constraints to design from ucf file "src/system_clk.ucf" ...
 Annotating constraints to design from ucf file "src/gtx.ucf" ...
+Annotating constraints to design from ucf file "user_fabric_clk.ucf" ...
+Annotating constraints to design from ucf file "src/user_mgt_amc.ucf" ...
+Annotating constraints to design from ucf file "src/usr.ucf" ...
 WARNING:NgdBuild - The value of SIM_DEVICE on instance
    'system/amc_p0_en.amc_p0_eth/clkbuf' of type BUFR has been changed from
    'VIRTEX4' to 'VIRTEX6' to correct post-ngdbuild and timing simulation for
@@ -66,53 +60,19 @@ WARNING:ConstraintSystem:56 - Constraint <TIMESPEC TS_cdce_out4_n = 				PERIOD
    ;> [user_fabric_clk.ucf(38)]: Unable to find an active 'TNM' or 'TimeGrp'
    constraint named 'cdce_out4_n'.
 
-INFO:ConstraintSystem:178 - TNM 'xpoint1_clk3_p', used in period specification
-   'TS_xpoint1_clk3_p', was traced into MMCM_ADV instance MMCM_BASE_inst. The
+INFO:ConstraintSystem:178 - TNM 'clk125_2_p', used in period specification
+   'TS_clk125_2_p', was traced into MMCM_ADV instance mmcm_adv_inst. The
    following new TNM groups and period specifications were generated at the
    MMCM_ADV output(s): 
-   CLKOUT0: <TIMESPEC TS_usr_amc13_inst_Inst_TTC_decoder_TTC_CLK_dcm = PERIOD
-   "usr_amc13_inst_Inst_TTC_decoder_TTC_CLK_dcm" TS_xpoint1_clk3_p PHASE 10.7285
-   ns HIGH 50% INPUT_JITTER 100 ps>
+   CLKOUT1: <TIMESPEC TS_usr_clknetwork_clkout1 = PERIOD
+   "usr_clknetwork_clkout1" TS_clk125_2_p / 2 HIGH 50%>
 
-INFO:ConstraintSystem:178 - TNM 'xpoint1_clk3_n', used in period specification
-   'TS_xpoint1_clk3_n', was traced into MMCM_ADV instance MMCM_BASE_inst. The
+INFO:ConstraintSystem:178 - TNM 'clk125_2_p', used in period specification
+   'TS_clk125_2_p', was traced into MMCM_ADV instance mmcm_adv_inst. The
    following new TNM groups and period specifications were generated at the
    MMCM_ADV output(s): 
-   CLKOUT0: <TIMESPEC TS_usr_amc13_inst_Inst_TTC_decoder_TTC_CLK_dcm_0 = PERIOD
-   "usr_amc13_inst_Inst_TTC_decoder_TTC_CLK_dcm_0" TS_xpoint1_clk3_n PHASE
-   10.7285 ns HIGH 50%>
-
-WARNING:ConstraintSystem:191 - The TNM 'cdce_out4_p', does not directly or
-   indirectly drive any flip-flops, latches and/or RAMS and cannot be actively
-   used by the referencing Period constraint 'TS_cdce_out4_p'. If clock manager
-   blocks are directly or indirectly driven, a new TNM constraint will not be
-   derived even though the referencing constraint is a PERIOD constraint unless
-   an output of the clock manager drives flip-flops, latches or RAMs. This TNM
-   is used in the following user PERIOD specification:
-   <TIMESPEC TS_cdce_out4_p = 				PERIOD "cdce_out4_p" 24.95 ns HIGH 50%
-   INPUT_JITTER 100 ps                                            ;>
-   [user_fabric_clk.ucf(37)]
-
-WARNING:ConstraintSystem:197 - The following specification is invalid because
-   the referenced TNM constraint was removed:
-   <TIMESPEC TS_cdce_out4_p = 				PERIOD "cdce_out4_p" 24.95 ns HIGH 50%
-   INPUT_JITTER 100 ps                                            ;>
-   [user_fabric_clk.ucf(37)]
-
-WARNING:ConstraintSystem:191 - The TNM 'cdce_out4_n', does not directly or
-   indirectly drive any flip-flops, latches and/or RAMS and cannot be actively
-   used by the referencing Period constraint 'TS_cdce_out4_n'. If clock manager
-   blocks are directly or indirectly driven, a new TNM constraint will not be
-   derived even though the referencing constraint is a PERIOD constraint unless
-   an output of the clock manager drives flip-flops, latches or RAMs. This TNM
-   is used in the following user PERIOD specification:
-   <TIMESPEC TS_cdce_out4_n = 				PERIOD "cdce_out4_n" TS_cdce_out4_p PHASE
-   12.475 ns HIGH 50%                       ;> [user_fabric_clk.ucf(38)]
-
-WARNING:ConstraintSystem:197 - The following specification is invalid because
-   the referenced TNM constraint was removed:
-   <TIMESPEC TS_cdce_out4_n = 				PERIOD "cdce_out4_n" TS_cdce_out4_p PHASE
-   12.475 ns HIGH 50%                       ;> [user_fabric_clk.ucf(38)]
+   CLKOUT0: <TIMESPEC TS_usr_clknetwork_clkout0 = PERIOD
+   "usr_clknetwork_clkout0" TS_clk125_2_p / 0.2 HIGH 50%>
 
 INFO:ConstraintSystem:178 - TNM 'clk125_2_p', used in period specification
    'TS_clk125_2_p', was traced into MMCM_ADV instance mmcm_adv_inst. The
@@ -134,6 +94,20 @@ INFO:ConstraintSystem:178 - TNM 'clk125_2_p', used in period specification
    MMCM_ADV output(s): 
    CLKOUT2: <TIMESPEC TS_system_glib_pll_clkout_31_25_b = PERIOD
    "system_glib_pll_clkout_31_25_b" TS_clk125_2_p / 0.25 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'clk125_2_n', used in period specification
+   'TS_clk125_2_n', was traced into MMCM_ADV instance mmcm_adv_inst. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT1: <TIMESPEC TS_usr_clknetwork_clkout1_0 = PERIOD
+   "usr_clknetwork_clkout1_0" TS_clk125_2_n / 2 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'clk125_2_n', used in period specification
+   'TS_clk125_2_n', was traced into MMCM_ADV instance mmcm_adv_inst. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT0: <TIMESPEC TS_usr_clknetwork_clkout0_0 = PERIOD
+   "usr_clknetwork_clkout0_0" TS_clk125_2_n / 0.2 HIGH 50%>
 
 INFO:ConstraintSystem:178 - TNM 'clk125_2_n', used in period specification
    'TS_clk125_2_n', was traced into MMCM_ADV instance mmcm_adv_inst. The
@@ -172,8 +146,110 @@ INFO:ConstraintSystem:178 - TNM 'xpoint1_clk1_n', used in period specification
    PERIOD "system_gbt_phase_monitoring_ttclk_pll_clkout0_0" TS_xpoint1_clk1_n /
    6 PHASE 2.083333333 ns HIGH 50%>
 
+INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
+   'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT1: <TIMESPEC TS_usr_clknetwork_clkout1_1 = PERIOD
+   "usr_clknetwork_clkout1_1" TS_user_clk125_2 / 2 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
+   'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT0: <TIMESPEC TS_usr_clknetwork_clkout0_1 = PERIOD
+   "usr_clknetwork_clkout0_1" TS_user_clk125_2 / 0.2 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
+   'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT3: <TIMESPEC TS_system_glib_pll_clkout_31_25_c_1 = PERIOD
+   "system_glib_pll_clkout_31_25_c_1" TS_user_clk125_2 / 0.25 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
+   'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT1: <TIMESPEC TS_system_glib_pll_clkout_31_25_a_1 = PERIOD
+   "system_glib_pll_clkout_31_25_a_1" TS_user_clk125_2 / 0.25 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
+   'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT2: <TIMESPEC TS_system_glib_pll_clkout_31_25_b_1 = PERIOD
+   "system_glib_pll_clkout_31_25_b_1" TS_user_clk125_2 / 0.25 HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'xpoint1_clk3_p', used in period specification
+   'TS_xpoint1_clk3_p', was traced into MMCM_ADV instance i_MMCM_TTC_clk. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT1: <TIMESPEC TS_usr_ttc_decoder_i_TTC_CLK_dcm = PERIOD
+   "usr_ttc_decoder_i_TTC_CLK_dcm" TS_xpoint1_clk3_p HIGH 50% INPUT_JITTER 100
+   ps>
+
+INFO:ConstraintSystem:178 - TNM 'xpoint1_clk3_p', used in period specification
+   'TS_xpoint1_clk3_p', was traced into MMCM_ADV instance i_MMCM_TTC_clk. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT0: <TIMESPEC TS_usr_ttc_decoder_i_TTC_CLK7x_dcm = PERIOD
+   "usr_ttc_decoder_i_TTC_CLK7x_dcm" TS_xpoint1_clk3_p / 7 HIGH 50% INPUT_JITTER
+   100 ps>
+
+INFO:ConstraintSystem:178 - TNM 'xpoint1_clk3_n', used in period specification
+   'TS_xpoint1_clk3_n', was traced into MMCM_ADV instance i_MMCM_TTC_clk. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT1: <TIMESPEC TS_usr_ttc_decoder_i_TTC_CLK_dcm_0 = PERIOD
+   "usr_ttc_decoder_i_TTC_CLK_dcm_0" TS_xpoint1_clk3_n HIGH 50%>
+
+INFO:ConstraintSystem:178 - TNM 'xpoint1_clk3_n', used in period specification
+   'TS_xpoint1_clk3_n', was traced into MMCM_ADV instance i_MMCM_TTC_clk. The
+   following new TNM groups and period specifications were generated at the
+   MMCM_ADV output(s): 
+   CLKOUT0: <TIMESPEC TS_usr_ttc_decoder_i_TTC_CLK7x_dcm_0 = PERIOD
+   "usr_ttc_decoder_i_TTC_CLK7x_dcm_0" TS_xpoint1_clk3_n / 7 HIGH 50%>
+
+WARNING:ConstraintSystem:191 - The TNM 'cdce_out4_p', does not directly or
+   indirectly drive any flip-flops, latches and/or RAMS and cannot be actively
+   used by the referencing Period constraint 'TS_cdce_out4_p'. If clock manager
+   blocks are directly or indirectly driven, a new TNM constraint will not be
+   derived even though the referencing constraint is a PERIOD constraint unless
+   an output of the clock manager drives flip-flops, latches or RAMs. This TNM
+   is used in the following user PERIOD specification:
+   <TIMESPEC TS_cdce_out4_p = 				PERIOD "cdce_out4_p" 24.95 ns HIGH 50%
+   INPUT_JITTER 100 ps                                            ;>
+   [user_fabric_clk.ucf(37)]
+
+WARNING:ConstraintSystem:197 - The following specification is invalid because
+   the referenced TNM constraint was removed:
+   <TIMESPEC TS_cdce_out4_p = 				PERIOD "cdce_out4_p" 24.95 ns HIGH 50%
+   INPUT_JITTER 100 ps                                            ;>
+   [user_fabric_clk.ucf(37)]
+
+WARNING:ConstraintSystem:191 - The TNM 'cdce_out4_n', does not directly or
+   indirectly drive any flip-flops, latches and/or RAMS and cannot be actively
+   used by the referencing Period constraint 'TS_cdce_out4_n'. If clock manager
+   blocks are directly or indirectly driven, a new TNM constraint will not be
+   derived even though the referencing constraint is a PERIOD constraint unless
+   an output of the clock manager drives flip-flops, latches or RAMs. This TNM
+   is used in the following user PERIOD specification:
+   <TIMESPEC TS_cdce_out4_n = 				PERIOD "cdce_out4_n" TS_cdce_out4_p PHASE
+   12.475 ns HIGH 50%                       ;> [user_fabric_clk.ucf(38)]
+
+WARNING:ConstraintSystem:197 - The following specification is invalid because
+   the referenced TNM constraint was removed:
+   <TIMESPEC TS_cdce_out4_n = 				PERIOD "cdce_out4_n" TS_cdce_out4_p PHASE
+   12.475 ns HIGH 50%                       ;> [user_fabric_clk.ucf(38)]
+
 Done...
 
+WARNING:NgdBuild:1440 - User specified non-default attribute value (24.948) was
+   detected for the CLKIN1_PERIOD attribute on MMCM "i_MMCM_TTC_clk".  This does
+   not match the PERIOD constraint value (24.95 ns.).  The uncertainty
+   calculation will use the PERIOD constraint value.  This could result in
+   incorrect uncertainty calculated for MMCM output clocks.
 Checking expanded design ...
 WARNING:NgdBuild:452 - logical net 'amc_port_tx_out_17_OBUF' has no driver
 WARNING:NgdBuild:452 - logical net 'amc_port_tx_out_18_OBUF' has no driver
@@ -16958,70 +17034,6 @@ WARNING:NgdBuild:452 - logical net
 WARNING:NgdBuild:452 - logical net
    'usr/link_tracking_1_inst/request_write_o<6><0>' has no driver
 WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><31>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><30>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><29>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><28>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><27>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><26>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><25>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><24>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><23>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><22>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><21>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><20>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><19>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><18>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><17>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><16>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><15>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><14>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><13>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><12>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><11>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><10>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><9>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><8>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><7>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><6>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><5>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><4>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><3>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><2>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><1>' has no driver
-WARNING:NgdBuild:452 - logical net
-   'usr/link_tracking_1_inst/request_write_o<5><0>' has no driver
-WARNING:NgdBuild:452 - logical net
    'usr/link_tracking_1_inst/request_write_o<4><31>' has no driver
 WARNING:NgdBuild:452 - logical net
    'usr/link_tracking_1_inst/request_write_o<4><30>' has no driver
@@ -17520,8 +17532,6 @@ WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<8>'
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<7>'
    has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<6>'
-   has no driver
-WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<5>'
    has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<4>'
    has no driver
@@ -26013,17 +26023,6 @@ WARNING:NgdBuild:452 - logical net 'usr/link_trigger_inst/trigger_rx_data<7>'
    has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_trigger_inst/trigger_rx_data<6>'
    has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/Brcst<7>' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/Brcst<6>' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/Brcst<5>' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/Brcst<4>' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/Brcst<3>' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/Brcst<2>' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/BCntRes' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/EvCntRes' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/SinErrStr' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/DbErrStr' has no driver
-WARNING:NgdBuild:452 - logical net 'usr/amc13_inst/BrcstStr' has no driver
 WARNING:NgdBuild:452 - logical net 'system/user_cdce_sync_done_o' has no driver
 WARNING:NgdBuild:452 - logical net 'system/ipb_from_fabric_ipb_err' has no
    driver
@@ -27026,12 +27025,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings: 13716
+  Number of warnings: 13673
 
-Total memory usage is 374448 kilobytes
+Total memory usage is 731424 kilobytes
 
 Writing NGD file "glib_top.ngd" ...
-Total REAL time to NGDBUILD completion:  49 sec
-Total CPU time to NGDBUILD completion:   44 sec
+Total REAL time to NGDBUILD completion:  56 sec
+Total CPU time to NGDBUILD completion:   47 sec
 
 Writing NGDBUILD log file "glib_top.bld"...

@@ -22,7 +22,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if instantiating
 -- any Xilinx primitives in this code.
@@ -46,7 +46,10 @@ port
   READY_OUT                       : out std_logic; -- DAQ ready
   ALMOST_FULL_OUT                 : out std_logic; -- DAQ almost full
   TTS_CLK_IN                      : in std_logic; -- LHC clock ~40.08MHz used for both the TTS and TTC
-  TTS_STATE_IN                    : in std_logic_vector(3 downto 0)
+  TTS_STATE_IN                    : in std_logic_vector(3 downto 0);
+  AUTO_RESET_ENABLE               : in std_logic; -- enable automatic resets whenever DAQ_ready goes down (after some delay)
+  AUTO_RESET_COUNT_OUT            : out std_logic_vector(15 downto 0);
+  GTX_CLK_OUT                     : out std_logic
 );
 end daqlink_wrapper;
 
@@ -117,12 +120,12 @@ component DAQ_Link_V6
 		Generic
     (
            -- If you do not use the trigger port, set it to false
-					 --USE_TRIGGER_PORT : boolean := false;
+					 USE_TRIGGER_PORT : boolean := false;
 					 simulation       : boolean := false
     );
     Port ( 
            reset                      : in  STD_LOGIC; -- asynchronous reset, assert reset until GTX REFCLK stable
-           USE_TRIGGER_PORT           : boolean;
+           --USE_TRIGGER_PORT           : boolean;
         -- MGT signals
            UsrClk                     : in  STD_LOGIC; -- it must have a frequency of 250MHz
            RXPLLLKDET                 : in  STD_LOGIC;
@@ -145,7 +148,7 @@ component DAQ_Link_V6
            TTSclk                     : in  STD_LOGIC; -- clock source which clocks TTS signals
            TTS                        : in  STD_LOGIC_VECTOR (3 downto 0);
          -- Data port
-					 EventDataClk               : in  STD_LOGIC;
+           EventDataClk               : in  STD_LOGIC;
            EventData_valid            : in  STD_LOGIC; -- used as data write enable
            EventData_header           : in  STD_LOGIC; -- first data word
            EventData_trailer          : in  STD_LOGIC; -- last data word
@@ -167,8 +170,8 @@ end component;
     ----------------------- Receive Ports - 8b10b Decoder ----------------------
     signal  gtx0_rxchariscomma_i            : std_logic_vector(1 downto 0);
     signal  gtx0_rxcharisk_i                : std_logic_vector(1 downto 0);
-    --? signal  gtx0_rxdisperr_i                : std_logic_vector(1 downto 0);
-    --? signal  gtx0_rxnotintable_i             : std_logic_vector(1 downto 0);
+    signal  gtx0_rxdisperr_i                : std_logic_vector(1 downto 0);
+    signal  gtx0_rxnotintable_i             : std_logic_vector(1 downto 0);
     ------------------- Receive Ports - Clock Correction Ports -----------------
     --? signal  gtx0_rxclkcorcnt_i              : std_logic_vector(2 downto 0);
     --------------- Receive Ports - Comma Detection and Alignment --------------
@@ -200,11 +203,44 @@ end component;
    --------------- Receive Ports - RX Loss-of-sync State Machine --------------
     signal  gtx0_rxlossofsync               : std_logic_vector(1 downto 0);
 
+    -- some buffered wires from gtx to daqlink (otherwise they fail timing constraints)
+    signal  gtx0_txresetdone_o              : std_logic;
+    signal  gtx0_rxplllkdet_o               : std_logic;
+    signal  gtx0_rxresetdone_o              : std_logic;
+
+
     ----------------
-    signal  gtx0_mgt_ref_clk_2b        : std_logic_vector(1 downto 0);
-    signal  gtx0_tx_clk_out                 : std_logic;
-    signal  gtx0_usr_clk                    : std_logic;
-    signal  reset_daq                       : std_logic;
+    signal  gtx0_mgt_ref_clk_2b         : std_logic_vector(1 downto 0);
+    signal  gtx_tx_clk_out             : std_logic;
+    signal  gtx0_usr_clk                : std_logic;
+    signal  daq_ready                   : std_logic;
+    signal  reset_daq                   : std_logic := '0';
+    signal  reset_auto                  : std_logic := '0';
+    signal  auto_reset_count            : std_logic_vector(15 downto 0) := (others => '0');
+  
+    attribute MARK_DEBUG : string;
+    attribute MARK_DEBUG of gtx0_mgt_ref_clk_2b : signal is "TRUE";
+    attribute MARK_DEBUG of gtx_tx_clk_out : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_usr_clk : signal is "TRUE";
+    attribute MARK_DEBUG of daq_ready : signal is "TRUE";
+    attribute MARK_DEBUG of reset_daq : signal is "TRUE";
+    attribute MARK_DEBUG of reset_auto : signal is "TRUE";
+    attribute MARK_DEBUG of auto_reset_count : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxdata_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxcdrreset_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_pllrxreset_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxplllkdet_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxresetdone_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_txdata_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_txoutclk_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_txresetdone_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_txpolarity_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxlossofsync : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_txcharisk_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxcharisk_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxchariscomma_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxdisperr_i : signal is "TRUE";
+    attribute MARK_DEBUG of gtx0_rxnotintable_i : signal is "TRUE";
   
 begin
 
@@ -216,13 +252,77 @@ begin
     txoutclk_bufg0_i : BUFG
     port map
     (
-        I                               =>      gtx0_tx_clk_out,
+        I                               =>      gtx_tx_clk_out,
         O                               =>      gtx0_usr_clk
+    );
+    
+    GTX_CLK_OUT <= gtx0_usr_clk;
+
+    -- buffering some wires from gtx to daqlink (otherwise they fail timing constraints)
+    FDCE_inst0 : FDCE
+    generic map (
+        INIT => '0') -- Initial value of register ('0' or '1')
+    port map (
+        Q => gtx0_rxresetdone_o,
+        C => gtx0_usr_clk, -- Clock input
+        CE => '1', -- Clock enable input
+        CLR => '0', -- Asynchronous clear input
+        D => gtx0_rxresetdone_i -- Data input
+    );
+    
+    FDCE_inst1 : FDCE
+    generic map (
+        INIT => '0') -- Initial value of register ('0' or '1')
+    port map (
+        Q => gtx0_txresetdone_o,
+        C => gtx0_usr_clk, -- Clock input
+        CE => '1', -- Clock enable input
+        CLR => '0', -- Asynchronous clear input
+        D => gtx0_txresetdone_i -- Data input
+    );
+    
+    FDCE_inst2 : FDCE
+    generic map (
+        INIT => '0') -- Initial value of register ('0' or '1')
+    port map (
+        Q => gtx0_rxplllkdet_o,
+        C => gtx0_usr_clk, -- Clock input
+        CE => '1', -- Clock enable input
+        CLR => '0', -- Asynchronous clear input
+        D => gtx0_rxplllkdet_i -- Data input
     );
     
     -- reset
     
-    reset_daq <= RESET_IN;
+    reset_daq <= RESET_IN or reset_auto;
+    
+    AUTO_RESET_COUNT_OUT <= auto_reset_count;
+    
+    process(DATA_CLK_IN)
+        variable bad_cycles : integer := 0;
+    begin
+        if (rising_edge(DATA_CLK_IN)) then
+            if (bad_cycles >= 861440 and AUTO_RESET_ENABLE = '1') then
+                reset_auto <= '1';                
+            end if;
+            
+            if (reset_auto = '1') then
+                reset_auto <= '0';
+                bad_cycles := 0;
+                auto_reset_count <= std_logic_vector(unsigned(auto_reset_count) + 1);
+            end if;
+            
+            if (daq_ready = '1') then
+                bad_cycles := 0;
+            else
+                bad_cycles := bad_cycles + 1;
+            end if;
+        end if;
+    end process;
+    
+    -- Other
+    
+    READY_OUT <= daq_ready;
     
     -- GTX
     
@@ -242,8 +342,8 @@ begin
         ----------------------- Receive Ports - 8b10b Decoder ----------------------
         RXCHARISCOMMA_OUT          =>      gtx0_rxchariscomma_i,
         RXCHARISK_OUT              =>      gtx0_rxcharisk_i,
-        RXDISPERR_OUT              =>      open, --? gtx0_rxdisperr_i,
-        RXNOTINTABLE_OUT           =>      open, --? gtx0_rxnotintable_i,
+        RXDISPERR_OUT              =>      gtx0_rxdisperr_i,
+        RXNOTINTABLE_OUT           =>      gtx0_rxnotintable_i,
         ------------------- Receive Ports - Clock Correction Ports -----------------
         RXCLKCORCNT_OUT            =>      open, --? gtx0_rxclkcorcnt_i,
         --------------- Receive Ports - Comma Detection and Alignment --------------
@@ -271,7 +371,7 @@ begin
         TXCHARISK_IN               =>      gtx0_txcharisk_i,
         ------------------ Transmit Ports - TX Data Path interface -----------------
         TXDATA_IN                  =>      gtx0_txdata_i,
-        TXOUTCLK_OUT               =>      gtx0_tx_clk_out,
+        TXOUTCLK_OUT               =>      gtx_tx_clk_out,
         TXUSRCLK2_IN               =>      gtx0_usr_clk,
         ---------------- Transmit Ports - TX Driver and OOB signaling --------------
         TXDIFFCTRL_IN              =>      "1001", -- the generated core is using "1010" but HCAL uses "1001"
@@ -296,18 +396,18 @@ begin
 		generic map
     (
            -- If you do not use the trigger port, set it to false
-					 --USE_TRIGGER_PORT => false,
+					 USE_TRIGGER_PORT => false,
 					 simulation       => false
     )
     port map
     ( 
            reset                      => reset_daq, -- asynchronous reset, assert reset until GTX REFCLK stable
-           USE_TRIGGER_PORT           => false,
+          -- USE_TRIGGER_PORT           => false,
         -- MGT signals
-           UsrClk                     => gtx0_usr_clk, -- it must have a frequency of 250MHz
-           RXPLLLKDET                 => gtx0_rxplllkdet_i,
-           RxResetDone                => gtx0_rxresetdone_i,
-           TxResetDone                => gtx0_txresetdone_i,
+           UsrClk                     => gtx0_usr_clk, --gtx0_usr_clk, -- it must have a frequency of 250MHz
+           RXPLLLKDET                 => gtx0_rxplllkdet_o,
+           RxResetDone                => gtx0_rxresetdone_o,
+           TxResetDone                => gtx0_txresetdone_o,
            RXCDRRESET                 => gtx0_rxcdrreset_i,
            RXENPCOMMAALIGN            => gtx0_rxenpcommaalign_i,
            RXENMCOMMAALIGN            => gtx0_rxenmcommaalign_i,
@@ -331,7 +431,7 @@ begin
            EventData_trailer          => EVENT_DATA_TRAILER_IN,
            EventData                  => EVENT_DATA_IN,
            AlmostFull                 => ALMOST_FULL_OUT,
-           Ready                      => READY_OUT,
+           Ready                      => daq_ready,
            sysclk                     => '0', -- hmm, HCAL did it like that, so lets see
            L1A_DATA_we                => open,
            L1A_DATA                   => open

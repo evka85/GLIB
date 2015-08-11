@@ -37,11 +37,11 @@ use UNIMACRO.vcomponents.all;
 entity DAQ_Link_V6 is
 		Generic (
 -- If you do not use the trigger port, set it to false
---					 USE_TRIGGER_PORT : boolean := true;
+					 USE_TRIGGER_PORT : boolean := true;
 					 simulation : boolean := false);
     Port ( 
            reset : in  STD_LOGIC; -- asynchronous reset, assert reset until GTX REFCLK stable
-					 USE_TRIGGER_PORT : boolean;
+--					 USE_TRIGGER_PORT : boolean;
 -- MGT signals
            UsrClk : in  STD_LOGIC; -- it must have a frequency of 250MHz
            RXPLLLKDET : in  STD_LOGIC;
@@ -98,10 +98,10 @@ COMPONENT EthernetCRCD32
 		);
 END COMPONENT;
 COMPONENT TTS_TRIG_if
---	Generic (USE_TRIGGER_PORT : boolean := true);
+	Generic (USE_TRIGGER_PORT : boolean := true);
 	PORT(
 		reset : IN std_logic;
-		USE_TRIGGER_PORT : boolean;
+--		USE_TRIGGER_PORT : boolean;
 		UsrClk : IN std_logic;
 		TTCclk : IN std_logic;
 		BcntRes : IN std_logic;
@@ -1372,9 +1372,12 @@ begin
 	end if;
 end process;
 i_TTS_TRIG_if: TTS_TRIG_if
+    GENERIC MAP (
+        USE_TRIGGER_PORT => USE_TRIGGER_PORT
+    )
 	PORT MAP(
 		reset => reset,
-		USE_TRIGGER_PORT => USE_TRIGGER_PORT,
+--		USE_TRIGGER_PORT => USE_TRIGGER_PORT,
 		UsrClk => UsrClk,
 		TTCclk => TTCclk,
 		BcntRes => BcntRes,

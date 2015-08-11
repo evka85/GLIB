@@ -78,9 +78,9 @@ generic
     -- Share RX PLL parameter
     GTX_TX_CLK_SOURCE           : string     := "TXPLL";
     -- Save power parameter
-    GTX_POWER_SAVE              : bit_vector := "0000000000";
+    GTX_POWER_SAVE              : bit_vector := "0000110000"; -- was "0000000000";
 		-- REFCLK frequency, select one among 100, 125, 200 and 250 If your REFCLK frequency is not in the list, please contact wusx@bu.edu
-		F_REFCLK								: integer		 := 100
+		F_REFCLK								: integer		 := 125
 );
 port 
 (
