@@ -1,0 +1,3 @@
+vhdl work "src/daqlink/daq_gtx_gtx.vhd"
+vhdl work "src/daqlink/daq_gtx.vhd"
+vhdl work "src/daqlink/daq_gtx_wrapper.vhd"

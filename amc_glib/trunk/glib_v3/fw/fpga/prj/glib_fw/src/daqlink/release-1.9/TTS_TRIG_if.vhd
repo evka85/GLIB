@@ -35,12 +35,12 @@ Library UNIMACRO;
 use UNIMACRO.vcomponents.all;
 
 entity TTS_TRIG_if is
-		Generic (
-					 USE_TRIGGER_PORT : boolean := true);
+--		Generic (
+--					 USE_TRIGGER_PORT : boolean := true);
    Port ( 
            reset : in  STD_LOGIC; -- asynchronous reset, assert reset until GTX REFCLK stable
            UsrClk : in  STD_LOGIC;
---					 USE_TRIGGER_PORT : boolean;
+					 USE_TRIGGER_PORT : boolean;
 -- TRIGGER port
            TTCclk : in  STD_LOGIC;
            BcntRes : in  STD_LOGIC;

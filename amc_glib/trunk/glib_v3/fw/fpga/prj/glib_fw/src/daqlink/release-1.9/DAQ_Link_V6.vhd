@@ -37,11 +37,11 @@ use UNIMACRO.vcomponents.all;
 entity DAQ_Link_V6 is
 		Generic (
 -- If you do not use the trigger port, set it to false
-					 USE_TRIGGER_PORT : boolean := true;
+--					 USE_TRIGGER_PORT : boolean := true;
 					 simulation : boolean := false);
     Port ( 
            reset : in  STD_LOGIC; -- asynchronous reset, assert reset until GTX REFCLK stable
---					 USE_TRIGGER_PORT : boolean;
+					 USE_TRIGGER_PORT : in boolean;
 -- MGT signals
            UsrClk : in  STD_LOGIC; -- it must have a frequency of 250MHz
            RXPLLLKDET : in  STD_LOGIC;
@@ -98,10 +98,10 @@ COMPONENT EthernetCRCD32
 		);
 END COMPONENT;
 COMPONENT TTS_TRIG_if
-	Generic (USE_TRIGGER_PORT : boolean := true);
+--	Generic (USE_TRIGGER_PORT : boolean := true);
 	PORT(
 		reset : IN std_logic;
---		USE_TRIGGER_PORT : boolean;
+		USE_TRIGGER_PORT : boolean;
 		UsrClk : IN std_logic;
 		TTCclk : IN std_logic;
 		BcntRes : IN std_logic;
@@ -350,6 +350,60 @@ signal L1A_DATA_wa : std_logic_vector(2 downto 0) := (others => '0');
 signal OldL1Ainfo_wa0_SyncRegs : std_logic_vector(3 downto 0) := (others => '0');
 signal ce_L1A_DATA_ra : std_logic := '0';
 signal CriticalTTS : std_logic_vector(2 downto 0) := (others => '0');
+
+attribute MARK_DEBUG : string;
+attribute MARK_DEBUG of TypeInit : signal is "TRUE";
+attribute MARK_DEBUG of TypeACK : signal is "TRUE";
+attribute MARK_DEBUG of TypeData : signal is "TRUE";
+attribute MARK_DEBUG of TypeCntr : signal is "TRUE";
+attribute MARK_DEBUG of Receiving : signal is "TRUE";
+attribute MARK_DEBUG of RXDATA_q : signal is "TRUE";
+attribute MARK_DEBUG of InitLink : signal is "TRUE";
+attribute MARK_DEBUG of InitACK : signal is "TRUE";
+attribute MARK_DEBUG of ReSend : signal is "TRUE";
+attribute MARK_DEBUG of FoundEOF : signal is "TRUE";
+attribute MARK_DEBUG of ACK : signal is "TRUE";
+attribute MARK_DEBUG of CntrACK : signal is "TRUE";
+attribute MARK_DEBUG of L1Aabort : signal is "TRUE";
+attribute MARK_DEBUG of timer : signal is "TRUE";
+attribute MARK_DEBUG of Init_TxCRC : signal is "TRUE";
+attribute MARK_DEBUG of R_word_cnt : signal is "TRUE";
+attribute MARK_DEBUG of TxCRC : signal is "TRUE";
+attribute MARK_DEBUG of R_word_sent : signal is "TRUE";
+attribute MARK_DEBUG of packet_wc : signal is "TRUE";
+attribute MARK_DEBUG of ACKNUM_IN : signal is "TRUE";
+attribute MARK_DEBUG of RxSEQNUM : signal is "TRUE";
+attribute MARK_DEBUG of SEQNUM : signal is "TRUE";
+attribute MARK_DEBUG of ACKNUM : signal is "TRUE";
+attribute MARK_DEBUG of bad_K : signal is "TRUE";
+attribute MARK_DEBUG of SEQ_OK : signal is "TRUE";
+attribute MARK_DEBUG of IllegalSeq : signal is "TRUE";
+attribute MARK_DEBUG of CRC_OK : signal is "TRUE";
+attribute MARK_DEBUG of frame_OK : signal is "TRUE";
+attribute MARK_DEBUG of Header2 : signal is "TRUE";
+attribute MARK_DEBUG of AMC_ID : signal is "TRUE";
+attribute MARK_DEBUG of RxType : signal is "TRUE";
+attribute MARK_DEBUG of RxWC : signal is "TRUE";
+attribute MARK_DEBUG of WC_OK : signal is "TRUE";
+attribute MARK_DEBUG of L1Ainfo : signal is "TRUE";
+attribute MARK_DEBUG of ACK_OK : signal is "TRUE";
+attribute MARK_DEBUG of accept : signal is "TRUE";
+attribute MARK_DEBUG of IsACK : signal is "TRUE";
+attribute MARK_DEBUG of IsCntr : signal is "TRUE";
+attribute MARK_DEBUG of IsData : signal is "TRUE";
+attribute MARK_DEBUG of CntrSent : signal is "TRUE";
+attribute MARK_DEBUG of ACKNUM_full : signal is "TRUE";
+attribute MARK_DEBUG of ACKNUM_empty : signal is "TRUE";
+attribute MARK_DEBUG of Init_RxCRC : signal is "TRUE";
+attribute MARK_DEBUG of RxCRC : signal is "TRUE";
+attribute MARK_DEBUG of bad_ID : signal is "TRUE";
+attribute MARK_DEBUG of AMC_header : signal is "TRUE";
+attribute MARK_DEBUG of AMCinfo_empty : signal is "TRUE";
+attribute MARK_DEBUG of ce_info_ra : signal is "TRUE";
+attribute MARK_DEBUG of idle_cntr : signal is "TRUE";
+attribute MARK_DEBUG of CriticalTTS : signal is "TRUE";
+attribute MARK_DEBUG of reset_sync : signal is "TRUE";
+
 -- chipscope
 COMPONENT cs_delay
 	PORT(
@@ -1372,12 +1426,9 @@ begin
 	end if;
 end process;
 i_TTS_TRIG_if: TTS_TRIG_if
-    GENERIC MAP (
-        USE_TRIGGER_PORT => USE_TRIGGER_PORT
-    )
 	PORT MAP(
 		reset => reset,
---		USE_TRIGGER_PORT => USE_TRIGGER_PORT,
+		USE_TRIGGER_PORT => USE_TRIGGER_PORT,
 		UsrClk => UsrClk,
 		TTCclk => TTCclk,
 		BcntRes => BcntRes,

@@ -1,0 +1,2 @@
+vhdl work ../../clk25mhz.vhd
+vhdl work ../example_design/clk25mhz_exdes.vhd

@@ -1,0 +1,3 @@
+vhdl work "src/daqlink/release-1.9/RAM32x6Db.vhd"
+vhdl work "src/daqlink/release-1.9/Hamming.vhd"
+vhdl work "src/daqlink/release-1.9/TTS_TRIG_if.vhd"

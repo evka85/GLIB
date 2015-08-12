@@ -1,0 +1,2 @@
+vhdl work ../../daq_clocks.vhd
+vhdl work ../example_design/daq_clocks_exdes.vhd

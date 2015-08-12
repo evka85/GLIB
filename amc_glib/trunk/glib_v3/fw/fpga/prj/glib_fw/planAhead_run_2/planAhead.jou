@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Sun Aug  9 15:13:33 2015
+# Process ID: 4591
+# Log file: /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/planAhead_run_2/planAhead.log
+# Journal file: /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/planAhead_run_2/planAhead.jou
+#-----------------------------------------------------------
+start_gui
+source /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/pa.fromNcd.tcl

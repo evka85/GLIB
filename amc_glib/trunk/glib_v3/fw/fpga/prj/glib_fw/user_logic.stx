@@ -122,9 +122,6 @@ Parsing architecture <RTL> of entity <daqlink_gtx>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/counter.vhd" into library work
 Parsing entity <counter>.
 Parsing architecture <Behavioral> of entity <counter>.
-Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/amc13.vhd" into library work
-Parsing entity <TTC_decoder>.
-Parsing architecture <Behavioral> of entity <ttc_decoder>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/gtx_gtx.vhd" into library work
 Parsing entity <gtx_gtx>.
 Parsing architecture <RTL> of entity <gtx_gtx>.
@@ -140,6 +137,9 @@ Parsing package <system_flash_sram_package>.
 Parsing package body <system_flash_sram_package>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/system/fmc/fmc_package.vhd" into library work
 Parsing package <fmc_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/ttc/release-1.1/TTC_decoder.vhd" into library work
+Parsing entity <TTC_decoder>.
+Parsing architecture <Behavioral> of entity <ttc_decoder>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/link_trigger.vhd" into library work
 Parsing entity <link_trigger>.
 Parsing architecture <Behavioral> of entity <link_trigger>.
@@ -158,21 +158,18 @@ Parsing architecture <Behavioral> of entity <daqlink_wrapper>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/clock_bridge_simple.vhd" into library work
 Parsing entity <clock_bridge_simple>.
 Parsing architecture <behavioral> of entity <clock_bridge_simple>.
-Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/amc13_top.vhd" into library work
-Parsing entity <amc13_top>.
-Parsing architecture <Behavioral> of entity <amc13_top>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" into library work
 Parsing entity <user_logic>.
 Parsing architecture <user_logic_arch> of entity <user_logic>.
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 3.29 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.93 secs
  
 --> 
 
 
-Total memory usage is 352604 kilobytes
+Total memory usage is 352768 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    1 (   0 filtered)

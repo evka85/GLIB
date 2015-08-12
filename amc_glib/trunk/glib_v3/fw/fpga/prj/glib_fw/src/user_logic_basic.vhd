@@ -257,8 +257,8 @@ architecture user_logic_arch of user_logic is
     signal cnt_ttc_trigger      : std_logic_vector(31 downto 0) := (others => '0');
 
     -- DAQ
-    signal daq_reset            : std_logic := '0';
-    signal daq_reset_pwrup      : std_logic := '0';
+    signal daq_reset            : std_logic := '1';
+    signal daq_reset_pwrup      : std_logic := '1';
     signal daq_event_data       : std_logic_vector(63 downto 0) := (others => '0');
     signal daq_event_write_en   : std_logic := '0';
     signal daq_event_header     : std_logic := '0';
@@ -269,14 +269,16 @@ architecture user_logic_arch of user_logic is
     signal daq_gtx_clk          : std_logic;
     
     signal daq_state            : unsigned(3 downto 0) := (others => '0');
-    signal daq_auto_reset_cnt   : std_logic_vector(15 downto 0) := (others => '0');
     signal daq_trigger          : std_logic := '0';
     signal daq_clock_locked     : std_logic := '0';
   
+    signal daq_disper_err_cnt   : std_logic_vector(15 downto 0);
+    signal daq_notintable_err_cnt: std_logic_vector(15 downto 0);
+    
     --DAQ conf
-    signal daq_auto_reset_enable: std_logic := '0';
-    signal daq_ignore_daq_ready : std_logic := '0';
-    signal daq_ipb_reset        : std_logic := '0';
+    signal daq_ignore_daq_ready : std_logic := '0'; -- ignore the DAQ_ready signal from DAQLink (just for a test)
+    signal daq_ipb_reset        : std_logic := '0'; -- DAQLink reset through IPbus
+    signal daq_enable           : std_logic := '0'; -- enable sending data to DAQ on L1A
     
     signal daq_clk25_bufg           : std_logic;
     signal daq_clk250_bufg      : std_logic;
@@ -293,10 +295,8 @@ architecture user_logic_arch of user_logic is
     attribute MARK_DEBUG of daq_tts_state : signal is "TRUE";
     attribute MARK_DEBUG of daq_gtx_clk : signal is "TRUE";
     attribute MARK_DEBUG of daq_state : signal is "TRUE";
-    attribute MARK_DEBUG of daq_auto_reset_cnt : signal is "TRUE";
     attribute MARK_DEBUG of daq_trigger : signal is "TRUE";
     attribute MARK_DEBUG of daq_clock_locked : signal is "TRUE";
-    attribute MARK_DEBUG of daq_auto_reset_enable : signal is "TRUE";
     attribute MARK_DEBUG of daq_ignore_daq_ready : signal is "TRUE";
     attribute MARK_DEBUG of daq_ipb_reset : signal is "TRUE";
     attribute MARK_DEBUG of daq_clk25_bufg : signal is "TRUE";
@@ -479,7 +479,7 @@ begin
 
     -- TTC reset after powerup
     
-    ttc_reset <= ttc_reset_pwrup or ttc_reset_ipb;
+    ttc_reset <= ttc_reset_pwrup;-- or ttc_reset_ipb;
 
     process(user_clk125_i)
         variable countdown : integer := 60_000_000; -- hold in reset for 0.5 second after powerup - way too long, but who cares
@@ -585,8 +585,9 @@ begin
     
     -- TTS
     
-    daq_tts_state <= "1000";
+    daq_tts_state <= x"8"; -- for now READY all the time
     
+    -- bridge TTC L1A to DAQ clock domain
     clock_bridge_daq_trigger_inst : entity work.clock_bridge_simple
     port map(
         reset_i     => '0',
@@ -601,7 +602,7 @@ begin
     begin
         if (rising_edge(daq_clk25_bufg)) then
             -- start the fake event state machine
-            if (daq_trigger = '1' and daq_state = x"0" and (daq_ready = '1' or daq_ignore_daq_ready = '1') and daq_almost_full = '0') then
+            if (daq_trigger = '1' and daq_state = x"0" and (daq_ready = '1' or daq_ignore_daq_ready = '1') and daq_almost_full = '0' and daq_reset = '0' and daq_enable = '1') then
                 daq_state <= x"1";
             end if;
             
@@ -650,10 +651,10 @@ begin
 
     -- DAQ reset after powerup
     
-    daq_reset <= daq_reset_pwrup or daq_ipb_reset;
+    daq_reset <= daq_reset_pwrup; -- or daq_ipb_reset;
     
     process(ttc_clk)
-        variable countdown : integer := 40_000_000; -- way too long, but who cares (this is only used after powerup)
+        variable countdown : integer := 60_000_000; -- probably way too long, but who cares (this is only used after powerup)
     begin
         if (rising_edge(ttc_clk)) then
             if (countdown > 0) then
@@ -672,20 +673,12 @@ begin
     (
         CLK_IN1            => user_clk125_i,
         CLK_OUT1           => daq_clk25_bufg,
-        CLK_OUT2           => daq_clk250_bufg,
+        CLK_OUT2           => daq_clk250_bufg, -- not used
         RESET              => '0',
         LOCKED             => daq_clock_locked
     );
 
-    
---    clk_125Mhz_bufg : BUFG
---    port map
---    (
---        I                               =>      clk125_2_i,
---        O                               =>      clk125_2_i_bufg
---    );
-
-    -- check frequency of all clocks
+    -- quick and dirty check of frequency of some clocks
     process(daq_gtx_clk)
         variable last_daq_clk   : std_logic := '0';
         variable daq_clk_length : unsigned(7 downto 0) := (others => '0');
@@ -728,9 +721,11 @@ begin
         ALMOST_FULL_OUT       => daq_almost_full,
         TTS_CLK_IN            => ttc_clk,
         TTS_STATE_IN          => daq_tts_state,
-        AUTO_RESET_ENABLE     => daq_auto_reset_enable,
-        AUTO_RESET_COUNT_OUT  => daq_auto_reset_cnt,
-        GTX_CLK_OUT           => daq_gtx_clk
+        GTX_CLK_OUT           => daq_gtx_clk,
+        ERR_DISPER_COUNT      => daq_disper_err_cnt,
+        ERR_NOT_IN_TABLE_COUNT=> daq_notintable_err_cnt,
+        BC0_IN                => ttc_bcntres,
+        CLK125_IN             => user_clk125_i
     );
 
     --================================--
@@ -753,12 +748,16 @@ begin
     --?ttc_trigger_counter : entity work.counter port map(fabric_clk_i => gtx_clk, reset_i => cnt_reset, en_i => ttc_trigger, data_o => cnt_ttc_trigger);
     request_read(3) <= cnt_ttc_trigger;
 	 
-	request_read(4) <= daq_auto_reset_cnt & x"00" & "00" & ttc_ready & daq_clock_locked & daq_auto_reset_enable & daq_ignore_daq_ready & daq_almost_full & daq_ready;
+    -- DAQ test registers (TODO: clean up later) 
+	request_read(4) <= x"0000000" & ttc_ready & daq_clock_locked & daq_almost_full & daq_ready;
     
     daq_config_reg : entity work.reg port map(fabric_clk_i => ipb_clk_i, reset_i => reset_i, wbus_i => request_write(5), wbus_t => request_tri(5), rbus_o => request_read(5));
     ttc_reset_ipb <= request_read(5)(3);
     daq_ipb_reset <= request_read(5)(2);
-    daq_auto_reset_enable <= request_read(5)(1);
+    daq_enable <= request_read(5)(1);
     daq_ignore_daq_ready <= request_read(5)(0);
+
+    request_read(8) <= x"0000" & daq_disper_err_cnt;
+    request_read(9) <= x"0000" & daq_notintable_err_cnt;
 
 end user_logic_arch;
