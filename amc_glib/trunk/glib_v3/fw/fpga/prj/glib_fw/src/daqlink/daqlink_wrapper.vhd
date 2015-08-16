@@ -360,7 +360,7 @@ begin
         RXPLLLKDET_OUT             =>      gtx0_rxplllkdet_i,
         RXRESETDONE_OUT            =>      gtx0_rxresetdone_i,
         ----------------- Receive Ports - RX Polarity Control Ports ----------------
-        RXPOLARITY_IN              =>      '1', -- the generated core is using "0" but HCAL uses "1"
+        RXPOLARITY_IN              =>      '0', -- the generated core is using "0" but HCAL uses "1"
         ---------------- Transmit Ports - 8b10b Encoder Control Ports --------------
         TXCHARISK_IN               =>      gtx0_txcharisk_i,
         ------------------ Transmit Ports - TX Data Path interface -----------------
@@ -381,7 +381,7 @@ begin
         PLLTXRESET_IN              =>      '0',
         TXPLLLKDET_OUT             =>      open,
         -------------------- Transmit Ports - TX Polarity Control ------------------
-        TXPOLARITY_IN              =>      '1' -- the generated core is using "0" but HCAL uses "1"
+        TXPOLARITY_IN              =>      '0' -- the generated core is using "0" but HCAL uses "1"
     );
 
     -- DAQ link
