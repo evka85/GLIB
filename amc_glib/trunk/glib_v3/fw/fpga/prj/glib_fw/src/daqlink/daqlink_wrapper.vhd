@@ -1,6 +1,6 @@
 ----------------------------------------------------------------------------------
 -- Company: 
--- Engineer: 
+-- Engineer: Evaldas Juska (Evaldas.Juska@cern.ch)
 -- 
 -- Create Date:    12:26:57 08/01/2015 
 -- Design Name: 
@@ -220,27 +220,28 @@ end component;
     signal  gtx_tx_clk_out             : std_logic;
     signal  gtx0_usr_clk                : std_logic;
     signal  daq_ready                   : std_logic;
+
   
-    attribute MARK_DEBUG : string;
-    attribute MARK_DEBUG of gtx0_mgt_ref_clk_2b : signal is "TRUE";
-    attribute MARK_DEBUG of gtx_tx_clk_out : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_usr_clk : signal is "TRUE";
-    attribute MARK_DEBUG of daq_ready : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxdata_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxcdrreset_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_pllrxreset_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxplllkdet_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxresetdone_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_txdata_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_txoutclk_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_txresetdone_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_txpolarity_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxlossofsync : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_txcharisk_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxcharisk_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxchariscomma_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxdisperr_i : signal is "TRUE";
-    attribute MARK_DEBUG of gtx0_rxnotintable_i : signal is "TRUE";
+--    attribute MARK_DEBUG : string;
+--    attribute MARK_DEBUG of gtx0_mgt_ref_clk_2b : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx_tx_clk_out : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_usr_clk : signal is "TRUE";
+--    attribute MARK_DEBUG of daq_ready : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxdata_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxcdrreset_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_pllrxreset_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxplllkdet_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxresetdone_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_txdata_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_txoutclk_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_txresetdone_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_txpolarity_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxlossofsync : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_txcharisk_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxcharisk_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxchariscomma_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxdisperr_i : signal is "TRUE";
+--    attribute MARK_DEBUG of gtx0_rxnotintable_i : signal is "TRUE";
   
 begin
 

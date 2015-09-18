@@ -6,7 +6,7 @@ Loading device for application Rf_Device from file '6vlx130t.nph' in environment
 -1
 Opened constraints file glib_top.pcf.
 
-Tue Aug 11 18:29:37 2015
+Wed Sep  2 13:52:30 2015
 
 /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -intstyle ise -w -d -g Binary:no -g Compress -g CRC:Enable -g ConfigRate:50 -g CclkPin:PullUp -g M0Pin:PullUp -g M1Pin:PullUp -g M2Pin:PullUp -g ProgPin:PullUp -g InitPin:Pullup -g CsPin:Pullup -g DinPin:Pullup -g BusyPin:Pullup -g RdWrPin:Pullup -g HswapenPin:PullUp -g TckPin:PullUp -g TdiPin:PullUp -g TdoPin:PullUp -g TmsPin:PullUp -g Disable_JTAG:No -g UnusedPin:PullDown -g UserID:0xFFFFFFFF -g ConfigFallback:Enable -g BPI_page_size:1 -g OverTempPowerDown:Disable -g USR_ACCESS:None -g next_config_addr:None -g JTAG_SysMon:Enable -g DCIUpdateMode:AsRequired -g StartUpClk:CClk -g DONE_cycle:4 -g GTS_cycle:5 -g GWE_cycle:6 -g Match_cycle:Auto -g Security:None -g DonePipe:No -g DriveDone:No -g Encrypt:No glib_top.ncd 
 
@@ -153,5 +153,5 @@ There were 0 CONFIG constraint(s) processed from glib_top.pcf.
 
 Creating bit map...
 Saving bit stream in "glib_top.bit".
-Bitstream compression saved 17660800 bits.
+Bitstream compression saved 14352864 bits.
 Bitstream generation is complete.

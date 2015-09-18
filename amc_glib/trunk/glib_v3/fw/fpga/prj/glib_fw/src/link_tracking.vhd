@@ -40,8 +40,13 @@ port(
     
     -- Trigger
     
-    trigger_i       : in std_logic
+    trigger_i       : in std_logic;
     
+    -- Track data output (used by event builder)
+    
+    track_rx_en_o   : out std_logic;
+    track_rx_data_o : out std_logic_vector(223 downto 0)
+
 );
 end link_tracking;
 
@@ -125,6 +130,9 @@ begin
     regs_tx_data <= x"000000004043" when regs_tx_en_trig = '1' else regs_tx_data_ipbus;
     
     regs_tx_en_trig <= trigger_i;
+    
+    track_rx_en_o <= track_rx_en;
+    track_rx_data_o <= track_rx_data;
     
     gtx_rx_mux_inst : entity work.gtx_rx_mux
     port map(

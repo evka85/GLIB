@@ -39,7 +39,7 @@ NGCBUILD Design Results Summary:
   Number of errors:     0
   Number of warnings:   0
 
-Total memory usage is 526756 kilobytes
+Total memory usage is 526460 kilobytes
 
 Writing NGC file
 "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top_cs.ngc

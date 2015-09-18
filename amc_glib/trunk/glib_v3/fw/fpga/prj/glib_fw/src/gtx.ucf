@@ -718,9 +718,6 @@ TIMESPEC TS_user_clk125_2 = PERIOD "user_clk125_2" 8 ns;
 NET "usr/daq_link/gtx_tx_clk_out" TNM_NET = "gtx_tx_clk_out";
 TIMESPEC TS_gtx_tx_clk_out = PERIOD "gtx_tx_clk_out" 4 ns;
 
-NET "usr/daq_link/gtx0_usr_clk" TNM_NET = "gtx0_usr_clk";
-TIMESPEC TS_gtx0_usr_clk = PERIOD "gtx0_usr_clk" 4 ns;
-
 NET "usr/daq_gtx_clk" TNM_NET = "daq_gtx_clk";
 TIMESPEC TS_daq_gtx_clk = PERIOD "daq_gtx_clk" 4 ns;
 

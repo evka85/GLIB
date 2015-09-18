@@ -8,7 +8,7 @@
 -- \   \   \/     Version    : 14.7
 --  \   \         Application: Xilinx CORE Generator
 --  /   /         Filename   : ila_pro_0.vho
--- /___/   /\     Timestamp  : Tue Aug 11 17:50:29 CEST 2015
+-- /___/   /\     Timestamp  : Wed Sep 02 13:23:12 CEST 2015
 -- \   \  /  \
 --  \___\/\___\
 --
@@ -22,15 +22,9 @@ component ila_pro_0
   PORT (
     CONTROL : INOUT STD_LOGIC_VECTOR(35 DOWNTO 0);
     CLK : IN STD_LOGIC;
-    DATA : IN STD_LOGIC_VECTOR(196 DOWNTO 0);
+    DATA : IN STD_LOGIC_VECTOR(238 DOWNTO 0);
     TRIG0 : IN STD_LOGIC_VECTOR(0 TO 0);
-    TRIG1 : IN STD_LOGIC_VECTOR(0 TO 0);
-    TRIG2 : IN STD_LOGIC_VECTOR(0 TO 0);
-    TRIG3 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    TRIG4 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-    TRIG5 : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-    TRIG6 : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-    TRIG7 : IN STD_LOGIC_VECTOR(6 DOWNTO 0));
+    TRIG1 : IN STD_LOGIC_VECTOR(0 TO 0));
 
 end component;
 
@@ -45,12 +39,6 @@ your_instance_name : ila_pro_0
     CLK => CLK,
     DATA => DATA,
     TRIG0 => TRIG0,
-    TRIG1 => TRIG1,
-    TRIG2 => TRIG2,
-    TRIG3 => TRIG3,
-    TRIG4 => TRIG4,
-    TRIG5 => TRIG5,
-    TRIG6 => TRIG6,
-    TRIG7 => TRIG7);
+    TRIG1 => TRIG1);
 
 -- INST_TAG_END ------ End INSTANTIATION Template ------------

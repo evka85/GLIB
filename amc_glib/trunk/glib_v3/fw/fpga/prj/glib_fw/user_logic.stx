@@ -113,6 +113,9 @@ Parsing architecture <Behavioral> of entity <gtx_tx_mux>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/gtx_rx_mux.vhd" into library work
 Parsing entity <gtx_rx_mux>.
 Parsing architecture <Behavioral> of entity <gtx_rx_mux>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/data_types.vhd" into library work
+Parsing package <data_types>.
+Parsing package body <data_types>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/DAQ_Link_V6.vhd" into library work
 Parsing entity <DAQ_Link_V6>.
 Parsing architecture <Behavioral> of entity <daq_link_v6>.
@@ -155,6 +158,9 @@ Parsing architecture <xilinx> of entity <daq_clocks>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/daqlink_wrapper.vhd" into library work
 Parsing entity <daqlink_wrapper>.
 Parsing architecture <Behavioral> of entity <daqlink_wrapper>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daq/daq.vhd" into library work
+Parsing entity <daq>.
+Parsing architecture <Behavioral> of entity <daq>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/clock_bridge_simple.vhd" into library work
 Parsing entity <clock_bridge_simple>.
 Parsing architecture <behavioral> of entity <clock_bridge_simple>.
@@ -163,13 +169,13 @@ Parsing entity <user_logic>.
 Parsing architecture <user_logic_arch> of entity <user_logic>.
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.93 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 3.31 secs
  
 --> 
 
 
-Total memory usage is 352768 kilobytes
+Total memory usage is 352760 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    1 (   0 filtered)

@@ -9,25 +9,25 @@ Target Device  : xc6vlx130t
 Target Package : ff1156
 Target Speed   : -1
 Mapper Version : virtex6 -- $Revision: 1.55 $
-Mapped Date    : Tue Aug 11 18:20:20 2015
+Mapped Date    : Wed Sep  2 13:43:00 2015
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:  450
+Number of warnings:  449
 Slice Logic Utilization:
-  Number of Slice Registers:                19,966 out of 160,000   12%
-    Number used as Flip Flops:              19,784
+  Number of Slice Registers:                19,822 out of 160,000   12%
+    Number used as Flip Flops:              19,640
     Number used as Latches:                    182
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                0
-  Number of Slice LUTs:                     16,057 out of  80,000   20%
-    Number used as logic:                   14,937 out of  80,000   18%
-      Number using O6 output only:           9,778
-      Number using O5 output only:           1,570
-      Number using O5 and O6:                3,589
+  Number of Slice LUTs:                     15,799 out of  80,000   19%
+    Number used as logic:                   14,756 out of  80,000   18%
+      Number using O6 output only:           9,641
+      Number using O5 output only:           1,566
+      Number using O5 and O6:                3,549
       Number used as ROM:                        0
-    Number used as Memory:                     335 out of  27,840    1%
+    Number used as Memory:                     330 out of  27,840    1%
       Number used as Dual Port RAM:              8
         Number using O6 output only:             0
         Number using O5 output only:             3
@@ -36,24 +36,24 @@ Slice Logic Utilization:
         Number using O6 output only:             0
         Number using O5 output only:             2
         Number using O5 and O6:                 46
-      Number used as Shift Register:           279
-        Number using O6 output only:           189
-        Number using O5 output only:             2
-        Number using O5 and O6:                 88
-    Number used exclusively as route-thrus:    785
-      Number with same-slice register load:    688
+      Number used as Shift Register:           274
+        Number using O6 output only:           166
+        Number using O5 output only:             1
+        Number using O5 and O6:                107
+    Number used exclusively as route-thrus:    713
+      Number with same-slice register load:    597
       Number with same-slice carry load:        97
-      Number with other load:                    0
+      Number with other load:                   19
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 7,006 out of  20,000   35%
-  Number of LUT Flip Flop pairs used:       22,420
-    Number with an unused Flip Flop:         5,003 out of  22,420   22%
-    Number with an unused LUT:               6,363 out of  22,420   28%
-    Number of fully used LUT-FF pairs:      11,054 out of  22,420   49%
-    Number of unique control sets:             738
+  Number of occupied Slices:                 7,011 out of  20,000   35%
+  Number of LUT Flip Flop pairs used:       22,306
+    Number with an unused Flip Flop:         4,887 out of  22,306   21%
+    Number with an unused LUT:               6,507 out of  22,306   29%
+    Number of fully used LUT-FF pairs:      10,912 out of  22,306   48%
+    Number of unique control sets:             721
     Number of slice register sites lost
-      to control set restrictions:           2,256 out of 160,000    1%
+      to control set restrictions:           2,234 out of 160,000    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -75,8 +75,8 @@ IO Utilization:
       Number of LOCed OPADs:                     6 out of      14   42%
 
 Specific Feature Utilization:
-  Number of RAMB36E1/FIFO36E1s:                163 out of     264   61%
-    Number using RAMB36E1 only:                163
+  Number of RAMB36E1/FIFO36E1s:                168 out of     264   63%
+    Number using RAMB36E1 only:                168
     Number using FIFO36E1 only:                  0
   Number of RAMB18E1/FIFO18E1s:                  3 out of     528    1%
     Number using RAMB18E1 only:                  3
@@ -112,12 +112,12 @@ Specific Feature Utilization:
   Number of SYSMONs:                             0 out of       1    0%
   Number of TEMAC_SINGLEs:                       2 out of       4   50%
 
-  Number of RPM macros:           22
+  Number of RPM macros:           16
 Average Fanout of Non-Clock Nets:                3.54
 
-Peak Memory Usage:  1731 MB
-Total REAL time to MAP completion:  5 mins 14 secs 
-Total CPU time to MAP completion (all processors):   5 mins 38 secs 
+Peak Memory Usage:  1737 MB
+Total REAL time to MAP completion:  5 mins 10 secs 
+Total CPU time to MAP completion (all processors):   5 mins 20 secs 
 
 Table of Contents
 -----------------
@@ -1032,9 +1032,30 @@ WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[2]_ipb_ack (type FF)
    The load component should be of clock buffer type.
-WARNING:Place:913 - Local congestion has been detected at location SLICE_X64Y120. There is a limitation that at most 2
-   global signals can drive non-clock pins per CLB. The placer has detected SLICE_X64Y120 is present in a CLB that has4
-   global signals driving non-clock pins. This may result in an unroutable situation.
+WARNING:Place:914 - Local congestion has been detected at location SLICE_X61Y166. There is a limitation that if the CI
+   or BI pin in a CLB is used, the DX/CX or AX/BX pin respectively cannot be driven by a BUFG. This will lead to an
+   unroutable situation.  Please set environment variable XIL_PAR_ENABLE_CHKCIBIPINS to 1 and re-run placer.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][1]_AND_771_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][2]_AND_769_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<133> is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][3]_AND_767_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[3]_AND_173_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][0]_AND_773_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<129> is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    usr/link_tracking_0_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<13> is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
@@ -1044,35 +1065,29 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    usr/link_tracking_2_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<13> is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/spi/reset_i_cpol_i_AND_934_o is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][3]_AND_831_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[0]_AND_179_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<133> is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<129> is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[0]_AND_115_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[1]_AND_113_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net icon_control0<13> is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[2]_AND_111_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net icon_control0<13> is sourced by a combinatorial pin. This is not
-   good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[3]_AND_109_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/spi/reset_i_cpol_i_AND_934_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][0]_AND_837_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][1]_AND_771_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[1]_AND_177_o is sourced by a
@@ -1084,35 +1099,18 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[1
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][2]_AND_833_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][3]_AND_831_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[2]_AND_175_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][2]_AND_769_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[3]_AND_173_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][0]_AND_773_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][3]_AND_767_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:367 - The signal <system/glib_pll_clkout_200> is incomplete. The signal does not drive any load
-   pins in the design.
 WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0_l> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_R
-   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
+   MC_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_RA
+   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
    MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
@@ -1121,35 +1119,35 @@ WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
    AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_R
+   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_RA
    MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
-   MC_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
+   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_RA
    MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_R
    AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3
+   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2
+   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1
+   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_
+   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_
    RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_
    RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_
-   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3
-   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1
-   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2
-   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMC_D1_DPO>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMD_D1_O> is
@@ -1161,7 +1159,7 @@ INFO:Map:284 - Map is running with the multi-threading option on. Map currently
    supports the use of up to 2 processors. Based on the the user options and
    machine load, Map will use 2 processors during this run.
 INFO:LIT:243 - Logical network user_ipb_miso[0]_ipb_err has no load.
-INFO:LIT:395 - The above info message is repeated 13663 more times for the
+INFO:LIT:395 - The above info message is repeated 13664 more times for the
    following (max. 5 shown):
    user_ipb_miso[1]_ipb_err,
    user_ipb_miso[2]_ipb_err,
@@ -1185,9 +1183,9 @@ INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-1182 block(s) removed
- 625 block(s) optimized away
-1282 signal(s) removed
+1230 block(s) removed
+ 654 block(s) optimized away
+1326 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -1235,6 +1233,97 @@ Loadless block "U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_CAP_B"
 (ROM) removed.
 Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[0].i_L1Adata" (RAM32X1D)
 removed.
+ The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<0>" is loadless and has been
+removed.
+  Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_0" (FF) removed.
+   The signal "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra" is loadless and has been
+removed.
+    Loadless block "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra" (SFF) removed.
+     The signal "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra_glue_set" is loadless and
+has been removed.
+      Loadless block "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra_glue_set" (ROM)
+removed.
+       The signal "usr/daq_link/DAQ_Link_V6_i/_n1666" is loadless and has been removed.
+        Loadless block "usr/daq_link/DAQ_Link_V6_i/_n1666" (ROM) removed.
+         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<3>" is loadless and has been
+removed.
+          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_3" (FF) removed.
+           The signal "usr/daq_link/DAQ_Link_V6_i/Result<3>33" is loadless and has been
+removed.
+            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<3>11" (ROM)
+removed.
+             The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<1>" is loadless and has been
+removed.
+              Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_1" (FF) removed.
+               The signal "usr/daq_link/DAQ_Link_V6_i/Result<1>36" is loadless and has been
+removed.
+                Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<1>11" (ROM)
+removed.
+             The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<2>" is loadless and has been
+removed.
+              Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_2" (FF) removed.
+               The signal "usr/daq_link/DAQ_Link_V6_i/Result<2>34" is loadless and has been
+removed.
+                Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<2>11" (ROM)
+removed.
+         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<1>" is loadless and has been
+removed.
+          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_1" (FF) removed.
+           The signal
+"usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs[3]_OldL1Ainfo_wa0_SyncRegs[2
+]_XOR_1701_o" is loadless and has been removed.
+            Loadless block
+"usr/daq_link/DAQ_Link_V6_i/Mxor_OldL1Ainfo_wa0_SyncRegs[3]_OldL1Ainfo_wa0_SyncR
+egs[2]_XOR_1701_o_xo<0>1" (ROM) removed.
+             The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<2>" is loadless
+and has been removed.
+              Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_2" (FF)
+removed.
+               The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<1>" is loadless
+and has been removed.
+                Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_1" (FF)
+removed.
+                 The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<0>" is loadless
+and has been removed.
+                  Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_0" (FF)
+removed.
+             The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<3>" is loadless
+and has been removed.
+              Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_3" (FF)
+removed.
+           The signal "usr/daq_link/DAQ_Link_V6_i/Result<1>38" is loadless and has been
+removed.
+            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<1>11" (ROM)
+removed.
+             The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<0>" is loadless and has been
+removed.
+              Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_0" (FF) removed.
+               The signal "usr/daq_link/DAQ_Link_V6_i/Result<0>38" is loadless and has been
+removed.
+                Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<0>11_INV_0"
+(BUF) removed.
+         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<4>" is loadless and has been
+removed.
+          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_4" (FF) removed.
+           The signal "usr/daq_link/DAQ_Link_V6_i/Result<4>31" is loadless and has been
+removed.
+            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<4>11" (ROM)
+removed.
+         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<2>" is loadless and has been
+removed.
+          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_2" (FF) removed.
+           The signal "usr/daq_link/DAQ_Link_V6_i/Result<2>36" is loadless and has been
+removed.
+            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<2>11" (ROM)
+removed.
+         The signal "usr/daq_link/DAQ_Link_V6_i/N6" is loadless and has been removed.
+          Loadless block "usr/daq_link/DAQ_Link_V6_i/_n1666_SW0" (ROM) removed.
+     The signal "usr/daq_link/DAQ_Link_V6_i/_n1655" is loadless and has been removed.
+      Loadless block "usr/daq_link/DAQ_Link_V6_i/_n16551" (ROM) removed.
+   The signal "usr/daq_link/DAQ_Link_V6_i/Result<0>36" is loadless and has been
+removed.
+    Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<0>11_INV_0"
+(BUF) removed.
 Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[10].i_L1Adata" (RAM32X1D)
 removed.
 Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[11].i_L1Adata" (RAM32X1D)
@@ -1266,7 +1355,7 @@ removed.
 Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[9].i_L1Adata" (RAM32X1D)
 removed.
 Loadless block
-"usr/daq_link/DAQ_Link_V6_i/i_DataFIFO/Madd_GND_8892_o_GND_8892_o_add_6_OUT9"
+"usr/daq_link/DAQ_Link_V6_i/i_DataFIFO/Madd_GND_8894_o_GND_8894_o_add_6_OUT9"
 (ROM) removed.
 The signal "fmc1_la_p<0>" is sourceless and has been removed.
  Sourceless block "fmc1_la_p<0>" (PAD) removed.
@@ -2494,6 +2583,12 @@ The signal "icon_control0<31>" is sourceless and has been removed.
 The signal "icon_control0<30>" is sourceless and has been removed.
 The signal "icon_control0<29>" is sourceless and has been removed.
 The signal "icon_control0<28>" is sourceless and has been removed.
+The signal "icon_control0<27>" is sourceless and has been removed.
+The signal "icon_control0<26>" is sourceless and has been removed.
+The signal "icon_control0<25>" is sourceless and has been removed.
+The signal "icon_control0<24>" is sourceless and has been removed.
+The signal "icon_control0<23>" is sourceless and has been removed.
+The signal "icon_control0<22>" is sourceless and has been removed.
 The signal "icon_control0<18>" is sourceless and has been removed.
 The signal "icon_control0<17>" is sourceless and has been removed.
 The signal "icon_control0<16>" is sourceless and has been removed.
@@ -2603,6 +2698,57 @@ The signal
 "usr/link_trigger_inst/ipb_trigger_inst/trigger_data_fifo_inst/U0/xst_fifo_gener
 ator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i" is
 sourceless and has been removed.
+The signal "usr/daq_link/gtx0_rxlossofsync<0>" is sourceless and has been
+removed.
+The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync<1>" is
+sourceless and has been removed.
+ Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2_1"
+(FF) removed.
+  The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2<1>" is
+sourceless and has been removed.
+   Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3_1"
+(FF) removed.
+    The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<1>" is
+sourceless and has been removed.
+     Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2-In1"
+(ROM) removed.
+      The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2-In" is
+sourceless and has been removed.
+       Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2"
+(FF) removed.
+        The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2" is
+sourceless and has been removed.
+         Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1-In1"
+(ROM) removed.
+          The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1-In" is
+sourceless and has been removed.
+           Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1"
+(FF) removed.
+            The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1" is
+sourceless and has been removed.
+             Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_0" (FF)
+removed.
+              The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_0" is
+sourceless and has been removed.
+               Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_1" (FF)
+removed.
+                The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_1" is
+sourceless and has been removed.
+                 Sourceless block
+"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra[1]_INV_2083_o1_INV_0"
+(BUF) removed.
+                  The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra[1]_INV_2083_o"
+is sourceless and has been removed.
+The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync<0>" is
+sourceless and has been removed.
+ Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2_0"
+(FF) removed.
+  The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2<0>" is
+sourceless and has been removed.
+   Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3_0"
+(FF) removed.
+    The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<0>" is
+sourceless and has been removed.
 The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/do<5>" is
 sourceless and has been removed.
 The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/do<4>" is
@@ -2685,6 +2831,9 @@ been removed.
    Sourceless block "system/sram1_if/sramInterface/OE_B_O" (FF) removed.
 The signal "system/ipb_from_slaves[5]_ipb_err" is sourceless and has been
 removed.
+The signal "system/glib_pll_clkout_200" is sourceless and has been removed.
+ Sourceless block "system/clkbuf_pllout6" (CKBUF) removed.
+  The signal "user_clk200_bufg" is sourceless and has been removed.
 The signal "system/wb_bridge/sel_wb_slave<31>" is sourceless and has been
 removed.
 The signal "system/wb_bridge/sel_wb_slave<6>" is sourceless and has been
@@ -4965,36 +5114,30 @@ removed.
 (ROM) removed.
  Sourceless block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[11].U_LCE"
 (ROM) removed.
-The signal
-"U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[2].U_M/U_MU/I_MUT_GANDX.U_match/
-I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
-U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
+The signal "U_icon_pro/U0/U_ICON/iCOMMAND_SEL<7>" is sourceless and has been
+removed.
+ Sourceless block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[7].U_HCE" (ROM)
+removed.
+ Sourceless block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[7].U_LCE" (ROM)
+removed.
+The signal "U_icon_pro/U0/U_ICON/iCOMMAND_SEL<6>" is sourceless and has been
+removed.
+ Sourceless block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[6].U_HCE" (ROM)
+removed.
+ Sourceless block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[6].U_LCE" (ROM)
+removed.
+The signal "U_icon_pro/U0/U_ICON/iCOMMAND_SEL<3>" is sourceless and has been
+removed.
+ Sourceless block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[3].U_HCE" (ROM)
+removed.
+ Sourceless block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[3].U_LCE" (ROM)
+removed.
 The signal
 "U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[1].U_M/U_MU/I_MUT_GANDX.U_match/
 I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
 U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
 The signal
 "U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/
-I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
-U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
-The signal
-"U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[4].U_M/U_MU/I_MUT_GANDX.U_match/
-I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
-U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
-The signal
-"U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[3].U_M/U_MU/I_MUT_GANDX.U_match/
-I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
-U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
-The signal
-"U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[5].U_M/U_MU/I_MUT_GANDX.U_match/
-I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
-U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
-The signal
-"U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[6].U_M/U_MU/I_MUT_GANDX.U_match/
-I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
-U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
-The signal
-"U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[7].U_M/U_MU/I_MUT_GANDX.U_match/
 I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.
 U_GAND_SRL_SET/SRL_Q_O" is sourceless and has been removed.
 
@@ -5073,8 +5216,6 @@ The signal "user_ipb_miso[12]_ipb_err" is unused and has been removed.
  Unused block "usr/link_trigger_inst/ipb_trigger_inst/XST_GND" (ZERO) removed.
 The signal "fmc2_tx_p_OBUF" is unused and has been removed.
 The signal "fmc2_tx_n_OBUF" is unused and has been removed.
-The signal "user_clk200_bufg" is unused and has been removed.
- Unused block "system/clkbuf_pllout6" (CKBUF) removed.
 The signal "amc_port_tx_out<17>" is unused and has been removed.
  Unused block "amc_port_tx_out_17_OBUF" (BUF) removed.
 The signal "amc_port_tx_out<18>" is unused and has been removed.
@@ -5171,15 +5312,21 @@ Unused block "U_icon_pro/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[13].U_LUT" (ROM)
 removed.
 Unused block "U_icon_pro/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[14].U_LUT" (ROM)
 removed.
+Unused block "U_icon_pro/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[3].U_LUT" (ROM)
+removed.
+Unused block "U_icon_pro/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[6].U_LUT" (ROM)
+removed.
+Unused block "U_icon_pro/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[7].U_LUT" (ROM)
+removed.
 Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[10].U_HCE" (ROM)
 removed.
 Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[15].U_HCE" (ROM)
 removed.
-Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[3].U_LCE" (ROM)
+Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[2].U_HCE" (ROM)
 removed.
-Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[6].U_LCE" (ROM)
+Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[4].U_HCE" (ROM)
 removed.
-Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[7].U_LCE" (ROM)
+Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[5].U_HCE" (ROM)
 removed.
 Unused block "U_icon_pro/U0/U_ICON/U_CTRL_OUT/F_NCP[0].F_CMD[8].U_HCE" (ROM)
 removed.
@@ -5310,6 +5457,10 @@ Unused block "system/phy_en.phy_ipb_ctrl/stretch_tx/clkdiv/reset_gen/VCC" (ONE)
 removed.
 Unused block "system/wb_bridge/GND_365_o_GND_365_o_OR_1066_o1" (ROM) removed.
 Unused block "system/wb_bridge/XST_GND" (ZERO) removed.
+Unused block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync_0" (FF)
+removed.
+Unused block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync_1" (FF)
+removed.
 Unused block
 "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/RAM32M_inst"
 (RAM32M) removed.
@@ -5419,8 +5570,6 @@ LUT4 		U_ila_pro_0/U0/I_YES_D.U_ILA/U_STAT/F_SSTAT[10].I_STAT.U_STAT
    optimized to 0
 LUT4 		U_ila_pro_0/U0/I_YES_D.U_ILA/U_STAT/F_SSTAT[12].I_STAT.U_STAT
    optimized to 0
-LUT4 		U_ila_pro_0/U0/I_YES_D.U_ILA/U_STAT/F_SSTAT[14].I_STAT.U_STAT
-   optimized to 0
 GND
 		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match
 /I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
@@ -5435,54 +5584,6 @@ GND
 .U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
 VCC
 		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[1].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
-GND
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[2].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
-VCC
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[2].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
-GND
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[3].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
-VCC
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[3].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
-GND
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[4].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
-VCC
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[4].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
-GND
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[5].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
-VCC
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[5].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
-GND
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[6].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
-VCC
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[6].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
-GND
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[7].U_M/U_MU/I_MUT_GANDX.U_match
-/I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
-.U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_GND
-VCC
-		U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[7].U_M/U_MU/I_MUT_GANDX.U_match
 /I_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0
 .U_GAND_SRL_SET/I_WHOLE_SLICE.G_SLICE_IDX[0].U_GAND_SRL_SLICE/XST_VCC
 GND 		U_ila_pro_0/XST_GND
@@ -6551,24 +6652,6 @@ U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[0].U_M/U_MU/I_MUT_GANDX.U_match/I
 _CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
 _GAND_SRL_SET/MSET
 U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[1].U_M/U_MU/I_MUT_GANDX.U_match/I
-_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
-_GAND_SRL_SET/MSET
-U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[2].U_M/U_MU/I_MUT_GANDX.U_match/I
-_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
-_GAND_SRL_SET/MSET
-U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[3].U_M/U_MU/I_MUT_GANDX.U_match/I
-_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
-_GAND_SRL_SET/MSET
-U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[4].U_M/U_MU/I_MUT_GANDX.U_match/I
-_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
-_GAND_SRL_SET/MSET
-U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[5].U_M/U_MU/I_MUT_GANDX.U_match/I
-_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
-_GAND_SRL_SET/MSET
-U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[6].U_M/U_MU/I_MUT_GANDX.U_match/I
-_CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
-_GAND_SRL_SET/MSET
-U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TM/G_NMU[7].U_M/U_MU/I_MUT_GANDX.U_match/I
 _CS_GANDX.U_CS_GANDX_SRL/I_V6.U_CS_GANDX_SRL_V6/U_CS_GAND_SRL_V6/I_USE_RPM_NE0.U
 _GAND_SRL_SET/MSET
 system/amc_p0_en.amc_p0_eth/basex/gtx_reset_gen/hset

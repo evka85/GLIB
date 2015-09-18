@@ -14,6 +14,7 @@ use work.system_package.all;
 use work.fmc_package.all;
 use work.wb_package.all;
 use work.ipbus.all;
+use work.data_types.all;
 
 --! user packages
 use work.user_package.all;
@@ -256,7 +257,7 @@ architecture user_logic_arch of user_logic is
     signal cnt_reset            : std_logic;
     signal cnt_ttc_trigger      : std_logic_vector(31 downto 0) := (others => '0');
 
-    -- DAQ
+    -- DAQlink
     signal daq_reset            : std_logic := '1';
     signal daq_reset_pwrup      : std_logic := '1';
     signal daq_event_data       : std_logic_vector(63 downto 0) := (others => '0');
@@ -280,7 +281,7 @@ architecture user_logic_arch of user_logic is
     signal daq_ipb_reset        : std_logic := '0'; -- DAQLink reset through IPbus
     signal daq_enable           : std_logic := '0'; -- enable sending data to DAQ on L1A
     
-    signal daq_clk25_bufg           : std_logic;
+    signal daq_clk25_bufg       : std_logic;
     signal daq_clk250_bufg      : std_logic;
     
     attribute MARK_DEBUG : string;
@@ -303,6 +304,11 @@ architecture user_logic_arch of user_logic is
     attribute MARK_DEBUG of daq_clk250_bufg : signal is "TRUE";
     attribute MARK_DEBUG of ttc_clk : signal is "TRUE";
     attribute MARK_DEBUG of user_clk125_i : signal is "TRUE";
+    
+    -- Track data
+    --type track_data is array (2 downto 0) of std_logic_vector(223 downto 0);
+    signal track_rx_en              : std_logic_vector(2 downto 0) := (others => '0');
+    signal track_rx_data            : track_data := (others => (others => '0'));
     
 begin
 
@@ -363,7 +369,9 @@ begin
         request_write_o => open,
         request_tri_o   => open,
         request_read_i  => request_read,
-        trigger_i       => '0'
+        trigger_i       => '0',
+        track_rx_en_o   => track_rx_en(0),
+        track_rx_data_o => track_rx_data(0)
     );
 
     link_tracking_1_inst : entity work.link_tracking
@@ -387,7 +395,9 @@ begin
         request_write_o => request_write,
         request_tri_o   => request_tri,
         request_read_i  => request_read,
-        trigger_i       => ttc_trigger
+        trigger_i       => ttc_trigger,
+        track_rx_en_o   => track_rx_en(1),
+        track_rx_data_o => track_rx_data(1)
     );
     
     link_tracking_2_inst : entity work.link_tracking
@@ -411,7 +421,9 @@ begin
         request_write_o => open,
         request_tri_o   => open,
         request_read_i  => request_read,
-        trigger_i       => '0'
+        trigger_i       => '0',
+        track_rx_en_o   => track_rx_en(2),
+        track_rx_data_o => track_rx_data(2)
     );
 
     --================================--
@@ -582,6 +594,18 @@ begin
 --            end if;
 --        end if;
 --    end process;
+    
+    --================================--
+    -- DAQ
+    --================================--    
+    
+    daq : entity work.daq
+    port map
+    (
+        track_rx_clk    => gtx_clk,
+        track_rx_en_i   => track_rx_en,
+        track_rx_data_i => track_rx_data
+    );
     
     -- TTS
     
