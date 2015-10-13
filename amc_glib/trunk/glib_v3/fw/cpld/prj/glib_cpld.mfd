@@ -1,0 +1,735 @@
+MDF Database:  version 1.0
+MDF_INFO | glib_cpld | XC2C128-7-VQ100
+MACROCELL | 7 | 15 | cpld_a21_out_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | cpld_a21_in
+INPUTP | 1 | 51
+EQ | 2 | 
+   cpld_a21_out = cpld_a21_in;	// (1 pt, 1 inp)
+   cpld_a21_out.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 2 | 1 | mmc_low_voltage_pok_MC
+ATTRIBUTES | 1610875650 | 0
+OUTPUTMC | 13 | 7 | 15 | 7 | 14 | 0 | 10 | 4 | 12 | 4 | 14 | 1 | 2 | 1 | 3 | 1 | 1 | 6 | 13 | 3 | 13 | 3 | 14 | 3 | 15 | 3 | 10
+INPUTS | 5 | fmcx_pg_c2m  | fmc_prsnt_m2c_l<2>  | fmc_pg_m2c<2>  | fmc_prsnt_m2c_l<1>  | fmc_pg_m2c<1>
+INPUTMC | 1 | 4 | 0
+INPUTP | 4 | 80 | 106 | 81 | 84
+EQ | 3 | 
+   !mmc_low_voltage_pok = !fmcx_pg_c2m
+	# !fmc_prsnt_m2c_l<2> & !fmc_pg_m2c<2>
+	# !fmc_prsnt_m2c_l<1> & !fmc_pg_m2c<1>;	// (3 pt, 5 inp)
+
+MACROCELL | 4 | 0 | fmcx_pg_c2m_MC
+ATTRIBUTES | 1610875650 | 0
+OUTPUTMC | 13 | 2 | 1 | 2 | 11 | 0 | 12 | 0 | 4 | 0 | 5 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 0 | 3 | 0 | 14
+INPUTS | 4 | pgood_3v3  | pgood_2v5  | pgood_1v5  | pgood_1v0
+INPUTP | 4 | 37 | 34 | 40 | 38
+EQ | 1 | 
+   fmcx_pg_c2m = pgood_3v3 & pgood_2v5 & pgood_1v5 & pgood_1v0;	// (1 pt, 4 inp)
+
+MACROCELL | 7 | 14 | cpld_a22_out_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 4 | cpld_a22_in  | configuration_error_latch  | fpga_done_latch  | sw<2>
+INPUTMC | 2 | 2 | 8 | 2 | 9
+INPUTP | 2 | 52 | 102
+EQ | 5 | 
+   !cpld_a22_out = !cpld_a22_in & configuration_error_latch
+	# !cpld_a22_in & fpga_done_latch
+	# !configuration_error_latch & !fpga_done_latch & 
+	!sw<2>;	// (3 pt, 4 inp)
+   cpld_a22_out.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 2 | 8 | configuration_error_latch_MC
+ATTRIBUTES | 2189427488 | 0
+OUTPUTMC | 1 | 7 | 14
+INPUTS | 4 | fpga_program_b.PIN  | fpga_init_b  | error_check_enable  | fpga_init_b_r
+INPUTMC | 2 | 0 | 3 | 0 | 14
+INPUTP | 2 | 77 | 76
+LCT | 1 | 4 | Internal_Name
+EQ | 4 | 
+   !configuration_error_latch := Gnd;	// (0 pt, 0 inp)
+    configuration_error_latch.CLK = fpga_program_b.PIN & !fpga_init_b & 
+	error_check_enable & fpga_init_b_r;	// PTC	(1 pt, 4 inp)
+    configuration_error_latch.AR = !N_PZ_296;	// CTR	(1 pt, 1 inp)
+
+MACROCELL | 0 | 3 | error_check_enable_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 2 | 0 | 3 | 2 | 8
+INPUTS | 14 | fmcx_pg_c2m  | error_check_enable  | fpga_program_b_trigger  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 14 | 4 | 0 | 0 | 3 | 3 | 11 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 7 | 
+   error_check_enable := fmcx_pg_c2m & error_check_enable & 
+	fpga_program_b_trigger
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (2 pt, 14 inp)
+   error_check_enable.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 3 | 11 | fpga_program_b_trigger_MC
+ATTRIBUTES | 2155905024 | 4
+OUTPUTMC | 13 | 2 | 11 | 0 | 12 | 0 | 4 | 0 | 5 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 0 | 3 | 0 | 14 | 0 | 15
+INPUTS | 0 
+EQ | 4 | 
+   
+// Direct Input Register
+fpga_program_b_trigger := v6_cpld<5>;	// (0 pt, 0 inp)
+   fpga_program_b_trigger.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 0 | timer2<10>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 12 | timer2<10>  | N_PZ_296  | timer2<6>  | N_PZ_216  | timer2<7>  | timer2<8>  | timer2<9>  | timer2<11>  | timer2<12>  | timer2<13>  | timer2<14>  | timer2<15>
+INPUTMC | 12 | 1 | 0 | 2 | 11 | 0 | 11 | 2 | 7 | 0 | 5 | 0 | 4 | 1 | 6 | 1 | 7 | 1 | 8 | 1 | 9 | 1 | 11 | 0 | 12
+EQ | 14 | 
+   timer2<10>.T := timer2<10> & !N_PZ_296
+	# !timer2<10> & timer2<6> & N_PZ_216 & timer2<7> & 
+	timer2<8> & timer2<9> & N_PZ_296
+	# timer2<6> & N_PZ_216 & !timer2<11> & timer2<7> & 
+	timer2<8> & timer2<9> & N_PZ_296
+	# timer2<6> & N_PZ_216 & timer2<7> & !timer2<12> & 
+	timer2<8> & timer2<9> & N_PZ_296
+	# timer2<6> & N_PZ_216 & timer2<7> & timer2<8> & 
+	!timer2<13> & timer2<9> & N_PZ_296
+	# timer2<6> & N_PZ_216 & timer2<7> & timer2<8> & 
+	timer2<9> & N_PZ_296 & !timer2<14>
+	# timer2<6> & N_PZ_216 & timer2<7> & timer2<8> & 
+	timer2<9> & N_PZ_296 & !timer2<15>;	// (7 pt, 12 inp)
+   timer2<10>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 11 | timer2<6>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 13 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<6>  | N_PZ_216  | timer2<10>  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 13 | 4 | 0 | 3 | 11 | 0 | 11 | 2 | 7 | 1 | 0 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 9 | 
+   timer2<6> := fmcx_pg_c2m & fpga_program_b_trigger & timer2<6> & 
+	!N_PZ_216
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<6> & 
+	N_PZ_216
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (3 pt, 13 inp)
+   timer2<6>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 2 | 7 | N_PZ_216_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 6 | timer2<0>  | timer2<1>  | timer2<2>  | timer2<3>  | timer2<4>  | timer2<5>
+INPUTMC | 6 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4
+EQ | 2 | 
+   N_PZ_216 = timer2<0> & timer2<1> & timer2<2> & timer2<3> & 
+	timer2<4> & timer2<5>;	// (1 pt, 6 inp)
+
+MACROCELL | 1 | 15 | timer2<0>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 2 | 7
+INPUTS | 13 | timer2<0>  | N_PZ_296  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 13 | 1 | 15 | 2 | 11 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 5 | 
+   !timer2<0>.T := !timer2<0> & !N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<12> & timer2<8> & timer2<13> & timer2<9> & 
+	N_PZ_296 & timer2<14> & timer2<15>;	// (2 pt, 13 inp)
+   timer2<0>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 7 | timer2<11>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 12 | timer2<11>  | N_PZ_296  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<7>  | timer2<8>  | timer2<9>  | timer2<12>  | timer2<13>  | timer2<14>  | timer2<15>
+INPUTMC | 12 | 1 | 7 | 2 | 11 | 1 | 0 | 0 | 11 | 2 | 7 | 0 | 5 | 0 | 4 | 1 | 6 | 1 | 8 | 1 | 9 | 1 | 11 | 0 | 12
+EQ | 12 | 
+   timer2<11>.T := timer2<11> & !N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & !timer2<11> & 
+	timer2<7> & timer2<8> & timer2<9> & N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<7> & 
+	!timer2<12> & timer2<8> & timer2<9> & N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<7> & 
+	timer2<8> & !timer2<13> & timer2<9> & N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<7> & 
+	timer2<8> & timer2<9> & N_PZ_296 & !timer2<14>
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<7> & 
+	timer2<8> & timer2<9> & N_PZ_296 & !timer2<15>;	// (6 pt, 12 inp)
+   timer2<11>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 5 | timer2<7>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 13 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<6>  | timer2<7>  | N_PZ_216  | timer2<10>  | timer2<11>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 13 | 4 | 0 | 3 | 11 | 0 | 11 | 0 | 5 | 2 | 7 | 1 | 0 | 1 | 7 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 11 | 
+   timer2<7> := fmcx_pg_c2m & fpga_program_b_trigger & !timer2<6> & 
+	timer2<7>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !N_PZ_216 & 
+	timer2<7>
+	# fmcx_pg_c2m & fpga_program_b_trigger & timer2<6> & 
+	N_PZ_216 & !timer2<7>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (4 pt, 13 inp)
+   timer2<7>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 8 | timer2<12>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 12 | timer2<12>  | N_PZ_296  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<8>  | timer2<9>  | timer2<13>  | timer2<14>  | timer2<15>
+INPUTMC | 12 | 1 | 8 | 2 | 11 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 0 | 4 | 1 | 6 | 1 | 9 | 1 | 11 | 0 | 12
+EQ | 10 | 
+   timer2<12>.T := timer2<12> & !N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & !timer2<12> & timer2<8> & timer2<9> & N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<8> & !timer2<13> & timer2<9> & N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<8> & timer2<9> & N_PZ_296 & !timer2<14>
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<8> & timer2<9> & N_PZ_296 & !timer2<15>;	// (5 pt, 12 inp)
+   timer2<12>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 4 | timer2<8>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 13 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<6>  | timer2<8>  | N_PZ_216  | timer2<7>  | timer2<10>  | timer2<11>  | timer2<12>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 13 | 4 | 0 | 3 | 11 | 0 | 11 | 0 | 4 | 2 | 7 | 0 | 5 | 1 | 0 | 1 | 7 | 1 | 8 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 13 | 
+   timer2<8> := fmcx_pg_c2m & fpga_program_b_trigger & !timer2<6> & 
+	timer2<8>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !N_PZ_216 & 
+	timer2<8>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<7> & 
+	timer2<8>
+	# fmcx_pg_c2m & fpga_program_b_trigger & timer2<6> & 
+	N_PZ_216 & timer2<7> & !timer2<8>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (5 pt, 13 inp)
+   timer2<8>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 9 | timer2<13>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 12 | timer2<13>  | N_PZ_296  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 12 | 1 | 9 | 2 | 11 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 11 | 
+   timer2<13>.T := timer2<13> & !N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<12> & timer2<8> & !timer2<13> & timer2<9> & 
+	N_PZ_296
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<12> & timer2<8> & timer2<9> & N_PZ_296 & 
+	!timer2<14>
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<12> & timer2<8> & timer2<9> & N_PZ_296 & 
+	!timer2<15>;	// (4 pt, 12 inp)
+   timer2<13>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 6 | timer2<9>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 12 | timer2<6>  | N_PZ_296  | N_PZ_216  | timer2<7>  | timer2<8>  | timer2<9>  | timer2<10>  | timer2<11>  | timer2<12>  | timer2<13>  | timer2<14>  | timer2<15>
+INPUTMC | 12 | 0 | 11 | 2 | 11 | 2 | 7 | 0 | 5 | 0 | 4 | 1 | 6 | 1 | 0 | 1 | 7 | 1 | 8 | 1 | 9 | 1 | 11 | 0 | 12
+EQ | 8 | 
+   !timer2<9>.T := !timer2<6> & N_PZ_296
+	# !N_PZ_216 & N_PZ_296
+	# !timer2<7> & N_PZ_296
+	# !timer2<8> & N_PZ_296
+	# !timer2<9> & !N_PZ_296
+	# timer2<10> & timer2<11> & timer2<12> & 
+	timer2<13> & timer2<9> & N_PZ_296 & timer2<14> & timer2<15>;	// (6 pt, 12 inp)
+   timer2<9>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 2 | 11 | N_PZ_296_MC
+ATTRIBUTES | 536871680 | 0
+OUTPUTMC | 7 | 1 | 11 | 1 | 6 | 1 | 9 | 1 | 8 | 1 | 7 | 1 | 15 | 1 | 0
+INPUTS | 2 | fmcx_pg_c2m  | fpga_program_b_trigger
+INPUTMC | 2 | 4 | 0 | 3 | 11
+EQ | 1 | 
+   N_PZ_296 = fmcx_pg_c2m & fpga_program_b_trigger;	// (1 pt, 2 inp)
+
+MACROCELL | 1 | 11 | timer2<14>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 12 | N_PZ_296  | timer2<14>  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<15>
+INPUTMC | 12 | 2 | 11 | 1 | 11 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 0 | 12
+EQ | 8 | 
+   timer2<14>.T := !N_PZ_296 & timer2<14>
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<12> & timer2<8> & timer2<13> & timer2<9> & 
+	N_PZ_296 & !timer2<14>
+	# timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & 
+	timer2<7> & timer2<12> & timer2<8> & timer2<13> & timer2<9> & 
+	N_PZ_296 & !timer2<15>;	// (3 pt, 12 inp)
+   timer2<14>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 12 | timer2<15>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 17 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3
+INPUTS | 13 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<15>  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>
+INPUTMC | 13 | 4 | 0 | 3 | 11 | 0 | 12 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11
+EQ | 6 | 
+   timer2<15> := fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<15>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14>;	// (2 pt, 13 inp)
+   timer2<15>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 2 | timer2<1>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 6 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 2 | 7
+INPUTS | 15 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<0>  | timer2<1>  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 15 | 4 | 0 | 3 | 11 | 1 | 15 | 0 | 2 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 9 | 
+   timer2<1> := fmcx_pg_c2m & fpga_program_b_trigger & timer2<0> & 
+	!timer2<1>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<0> & 
+	timer2<1>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (3 pt, 15 inp)
+   timer2<1>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 0 | timer2<2>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 5 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 2 | 7
+INPUTS | 16 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<0>  | timer2<2>  | timer2<1>  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 16 | 4 | 0 | 3 | 11 | 1 | 15 | 0 | 0 | 0 | 2 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 11 | 
+   timer2<2> := fmcx_pg_c2m & fpga_program_b_trigger & !timer2<0> & 
+	timer2<2>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<1> & 
+	timer2<2>
+	# fmcx_pg_c2m & fpga_program_b_trigger & timer2<0> & 
+	timer2<1> & !timer2<2>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (4 pt, 16 inp)
+   timer2<2>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 12 | timer2<3>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 4 | 1 | 12 | 1 | 5 | 1 | 4 | 2 | 7
+INPUTS | 17 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<0>  | timer2<3>  | timer2<1>  | timer2<2>  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 17 | 4 | 0 | 3 | 11 | 1 | 15 | 1 | 12 | 0 | 2 | 0 | 0 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 13 | 
+   timer2<3> := fmcx_pg_c2m & fpga_program_b_trigger & !timer2<0> & 
+	timer2<3>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<1> & 
+	timer2<3>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<2> & 
+	timer2<3>
+	# fmcx_pg_c2m & fpga_program_b_trigger & timer2<0> & 
+	timer2<1> & timer2<2> & !timer2<3>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (5 pt, 17 inp)
+   timer2<3>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 5 | timer2<4>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 3 | 1 | 5 | 1 | 4 | 2 | 7
+INPUTS | 18 | fmcx_pg_c2m  | fpga_program_b_trigger  | timer2<0>  | timer2<4>  | timer2<1>  | timer2<2>  | timer2<3>  | timer2<10>  | timer2<6>  | N_PZ_216  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 18 | 4 | 0 | 3 | 11 | 1 | 15 | 1 | 5 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 0 | 0 | 11 | 2 | 7 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 15 | 
+   timer2<4> := fmcx_pg_c2m & fpga_program_b_trigger & !timer2<0> & 
+	timer2<4>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<1> & 
+	timer2<4>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<2> & 
+	timer2<4>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !timer2<3> & 
+	timer2<4>
+	# fmcx_pg_c2m & fpga_program_b_trigger & timer2<0> & 
+	timer2<1> & timer2<2> & timer2<3> & !timer2<4>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (6 pt, 18 inp)
+   timer2<4>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 4 | timer2<5>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 2 | 1 | 4 | 2 | 7
+INPUTS | 19 | fmcx_pg_c2m  | fpga_program_b_trigger  | N_PZ_216  | timer2<5>  | timer2<0>  | timer2<1>  | timer2<2>  | timer2<3>  | timer2<4>  | timer2<10>  | timer2<6>  | timer2<11>  | timer2<7>  | timer2<12>  | timer2<8>  | timer2<13>  | timer2<9>  | timer2<14>  | timer2<15>
+INPUTMC | 19 | 4 | 0 | 3 | 11 | 2 | 7 | 1 | 4 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 0 | 0 | 11 | 1 | 7 | 0 | 5 | 1 | 8 | 0 | 4 | 1 | 9 | 1 | 6 | 1 | 11 | 0 | 12
+EQ | 9 | 
+   timer2<5> := fmcx_pg_c2m & fpga_program_b_trigger & !N_PZ_216 & 
+	timer2<5>
+	# fmcx_pg_c2m & fpga_program_b_trigger & !N_PZ_216 & 
+	timer2<0> & timer2<1> & timer2<2> & timer2<3> & timer2<4>
+	# fmcx_pg_c2m & fpga_program_b_trigger & 
+	timer2<10> & timer2<6> & N_PZ_216 & timer2<11> & timer2<7> & 
+	timer2<12> & timer2<8> & timer2<13> & timer2<9> & timer2<14> & 
+	timer2<15>;	// (3 pt, 19 inp)
+   timer2<5>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 14 | fpga_init_b_r_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 1 | 2 | 8
+INPUTS | 3 | fmcx_pg_c2m  | fpga_init_b  | fpga_program_b_trigger
+INPUTMC | 2 | 4 | 0 | 3 | 11
+INPUTP | 1 | 76
+EQ | 3 | 
+   fpga_init_b_r := fmcx_pg_c2m & fpga_init_b & 
+	fpga_program_b_trigger;	// (1 pt, 3 inp)
+   fpga_init_b_r.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 2 | 9 | fpga_done_latch_MC
+ATTRIBUTES | 2323645184 | 0
+OUTPUTMC | 1 | 7 | 14
+INPUTS | 0
+LCT | 2 | 4 | Internal_Name | 2 | Internal_Name
+EQ | 3 | 
+   !fpga_done_latch := Gnd;	// (0 pt, 0 inp)
+    fpga_done_latch.CLK = fpga_done;	// CTC	(1 pt, 1 inp)
+    fpga_done_latch.AR = !N_PZ_296;	// CTR	(1 pt, 1 inp)
+
+MACROCELL | 0 | 10 | cpld_led<1>_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | sw<1>
+INPUTP | 1 | 100
+EQ | 2 | 
+   cpld_led<1> = sw<1>;	// (1 pt, 1 inp)
+   cpld_led<1>.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 4 | 12 | cpld_led<2>_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | sw<2>
+INPUTP | 1 | 102
+EQ | 2 | 
+   cpld_led<2> = sw<2>;	// (1 pt, 1 inp)
+   cpld_led<2>.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 4 | 14 | cpld_led<3>_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 0
+EQ | 2 | 
+   !cpld_led<3> = Gnd;	// (0 pt, 0 inp)
+   cpld_led<3>.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 5 | 2 | fpga_program_b_MC
+ATTRIBUTES | 8684290 | 2
+INPUTS | 1 | state<0>
+INPUTMC | 1 | 0 | 15
+EQ | 2 | 
+   fpga_program_b := !state<0>;	// Open Drain	// (1 pt, 1 inp)
+   fpga_program_b.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 15 | state<0>_MC
+ATTRIBUTES | 2155905792 | 0
+OUTPUTMC | 8 | 0 | 13 | 0 | 9 | 0 | 8 | 0 | 7 | 0 | 1 | 0 | 6 | 0 | 15 | 5 | 2
+INPUTS | 8 | fpga_program_b_trigger  | state<0>  | timer1<0>  | timer1<1>  | timer1<2>  | timer1<3>  | timer1<4>  | timer1<5>
+INPUTMC | 8 | 3 | 11 | 0 | 15 | 0 | 13 | 0 | 9 | 0 | 8 | 0 | 6 | 0 | 7 | 0 | 1
+EQ | 4 | 
+   !state<0> := fpga_program_b_trigger & !state<0>
+	# state<0> & timer1<0> & timer1<1> & timer1<2> & 
+	!timer1<3> & !timer1<4> & timer1<5>;	// (2 pt, 8 inp)
+   state<0>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 13 | timer1<0>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 6 | 0 | 9 | 0 | 8 | 0 | 7 | 0 | 1 | 0 | 6 | 0 | 15
+INPUTS | 1 | state<0>
+INPUTMC | 1 | 0 | 15
+EQ | 2 | 
+   timer1<0>.T := state<0>;	// (1 pt, 1 inp)
+   timer1<0>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 9 | timer1<1>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 5 | 0 | 8 | 0 | 7 | 0 | 1 | 0 | 6 | 0 | 15
+INPUTS | 2 | state<0>  | timer1<0>
+INPUTMC | 2 | 0 | 15 | 0 | 13
+EQ | 2 | 
+   timer1<1>.T := state<0> & timer1<0>;	// (1 pt, 2 inp)
+   timer1<1>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 8 | timer1<2>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 4 | 0 | 7 | 0 | 1 | 0 | 6 | 0 | 15
+INPUTS | 3 | state<0>  | timer1<0>  | timer1<1>
+INPUTMC | 3 | 0 | 15 | 0 | 13 | 0 | 9
+EQ | 2 | 
+   timer1<2>.T := state<0> & timer1<0> & timer1<1>;	// (1 pt, 3 inp)
+   timer1<2>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 6 | timer1<3>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 4 | 0 | 7 | 0 | 1 | 0 | 6 | 0 | 15
+INPUTS | 7 | state<0>  | timer1<0>  | timer1<1>  | timer1<2>  | timer1<3>  | timer1<4>  | timer1<5>
+INPUTMC | 7 | 0 | 15 | 0 | 13 | 0 | 9 | 0 | 8 | 0 | 6 | 0 | 7 | 0 | 1
+EQ | 7 | 
+   timer1<3>.T := state<0> & timer1<0> & timer1<1> & timer1<2> & 
+	timer1<3>
+	# state<0> & timer1<0> & timer1<1> & timer1<2> & 
+	timer1<4>
+	# state<0> & timer1<0> & timer1<1> & timer1<2> & 
+	!timer1<5>;	// (3 pt, 7 inp)
+   timer1<3>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 7 | timer1<4>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 3 | 0 | 1 | 0 | 6 | 0 | 15
+INPUTS | 5 | state<0>  | timer1<0>  | timer1<1>  | timer1<2>  | timer1<3>
+INPUTMC | 5 | 0 | 15 | 0 | 13 | 0 | 9 | 0 | 8 | 0 | 6
+EQ | 3 | 
+   timer1<4>.T := state<0> & timer1<0> & timer1<1> & timer1<2> & 
+	timer1<3>;	// (1 pt, 5 inp)
+   timer1<4>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 0 | 1 | timer1<5>_MC
+ATTRIBUTES | 2151711488 | 0
+OUTPUTMC | 3 | 0 | 1 | 0 | 6 | 0 | 15
+INPUTS | 7 | state<0>  | timer1<0>  | timer1<1>  | timer1<2>  | timer1<3>  | timer1<4>  | timer1<5>
+INPUTMC | 7 | 0 | 15 | 0 | 13 | 0 | 9 | 0 | 8 | 0 | 6 | 0 | 7 | 0 | 1
+EQ | 5 | 
+   timer1<5>.T := state<0> & timer1<0> & timer1<1> & timer1<2> & 
+	timer1<3> & timer1<4>
+	# state<0> & timer1<0> & timer1<1> & timer1<2> & 
+	!timer1<3> & !timer1<4> & timer1<5>;	// (2 pt, 7 inp)
+   timer1<5>.CLK  =  xtal_cpld;	// GCK	(0 pt, 0 inp)
+GLOBALS | 1 | 2 | xtal_cpld
+
+MACROCELL | 1 | 2 | fpga_tck_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tck
+INPUTP | 1 | 114
+EQ | 2 | 
+   fpga_tck = jtag_header_tck;	// (1 pt, 1 inp)
+   fpga_tck.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 1 | 3 | fpga_tdi_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tdo
+INPUTP | 1 | 112
+EQ | 2 | 
+   fpga_tdi = jtag_header_tdo;	// (1 pt, 1 inp)
+   fpga_tdi.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 1 | 1 | fpga_tms_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tms
+INPUTP | 1 | 115
+EQ | 2 | 
+   fpga_tms = jtag_header_tms;	// (1 pt, 1 inp)
+   fpga_tms.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 1 | 13 | gbe_tck_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tck
+INPUTP | 1 | 114
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   gbe_tck = jtag_header_tck;	// (1 pt, 1 inp)
+    gbe_tck.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 1 | 14 | gbe_tdi_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | sram2_tdo
+INPUTP | 1 | 61
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   gbe_tdi = sram2_tdo;	// (1 pt, 1 inp)
+    gbe_tdi.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 1 | 10 | gbe_tms_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tms
+INPUTP | 1 | 115
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   gbe_tms = jtag_header_tms;	// (1 pt, 1 inp)
+    gbe_tms.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 6 | 13 | jtag_header_tdi_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 3 | sw<1>  | gbe_tdo  | fpga_tdo
+INPUTP | 3 | 100 | 23 | 22
+EQ | 3 | 
+   !jtag_header_tdi = sw<1> & !gbe_tdo
+	# !sw<1> & !fpga_tdo;	// (2 pt, 3 inp)
+   jtag_header_tdi.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 5 | 15 | sram1_tck_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tck
+INPUTP | 1 | 114
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   sram1_tck = jtag_header_tck;	// (1 pt, 1 inp)
+    sram1_tck.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 5 | 5 | sram1_tdi_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | fpga_tdo
+INPUTP | 1 | 22
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   sram1_tdi = fpga_tdo;	// (1 pt, 1 inp)
+    sram1_tdi.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 5 | 11 | sram1_tms_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tms
+INPUTP | 1 | 115
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   sram1_tms = jtag_header_tms;	// (1 pt, 1 inp)
+    sram1_tms.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 7 | 5 | sram2_tck_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tck
+INPUTP | 1 | 114
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   sram2_tck = jtag_header_tck;	// (1 pt, 1 inp)
+    sram2_tck.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 7 | 1 | sram2_tdi_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | sram1_tdo
+INPUTP | 1 | 69
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   sram2_tdi = sram1_tdo;	// (1 pt, 1 inp)
+    sram2_tdi.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 7 | 2 | sram2_tms_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | jtag_header_tms
+INPUTP | 1 | 115
+LCT | 1 | 5 | Internal_Name
+EQ | 2 | 
+   sram2_tms = jtag_header_tms;	// (1 pt, 1 inp)
+    sram2_tms.OE = sw<1> & mmc_low_voltage_pok;	// CTE	(1 pt, 2 inp)
+
+MACROCELL | 3 | 13 | v6_cpld<0>_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | rtm_ps
+INPUTP | 1 | 5
+EQ | 2 | 
+   v6_cpld<0> = rtm_ps;	// (1 pt, 1 inp)
+   v6_cpld<0>.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 3 | 14 | v6_cpld<1>_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | rtm_12v_en
+INPUTP | 1 | 2
+EQ | 2 | 
+   v6_cpld<1> = rtm_12v_en;	// (1 pt, 1 inp)
+   v6_cpld<1>.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 3 | 15 | v6_cpld<2>_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | rtm_3v3_en
+INPUTP | 1 | 123
+EQ | 2 | 
+   v6_cpld<2> = rtm_3v3_en;	// (1 pt, 1 inp)
+   v6_cpld<2>.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+MACROCELL | 3 | 10 | v6_cpld<3>_MC
+ATTRIBUTES | 1141113602 | 0
+INPUTS | 1 | rtm_i2c_en
+INPUTP | 1 | 122
+EQ | 2 | 
+   v6_cpld<3> = rtm_i2c_en;	// (1 pt, 1 inp)
+   v6_cpld<3>.OE  =  mmc_low_voltage_pok.GLB;	// GTS	(0 pt, 0 inp)
+GLOBALS | 1 | 0 | mmc_low_voltage_pok.GLB
+
+PIN | cpld_a21_in | 64 | 64 | LVCMOS25 | 51 | 1 | 7 | 15
+PIN | fmc_prsnt_m2c_l<2> | 64 | 64 | LVCMOS25 | 80 | 1 | 2 | 1
+PIN | fmc_pg_m2c<2> | 64 | 64 | LVCMOS33 | 106 | 1 | 2 | 1
+PIN | fmc_prsnt_m2c_l<1> | 64 | 64 | LVCMOS25 | 81 | 1 | 2 | 1
+PIN | fmc_pg_m2c<1> | 64 | 64 | LVCMOS33 | 84 | 1 | 2 | 1
+PIN | pgood_3v3 | 64 | 64 | LVCMOS25 | 37 | 1 | 4 | 0
+PIN | pgood_2v5 | 64 | 64 | LVCMOS25 | 34 | 1 | 4 | 0
+PIN | pgood_1v5 | 64 | 64 | LVCMOS25 | 40 | 1 | 4 | 0
+PIN | pgood_1v0 | 64 | 64 | LVCMOS25 | 38 | 1 | 4 | 0
+PIN | cpld_a22_in | 64 | 64 | LVCMOS25 | 52 | 1 | 7 | 14
+PIN | fpga_init_b | 64 | 64 | LVCMOS25 | 76 | 2 | 0 | 14 | 2 | 8
+PIN | xtal_cpld | 16384 | 64 | LVCMOS25 | 33 | 27 | 3 | 11 | 0 | 12 | 1 | 11 | 1 | 6 | 1 | 9 | 0 | 4 | 1 | 8 | 0 | 5 | 1 | 7 | 1 | 15 | 0 | 2 | 0 | 0 | 1 | 12 | 1 | 5 | 1 | 4 | 0 | 11 | 1 | 0 | 0 | 3 | 0 | 14 | 0 | 13 | 0 | 9 | 0 | 8 | 0 | 7 | 0 | 1 | 0 | 6 | 0 | 15 | 5 | 2
+PIN | fpga_done | 64 | 64 | LVCMOS25 | 75 | 0
+PIN | sw<2> | 64 | 64 | LVCMOS33 | 102 | 2 | 7 | 14 | 4 | 12
+PIN | sw<1> | 64 | 64 | LVCMOS33 | 100 | 2 | 0 | 10 | 6 | 13
+PIN | jtag_header_tck | 64 | 64 | LVCMOS33 | 114 | 4 | 1 | 2 | 1 | 13 | 5 | 15 | 7 | 5
+PIN | jtag_header_tdo | 64 | 64 | LVCMOS33 | 112 | 1 | 1 | 3
+PIN | fpga_tdo | 64 | 64 | LVCMOS25 | 22 | 2 | 6 | 13 | 5 | 5
+PIN | jtag_header_tms | 64 | 64 | LVCMOS33 | 115 | 4 | 1 | 1 | 1 | 10 | 5 | 11 | 7 | 2
+PIN | sram2_tdo | 64 | 64 | LVCMOS25 | 61 | 1 | 1 | 14
+PIN | gbe_tdo | 64 | 64 | LVCMOS25 | 23 | 1 | 6 | 13
+PIN | rtm_12v_en | 64 | 64 | LVCMOS33 | 2 | 1 | 3 | 14
+PIN | rtm_3v3_en | 64 | 64 | LVCMOS33 | 123 | 1 | 3 | 15
+PIN | rtm_i2c_en | 64 | 64 | LVCMOS33 | 122 | 1 | 3 | 10
+PIN | rtm_ps | 64 | 64 | LVCMOS33 | 5 | 1 | 3 | 13
+PIN | sram1_tdo | 64 | 64 | LVCMOS25 | 69 | 1 | 7 | 1
+PIN | v6_cpld<5> | 64 | 64 | LVCMOS25 | 43 | 1 | 3 | 11
+PIN | cpld_a21_out | 536871040 | 64 | LVCMOS25 | 49
+PIN | cpld_a22_out | 536871040 | 64 | LVCMOS25 | 50
+PIN | cpld_led<1> | 536871040 | 64 | LVCMOS33 | 11
+PIN | cpld_led<2> | 536871040 | 64 | LVCMOS33 | 93
+PIN | cpld_led<3> | 536871040 | 64 | LVCMOS33 | 97
+PIN | fmcx_pg_c2m | 536871040 | 0 | LVCMOS33 | 83
+PIN | fpga_tck | 536871040 | 64 | LVCMOS25 | 20
+PIN | fpga_tdi | 536871040 | 64 | LVCMOS25 | 21
+PIN | fpga_tms | 536871040 | 64 | LVCMOS25 | 19
+PIN | gbe_tck | 536871040 | 64 | LVCMOS25 | 29
+PIN | gbe_tdi | 536871040 | 64 | LVCMOS25 | 30
+PIN | gbe_tms | 536871040 | 64 | LVCMOS25 | 24
+PIN | jtag_header_tdi | 536871040 | 64 | LVCMOS33 | 111
+PIN | mmc_low_voltage_pok | 536871040 | 0 | LVCMOS33 | 3
+PIN | sram1_tck | 536871040 | 64 | LVCMOS25 | 67
+PIN | sram1_tdi | 536871040 | 64 | LVCMOS25 | 74
+PIN | sram1_tms | 536871040 | 64 | LVCMOS25 | 71
+PIN | sram2_tck | 536871040 | 64 | LVCMOS25 | 59
+PIN | sram2_tdi | 536871040 | 64 | LVCMOS25 | 65
+PIN | sram2_tms | 536871040 | 64 | LVCMOS25 | 64
+PIN | v6_cpld<0> | 536871040 | 64 | LVCMOS25 | 45
+PIN | v6_cpld<1> | 536871040 | 64 | LVCMOS25 | 47
+PIN | v6_cpld<2> | 536871040 | 64 | LVCMOS25 | 48
+PIN | v6_cpld<3> | 536871040 | 64 | LVCMOS25 | 42
+PIN | fpga_program_b | 536870976 | 64 | LVCMOS25 | 77 | 1 | 2 | 8

@@ -9,23 +9,23 @@ Target Device  : xc6vlx130t
 Target Package : ff1156
 Target Speed   : -1
 Mapper Version : virtex6 -- $Revision: 1.55 $
-Mapped Date    : Wed Sep  2 13:43:00 2015
+Mapped Date    : Tue Oct 13 15:22:57 2015
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:  449
+Number of warnings:  447
 Slice Logic Utilization:
-  Number of Slice Registers:                19,822 out of 160,000   12%
-    Number used as Flip Flops:              19,640
+  Number of Slice Registers:                20,494 out of 160,000   12%
+    Number used as Flip Flops:              20,311
     Number used as Latches:                    182
     Number used as Latch-thrus:                  0
-    Number used as AND/OR logics:                0
-  Number of Slice LUTs:                     15,799 out of  80,000   19%
-    Number used as logic:                   14,756 out of  80,000   18%
-      Number using O6 output only:           9,641
-      Number using O5 output only:           1,566
-      Number using O5 and O6:                3,549
+    Number used as AND/OR logics:                1
+  Number of Slice LUTs:                     16,297 out of  80,000   20%
+    Number used as logic:                   15,202 out of  80,000   19%
+      Number using O6 output only:           9,957
+      Number using O5 output only:           1,584
+      Number using O5 and O6:                3,661
       Number used as ROM:                        0
     Number used as Memory:                     330 out of  27,840    1%
       Number used as Dual Port RAM:              8
@@ -37,23 +37,23 @@ Slice Logic Utilization:
         Number using O5 output only:             2
         Number using O5 and O6:                 46
       Number used as Shift Register:           274
-        Number using O6 output only:           166
+        Number using O6 output only:           168
         Number using O5 output only:             1
-        Number using O5 and O6:                107
-    Number used exclusively as route-thrus:    713
-      Number with same-slice register load:    597
-      Number with same-slice carry load:        97
-      Number with other load:                   19
+        Number using O5 and O6:                105
+    Number used exclusively as route-thrus:    765
+      Number with same-slice register load:    667
+      Number with same-slice carry load:        98
+      Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 7,011 out of  20,000   35%
-  Number of LUT Flip Flop pairs used:       22,306
-    Number with an unused Flip Flop:         4,887 out of  22,306   21%
-    Number with an unused LUT:               6,507 out of  22,306   29%
-    Number of fully used LUT-FF pairs:      10,912 out of  22,306   48%
-    Number of unique control sets:             721
+  Number of occupied Slices:                 7,220 out of  20,000   36%
+  Number of LUT Flip Flop pairs used:       22,991
+    Number with an unused Flip Flop:         5,087 out of  22,991   22%
+    Number with an unused LUT:               6,694 out of  22,991   29%
+    Number of fully used LUT-FF pairs:      11,210 out of  22,991   48%
+    Number of unique control sets:             746
     Number of slice register sites lost
-      to control set restrictions:           2,234 out of 160,000    1%
+      to control set restrictions:           2,373 out of 160,000    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -64,8 +64,8 @@ Slice Logic Distribution:
   over-mapped for a non-BRAM resource or if placement fails.
 
 IO Utilization:
-  Number of bonded IOBs:                       249 out of     600   41%
-    Number of LOCed IOBs:                      233 out of     249   93%
+  Number of bonded IOBs:                       250 out of     600   41%
+    Number of LOCed IOBs:                      234 out of     250   93%
     IOB Flip Flops:                             99
     IOB Master Pads:                             1
     IOB Slave Pads:                              1
@@ -75,14 +75,14 @@ IO Utilization:
       Number of LOCed OPADs:                     6 out of      14   42%
 
 Specific Feature Utilization:
-  Number of RAMB36E1/FIFO36E1s:                168 out of     264   63%
-    Number using RAMB36E1 only:                168
+  Number of RAMB36E1/FIFO36E1s:                195 out of     264   73%
+    Number using RAMB36E1 only:                195
     Number using FIFO36E1 only:                  0
-  Number of RAMB18E1/FIFO18E1s:                  3 out of     528    1%
-    Number using RAMB18E1 only:                  3
+  Number of RAMB18E1/FIFO18E1s:                  5 out of     528    1%
+    Number using RAMB18E1 only:                  5
     Number using FIFO18E1 only:                  0
-  Number of BUFG/BUFGCTRLs:                     18 out of      32   56%
-    Number used as BUFGs:                       15
+  Number of BUFG/BUFGCTRLs:                     17 out of      32   53%
+    Number used as BUFGs:                       14
     Number used as BUFGCTRLs:                    3
   Number of ILOGICE1/ISERDESE1s:                37 out of     600    6%
     Number used as ILOGICE1s:                   37
@@ -113,11 +113,11 @@ Specific Feature Utilization:
   Number of TEMAC_SINGLEs:                       2 out of       4   50%
 
   Number of RPM macros:           16
-Average Fanout of Non-Clock Nets:                3.54
+Average Fanout of Non-Clock Nets:                3.57
 
-Peak Memory Usage:  1737 MB
-Total REAL time to MAP completion:  5 mins 10 secs 
-Total CPU time to MAP completion (all processors):   5 mins 20 secs 
+Peak Memory Usage:  1757 MB
+Total REAL time to MAP completion:  5 mins 24 secs 
+Total CPU time to MAP completion (all processors):   5 mins 46 secs 
 
 Table of Contents
 -----------------
@@ -868,8 +868,6 @@ WARNING:MapLib:701 - Signal sram2_bwc connected to top level port sram2_bwc has
    been removed.
 WARNING:MapLib:701 - Signal sram2_bwd connected to top level port sram2_bwd has
    been removed.
-WARNING:MapLib:701 - Signal fpga_clkout connected to top level port fpga_clkout
-   has been removed.
 WARNING:Place:838 - An IO Bus with more than one IO standard is found.
    Components associated with this bus are as follows: 
    	 Comp: amc_port_rx_p<15>   IOSTANDARD = LVCMOS25
@@ -913,27 +911,10 @@ WARNING:Place:837 - Partially locked IO Bus is found.
    	 Comp: amc_port_tx_n<11>
 
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
-   FF)
+   system/ipb_from_slaves[1]_ipb_ack (type FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
-   FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
-   FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
-   FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
-   FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type
    FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
@@ -944,11 +925,7 @@ WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type
-   FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/ipb_from_slaves[2]_ipb_ack (type FF)
+   system/ipb_from_slaves[1]_ipb_ack (type FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
@@ -959,24 +936,46 @@ WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/ipb_from_slaves[1]_ipb_ack (type FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
-   FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type
    FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/ipb_from_slaves[2]_ipb_ack (type FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
+   system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type
+   FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/ipb_from_slaves[1]_ipb_ack (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
+   FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type
+   FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type
+   FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/ipb_from_slaves[2]_ipb_ack (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type
+   FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[1]_ipb_ack (type FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[1]_ipb_ack (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[1]_ipb_ack (type FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
@@ -986,10 +985,6 @@ WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[1]_ipb_ack (type FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[1]_ipb_ack (type FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
@@ -1004,19 +999,19 @@ WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_fr
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[2]_ipb_ack (type FF)
    The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
-   The load component should be of clock buffer type.
-WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
-   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type FF)
-   The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[1]_ipb_ack (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
+   The load component should be of clock buffer type.
+WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
+   system/sram1_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd3 (type FF)
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    system/sram2_if/sramInterfaceIoControl/ack_process.ack_ctrl_FSM_FFd1 (type FF)
@@ -1032,30 +1027,32 @@ WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[2]_ipb_ack (type FF)
    The load component should be of clock buffer type.
-WARNING:Place:914 - Local congestion has been detected at location SLICE_X61Y166. There is a limitation that if the CI
-   or BI pin in a CLB is used, the DX/CX or AX/BX pin respectively cannot be driven by a BUFG. This will lead to an
-   unroutable situation.  Please set environment variable XIL_PAR_ENABLE_CHKCIBIPINS to 1 and re-run placer.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][1]_AND_771_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][2]_AND_769_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<133> is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][3]_AND_767_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[3]_AND_173_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][0]_AND_773_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<129> is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[1]_AND_177_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/spi/reset_i_cpol_i_AND_934_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][1]_AND_835_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[1]_AND_113_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[2]_AND_175_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][0]_AND_837_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][2]_AND_833_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][3]_AND_831_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    usr/link_tracking_0_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<13> is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
@@ -1065,47 +1062,48 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    usr/link_tracking_2_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<13> is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][3]_AND_831_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[2]_AND_111_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][2]_AND_769_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[3]_AND_173_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[0]_AND_179_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[0]_AND_115_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[1]_AND_113_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net icon_control0<13> is sourced by a combinatorial pin. This is not
    good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[2]_AND_111_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][0]_AND_773_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][3]_AND_767_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][1]_AND_771_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<133> is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[0]_AND_115_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[3]_AND_109_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/spi/reset_i_cpol_i_AND_934_o is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][0]_AND_837_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[1]_AND_177_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][1]_AND_835_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][2]_AND_833_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[2]_AND_175_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0> is incomplete. The signal does
-   not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0_l> is incomplete. The signal does
-   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0_l> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0> is incomplete. The signal
+   does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_RA
+   MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_RA
+   MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
    MC_D1_O> is incomplete. The signal does not drive any load pins in the design.
@@ -1113,20 +1111,20 @@ WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
    MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_
+   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_
+   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_
+   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
    AMC_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
    AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_R
-   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_RA
-   MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_RA
-   MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_R
    AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
@@ -1137,21 +1135,16 @@ WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2
    _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_R
+   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1
    _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_
-   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_
-   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_
-   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMC_D1_DPO>
+   <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMC_D1_DPO> is incomplete. The signal does not
+   drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMD_D1_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMD_D1_O> is
-   incomplete. The signal does not drive any load pins in the design.
 
 Section 3 - Informational
 -------------------------
@@ -1159,7 +1152,7 @@ INFO:Map:284 - Map is running with the multi-threading option on. Map currently
    supports the use of up to 2 processors. Based on the the user options and
    machine load, Map will use 2 processors during this run.
 INFO:LIT:243 - Logical network user_ipb_miso[0]_ipb_err has no load.
-INFO:LIT:395 - The above info message is repeated 13664 more times for the
+INFO:LIT:395 - The above info message is repeated 13677 more times for the
    following (max. 5 shown):
    user_ipb_miso[1]_ipb_err,
    user_ipb_miso[2]_ipb_err,
@@ -1176,16 +1169,16 @@ INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more inform
    Command Line Tools User Guide for information on generating a TSI report.
 INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
    (.mrp).
-INFO:Place:834 - Only a subset of IOs are locked. Out of 249 IOs, 233 are locked
+INFO:Place:834 - Only a subset of IOs are locked. Out of 250 IOs, 234 are locked
    and 16 are not locked. If you would like to print the names of these IOs,
    please set the environment variable XIL_PAR_DESIGN_CHECK_VERBOSE to 1. 
 INFO:Pack:1650 - Map created a placed design.
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-1230 block(s) removed
- 654 block(s) optimized away
-1326 signal(s) removed
+1265 block(s) removed
+ 609 block(s) optimized away
+1370 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -1231,132 +1224,136 @@ removed.
 Loadless block "U_ila_pro_0/U0/I_YES_D.U_ILA/U_STAT/U_DSR" (ROM) removed.
 Loadless block "U_ila_pro_0/U0/I_YES_D.U_ILA/U_TRIG/U_TC/I_STORAGE_QUAL.U_CAP_B"
 (ROM) removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[0].i_L1Adata" (RAM32X1D)
-removed.
- The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<0>" is loadless and has been
-removed.
-  Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_0" (FF) removed.
-   The signal "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra" is loadless and has been
-removed.
-    Loadless block "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra" (SFF) removed.
-     The signal "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra_glue_set" is loadless and
-has been removed.
-      Loadless block "usr/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra_glue_set" (ROM)
-removed.
-       The signal "usr/daq_link/DAQ_Link_V6_i/_n1666" is loadless and has been removed.
-        Loadless block "usr/daq_link/DAQ_Link_V6_i/_n1666" (ROM) removed.
-         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<3>" is loadless and has been
-removed.
-          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_3" (FF) removed.
-           The signal "usr/daq_link/DAQ_Link_V6_i/Result<3>33" is loadless and has been
-removed.
-            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<3>11" (ROM)
-removed.
-             The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<1>" is loadless and has been
-removed.
-              Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_1" (FF) removed.
-               The signal "usr/daq_link/DAQ_Link_V6_i/Result<1>36" is loadless and has been
-removed.
-                Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<1>11" (ROM)
-removed.
-             The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<2>" is loadless and has been
-removed.
-              Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_2" (FF) removed.
-               The signal "usr/daq_link/DAQ_Link_V6_i/Result<2>34" is loadless and has been
-removed.
-                Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<2>11" (ROM)
-removed.
-         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<1>" is loadless and has been
-removed.
-          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_1" (FF) removed.
-           The signal
-"usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs[3]_OldL1Ainfo_wa0_SyncRegs[2
-]_XOR_1701_o" is loadless and has been removed.
-            Loadless block
-"usr/daq_link/DAQ_Link_V6_i/Mxor_OldL1Ainfo_wa0_SyncRegs[3]_OldL1Ainfo_wa0_SyncR
-egs[2]_XOR_1701_o_xo<0>1" (ROM) removed.
-             The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<2>" is loadless
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[0].i_L1Adata"
+(RAM32X1D) removed.
+ The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<0>" is loadless and has
+been removed.
+  Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_0" (FF) removed.
+   The signal "usr/daq/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra" is loadless and has
+been removed.
+    Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra" (SFF) removed.
+     The signal "usr/daq/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra_glue_set" is loadless
 and has been removed.
-              Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_2" (FF)
+      Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/ce_L1A_DATA_ra_glue_set" (ROM)
 removed.
-               The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<1>" is loadless
-and has been removed.
-                Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_1" (FF)
+       The signal "usr/daq/daq_link/DAQ_Link_V6_i/_n1666" is loadless and has been
 removed.
-                 The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<0>" is loadless
-and has been removed.
-                  Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_0" (FF)
+        Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/_n1666" (ROM) removed.
+         The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<3>" is loadless and has
+been removed.
+          Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_3" (FF) removed.
+           The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<3>30" is loadless and has been
 removed.
-             The signal "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<3>" is loadless
-and has been removed.
-              Loadless block "usr/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_3" (FF)
-removed.
-           The signal "usr/daq_link/DAQ_Link_V6_i/Result<1>38" is loadless and has been
-removed.
-            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<1>11" (ROM)
-removed.
-             The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<0>" is loadless and has been
-removed.
-              Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_0" (FF) removed.
-               The signal "usr/daq_link/DAQ_Link_V6_i/Result<0>38" is loadless and has been
-removed.
-                Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<0>11_INV_0"
-(BUF) removed.
-         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<4>" is loadless and has been
-removed.
-          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_4" (FF) removed.
-           The signal "usr/daq_link/DAQ_Link_V6_i/Result<4>31" is loadless and has been
-removed.
-            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<4>11" (ROM)
-removed.
-         The signal "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<2>" is loadless and has been
-removed.
-          Loadless block "usr/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_2" (FF) removed.
-           The signal "usr/daq_link/DAQ_Link_V6_i/Result<2>36" is loadless and has been
-removed.
-            Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<2>11" (ROM)
-removed.
-         The signal "usr/daq_link/DAQ_Link_V6_i/N6" is loadless and has been removed.
-          Loadless block "usr/daq_link/DAQ_Link_V6_i/_n1666_SW0" (ROM) removed.
-     The signal "usr/daq_link/DAQ_Link_V6_i/_n1655" is loadless and has been removed.
-      Loadless block "usr/daq_link/DAQ_Link_V6_i/_n16551" (ROM) removed.
-   The signal "usr/daq_link/DAQ_Link_V6_i/Result<0>36" is loadless and has been
-removed.
-    Loadless block "usr/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<0>11_INV_0"
-(BUF) removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[10].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[11].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[12].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[13].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[14].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[15].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[1].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[2].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[3].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[4].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[5].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[6].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[7].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[8].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block "usr/daq_link/DAQ_Link_V6_i/g_L1A_DATA[9].i_L1Adata" (RAM32X1D)
-removed.
-Loadless block
-"usr/daq_link/DAQ_Link_V6_i/i_DataFIFO/Madd_GND_8894_o_GND_8894_o_add_6_OUT9"
+            Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<3>11"
 (ROM) removed.
+             The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<1>" is loadless and has
+been removed.
+              Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_1" (FF) removed.
+               The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<1>33" is loadless and has been
+removed.
+                Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<1>11"
+(ROM) removed.
+             The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<2>" is loadless and has
+been removed.
+              Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_2" (FF) removed.
+               The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<2>31" is loadless and has been
+removed.
+                Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<2>11"
+(ROM) removed.
+         The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<1>" is loadless and has
+been removed.
+          Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_1" (FF) removed.
+           The signal
+"usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs[3]_OldL1Ainfo_wa0_SyncRe
+gs[2]_XOR_1700_o" is loadless and has been removed.
+            Loadless block
+"usr/daq/daq_link/DAQ_Link_V6_i/Mxor_OldL1Ainfo_wa0_SyncRegs[3]_OldL1Ainfo_wa0_S
+yncRegs[2]_XOR_1700_o_xo<0>1" (ROM) removed.
+             The signal "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<2>" is
+loadless and has been removed.
+              Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_2" (FF)
+removed.
+               The signal "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<1>" is
+loadless and has been removed.
+                Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_1" (FF)
+removed.
+                 The signal "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<0>" is
+loadless and has been removed.
+                  Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_0" (FF)
+removed.
+             The signal "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs<3>" is
+loadless and has been removed.
+              Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/OldL1Ainfo_wa0_SyncRegs_3" (FF)
+removed.
+           The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<1>37" is loadless and has been
+removed.
+            Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<1>11"
+(ROM) removed.
+             The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<0>" is loadless and has
+been removed.
+              Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_0" (FF) removed.
+               The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<0>37" is loadless and has been
+removed.
+                Loadless block
+"usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<0>11_INV_0" (BUF)
+removed.
+         The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra<4>" is loadless and has
+been removed.
+          Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_ra_4" (FF) removed.
+           The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<4>28" is loadless and has been
+removed.
+            Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<4>11"
+(ROM) removed.
+         The signal "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_wa<2>" is loadless and has
+been removed.
+          Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/L1A_DATA_wa_2" (FF) removed.
+           The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<2>35" is loadless and has been
+removed.
+            Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_wa_xor<2>11"
+(ROM) removed.
+         The signal "usr/daq/daq_link/DAQ_Link_V6_i/N4" is loadless and has been removed.
+          Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/_n1666_SW0" (ROM) removed.
+     The signal "usr/daq/daq_link/DAQ_Link_V6_i/_n1655" is loadless and has been
+removed.
+      Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/_n16551" (ROM) removed.
+   The signal "usr/daq/daq_link/DAQ_Link_V6_i/Result<0>33" is loadless and has been
+removed.
+    Loadless block
+"usr/daq/daq_link/DAQ_Link_V6_i/Mcount_L1A_DATA_ra_xor<0>11_INV_0" (BUF)
+removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[10].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[11].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[12].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[13].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[14].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[15].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[1].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[2].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[3].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[4].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[5].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[6].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[7].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[8].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block "usr/daq/daq_link/DAQ_Link_V6_i/g_L1A_DATA[9].i_L1Adata"
+(RAM32X1D) removed.
+Loadless block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_DataFIFO/Madd_GND_8895_o_GND_8895_o_add_6_OUT9
+" (ROM) removed.
 The signal "fmc1_la_p<0>" is sourceless and has been removed.
  Sourceless block "fmc1_la_p<0>" (PAD) removed.
 The signal "fmc1_la_p<1>" is sourceless and has been removed.
@@ -2698,132 +2695,334 @@ The signal
 "usr/link_trigger_inst/ipb_trigger_inst/trigger_data_fifo_inst/U0/xst_fifo_gener
 ator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_full_i" is
 sourceless and has been removed.
-The signal "usr/daq_link/gtx0_rxlossofsync<0>" is sourceless and has been
+The signal "usr/daq/daq_link/gtx0_rxlossofsync<0>" is sourceless and has been
 removed.
-The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync<1>" is
+The signal "usr/daq/daq_link/N1" is sourceless and has been removed.
+The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync<1>" is
 sourceless and has been removed.
- Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2_1"
-(FF) removed.
-  The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2<1>" is
-sourceless and has been removed.
-   Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3_1"
-(FF) removed.
-    The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<1>" is
-sourceless and has been removed.
-     Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2-In1"
-(ROM) removed.
-      The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2-In" is
-sourceless and has been removed.
-       Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2"
-(FF) removed.
-        The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2" is
-sourceless and has been removed.
-         Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1-In1"
-(ROM) removed.
-          The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1-In" is
-sourceless and has been removed.
-           Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1"
-(FF) removed.
-            The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1" is
-sourceless and has been removed.
-             Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_0" (FF)
+ Sourceless block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2_1" (FF) removed.
+  The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2<1>"
+is sourceless and has been removed.
+   Sourceless block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3_1" (FF) removed.
+    The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<1>"
+is sourceless and has been removed.
+     Sourceless block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2-In1" (ROM)
 removed.
-              The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_0" is
+      The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2-In" is
 sourceless and has been removed.
-               Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_1" (FF)
+       Sourceless block "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2"
+(FF) removed.
+        The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd2" is
+sourceless and has been removed.
+         Sourceless block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1-In1" (ROM)
 removed.
-                The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_1" is
+          The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1-In" is
+sourceless and has been removed.
+           Sourceless block "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1"
+(FF) removed.
+            The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/sel_TTC_FSM_FFd1" is
+sourceless and has been removed.
+             Sourceless block "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_0"
+(FF) removed.
+              The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_0" is
+sourceless and has been removed.
+               Sourceless block "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_1"
+(FF) removed.
+                The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra_1" is
 sourceless and has been removed.
                  Sourceless block
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra[1]_INV_2083_o1_INV_0"
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra[1]_INV_2074_o1_INV_0"
 (BUF) removed.
-                  The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra[1]_INV_2083_o"
+                  The signal
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_ra[1]_INV_2074_o" is
+sourceless and has been removed.
+The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync<0>" is
+sourceless and has been removed.
+ Sourceless block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2_0" (FF) removed.
+  The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2<0>"
 is sourceless and has been removed.
-The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync<0>" is
+   Sourceless block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3_0" (FF) removed.
+    The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<0>"
+is sourceless and has been removed.
+The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/do<5>" is
 sourceless and has been removed.
- Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2_0"
-(FF) removed.
-  The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync2<0>" is
-sourceless and has been removed.
-   Sourceless block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3_0"
-(FF) removed.
-    The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<0>" is
-sourceless and has been removed.
-The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/do<5>" is
-sourceless and has been removed.
-The signal "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/do<4>" is
+The signal "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/do<4>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<1>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<1>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<0>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<0>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<3>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<3>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<2>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<2>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<5>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<5>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<4>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/do<4>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/N1" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/N1" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<1>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<1>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<0>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<0>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<3>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<3>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<2>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<2>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<5>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<5>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<4>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/do<4>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/N1" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/N1" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<1>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<1>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<0>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<0>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<3>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<3>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<2>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<2>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<5>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<5>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<4>" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/do<4>" is
 sourceless and has been removed.
 The signal
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/N1" is
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/N1" is
 sourceless and has been removed.
-The signal "usr/daq_link/daqlink_gtx_i/RXCLKCORCNT_OUT<2>" is sourceless and has
+The signal "usr/daq/daq_link/daqlink_gtx_i/RXCLKCORCNT_OUT<2>" is sourceless and
+has been removed.
+The signal "usr/daq/daq_link/daqlink_gtx_i/RXCLKCORCNT_OUT<1>" is sourceless and
+has been removed.
+The signal "usr/daq/daq_link/daqlink_gtx_i/RXCLKCORCNT_OUT<0>" is sourceless and
+has been removed.
+The signal "usr/daq/daq_link/daqlink_gtx_i/RXDISPERR_OUT<1>" is sourceless and
+has been removed.
+The signal "usr/daq/daq_link/daqlink_gtx_i/RXDISPERR_OUT<0>" is sourceless and
+has been removed.
+The signal "usr/daq/daq_link/daqlink_gtx_i/RXNOTINTABLE_OUT<1>" is sourceless
+and has been removed.
+The signal "usr/daq/daq_link/daqlink_gtx_i/RXNOTINTABLE_OUT<0>" is sourceless
+and has been removed.
+The signal "usr/daq/daq_link/daqlink_gtx_i/TXPLLLKDET_OUT" is sourceless and has
 been removed.
-The signal "usr/daq_link/daqlink_gtx_i/RXCLKCORCNT_OUT<1>" is sourceless and has
-been removed.
-The signal "usr/daq_link/daqlink_gtx_i/RXCLKCORCNT_OUT<0>" is sourceless and has
-been removed.
-The signal "usr/daq_link/daqlink_gtx_i/TXPLLLKDET_OUT" is sourceless and has
-been removed.
+The signal "usr/daq/daq_clocks/clkout1" is sourceless and has been removed.
+ Sourceless block "usr/daq/daq_clocks/clkout2_buf" (CKBUF) removed.
+  The signal "usr/daq/daq_clocks/CLK_OUT2" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/ram_almost_full_i" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.ram_almost_empty_i" is sourceless and has been
+removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_d1" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/underflow_i" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/EMPTY_RD_EN_AND_16_o" is sourceless and has been
+removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/underflow_i" (FF) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_i" is sourceless and has been removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_d1" (FF) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_inv" is sourceless and has been
+removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.ram_almost_empty_i" (FF) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/comp1_gae.comp2_OR_7_o" is sourceless and has been
+removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.carrynet<4>" is sourceless and has been
+removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.gm[5].gms.ms" (MUX) removed.
+  The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.comp2" is sourceless and has been removed.
+   Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/comp1_gae.comp2_OR_7_o1" (ROM) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<5>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.carrynet<3>" is sourceless and has been
+removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.gm[4].gms.ms" (MUX) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<4>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.carrynet<2>" is sourceless and has been
+removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.gm[3].gms.ms" (MUX) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<3>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.carrynet<1>" is sourceless and has been
+removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.gm[2].gms.ms" (MUX) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<2>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.carrynet<0>" is sourceless and has been
+removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.gm[1].gms.ms" (MUX) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<1>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<0>" is sourceless and has been removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/gmux.gm[0].gm1.m1" (MUX) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<0>" is sourceless and has been removed.
+ Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.gm[0].gm1.m1" (MUX) removed.
+  The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.carrynet<0>" is sourceless and has been
+removed.
+   Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.gm[1].gms.ms" (MUX) removed.
+    The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.carrynet<1>" is sourceless and has been
+removed.
+     Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.gm[2].gms.ms" (MUX) removed.
+      The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.carrynet<2>" is sourceless and has been
+removed.
+       Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.gm[3].gms.ms" (MUX) removed.
+        The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.carrynet<3>" is sourceless and has been
+removed.
+         Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.gm[4].gms.ms" (MUX) removed.
+          The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.carrynet<4>" is sourceless and has been
+removed.
+           Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/gmux.gm[5].gms.ms" (MUX) removed.
+            The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.comp3" is sourceless and has been removed.
+             Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/Mmux_ram_almost_full_i_GND_1686_o_MUX_19_o11" (ROM)
+removed.
+              The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/ram_almost_full_i_GND_1686_o_MUX_19_o" is sourceless
+and has been removed.
+               Sourceless block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/ram_almost_full_i" (FF) removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<1>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<2>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<3>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<4>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<5>" is sourceless and has been removed.
+The signal
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/_n0021_inv" is sourceless and has been removed.
+The signal "usr/daq/daq_event_fifo_inst/dout<2>" is sourceless and has been
+removed.
+The signal "usr/daq/daq_event_fifo_inst/dout<1>" is sourceless and has been
+removed.
+The signal "usr/daq/daq_event_fifo_inst/dout<0>" is sourceless and has been
+removed.
+The signal
+"usr/daq/daq_event_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_d1" is sourceless and has been removed.
+The signal
+"usr/daq/daq_event_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_i" is sourceless and has been removed.
+ Sourceless block
+"usr/daq/daq_event_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_d1" (FF) removed.
 The signal "system/sram_w[1]_oe_b" is sourceless and has been removed.
  Sourceless block "system/sram1_if/sramInterface/OE_B_O_rstpot" (ROM) removed.
   The signal "system/sram1_if/sramInterface/OE_B_O_rstpot" is sourceless and has
@@ -5193,7 +5392,6 @@ The signal "sram2_bwa_OBUF" is unused and has been removed.
 The signal "sram2_bwb_OBUF" is unused and has been removed.
 The signal "sram2_bwc_OBUF" is unused and has been removed.
 The signal "sram2_bwd_OBUF" is unused and has been removed.
-The signal "fpga_clkout_OBUF" is unused and has been removed.
 The signal "user_ipb_miso[3]_ipb_err" is unused and has been removed.
  Unused block "usr/link_tracking_0_inst/ipb_tracking_inst/XST_GND" (ZERO)
 removed.
@@ -5302,8 +5500,6 @@ The signal "sram2_bwc" is unused and has been removed.
  Unused block "sram2_bwc_OBUF" (BUF) removed.
 The signal "sram2_bwd" is unused and has been removed.
  Unused block "sram2_bwd_OBUF" (BUF) removed.
-The signal "fpga_clkout" is unused and has been removed.
- Unused block "fpga_clkout_OBUF" (BUF) removed.
 Unused block "U_icon_pro/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[11].U_LUT" (ROM)
 removed.
 Unused block "U_icon_pro/U0/U_ICON/U_CMD/U_COMMAND_SEL/I4.FI[12].U_LUT" (ROM)
@@ -5367,7 +5563,6 @@ Unused block "fmc2_clk_c2m_p<0>" (PAD) removed.
 Unused block "fmc2_clk_c2m_p<1>" (PAD) removed.
 Unused block "fmc2_tx_n" (PAD) removed.
 Unused block "fmc2_tx_p" (PAD) removed.
-Unused block "fpga_clkout" (PAD) removed.
 Unused block "sram1_bwa" (PAD) removed.
 Unused block "sram1_bwb" (PAD) removed.
 Unused block "sram1_bwc" (PAD) removed.
@@ -5457,27 +5652,78 @@ Unused block "system/phy_en.phy_ipb_ctrl/stretch_tx/clkdiv/reset_gen/VCC" (ONE)
 removed.
 Unused block "system/wb_bridge/GND_365_o_GND_365_o_OR_1066_o1" (ROM) removed.
 Unused block "system/wb_bridge/XST_GND" (ZERO) removed.
-Unused block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync_0" (FF)
-removed.
-Unused block "usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync_1" (FF)
-removed.
 Unused block
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/RAM32M_inst"
-(RAM32M) removed.
+"usr/daq/daq_event_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_i1" (ROM) removed.
 Unused block
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/XST_GND"
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<0>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<1>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<2>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<3>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<4>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/gae.c2/v1<5>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/gras.rsts/ram_empty_fb_i_inv1_INV_0" (BUF) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/EMPTY_RD_EN_AND_16_o1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.rd/grhf.rhf/ram_valid_i1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/_n0021_inv1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<0>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<1>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<2>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<3>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<4>1" (ROM) removed.
+Unused block
+"usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_s
+ync_fifo.gl0.wr/gwas.wsts/gaf.c3/v1<5>1" (ROM) removed.
+Unused block "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync_0"
+(FF) removed.
+Unused block "usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync_1"
+(FF) removed.
+Unused block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/RAM32M_in
+st" (RAM32M) removed.
+Unused block
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[0].i_TTC_FIFO/XST_GND"
 (ZERO) removed.
 Unused block
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/RAM32M_inst"
-(RAM32M) removed.
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/RAM32M_in
+st" (RAM32M) removed.
 Unused block
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/XST_GND"
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[1].i_TTC_FIFO/XST_GND"
 (ZERO) removed.
 Unused block
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/RAM32M_inst"
-(RAM32M) removed.
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/RAM32M_in
+st" (RAM32M) removed.
 Unused block
-"usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/XST_GND"
+"usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/g_TTC_FIFO[2].i_TTC_FIFO/XST_GND"
 (ZERO) removed.
 Unused block "usr/fmc1_la_p_0_OBUFT" (TRI) removed.
 Unused block "usr/fmc1_la_p_11_OBUFT" (TRI) removed.
@@ -6043,73 +6289,86 @@ GND 		system/sram2_if/sramInterfaceIoControl/XST_GND
 VCC 		system/sram2_if/sramInterfaceIoControl/XST_VCC
 GND 		usr/XST_GND
 VCC 		usr/XST_VCC
-GND 		usr/clknetwork/XST_GND
-VCC 		usr/clknetwork/XST_VCC
-FDE 		usr/daq_event_data_10
+GND 		usr/daq/XST_GND
+VCC 		usr/daq/XST_VCC
+GND 		usr/daq/daq_clocks/XST_GND
+VCC 		usr/daq/daq_clocks/XST_VCC
+GND
+		usr/daq/daq_event_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_
+sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/
+XST_GND
+VCC
+		usr/daq/daq_event_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_
+sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/
+XST_VCC
+GND 		usr/daq/daq_event_fifo_inst/XST_GND
+VCC 		usr/daq/daq_event_fifo_inst/XST_VCC
+GND
+		usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_
+sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/
+XST_GND
+VCC
+		usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_
+sync_fifo.mem/gbm.gbmg.gbmga.ngecc.bmg/gnativebmg.native_blk_mem_gen/valid.cstr/
+XST_VCC
+GND 		usr/daq/daq_input_fifo_inst/XST_GND
+VCC 		usr/daq/daq_input_fifo_inst/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[0].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[0].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[10].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[10].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[11].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[11].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[12].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[12].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[13].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[13].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[14].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[14].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[15].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[15].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[16].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[16].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[1].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[1].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[2].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[2].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[3].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[3].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[4].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[4].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[5].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[5].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[6].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[6].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[7].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[7].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[8].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[8].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[9].i_DataBuf/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/g_DataBufPipe[9].i_DataBuf/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/i_AMCinfo/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/i_AMCinfo/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/i_DataFIFO/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/i_DataFIFO/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/i_DataFIFO/i_BRAM_SDP_MACRO/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/i_DataFIFO/i_BRAM_SDP_MACRO/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/i_L1Ainfo/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/i_L1Ainfo/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/XST_GND
+VCC 		usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/XST_VCC
+GND 		usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/XST_GND
+GND 		usr/daq/daq_link/XST_GND
+GND 		usr/daq/daq_link/daqlink_gtx_i/XST_GND
+VCC 		usr/daq/daq_link/daqlink_gtx_i/XST_VCC
+FDE 		usr/daq/evtfifo_din_0
    optimized to 0
-FDE 		usr/daq_event_data_12
+FDE 		usr/daq/evtfifo_din_1
    optimized to 0
-FDE 		usr/daq_event_data_13
+FDE 		usr/daq/evtfifo_din_2
    optimized to 0
-FDE 		usr/daq_event_data_56
-   optimized to 0
-FDE 		usr/daq_event_data_58
-   optimized to 0
-FDE 		usr/daq_event_data_62
-   optimized to 0
-FDE 		usr/daq_event_data_8
-   optimized to 0
-GND 		usr/daq_link/DAQ_Link_V6_i/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[0].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[0].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[10].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[10].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[11].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[11].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[12].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[12].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[13].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[13].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[14].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[14].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[15].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[15].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[16].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[16].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[1].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[1].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[2].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[2].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[3].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[3].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[4].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[4].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[5].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[5].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[6].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[6].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[7].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[7].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[8].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[8].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[9].i_DataBuf/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/g_DataBufPipe[9].i_DataBuf/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/i_AMCinfo/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/i_AMCinfo/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/i_DataFIFO/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/i_DataFIFO/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/i_DataFIFO/i_BRAM_SDP_MACRO/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/i_DataFIFO/i_BRAM_SDP_MACRO/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/i_L1Ainfo/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/i_L1Ainfo/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/XST_GND
-VCC 		usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/XST_VCC
-GND 		usr/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/XST_GND
-GND 		usr/daq_link/XST_GND
-VCC 		usr/daq_link/XST_VCC
-GND 		usr/daq_link/daqlink_gtx_i/XST_GND
-VCC 		usr/daq_link/daqlink_gtx_i/XST_VCC
 GND 		usr/gtx_wrapper_inst/XST_GND
 VCC 		usr/gtx_wrapper_inst/XST_VCC
 GND 		usr/gtx_wrapper_inst/gtx_0_inst/XST_GND
@@ -6207,102 +6466,6 @@ GND 		usr/link_trigger_inst/ipb_trigger_inst/trigger_data_fifo_inst/XST_GND
 VCC 		usr/link_trigger_inst/ipb_trigger_inst/trigger_data_fifo_inst/XST_VCC
 GND 		usr/link_trigger_inst/trigger_tx_inst/XST_GND
 VCC 		usr/link_trigger_inst/trigger_tx_inst/XST_VCC
-FDE 		usr/request_read_6_10
-   optimized to 0
-FDE 		usr/request_read_6_11
-   optimized to 0
-FDE 		usr/request_read_6_12
-   optimized to 0
-FDE 		usr/request_read_6_13
-   optimized to 0
-FDE 		usr/request_read_6_14
-   optimized to 0
-FDE 		usr/request_read_6_15
-   optimized to 0
-FDE 		usr/request_read_6_16
-   optimized to 0
-FDE 		usr/request_read_6_17
-   optimized to 0
-FDE 		usr/request_read_6_18
-   optimized to 0
-FDE 		usr/request_read_6_19
-   optimized to 0
-FDE 		usr/request_read_6_20
-   optimized to 0
-FDE 		usr/request_read_6_21
-   optimized to 0
-FDE 		usr/request_read_6_22
-   optimized to 0
-FDE 		usr/request_read_6_23
-   optimized to 0
-FDE 		usr/request_read_6_24
-   optimized to 0
-FDE 		usr/request_read_6_25
-   optimized to 0
-FDE 		usr/request_read_6_26
-   optimized to 0
-FDE 		usr/request_read_6_27
-   optimized to 0
-FDE 		usr/request_read_6_28
-   optimized to 0
-FDE 		usr/request_read_6_29
-   optimized to 0
-FDE 		usr/request_read_6_30
-   optimized to 0
-FDE 		usr/request_read_6_31
-   optimized to 0
-FDE 		usr/request_read_6_8
-   optimized to 0
-FDE 		usr/request_read_6_9
-   optimized to 0
-FDE 		usr/request_read_7_10
-   optimized to 0
-FDE 		usr/request_read_7_11
-   optimized to 0
-FDE 		usr/request_read_7_12
-   optimized to 0
-FDE 		usr/request_read_7_13
-   optimized to 0
-FDE 		usr/request_read_7_14
-   optimized to 0
-FDE 		usr/request_read_7_15
-   optimized to 0
-FDE 		usr/request_read_7_16
-   optimized to 0
-FDE 		usr/request_read_7_17
-   optimized to 0
-FDE 		usr/request_read_7_18
-   optimized to 0
-FDE 		usr/request_read_7_19
-   optimized to 0
-FDE 		usr/request_read_7_20
-   optimized to 0
-FDE 		usr/request_read_7_21
-   optimized to 0
-FDE 		usr/request_read_7_22
-   optimized to 0
-FDE 		usr/request_read_7_23
-   optimized to 0
-FDE 		usr/request_read_7_24
-   optimized to 0
-FDE 		usr/request_read_7_25
-   optimized to 0
-FDE 		usr/request_read_7_26
-   optimized to 0
-FDE 		usr/request_read_7_27
-   optimized to 0
-FDE 		usr/request_read_7_28
-   optimized to 0
-FDE 		usr/request_read_7_29
-   optimized to 0
-FDE 		usr/request_read_7_30
-   optimized to 0
-FDE 		usr/request_read_7_31
-   optimized to 0
-FDE 		usr/request_read_7_8
-   optimized to 0
-FDE 		usr/request_read_7_9
-   optimized to 0
 GND 		usr/ttc_decoder_i/XST_GND
 VCC 		usr/ttc_decoder_i/XST_VCC
 
@@ -6393,6 +6556,7 @@ Section 6 - IOB Properties
 | fmc2_present_l                     | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | fpga_a21                           | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |
 | fpga_a22                           | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |
+| fpga_clkout                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | fpga_power_on_reset_b              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | fpga_reset_b                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | fpga_rs0                           | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |

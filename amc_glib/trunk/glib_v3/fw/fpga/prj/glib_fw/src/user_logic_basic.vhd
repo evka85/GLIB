@@ -14,7 +14,6 @@ use work.system_package.all;
 use work.fmc_package.all;
 use work.wb_package.all;
 use work.ipbus.all;
-use work.data_types.all;
 
 --! user packages
 use work.user_package.all;
@@ -250,65 +249,23 @@ architecture user_logic_arch of user_logic is
     signal bx_id                : std_logic_vector(11 downto 0) := (others => '0');
     signal orbit_id             : std_logic_vector(31 downto 0) := (others => '0');
     
+    signal orbit_id_small       : std_logic_vector(15 downto 0) := (others => '0'); -- DAQ needs 16bit (has to wraparound too)
+    signal ttc_trig_id_small    : std_logic_vector(23 downto 0) := (others => '0'); -- DAQ needs 24bit (has to wraparound too)
+    
     signal l1_led               : std_logic := '0';
     signal bc0_led              : std_logic := '0';
 
     -- Counters
     signal cnt_reset            : std_logic;
     signal cnt_ttc_trigger      : std_logic_vector(31 downto 0) := (others => '0');
-
-    -- DAQlink
-    signal daq_reset            : std_logic := '1';
-    signal daq_reset_pwrup      : std_logic := '1';
-    signal daq_event_data       : std_logic_vector(63 downto 0) := (others => '0');
-    signal daq_event_write_en   : std_logic := '0';
-    signal daq_event_header     : std_logic := '0';
-    signal daq_event_trailer    : std_logic := '0';
-    signal daq_ready            : std_logic := '0';
-    signal daq_almost_full      : std_logic := '0';
-    signal daq_tts_state        : std_logic_vector(3 downto 0) := "1000";
-    signal daq_gtx_clk          : std_logic;
-    
-    signal daq_state            : unsigned(3 downto 0) := (others => '0');
-    signal daq_trigger          : std_logic := '0';
-    signal daq_clock_locked     : std_logic := '0';
-  
-    signal daq_disper_err_cnt   : std_logic_vector(15 downto 0);
-    signal daq_notintable_err_cnt: std_logic_vector(15 downto 0);
-    
-    --DAQ conf
-    signal daq_ignore_daq_ready : std_logic := '0'; -- ignore the DAQ_ready signal from DAQLink (just for a test)
-    signal daq_ipb_reset        : std_logic := '0'; -- DAQLink reset through IPbus
-    signal daq_enable           : std_logic := '0'; -- enable sending data to DAQ on L1A
-    
-    signal daq_clk25_bufg       : std_logic;
-    signal daq_clk250_bufg      : std_logic;
-    
-    attribute MARK_DEBUG : string;
-    attribute MARK_DEBUG of daq_reset : signal is "TRUE";
-    attribute MARK_DEBUG of daq_reset_pwrup : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_data : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_write_en : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_header : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_trailer : signal is "TRUE";
-    attribute MARK_DEBUG of daq_ready : signal is "TRUE";
-    attribute MARK_DEBUG of daq_almost_full : signal is "TRUE";
-    attribute MARK_DEBUG of daq_tts_state : signal is "TRUE";
-    attribute MARK_DEBUG of daq_gtx_clk : signal is "TRUE";
-    attribute MARK_DEBUG of daq_state : signal is "TRUE";
-    attribute MARK_DEBUG of daq_trigger : signal is "TRUE";
-    attribute MARK_DEBUG of daq_clock_locked : signal is "TRUE";
-    attribute MARK_DEBUG of daq_ignore_daq_ready : signal is "TRUE";
-    attribute MARK_DEBUG of daq_ipb_reset : signal is "TRUE";
-    attribute MARK_DEBUG of daq_clk25_bufg : signal is "TRUE";
-    attribute MARK_DEBUG of daq_clk250_bufg : signal is "TRUE";
-    attribute MARK_DEBUG of ttc_clk : signal is "TRUE";
-    attribute MARK_DEBUG of user_clk125_i : signal is "TRUE";
     
     -- Track data
     --type track_data is array (2 downto 0) of std_logic_vector(223 downto 0);
     signal track_rx_en              : std_logic_vector(2 downto 0) := (others => '0');
-    signal track_rx_data            : track_data := (others => (others => '0'));
+    signal track_rx_data0            : std_logic_vector(223 downto 0) := (others => '0');
+    signal track_rx_data1            : std_logic_vector(223 downto 0) := (others => '0');
+    signal track_rx_data2            : std_logic_vector(223 downto 0) := (others => '0');
+--    signal track_rx_data            : track_data := (others => (others => '0'));
     
 begin
 
@@ -371,7 +328,7 @@ begin
         request_read_i  => request_read,
         trigger_i       => '0',
         track_rx_en_o   => track_rx_en(0),
-        track_rx_data_o => track_rx_data(0)
+        track_rx_data_o => track_rx_data0
     );
 
     link_tracking_1_inst : entity work.link_tracking
@@ -397,7 +354,7 @@ begin
         request_read_i  => request_read,
         trigger_i       => ttc_trigger,
         track_rx_en_o   => track_rx_en(1),
-        track_rx_data_o => track_rx_data(1)
+        track_rx_data_o => track_rx_data1
     );
     
     link_tracking_2_inst : entity work.link_tracking
@@ -423,7 +380,7 @@ begin
         request_read_i  => request_read,
         trigger_i       => '0',
         track_rx_en_o   => track_rx_en(2),
-        track_rx_data_o => track_rx_data(2)
+        track_rx_data_o => track_rx_data2
     );
 
     --================================--
@@ -445,28 +402,7 @@ begin
         fifo_reset_i    => empty_trigger_fifo,
         sbit_config_i   => sbit_configuration,
         ext_sbit_o      => ext_sbit
-    );
-    
-    --================================--
-    -- TTC/TTT signal handling 	
-    -- from ngFEC_logic.vhd (HCAL)
-    --================================--
---    amc13_inst : entity work.amc13_top
---    port map(
---        ttc_clk_p  => xpoint1_clk3_p,
---        ttc_clk_n  => xpoint1_clk3_n,
---        ttc_data_p => amc_port_rx_p(3),
---        ttc_data_n => amc_port_rx_n(3),
---        ttc_clk    => ttc_clk,
---        ttcready   => open,
---        l1accept   => ttc_l1accept,
---        bcntres    => ttc_bcntres,
---        evcntres   => ttc_evcntres, 
---        sinerrstr  => ttc_sinerrstr,
---        dberrstr   => ttc_dberrstr,
---        brcststr   => ttc_brcststr,
---        brcst      => ttc_brcst
---    );    
+    );  
 
     --================================--
     -- TTC/TTT signal handling 	
@@ -489,10 +425,21 @@ begin
         Brcst       => ttc_brcst
     );
 
-    -- TTC reset after powerup
+    -- Bridge the L1A to the OH GTX clk domain
+    clock_bridge_trigger_inst : entity work.clock_bridge_simple
+    port map(
+        reset_i     => '0',
+        m_clk_i     => ttc_clk,
+        m_en_i      => ttc_l1accept,
+        s_clk_i     => gtx_clk,
+        s_en_o      => ttc_trigger
+    );
     
-    ttc_reset <= ttc_reset_pwrup;-- or ttc_reset_ipb;
+    -- Take out the TTC clock to the fpga_clkout_o (can be used to take out the TTC clock to the SMA connector by modifying the jumper settings)
+    fpga_clkout_o <= ttc_clk;
 
+    -- TTC reset after powerup
+    ttc_reset <= ttc_reset_pwrup;-- or ttc_reset_ipb;
     process(user_clk125_i)
         variable countdown : integer := 60_000_000; -- hold in reset for 0.5 second after powerup - way too long, but who cares
     begin
@@ -506,94 +453,76 @@ begin
         end if;
     end process;
     
-    -- TTC clock LED
-    
+    -- TTC LEDs
     process(ttc_clk)
-        variable led_countdown : integer := 0;
+        variable clk_led_countdown : integer := 0;
+        variable l1a_led_countdown : integer := 0;
     begin
         if (rising_edge(ttc_clk)) then
-            if (led_countdown < 2_500_000) then
+            -- control the clk LED
+            if (clk_led_countdown < 2_500_000) then
                 bc0_led <= '0';
             else
                 bc0_led <= '1';
             end if;
-            
-            if (led_countdown = 5_000_000) then
-                led_countdown := 0;
-            else
-                led_countdown := led_countdown + 1;
-            end if;
-        end if;
-    end process;
-    
-    -- L1A
-    
-    process(ttc_clk)
-        variable led_countdown : integer := 0;
-    begin
-        if (rising_edge(ttc_clk)) then
-            if (led_countdown > 0) then
+            -- control the L1A LED
+            if (l1a_led_countdown > 0) then
                 l1_led <= '1';
             else
                 l1_led <= '0';
-            end if;
+            end if;            
             
-            if (ttc_l1accept = '1') then
-                cnt_ttc_trigger <= std_logic_vector(unsigned(cnt_ttc_trigger) + 1);
-                led_countdown := 400_000;
-            elsif (led_countdown > 0) then
-                led_countdown := led_countdown - 1;
+            -- manage the clk countdown
+            if (clk_led_countdown = 0) then
+                clk_led_countdown := 5_000_000;
             else
-                led_countdown := 0;
+                clk_led_countdown := clk_led_countdown - 1;
+            end if;
+
+            -- manage the L1A countdown
+            if (ttc_l1accept = '1') then
+                l1a_led_countdown := 400_000;
+            elsif (l1a_led_countdown > 0) then
+                l1a_led_countdown := l1a_led_countdown - 1;
+            else
+                l1a_led_countdown := 0;
             end if;
         end if;
     end process;
-        
-    clock_bridge_trigger_inst : entity work.clock_bridge_simple
-    port map(
-        reset_i     => '0',
-        m_clk_i     => ttc_clk,
-        m_en_i      => ttc_l1accept,
-        s_clk_i     => gtx_clk,
-        s_en_o      => ttc_trigger
-    );
-
-    -- BC0
     
+    -- TTC counters
     process(ttc_clk)
-        variable led_countdown : integer := 0;
     begin
         if (rising_edge(ttc_clk)) then
---            if (led_countdown > 0) then
---                bc0_led <= '1';
---            else
---                bc0_led <= '0';
---            end if;
             
+            -- if EC0 then reset the counters, otherwise increment when needed
+            if (ttc_evcntres = '1') then
+                cnt_ttc_trigger <= (others => '0');
+                ttc_trig_id_small <= (others => '0');
+                orbit_id <= (others => '0');
+                orbit_id_small <= (others => '0');
+            else
+                -- L1A
+                if (ttc_l1accept = '1') then
+                    cnt_ttc_trigger <= std_logic_vector(unsigned(cnt_ttc_trigger) + 1);
+                    ttc_trig_id_small <= std_logic_vector(unsigned(ttc_trig_id_small) + 1);
+                end if;
+                -- BC0
+                if (ttc_bcntres = '1') then
+                    orbit_id <= std_logic_vector(unsigned(orbit_id) + 1);
+                    orbit_id_small <= std_logic_vector(unsigned(orbit_id_small) + 1);
+                end if;
+            end if;
+            
+            -- BX counter
             if (ttc_bcntres = '1') then
                 bx_id <= (others => '0');
-                orbit_id <= std_logic_vector(unsigned(orbit_id) + 1);
-                led_countdown := 400_000;
-            elsif (led_countdown > 0) then
-                bx_id <= std_logic_vector(unsigned(bx_id) + 1);
-                led_countdown := led_countdown - 1;
             else
-                led_countdown := 0;
+                bx_id <= std_logic_vector(unsigned(bx_id) + 1);
             end if;
+            
         end if;
     end process;
-    
-    -- EC0
-    
---    process(ttc_clk)
---    begin
---        if (rising_edge(ttc_clk)) then
---            if (ttc_evcntres = '1') then
---                cnt_ttc_trigger <= (others => '0');
---                orbit_id <= (others => '0');
---            end if;
---        end if;
---    end process;
     
     --================================--
     -- DAQ
@@ -602,156 +531,50 @@ begin
     daq : entity work.daq
     port map
     (
-        track_rx_clk    => gtx_clk,
-        track_rx_en_i   => track_rx_en,
-        track_rx_data_i => track_rx_data
+        -- Reset
+        reset_i                     => reset_i,
+        soft_reset_i                => '0',
+        resync_i                    => ttc_evcntres,
+        
+        -- Clocks
+        mgt_ref_clk125_i            => clk125_2_i,
+        clk125_i                    => user_clk125_i,
+
+        -- Pins
+        daq_gtx_tx_pin_p            => amc_port_tx_p(1),
+        daq_gtx_tx_pin_n            => amc_port_tx_n(1),
+        daq_gtx_rx_pin_p            => amc_port_rx_p(1),
+        daq_gtx_rx_pin_n            => amc_port_rx_n(1),
+
+        -- TTC
+        ttc_ready_i                 => ttc_clk,
+        ttc_clk_i                   => ttc_clk,
+        ttc_l1a_i                   => ttc_l1accept,
+        ttc_bc0_i                   => ttc_bcntres,
+        ttc_ec0_i                   => ttc_evcntres,
+        ttc_bx_id_i                 => bx_id,
+        ttc_orbit_id_i              => orbit_id_small,
+        ttc_l1a_id_i                => ttc_trig_id_small,
+
+        -- Track data
+        track_rx_clk_i              => gtx_clk,
+        track_rx_en_i               => track_rx_en,
+        track_rx_data_i             => track_rx_data0,
+        
+        -- Monitoring and control
+        daq_status1_reg_o           => request_read(4),
+        daq_status2_reg_o           => request_read(6),
+        daq_config_reg_i            => request_read(5),
+        gtx_disper_err_cnt_o        => request_read(8),
+        gtx_notintable_err_cnt_o    => request_read(9),
+        cnt_reset_i                 => cnt_reset,
+
+        -- Other
+        board_sn_i                  => sn
     );
     
-    -- TTS
+    daq_config_read_reg : entity work.reg port map(fabric_clk_i => ipb_clk_i, reset_i => reset_i, wbus_i => request_write(5), wbus_t => request_tri(5), rbus_o => request_read(5));
     
-    daq_tts_state <= x"8"; -- for now READY all the time
-    
-    -- bridge TTC L1A to DAQ clock domain
-    clock_bridge_daq_trigger_inst : entity work.clock_bridge_simple
-    port map(
-        reset_i     => '0',
-        m_clk_i     => ttc_clk,
-        m_en_i      => ttc_l1accept,
-        s_clk_i     => daq_clk25_bufg,
-        s_en_o      => daq_trigger
-    );
-    
-    -- fake DAQ data on L1A
-    process(daq_clk25_bufg)
-    begin
-        if (rising_edge(daq_clk25_bufg)) then
-            -- start the fake event state machine
-            if (daq_trigger = '1' and daq_state = x"0" and (daq_ready = '1' or daq_ignore_daq_ready = '1') and daq_almost_full = '0' and daq_reset = '0' and daq_enable = '1') then
-                daq_state <= x"1";
-            end if;
-            
-            -- state machine for sending one fake event packets
-            if (daq_state > x"0") then
-                if (daq_state = x"1") then    -- send the first header
-                    daq_event_data <= x"00" & cnt_ttc_trigger(23 downto 0) & bx_id & x"00004";
-                    daq_event_header <= '1';
-                    daq_event_trailer <= '0';
-                    daq_event_write_en <= '1';
-                    daq_state <= x"2";
-                elsif (daq_state = x"2") then -- send the second header
-                    daq_event_data <= x"00000000" & orbit_id(15 downto 0) & x"00" & sn;
-                    daq_event_header <= '0';
-                    daq_event_trailer <= '0';
-                    daq_event_write_en <= '1';
-                    daq_state <= x"3";
-                elsif (daq_state = x"3") then -- send the payload
-                    daq_event_data <= x"BAADF00D" & x"BAADCAFE";
-                    daq_event_header <= '0';
-                    daq_event_trailer <= '0';
-                    daq_event_write_en <= '1';
-                    daq_state <= x"4";
-                elsif (daq_state = x"4") then -- send trailer
-                    daq_event_data <= x"00000000" & cnt_ttc_trigger(7 downto 0) & x"0" & x"00004";
-                    daq_event_header <= '0';
-                    daq_event_trailer <= '1';
-                    daq_event_write_en <= '1';
-                    daq_state <= x"0";
-                else -- hmm
-                    daq_state <= x"0";
-                end if;
-            elsif (daq_state = x"0") then -- zero out everything, especially the write enable :)
-                daq_event_data <= (others => '0');
-                daq_event_header <= '0';
-                daq_event_trailer <= '0';
-                daq_event_write_en <= '0';
-            end if;
-            
-        end if;
-    end process;
-
-    --================================--
-    -- DAQ Link
-    --================================--
-
-    -- DAQ reset after powerup
-    
-    daq_reset <= daq_reset_pwrup; -- or daq_ipb_reset;
-    
-    process(ttc_clk)
-        variable countdown : integer := 60_000_000; -- probably way too long, but who cares (this is only used after powerup)
-    begin
-        if (rising_edge(ttc_clk)) then
-            if (countdown > 0) then
-              daq_reset_pwrup <= '1';
-              countdown := countdown - 1;
-            else
-              daq_reset_pwrup <= '0';
-            end if;
-        end if;
-    end process;
-
-    -- DAQ clocks
-    
-    clknetwork : entity work.daq_clocks
-    port map
-    (
-        CLK_IN1            => user_clk125_i,
-        CLK_OUT1           => daq_clk25_bufg,
-        CLK_OUT2           => daq_clk250_bufg, -- not used
-        RESET              => '0',
-        LOCKED             => daq_clock_locked
-    );
-
-    -- quick and dirty check of frequency of some clocks
-    process(daq_gtx_clk)
-        variable last_daq_clk   : std_logic := '0';
-        variable daq_clk_length : unsigned(7 downto 0) := (others => '0');
-        variable last_ttc_clk   : std_logic := '0';
-        variable ttc_clk_length : unsigned(7 downto 0) := (others => '0');
-    begin
-        if (rising_edge(daq_gtx_clk)) then
-            if (daq_clk25_bufg = last_daq_clk) then
-                daq_clk_length := daq_clk_length + 1;
-            else
-                request_read(6) <= x"000000" & std_logic_vector(daq_clk_length);
-                daq_clk_length := (others => '0');
-                last_daq_clk := daq_clk25_bufg;
-            end if;
-            if (ttc_clk = last_ttc_clk) then
-                ttc_clk_length := ttc_clk_length + 1;
-            else
-                request_read(7) <= x"000000" & std_logic_vector(ttc_clk_length);
-                ttc_clk_length := (others => '0');
-                last_ttc_clk := ttc_clk;
-            end if;            
-        end if;
-    end process;
-
-    -- DAQ Link instantiation
-    daq_link : entity work.daqlink_wrapper
-    port map(
-        RESET_IN              => daq_reset,
-        MGT_REF_CLK_IN        => clk125_2_i,
-        GTX_TXN_OUT           => amc_port_tx_n(1),
-        GTX_TXP_OUT           => amc_port_tx_p(1),
-        GTX_RXN_IN            => amc_port_rx_n(1),
-        GTX_RXP_IN            => amc_port_rx_p(1),
-        DATA_CLK_IN           => daq_clk25_bufg,
-        EVENT_DATA_IN         => daq_event_data,
-        EVENT_DATA_HEADER_IN  => daq_event_header,
-        EVENT_DATA_TRAILER_IN => daq_event_trailer,
-        DATA_WRITE_EN_IN      => daq_event_write_en,
-        READY_OUT             => daq_ready,
-        ALMOST_FULL_OUT       => daq_almost_full,
-        TTS_CLK_IN            => ttc_clk,
-        TTS_STATE_IN          => daq_tts_state,
-        GTX_CLK_OUT           => daq_gtx_clk,
-        ERR_DISPER_COUNT      => daq_disper_err_cnt,
-        ERR_NOT_IN_TABLE_COUNT=> daq_notintable_err_cnt,
-        BC0_IN                => ttc_bcntres,
-        CLK125_IN             => user_clk125_i
-    );
-
     --================================--
     -- Register mapping
     --================================--
@@ -773,15 +596,15 @@ begin
     request_read(3) <= cnt_ttc_trigger;
 	 
     -- DAQ test registers (TODO: clean up later) 
-	request_read(4) <= x"0000000" & ttc_ready & daq_clock_locked & daq_almost_full & daq_ready;
+	--request_read(4) <= x"0000000" & ttc_ready & daq_clock_locked & daq_almost_full & daq_ready;
     
-    daq_config_reg : entity work.reg port map(fabric_clk_i => ipb_clk_i, reset_i => reset_i, wbus_i => request_write(5), wbus_t => request_tri(5), rbus_o => request_read(5));
-    ttc_reset_ipb <= request_read(5)(3);
-    daq_ipb_reset <= request_read(5)(2);
-    daq_enable <= request_read(5)(1);
-    daq_ignore_daq_ready <= request_read(5)(0);
-
-    request_read(8) <= x"0000" & daq_disper_err_cnt;
-    request_read(9) <= x"0000" & daq_notintable_err_cnt;
+--    daq_config_reg : entity work.reg port map(fabric_clk_i => ipb_clk_i, reset_i => reset_i, wbus_i => request_write(5), wbus_t => request_tri(5), rbus_o => request_read(5));
+--    ttc_reset_ipb <= request_read(5)(3);
+--    daq_ipb_reset <= request_read(5)(2);
+--    daq_enable <= request_read(5)(1);
+--    daq_ignore_daq_ready <= request_read(5)(0);
+--
+--    request_read(8) <= x"0000" & daq_disper_err_cnt;
+--    request_read(9) <= x"0000" & daq_notintable_err_cnt;
 
 end user_logic_arch;

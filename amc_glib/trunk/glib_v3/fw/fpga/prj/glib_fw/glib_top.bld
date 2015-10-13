@@ -64,15 +64,8 @@ INFO:ConstraintSystem:178 - TNM 'clk125_2_p', used in period specification
    'TS_clk125_2_p', was traced into MMCM_ADV instance mmcm_adv_inst. The
    following new TNM groups and period specifications were generated at the
    MMCM_ADV output(s): 
-   CLKOUT1: <TIMESPEC TS_usr_clknetwork_clkout1 = PERIOD
-   "usr_clknetwork_clkout1" TS_clk125_2_p / 2 HIGH 50%>
-
-INFO:ConstraintSystem:178 - TNM 'clk125_2_p', used in period specification
-   'TS_clk125_2_p', was traced into MMCM_ADV instance mmcm_adv_inst. The
-   following new TNM groups and period specifications were generated at the
-   MMCM_ADV output(s): 
-   CLKOUT0: <TIMESPEC TS_usr_clknetwork_clkout0 = PERIOD
-   "usr_clknetwork_clkout0" TS_clk125_2_p / 0.2 HIGH 50%>
+   CLKOUT0: <TIMESPEC TS_usr_daq_daq_clocks_clkout0 = PERIOD
+   "usr_daq_daq_clocks_clkout0" TS_clk125_2_p / 0.2 HIGH 50%>
 
 INFO:ConstraintSystem:178 - TNM 'clk125_2_p', used in period specification
    'TS_clk125_2_p', was traced into MMCM_ADV instance mmcm_adv_inst. The
@@ -99,15 +92,8 @@ INFO:ConstraintSystem:178 - TNM 'clk125_2_n', used in period specification
    'TS_clk125_2_n', was traced into MMCM_ADV instance mmcm_adv_inst. The
    following new TNM groups and period specifications were generated at the
    MMCM_ADV output(s): 
-   CLKOUT1: <TIMESPEC TS_usr_clknetwork_clkout1_0 = PERIOD
-   "usr_clknetwork_clkout1_0" TS_clk125_2_n / 2 HIGH 50%>
-
-INFO:ConstraintSystem:178 - TNM 'clk125_2_n', used in period specification
-   'TS_clk125_2_n', was traced into MMCM_ADV instance mmcm_adv_inst. The
-   following new TNM groups and period specifications were generated at the
-   MMCM_ADV output(s): 
-   CLKOUT0: <TIMESPEC TS_usr_clknetwork_clkout0_0 = PERIOD
-   "usr_clknetwork_clkout0_0" TS_clk125_2_n / 0.2 HIGH 50%>
+   CLKOUT0: <TIMESPEC TS_usr_daq_daq_clocks_clkout0_0 = PERIOD
+   "usr_daq_daq_clocks_clkout0_0" TS_clk125_2_n / 0.2 HIGH 50%>
 
 INFO:ConstraintSystem:178 - TNM 'clk125_2_n', used in period specification
    'TS_clk125_2_n', was traced into MMCM_ADV instance mmcm_adv_inst. The
@@ -150,15 +136,8 @@ INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
    'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
    following new TNM groups and period specifications were generated at the
    MMCM_ADV output(s): 
-   CLKOUT1: <TIMESPEC TS_usr_clknetwork_clkout1_1 = PERIOD
-   "usr_clknetwork_clkout1_1" TS_user_clk125_2 / 2 HIGH 50%>
-
-INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
-   'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
-   following new TNM groups and period specifications were generated at the
-   MMCM_ADV output(s): 
-   CLKOUT0: <TIMESPEC TS_usr_clknetwork_clkout0_1 = PERIOD
-   "usr_clknetwork_clkout0_1" TS_user_clk125_2 / 0.2 HIGH 50%>
+   CLKOUT0: <TIMESPEC TS_usr_daq_daq_clocks_clkout0_1 = PERIOD
+   "usr_daq_daq_clocks_clkout0_1" TS_user_clk125_2 / 0.2 HIGH 50%>
 
 INFO:ConstraintSystem:178 - TNM 'user_clk125_2', used in period specification
    'TS_user_clk125_2', was traced into MMCM_ADV instance mmcm_adv_inst. The
@@ -578,7 +557,6 @@ WARNING:NgdBuild:452 - logical net 'sram2_bwa_OBUF' has no driver
 WARNING:NgdBuild:452 - logical net 'sram2_bwb_OBUF' has no driver
 WARNING:NgdBuild:452 - logical net 'sram2_bwc_OBUF' has no driver
 WARNING:NgdBuild:452 - logical net 'sram2_bwd_OBUF' has no driver
-WARNING:NgdBuild:452 - logical net 'fpga_clkout_OBUF' has no driver
 WARNING:NgdBuild:452 - logical net 'user_sram_rdata<1><35>' has no driver
 WARNING:NgdBuild:452 - logical net 'user_sram_rdata<1><34>' has no driver
 WARNING:NgdBuild:452 - logical net 'user_sram_rdata<1><33>' has no driver
@@ -769,6 +747,7 @@ WARNING:NgdBuild:452 - logical net 'N802' has no driver
 WARNING:NgdBuild:452 - logical net 'N805' has no driver
 WARNING:NgdBuild:452 - logical net 'N806' has no driver
 WARNING:NgdBuild:452 - logical net 'usr/rx_error<3>' has no driver
+WARNING:NgdBuild:452 - logical net 'usr/request_tri<2>' has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_2_inst/vi2c_tx_data<31>'
    has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_2_inst/vi2c_tx_data<30>'
@@ -17537,8 +17516,6 @@ WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<4>'
    has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<3>'
    has no driver
-WARNING:NgdBuild:452 - logical net 'usr/link_tracking_1_inst/request_tri_o<2>'
-   has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_0_inst/vi2c_tx_data<31>'
    has no driver
 WARNING:NgdBuild:452 - logical net 'usr/link_tracking_0_inst/vi2c_tx_data<30>'
@@ -27025,12 +27002,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings: 13673
+  Number of warnings: 13672
 
-Total memory usage is 739072 kilobytes
+Total memory usage is 749164 kilobytes
 
 Writing NGD file "glib_top.ngd" ...
-Total REAL time to NGDBUILD completion: 1 min  9 sec
-Total CPU time to NGDBUILD completion:   50 sec
+Total REAL time to NGDBUILD completion:  59 sec
+Total CPU time to NGDBUILD completion:   52 sec
 
 Writing NGDBUILD log file "glib_top.bld"...

@@ -5,14 +5,14 @@ Parameter TMPDIR set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Parameter xsthdpdir set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.04 secs
+Total CPU time to Xst completion: 0.05 secs
  
 --> 
 Reading design: user_logic.prj
@@ -167,17 +167,32 @@ Parsing architecture <behavioral> of entity <clock_bridge_simple>.
 Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" into library work
 Parsing entity <user_logic>.
 Parsing architecture <user_logic_arch> of entity <user_logic>.
-
-
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 3.31 secs
- 
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 564: <daq_tts_state> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 572: <daq_clk25_bufg> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 573: <daq_trigger> is not declared.
+ERROR:HDLCompiler:192 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 573: Actual of formal out port s_en_o cannot be an expression
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 582: <daq_state> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 581: <daq_trigger> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 588: <daq_event_data> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 589: <daq_event_header> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 590: <daq_event_trailer> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 591: <daq_event_write_en> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 592: <daq_state> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 594: <daq_event_data> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 595: <daq_event_header> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 596: <daq_event_trailer> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 597: <daq_event_write_en> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 598: <daq_state> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 593: <daq_state> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 600: <daq_event_data> is not declared.
+ERROR:HDLCompiler:69 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_logic_basic.vhd" Line 601: <daq_event_header> is not declared.
+Sorry, too many errors..
 --> 
 
 
-Total memory usage is 352760 kilobytes
+Total memory usage is 354388 kilobytes
 
-Number of errors   :    0 (   0 filtered)
+Number of errors   :   19 (   0 filtered)
 Number of warnings :    1 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 

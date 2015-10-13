@@ -8,7 +8,7 @@
 -- \   \   \/     Version    : 14.7
 --  \   \         Application: XILINX CORE Generator
 --  /   /         Filename   : ila_pro_0.vhd
--- /___/   /\     Timestamp  : Wed Sep 02 13:23:12 CEST 2015
+-- /___/   /\     Timestamp  : Fri Oct 09 18:04:23 CEST 2015
 -- \   \  /  \
 --  \___\/\___\
 --
@@ -22,7 +22,7 @@ ENTITY ila_pro_0 IS
   port (
     CONTROL: inout std_logic_vector(35 downto 0);
     CLK: in std_logic;
-    DATA: in std_logic_vector(238 downto 0);
+    DATA: in std_logic_vector(236 downto 0);
     TRIG0: in std_logic_vector(0 to 0);
     TRIG1: in std_logic_vector(0 to 0));
 END ila_pro_0;

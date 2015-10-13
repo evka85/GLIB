@@ -1,7 +1,7 @@
 Release 14.7 - par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Wed Sep  2 13:50:19 2015
+Tue Oct 13 15:30:14 2015
 
 
 INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
@@ -185,7 +185,7 @@ Pinout by Pin Number:
 |AD27      |                     |IOBS     |IO_L1N_12                 |UNUSED   |           |12            |          |         |           |         |         |          |           |                |
 |AD28      |                     |         |GND                       |         |           |              |          |         |           |         |         |          |           |                |
 |AD29      |                     |IOBM     |IO_L11P_SRCC_13           |UNUSED   |           |13            |          |         |           |         |         |          |           |                |
-|AD30      |                     |IOBM     |IO_L9P_MRCC_13            |UNUSED   |           |13            |          |         |           |         |         |          |           |                |
+|AD30      |fpga_clkout          |IOB      |IO_L9P_MRCC_13            |OUTPUT   |LVCMOS25*  |13            |12        |SLOW     |           |         |         |LOCATED   |NO         |NONE            |
 |AD31      |                     |IOBS     |IO_L5N_13                 |UNUSED   |           |13            |          |         |           |         |         |          |           |                |
 |AD32      |                     |IOBM     |IO_L14P_13                |UNUSED   |           |13            |          |         |           |         |         |          |           |                |
 |AD33      |                     |         |VCCO_13                   |         |           |13            |          |         |           |         |2.50     |          |           |                |

@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/prj/glib_cpld.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/prj/glib_cpld.syr" 
+ngdbuild -intstyle ise -dd _ngo -uc /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/src/glib_cpld.ucf -p xc2c128-VQ100-7 glib_cpld.ngc glib_cpld.ngd  
+cpldfit -intstyle ise -p xc2c128-7-VQ100 -ofmt vhdl -optimize density -htmlrpt -loc on -slew fast -init low -inputs 32 -pterms 28 -unused pullup -terminate pullup -iostd LVCMOS25 glib_cpld.ngd 
+XSLTProcess glib_cpld_build.xml 
+tsim -intstyle ise glib_cpld glib_cpld.nga 
+taengine -intstyle ise -f glib_cpld -w --format html1 -l glib_cpld_html/tim/timing_report.htm 
+hprep6 -s IEEE1149 -i glib_cpld 

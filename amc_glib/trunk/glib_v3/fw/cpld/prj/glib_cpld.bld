@@ -1,0 +1,63 @@
+Release 14.7 ngdbuild P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
+ise -dd _ngo -uc
+/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/src/glib_cpld.ucf -p
+xc2c128-VQ100-7 glib_cpld.ngc glib_cpld.ngd
+
+Reading NGO file
+"/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/prj/glib_cpld.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file
+"/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/src/glib_cpld.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+Done...
+
+Checking expanded design ...
+WARNING:NgdBuild:470 - bidirect pad net 'mmc_fpga1_init_done' has no legal
+   driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc1_tck' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc1_tdi' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc1_tdo' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'mmc_fpga2_init_done' has no legal
+   driver
+WARNING:NgdBuild:470 - bidirect pad net 'mmc_pe6' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'mmc_reset_fpga_n' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'mmc_pg4' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'sw<3>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'amc_tck' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'sw<4>' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'amc_tdi' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc2_tck' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fpga_reset_b' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc2_tdi' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'amc_tdo' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc2_tdo' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc1_tms' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'mmc_reload_fpgas_n' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'amc_tms' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'fmc2_tms' has no legal driver
+WARNING:NgdBuild:470 - bidirect pad net 'v6_cpld<4>' has no legal driver
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:  22
+
+Total memory usage is 398396 kilobytes
+
+Writing NGD file "glib_cpld.ngd" ...
+Total REAL time to NGDBUILD completion:  8 sec
+Total CPU time to NGDBUILD completion:   8 sec
+
+Writing NGDBUILD log file "glib_cpld.bld"...

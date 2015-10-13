@@ -5,14 +5,14 @@ Parameter TMPDIR set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Parameter xsthdpdir set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.04 secs
  
 --> 
 Reading design: daqlink_wrapper.prj
@@ -71,13 +71,13 @@ Parsing entity <daqlink_wrapper>.
 Parsing architecture <Behavioral> of entity <daqlink_wrapper>.
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.80 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 3.21 secs
  
 --> 
 
 
-Total memory usage is 355392 kilobytes
+Total memory usage is 351200 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :    0 (   0 filtered)

@@ -1,0 +1,191 @@
+
+----------------------------------------
+|  P a r t i t i o n    S u c c e e d  |
+----------------------------------------
+0 Group(s)
+
+Banked output:
+[cpld_a21_out](1/-1) [cpld_a22_out](1/-1) [cpld_led<1>](0/-1) [cpld_led<2>](0/-1) [cpld_led<3>](0/-1) [fmcx_pg_c2m](0/-1) [fpga_program_b](1/-1) [fpga_tck](1/-1) [fpga_tdi](1/-1) [fpga_tms](1/-1) [gbe_tck](1/-1) [gbe_tdi](1/-1) [gbe_tms](1/-1) [jtag_header_tdi](0/-1) [mmc_low_voltage_pok](0/-1) [sram1_tck](1/-1) [sram1_tdi](1/-1) [sram1_tms](1/-1) [sram2_tck](1/-1) [sram2_tdi](1/-1) [sram2_tms](1/-1) [v6_cpld<0>](1/-1) [v6_cpld<1>](1/-1) [v6_cpld<2>](1/-1) [v6_cpld<3>](1/-1) 
+Banked input:
+[cpld_a21_in](1/-1) [cpld_a22_in](1/-1) [fmc_pg_m2c<1>](0/-1) [fmc_pg_m2c<2>](0/-1) [fmc_prsnt_m2c_l<1>](1/-1) [fmc_prsnt_m2c_l<2>](1/-1) [fpga_done](1/-1) [fpga_init_b](1/-1) [fpga_tdo](1/-1) [gbe_tdo](1/-1) [jtag_header_tck](0/-1) [jtag_header_tdo](0/-1) [jtag_header_tms](0/-1) [pgood_1v0](1/-1) [pgood_1v5](1/-1) [pgood_2v5](1/-1) [pgood_3v3](1/-1) [rtm_12v_en](0/-1) [rtm_3v3_en](0/-1) [rtm_i2c_en](0/-1) [rtm_ps](0/-1) [sram1_tdo](1/-1) [sram2_tdo](1/-1) [sw<1>](0/-1) [sw<2>](0/-1) [v6_cpld<5>](1/-1) [xtal_cpld](1/-1) 
+LOB0(1/-1): POB0 
+Float/Total=0/35 signals: [cpld_a21_in](1/-1) [cpld_a21_out](1/-1) [cpld_a22_in](1/-1) [cpld_a22_out](1/-1) [fmc_prsnt_m2c_l<1>](1/-1) [fmc_prsnt_m2c_l<2>](1/-1) [fpga_done](1/-1) [fpga_init_b](1/-1) [fpga_program_b](1/-1) [fpga_tck](1/-1) [fpga_tdi](1/-1) [fpga_tdo](1/-1) [fpga_tms](1/-1) [gbe_tck](1/-1) [gbe_tdi](1/-1) [gbe_tdo](1/-1) [gbe_tms](1/-1) [pgood_1v0](1/-1) [pgood_1v5](1/-1) [pgood_2v5](1/-1) [pgood_3v3](1/-1) [sram1_tck](1/-1) [sram1_tdi](1/-1) [sram1_tdo](1/-1) [sram1_tms](1/-1) [sram2_tck](1/-1) [sram2_tdi](1/-1) [sram2_tdo](1/-1) [sram2_tms](1/-1) [v6_cpld<0>](1/-1) [v6_cpld<1>](1/-1) [v6_cpld<2>](1/-1) [v6_cpld<3>](1/-1) [v6_cpld<5>](1/-1) [xtal_cpld](1/-1) 
+
+LOB1(0/-1): POB1 
+Float/Total=0/17 signals: [cpld_led<1>](0/-1) [cpld_led<2>](0/-1) [cpld_led<3>](0/-1) [fmc_pg_m2c<1>](0/-1) [fmc_pg_m2c<2>](0/-1) [fmcx_pg_c2m](0/-1) [jtag_header_tck](0/-1) [jtag_header_tdi](0/-1) [jtag_header_tdo](0/-1) [jtag_header_tms](0/-1) [mmc_low_voltage_pok](0/-1) [rtm_12v_en](0/-1) [rtm_3v3_en](0/-1) [rtm_i2c_en](0/-1) [rtm_ps](0/-1) [sw<1>](0/-1) [sw<2>](0/-1) 
+
+
+POB0(1/-1): LOB0 
+35 signals: [cpld_a21_in](1/-1) [cpld_a21_out](1/-1) [cpld_a22_in](1/-1) [cpld_a22_out](1/-1) [fmc_prsnt_m2c_l<1>](1/-1) [fmc_prsnt_m2c_l<2>](1/-1) [fpga_done](1/-1) [fpga_init_b](1/-1) [fpga_program_b](1/-1) [fpga_tck](1/-1) [fpga_tdi](1/-1) [fpga_tdo](1/-1) [fpga_tms](1/-1) [gbe_tck](1/-1) [gbe_tdi](1/-1) [gbe_tdo](1/-1) [gbe_tms](1/-1) [pgood_1v0](1/-1) [pgood_1v5](1/-1) [pgood_2v5](1/-1) [pgood_3v3](1/-1) [sram1_tck](1/-1) [sram1_tdi](1/-1) [sram1_tdo](1/-1) [sram1_tms](1/-1) [sram2_tck](1/-1) [sram2_tdi](1/-1) [sram2_tdo](1/-1) [sram2_tms](1/-1) [v6_cpld<0>](1/-1) [v6_cpld<1>](1/-1) [v6_cpld<2>](1/-1) [v6_cpld<3>](1/-1) [v6_cpld<5>](1/-1) [xtal_cpld](1/-1) 
+0 vrefs: 
+POB0's input pads:
+	@@@@@@:::.@@::@@::@@:@.@@.@:@@@@@@::.:::@:@::@@:@:@:@::@@@@::@@
+	000000:::000::00::00:000000:000000::0:::0:0::00:0:0:0::0000::00
+
+POB0 has 4 pins, 0 Dinputs, 34 mcells, 106 fanins, 155 pla pts free in FB2 FB4 FB6 FB8 
+
+POB1(0/-1): LOB1 
+17 signals: [cpld_led<1>](0/-1) [cpld_led<2>](0/-1) [cpld_led<3>](0/-1) [fmc_pg_m2c<1>](0/-1) [fmc_pg_m2c<2>](0/-1) [fmcx_pg_c2m](0/-1) [jtag_header_tck](0/-1) [jtag_header_tdi](0/-1) [jtag_header_tdo](0/-1) [jtag_header_tms](0/-1) [mmc_low_voltage_pok](0/-1) [rtm_12v_en](0/-1) [rtm_3v3_en](0/-1) [rtm_i2c_en](0/-1) [rtm_ps](0/-1) [sw<1>](0/-1) [sw<2>](0/-1) 
+0 vrefs: 
+POB1's input pads:
+	@@.:.::...@.::@:.@:@..:@:::.@@:@@...:..@@:.::@@:@.::..@....:.
+	000:0::00000::0:00:000:0:::000:00000:0000:0::00:00::0000000:0
+
+POB1 has 24 pins, 0 Dinputs, 39 mcells, 100 fanins, 183 pla pts free in FB1 FB3 FB5 FB7 
+
+
+GTS3: 37=mmc_low_voltage_pok.n
+GCLK2: 2=xtal_cpld.p
+----------------- B l o c k 0 ------------------
+PLApt(29/56), Fanin(26/38), Clk(1/3), Bct(0/4), Pin(2/10), Mcell(16/16)
+PLApts[29/53] 27 31 28 30 32 58 64 61 65 68 55 62 69 56 57 63 70 59 41 42 43 44 45 () () () () () () () () 26 
+              () () 25 () () 24 () () 15 () () () () () () () () 22 () () 40
+Fanins[26] fmcx_pg_c2m.n N_PZ_216.n error_check_enable.n fpga_program_b_trigger.n state<0>.n timer1<0>.n 
+           timer1<1>.n timer1<2>.n timer1<3>.n timer1<4>.n timer1<5>.n timer2<0>.n timer2<10>.n timer2<11>.n 
+           timer2<12>.n timer2<13>.n timer2<14>.n timer2<15>.n timer2<1>.n timer2<2>.n timer2<6>.n 
+           timer2<7>.n timer2<8>.n timer2<9>.n fpga_init_b.p sw<1>.p
+clk[1] xtal_cpld 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[17] [cpld_led<1>(111),cpld_led<1>(8)] [rtm_ps(3)] [timer1<0>(114)] [timer1<1>(110)] [timer1<2>(109)]  
+           [timer1<4>(108)] [timer1<3>(107)] [timer1<5>(102)] [state<0>(116)] [fpga_init_b_r(115)]  
+           [timer2<15>(113)] [timer2<6>(112)] [timer2<7>(106)] [timer2<8>(105)] [error_check_enable(104)]  
+           [timer2<1>(103)] [timer2<2>(101)] 
+Signal[17] [ 0: timer2<2>(101) (13)  ][ 1: timer1<5>(102)  ][ 2: timer2<1>(103) (12)  ][ 3:  
+           error_check_enable(104) (11)  ][ 4: timer2<8>(105) (10)  ][ 5: timer2<7>(106) (9)  ][ 6:  
+           timer1<3>(107)  ][ 7: timer1<4>(108)  ][ 8: timer1<2>(109)  ][ 9: timer1<1>(110)  ][ 10:  
+           cpld_led<1>(111) cpld_led<1>(8)  ][ 11: timer2<6>(112) (7)  ][ 12: timer2<15>(113) (6)  ][ 13:  
+           timer1<0>(114)  ][ 14: fpga_init_b_r(115) (4)  ][ 15: state<0>(116) rtm_ps(3)  ]
+----------------- B l o c k 1 ------------------
+PLApt(52/56), Fanin(26/38), Clk(1/3), Bct(1/4), Pin(9/10), Mcell(16/16)
+PLApts[52/53] 89 95 103 84 88 94 102 38 80 83 87 93 101 8 77 79 6 82 86 7 92 100 71 72 73 74 96 104 75 76 78 
+              81 85 91 99 90 98 46 47 48 8 49 65 50 51 52 53 54 66 6 67 () 14
+Fanins[26] fmcx_pg_c2m.n mmc_low_voltage_pok.n N_PZ_216.n N_PZ_296.n fpga_program_b_trigger.n timer2<0>.n 
+           timer2<10>.n timer2<11>.n timer2<12>.n timer2<13>.n timer2<14>.n timer2<15>.n timer2<1>.n 
+           timer2<2>.n timer2<3>.n timer2<4>.n timer2<5>.n timer2<6>.n timer2<7>.n timer2<8>.n timer2<9>.n 
+           jtag_header_tck.p jtag_header_tdo.p jtag_header_tms.p sram2_tdo.p sw<1>.p
+clk[1] xtal_cpld 
+CTC: 
+CTR: 
+CTS: 
+CTE: (pt=38) sw<1> mmc_low_voltage_pok ;
+vref: [0]
+Signal[19] [gbe_tck(130),gbe_tck(23)] [gbe_tdi(131),gbe_tdi(24)] [gbe_tms(127),gbe_tms(19)]  
+           [fpga_tck(119),fpga_tck(15)] [fpga_tdi(120),fpga_tdi(16)] [fpga_tms(118),fpga_tms(14)]  
+           [fpga_tdo(17)] [gbe_tdo(18)] [xtal_cpld(27)] [timer2<14>(128)] [timer2<13>(126)]  
+           [timer2<12>(125)] [timer2<11>(124)] [timer2<9>(123)] [timer2<10>(117)] [timer2<0>(132)]  
+           [timer2<3>(129)] [timer2<4>(122)] [timer2<5>(121)] 
+Signal[19] [ 0: timer2<10>(117)  ][ 1: fpga_tms(118) fpga_tms(14)  ][ 2: fpga_tck(119) fpga_tck(15)  ][ 3:  
+           fpga_tdi(120) fpga_tdi(16)  ][ 4: timer2<5>(121) fpga_tdo(17)  ][ 5: timer2<4>(122) gbe_tdo(18)  ] 
+           [ 6: timer2<9>(123)  ][ 7: timer2<11>(124)  ][ 8: timer2<12>(125)  ][ 9: timer2<13>(126)  ][ 10:  
+           gbe_tms(127) gbe_tms(19)  ][ 11: timer2<14>(128)  ][ 12: timer2<3>(129) (22)  ][ 13: gbe_tck(130)  
+           gbe_tck(23)  ][ 14: gbe_tdi(131) gbe_tdi(24)  ][ 15: timer2<0>(132) xtal_cpld(27)  ]
+----------------- B l o c k 2 ------------------
+PLApt(8/56), Fanin(18/38), Clk(0/3), Bct(2/4), Pin(5/11), Mcell(5/16)
+PLApts[8/44] 19 20 60 () 18 97 () () () () () () () () () () () () () () () () () () () () () () () () () 29 
+             () () 36 () () () () () () () () 39
+Fanins[18] fmcx_pg_c2m.n N_PZ_296.n error_check_enable.n fpga_init_b_r.n fpga_program_b_trigger.n timer2<0>.n 
+           timer2<1>.n timer2<2>.n timer2<3>.n timer2<4>.n timer2<5>.n fmc_pg_m2c<1>.p fmc_pg_m2c<2>.p 
+           fmc_prsnt_m2c_l<1>.p fmc_prsnt_m2c_l<2>.p fpga_done.p fpga_init_b.p fpga_program_b.p
+clk[0] 
+CTC: (pt=18) fpga_done ;
+CTR: (pt=97) N_PZ_296' ;
+CTS: 
+CTE: 
+vref: [0]
+Signal[ 9] [mmc_low_voltage_pok(134),mmc_low_voltage_pok(2)] [jtag_header_tms(90)] [rtm_12v_en(1)]  
+           [rtm_3v3_en(97)] [rtm_i2c_en(96)] [N_PZ_296(144)] [fpga_done_latch(142)]  
+           [configuration_error_latch(141)] [N_PZ_216(140)] 
+Signal[ 9] [ 0:  ][ 1: mmc_low_voltage_pok(134) mmc_low_voltage_pok(2)  ][ 2: rtm_12v_en(1)  ][ 3: (99)  ] 
+           [ 4: rtm_3v3_en(97)  ][ 5: rtm_i2c_en(96)  ][ 6: (95)  ][ 7: N_PZ_216(140)  ][ 8:  
+           configuration_error_latch(141)  ][ 9: fpga_done_latch(142)  ][ 10: (94)  ][ 11: N_PZ_296(144)  ] 
+           [ 12: (93)  ][ 13: (92)  ][ 14: (91)  ][ 15: jtag_header_tms(90)  ]
+----------------- B l o c k 3 ------------------
+PLApt(4/56), Fanin(4/38), Clk(1/3), Bct(0/4), Pin(9/11), Mcell(5/16)
+PLApts[4/56] () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () () 
+             () () () () () () () () 11 () () () () () () () () 12 () () 9 () () 10
+Fanins[ 4] rtm_12v_en.p rtm_3v3_en.p rtm_i2c_en.p rtm_ps.p
+clk[1] xtal_cpld 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[10] [v6_cpld<0>(162),v6_cpld<0>(37)] [v6_cpld<1>(163),v6_cpld<1>(39)]  
+           [v6_cpld<2>(164),v6_cpld<2>(40)] [v6_cpld<3>(159),v6_cpld<3>(34)] [pgood_1v0(30)] [pgood_1v5(32)]  
+           [pgood_2v5(28)] [pgood_3v3(29)] [fpga_program_b_trigger,v6_cpld<5>(35)] 
+Signal[10] [ 0: pgood_2v5(28)  ][ 1:  ][ 2:  ][ 3: pgood_3v3(29)  ][ 4: pgood_1v0(30)  ][ 5: pgood_1v5(32)  ] 
+           [ 6: (33)  ][ 7:  ][ 8:  ][ 9:  ][ 10: v6_cpld<3>(159) v6_cpld<3>(34)  ][ 11:  
+           fpga_program_b_trigger(160) v6_cpld<5>(35)  ][ 12: (36)  ][ 13: v6_cpld<0>(162) v6_cpld<0>(37)  ] 
+           [ 14: v6_cpld<1>(163) v6_cpld<1>(39)  ][ 15: v6_cpld<2>(164) v6_cpld<2>(40)  ]
+----------------- B l o c k 4 ------------------
+PLApt(2/56), Fanin(5/38), Clk(0/3), Bct(0/4), Pin(4/10), Mcell(3/16)
+PLApts[2/47] () () () () () () () () () () 1 () () () () () () () () () () () () () () () () () () () () () 
+             () () () () () () () () () () () () () () 3
+Fanins[ 5] pgood_1v0.p pgood_1v5.p pgood_2v5.p pgood_3v3.p sw<2>.p
+clk[0] 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[ 4] [fmcx_pg_c2m(165),fmcx_pg_c2m(65)] [cpld_led<2>(177),cpld_led<2>(73)]  
+           [cpld_led<3>(179),cpld_led<3>(76)] [fmc_pg_m2c<1>(66)] 
+Signal[ 4] [ 0: fmcx_pg_c2m(165) fmcx_pg_c2m(65)  ][ 1: fmc_pg_m2c<1>(66)  ][ 2: (67)  ][ 3:  ][ 4: (68)  ] 
+           [ 5:  ][ 6: (70)  ][ 7:  ][ 8:  ][ 9:  ][ 10: (71)  ][ 11: (72)  ][ 12: cpld_led<2>(177)  
+           cpld_led<2>(73)  ][ 13: (74)  ][ 14: cpld_led<3>(179) cpld_led<3>(76)  ][ 15:  ]
+----------------- B l o c k 5 ------------------
+PLApt(5/56), Fanin(6/38), Clk(1/3), Bct(1/4), Pin(9/9), Mcell(4/16)
+PLApts[5/56] () () () () () () () 38 () () () () () () () () 23 () () () () () () () () 5 () () () () () () 
+             () () () () () () () () () () () 8 () () () () () () () () () () () 6
+Fanins[ 6] mmc_low_voltage_pok.n state<0>.n fpga_tdo.p jtag_header_tck.p jtag_header_tms.p sw<1>.p
+clk[1] xtal_cpld 
+CTC: 
+CTR: 
+CTS: 
+CTE: (pt=38) sw<1> mmc_low_voltage_pok ;
+vref: [0]
+Signal[ 9] [fpga_program_b(183),fpga_program_b(61)] [sram1_tck(196),sram1_tck(54)]  
+           [sram1_tdi(186),sram1_tdi(58)] [sram1_tms(192),sram1_tms(56)] [fmc_prsnt_m2c_l<1>(64)]  
+           [fmc_prsnt_m2c_l<2>(63)] [fpga_done(59)] [fpga_init_b(60)] [sram1_tdo(55)] 
+Signal[ 9] [ 0: fmc_prsnt_m2c_l<1>(64)  ][ 1: fmc_prsnt_m2c_l<2>(63)  ][ 2: fpga_program_b(183)  
+           fpga_program_b(61)  ][ 3: fpga_init_b(60)  ][ 4: fpga_done(59)  ][ 5: sram1_tdi(186)  
+           sram1_tdi(58)  ][ 6:  ][ 7:  ][ 8:  ][ 9:  ][ 10:  ][ 11: sram1_tms(192) sram1_tms(56)  ][ 12:  ] 
+           [ 13: sram1_tdo(55)  ][ 14:  ][ 15: sram1_tck(196) sram1_tck(54)  ]
+----------------- B l o c k 6 ------------------
+PLApt(2/56), Fanin(3/38), Clk(0/3), Bct(0/4), Pin(6/10), Mcell(1/16)
+PLApts[2/2] 16 21
+Fanins[ 3] fpga_tdo.p gbe_tdo.p sw<1>.p
+clk[0] 
+CTC: 
+CTR: 
+CTS: 
+CTE: 
+vref: [0]
+Signal[ 6] [jtag_header_tdi(210),jtag_header_tdi(86)] [fmc_pg_m2c<2>(82)] [jtag_header_tck(89)]  
+           [jtag_header_tdo(87)] [sw<1>(78)] [sw<2>(79)] 
+Signal[ 6] [ 0: (77)  ][ 1: sw<1>(78)  ][ 2:  ][ 3: sw<2>(79)  ][ 4: (80)  ][ 5: (81)  ][ 6:  ][ 7:  ][ 8:  ] 
+           [ 9:  ][ 10: fmc_pg_m2c<2>(82)  ][ 11:  ][ 12: (85)  ][ 13: jtag_header_tdi(210)  
+           jtag_header_tdi(86)  ][ 14: jtag_header_tdo(87)  ][ 15: jtag_header_tck(89)  ]
+----------------- B l o c k 7 ------------------
+PLApt(8/56), Fanin(10/38), Clk(0/3), Bct(1/4), Pin(8/9), Mcell(5/16)
+PLApts[8/56] 33 34 35 () () () () 38 () () () () () 13 () () 8 () () () () () () () () 6 () () () () () () () 
+             () () () () () () () () () () () () () () () () () () () () () () 4
+Fanins[10] mmc_low_voltage_pok.n configuration_error_latch.n fpga_done_latch.n cpld_a21_in.p cpld_a22_in.p 
+           jtag_header_tck.p jtag_header_tms.p sram1_tdo.p sw<1>.p sw<2>.p
+clk[0] 
+CTC: 
+CTR: 
+CTS: 
+CTE: (pt=38) sw<1> mmc_low_voltage_pok ;
+vref: [0]
+Signal[ 8] [cpld_a22_out(227),cpld_a22_out(42)] [sram2_tck(218),sram2_tck(49)]  
+           [sram2_tdi(214),sram2_tdi(53)] [sram2_tms(215),sram2_tms(52)]  
+           [cpld_a21_out(228),cpld_a21_out(41)] [cpld_a21_in(43)] [cpld_a22_in(44)] [sram2_tdo(50)] 
+Signal[ 8] [ 0:  ][ 1: sram2_tdi(214) sram2_tdi(53)  ][ 2: sram2_tms(215) sram2_tms(52)  ][ 3: sram2_tdo(50)  
+            ][ 4:  ][ 5: sram2_tck(218) sram2_tck(49)  ][ 6:  ][ 7:  ][ 8:  ][ 9:  ][ 10:  ][ 11: (46)  ] 
+           [ 12: cpld_a22_in(44)  ][ 13: cpld_a21_in(43)  ][ 14: cpld_a22_out(227) cpld_a22_out(42)  ][ 15:  
+           cpld_a21_out(228) cpld_a21_out(41)  ]

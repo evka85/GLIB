@@ -1,0 +1,1091 @@
+<html><body>
+<pre>
+ 
+cpldfit:  version P.20131013                        Xilinx Inc.
+                                  Fitter Report
+Design Name: glib_cpld                           Date: 10- 7-2015, 12:31PM
+Device Used: XC2C128-7-VQ100
+Fitting Status: Successful
+
+*************************  Mapped Resource Summary  **************************
+
+Macrocells     Product Terms    Function Block   Registers      Pins           
+Used/Tot       Used/Tot         Inps Used/Tot    Used/Tot       Used/Tot       
+55 /128 ( 43%) 110 /448  ( 25%) 98  /320  ( 31%) 29 /128 ( 23%) 52 /80  ( 65%)
+
+** Function Block Resources **
+
+Function Mcells   FB Inps  Pterms   IO       CTC      CTR      CTS      CTE     
+Block    Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot Used/Tot
+FB1      16/16*    26/40    29/56     1/10    0/1      0/1      0/1      0/1
+FB2      16/16*    26/40    52/56     6/10    0/1      0/1      0/1      1/1*
+FB3       5/16     18/40     8/56     1/11    1/1*     1/1*     0/1      0/1
+FB4       5/16      4/40     4/56     4/11    0/1      0/1      0/1      0/1
+FB5       3/16      5/40     2/56     3/10    0/1      0/1      0/1      0/1
+FB6       4/16      6/40     5/56     4/ 9    0/1      0/1      0/1      1/1*
+FB7       1/16      3/40     2/56     1/10    0/1      0/1      0/1      0/1
+FB8       5/16     10/40     8/56     5/ 9    0/1      0/1      0/1      1/1*
+         -----    -------  -------   -----    ---      ---      ---      ---
+Total    55/128    98/320  110/448   25/80    1/8      1/8      0/8      3/8 
+
+CTC - Control Term Clock
+CTR - Control Term Reset
+CTS - Control Term Set
+CTE - Control Term Output Enable
+
+* - Resource is exhausted
+
+** Global Control Resources **
+
+GCK         GSR         GTS         DGE         
+Used/Tot    Used/Tot    Used/Tot    Used/Tot    
+1/3         0/1         1/4         0/1
+
+Signal 'xtal_cpld' mapped onto global clock net GCK2.
+Signal 'mmc_low_voltage_pok.GLB' mapped onto global output enable net GTS3.
+
+** Pin Resources **
+
+Signal Type    Required     Mapped  |  Pin Type            Used    Total 
+------------------------------------|------------------------------------
+Input         :   26          26    |  I/O              :    45     70
+Output        :   24          24    |  GCK/IO           :     2      3
+Bidirectional :    1           1    |  GTS/IO           :     3      4
+GCK           :    1           1    |  GSR/IO           :     0      1
+GTS           :    0           0    |  CDR/IO           :     1      1
+GSR           :    0           0    |  DGE/IO           :     1      1
+                 ----        ----
+        Total     52          52
+
+End of Mapped Resource Summary
+**************************  Errors and Warnings  ***************************
+
+WARNING:Cpld - Unable to retrieve the path to the iSE Project Repository. Will
+   use the default filename of 'glib_cpld.ise'.
+INFO:Cpld - Inferring BUFG constraint for signal 'xtal_cpld' based upon the LOC
+   constraint 'P27'. It is recommended that you declare this BUFG explicitedly
+   in your design. Note that for certain device families the output of a BUFG
+   constraint can not drive a gated clock, and the BUFG constraint will be
+   ignored.
+INFO:Cpld - Inferring BUFG constraint for signal 'cpld_rs_in<1>' based upon the
+   LOC constraint 'P22'. It is recommended that you declare this BUFG
+   explicitedly in your design. Note that for certain device families the output
+   of a BUFG constraint can not drive a gated clock, and the BUFG constraint
+   will be ignored.
+WARNING:Cpld:1007 - Removing unused input(s) 'amc_tck'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'amc_tdi'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'amc_tdo'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'amc_tms'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'cpld_rs_in<0>'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'cpld_rs_in<1>'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc1_tck'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc1_tdi'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc1_tdo'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc1_tms'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc2_tck'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc2_tdi'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc2_tdo'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fmc2_tms'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'fpga_reset_b'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_fpga1_init_done'.  The
+   input(s) are unused after optimization. Please verify functionality via
+   simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_fpga2_init_done'.  The
+   input(s) are unused after optimization. Please verify functionality via
+   simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_pe6'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_pg4'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_reload_fpgas_n'.  The input(s)
+   are unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_reset_fpga_n'.  The input(s)
+   are unused after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_tck'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_tdi'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_tdo'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'mmc_tms'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'sw<3>'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'sw<4>'.  The input(s) are unused
+   after optimization. Please verify functionality via simulation.
+WARNING:Cpld:1007 - Removing unused input(s) 'v6_cpld<4>'.  The input(s) are
+   unused after optimization. Please verify functionality via simulation.
+*************************  Summary of Mapped Logic  ************************
+
+** 25 Outputs **
+
+Signal                     Total Total Bank Loc     Pin   Pin       Pin     I/O      I/O       Slew Reg     Reg Init
+Name                       Pts   Inps               No.   Type      Use     STD      Style     Rate Use     State
+cpld_led<1>                1     1     2    FB1_11  8     I/O       O       LVCMOS33 PU        FAST         
+fpga_tms                   1     1     1    FB2_2   14    I/O       O       LVCMOS25 PU        FAST         
+fpga_tck                   1     1     1    FB2_3   15    I/O       O       LVCMOS25 PU        FAST         
+fpga_tdi                   1     1     1    FB2_4   16    I/O       O       LVCMOS25 PU        FAST         
+gbe_tms                    2     3     1    FB2_11  19    I/O       O       LVCMOS25 PU        FAST         
+gbe_tck                    2     3     1    FB2_14  23    GCK/I/O   O       LVCMOS25 PU        FAST         
+gbe_tdi                    2     3     1    FB2_15  24    CDR/I/O   O       LVCMOS25 PU        FAST         
+mmc_low_voltage_pok        3     5     2    FB3_2   2     GTS/I/O   O       LVCMOS33           FAST         
+v6_cpld<3>                 1     1     1    FB4_11  34    I/O       O       LVCMOS25 PU        FAST         
+v6_cpld<0>                 1     1     1    FB4_14  37    I/O       O       LVCMOS25 PU        FAST         
+v6_cpld<1>                 1     1     1    FB4_15  39    I/O       O       LVCMOS25 PU        FAST         
+v6_cpld<2>                 1     1     1    FB4_16  40    I/O       O       LVCMOS25 PU        FAST         
+fmcx_pg_c2m                1     4     2    FB5_1   65    I/O       O       LVCMOS33           FAST         
+cpld_led<2>                1     1     2    FB5_13  73    I/O       O       LVCMOS33 PU        FAST         
+cpld_led<3>                0     0     2    FB5_15  76    I/O       O       LVCMOS33 PU        FAST         
+fpga_program_b             1     1     1    FB6_3   61    I/O       I/O     LVCMOS25 PU/OD     FAST DFF     RESET
+sram1_tdi                  2     3     1    FB6_6   58    I/O       O       LVCMOS25 PU        FAST         
+sram1_tms                  2     3     1    FB6_12  56    I/O       O       LVCMOS25 PU        FAST         
+sram1_tck                  2     3     1    FB6_16  54    I/O       O       LVCMOS25 PU        FAST         
+jtag_header_tdi            2     3     2    FB7_14  86    I/O       O       LVCMOS33 PU        FAST         
+sram2_tdi                  2     3     1    FB8_2   53    I/O       O       LVCMOS25 PU        FAST         
+sram2_tms                  2     3     1    FB8_3   52    I/O       O       LVCMOS25 PU        FAST         
+sram2_tck                  2     3     1    FB8_6   49    I/O       O       LVCMOS25 PU        FAST         
+cpld_a22_out               3     4     1    FB8_15  42    I/O       O       LVCMOS25 PU        FAST         
+cpld_a21_out               1     1     1    FB8_16  41    I/O       O       LVCMOS25 PU        FAST         
+
+** 30 Buried Nodes **
+
+Signal                     Total Total Loc     Reg     Reg Init
+Name                       Pts   Inps          Use     State
+timer2<2>                  4     16    FB1_1   DFF     RESET
+timer1<5>                  2     7     FB1_2   TFF     RESET
+timer2<1>                  3     15    FB1_3   DFF     RESET
+error_check_enable         2     14    FB1_4   DFF     RESET
+timer2<8>                  5     13    FB1_5   DFF     RESET
+timer2<7>                  4     13    FB1_6   DFF     RESET
+timer1<3>                  3     7     FB1_7   TFF     RESET
+timer1<4>                  1     5     FB1_8   TFF     RESET
+timer1<2>                  1     3     FB1_9   TFF     RESET
+timer1<1>                  1     2     FB1_10  TFF     RESET
+timer2<6>                  3     13    FB1_12  DFF     RESET
+timer2<15>                 2     13    FB1_13  DFF     RESET
+timer1<0>                  1     1     FB1_14  TFF     RESET
+fpga_init_b_r              1     3     FB1_15  DFF     RESET
+state<0>                   2     8     FB1_16  DFF     RESET
+timer2<10>                 7     12    FB2_1   TFF     RESET
+timer2<5>                  3     19    FB2_5   DFF     RESET
+timer2<4>                  6     18    FB2_6   DFF     RESET
+timer2<9>                  6     12    FB2_7   TFF     RESET
+timer2<11>                 6     12    FB2_8   TFF     RESET
+timer2<12>                 5     12    FB2_9   TFF     RESET
+timer2<13>                 4     12    FB2_10  TFF     RESET
+timer2<14>                 3     12    FB2_12  TFF     RESET
+timer2<3>                  5     17    FB2_13  DFF     RESET
+timer2<0>                  2     13    FB2_16  TFF     RESET
+N_PZ_216                   1     6     FB3_8           
+configuration_error_latch  2     5     FB3_9   DFF     RESET
+fpga_done_latch            2     2     FB3_10  DFF     RESET
+N_PZ_296                   1     2     FB3_12          
+fpga_program_b_trigger     0     0     FB4_12  DFF     RESET
+
+** 28 Inputs **
+
+Signal                     Bank Loc     Pin   Pin       Pin     I/O      I/O
+Name                                    No.   Type      Use     STD      Style
+rtm_ps                     2    FB1_16  3     GTS/I/O   I       LVCMOS33 PU
+fpga_tdo                   1    FB2_5   17    I/O       I       LVCMOS25 PU
+gbe_tdo                    1    FB2_6   18    I/O       I       LVCMOS25 PU
+xtal_cpld                  1    FB2_16  27    GCK/I/O   GCK     LVCMOS25 PU
+rtm_12v_en                 2    FB3_3   1     GTS/I/O   I       LVCMOS33 PU
+rtm_3v3_en                 2    FB3_5   97    I/O       I       LVCMOS33 PU
+rtm_i2c_en                 2    FB3_6   96    I/O       I       LVCMOS33 PU
+jtag_header_tms            2    FB3_16  90    I/O       I       LVCMOS33 PU
+pgood_2v5                  1    FB4_1   28    DGE/I/O   I       LVCMOS25 PU
+pgood_3v3                  1    FB4_4   29    I/O       I       LVCMOS25 PU
+pgood_1v0                  1    FB4_5   30    I/O       I       LVCMOS25 PU
+pgood_1v5                  1    FB4_6   32    I/O       I       LVCMOS25 PU
+v6_cpld<5>                 1    FB4_12  35    I/O       I       LVCMOS25 PU
+fmc_pg_m2c<1>              2    FB5_2   66    I/O       I       LVCMOS33 PU
+fmc_prsnt_m2c_l<1>         1    FB6_1   64    I/O       I       LVCMOS25 PU
+fmc_prsnt_m2c_l<2>         1    FB6_2   63    I/O       I       LVCMOS25 PU
+fpga_program_b             1    FB6_3   61    I/O       I/O     LVCMOS25 PU
+fpga_init_b                1    FB6_4   60    I/O       I       LVCMOS25 PU
+fpga_done                  1    FB6_5   59    I/O       I       LVCMOS25 PU
+sram1_tdo                  1    FB6_14  55    I/O       I       LVCMOS25 PU
+sw<1>                      2    FB7_2   78    I/O       I       LVCMOS33 PU
+sw<2>                      2    FB7_4   79    I/O       I       LVCMOS33 PU
+fmc_pg_m2c<2>              2    FB7_11  82    I/O       I       LVCMOS33 PU
+jtag_header_tdo            2    FB7_15  87    I/O       I       LVCMOS33 PU
+jtag_header_tck            2    FB7_16  89    I/O       I       LVCMOS33 PU
+sram2_tdo                  1    FB8_4   50    I/O       I       LVCMOS25 PU
+cpld_a22_in                1    FB8_13  44    I/O       I       LVCMOS25 PU
+cpld_a21_in                1    FB8_14  43    I/O       I       LVCMOS25 PU
+
+Legend:
+Pin No.   - ~     - User Assigned
+I/O Style - OD    - OpenDrain
+          - PU    - Pullup
+          - KPR   - Keeper
+          - S     - SchmittTrigger
+          - DG    - DataGate
+Reg Use   - LATCH - Transparent latch
+          - DFF   - D-flip-flop
+          - DEFF  - D-flip-flop with clock enable
+          - TFF   - T-flip-flop
+          - TDFF  - Dual-edge-triggered T-flip-flop
+          - DDFF  - Dual-edge-triggered flip-flop
+          - DDEFF - Dual-edge-triggered flip-flop with clock enable
+          /S (after any above flop/latch type) indicates initial state is Set
+**************************  Function Block Details  ************************
+Legend:
+Total Pt     - Total product terms used by the macrocell signal
+Loc          - Location where logic was mapped in device
+Pin Type/Use - I  - Input             GCK - Global clock
+               O  - Output            GTS - Global Output Enable
+              (b) - Buried macrocell  GSR - Global Set/Reset
+              VRF - Vref
+Pin No.      - ~  - User Assigned
+*********************************** FB1  ***********************************
+This function block is part of I/O Bank number:               2
+Number of function block inputs used/remaining:               26/14
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   29/27
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+timer2<2>                     4     FB1_1   13   I/O     (b)               
+timer1<5>                     2     FB1_2        (b)     (b)               
+timer2<1>                     3     FB1_3   12   I/O     (b)               
+error_check_enable            2     FB1_4   11   I/O     (b)               
+timer2<8>                     5     FB1_5   10   I/O     (b)               
+timer2<7>                     4     FB1_6   9    I/O     (b)               
+timer1<3>                     3     FB1_7        (b)     (b)               
+timer1<4>                     1     FB1_8        (b)     (b)               
+timer1<2>                     1     FB1_9        (b)     (b)               
+timer1<1>                     1     FB1_10       (b)     (b)               
+cpld_led<1>                   1     FB1_11  8    I/O     O                 
+timer2<6>                     3     FB1_12  7    I/O     (b)               
+timer2<15>                    2     FB1_13  6    I/O     (b)               
+timer1<0>                     1     FB1_14       (b)     (b)               
+fpga_init_b_r                 1     FB1_15  4    GTS/I/O (b)               
+state<0>                      2     FB1_16  3    GTS/I/O I                 
+
+Signals Used by Logic in Function Block
+  1: N_PZ_216                10: timer1<2>         19: timer2<14> 
+  2: error_check_enable      11: timer1<3>         20: timer2<15> 
+  3: fmcx_pg_c2m             12: timer1<4>         21: timer2<1> 
+  4: fpga_init_b             13: timer1<5>         22: timer2<2> 
+  5: fpga_program_b_trigger  14: timer2<0>         23: timer2<6> 
+  6: state<0>                15: timer2<10>        24: timer2<7> 
+  7: sw<1>                   16: timer2<11>        25: timer2<8> 
+  8: timer1<0>               17: timer2<12>        26: timer2<9> 
+  9: timer1<1>               18: timer2<13>       
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+timer2<2>         X.X.X........XXXXXXXXXXXXX.............. 16      
+timer1<5>         .....X.XXXXXX........................... 7       
+timer2<1>         X.X.X........XXXXXXXX.XXXX.............. 15      
+error_check_enable 
+                  XXX.X.........XXXXXX..XXXX.............. 14      
+timer2<8>         X.X.X.........XXXXXX..XXXX.............. 13      
+timer2<7>         X.X.X.........XXXXXX..XXXX.............. 13      
+timer1<3>         .....X.XXXXXX........................... 7       
+timer1<4>         .....X.XXXX............................. 5       
+timer1<2>         .....X.XX............................... 3       
+timer1<1>         .....X.X................................ 2       
+cpld_led<1>       ......X................................. 1       
+timer2<6>         X.X.X.........XXXXXX..XXXX.............. 13      
+timer2<15>        X.X.X.........XXXXXX..XXXX.............. 13      
+timer1<0>         .....X.................................. 1       
+fpga_init_b_r     ..XXX................................... 3       
+state<0>          ....XX.XXXXXX........................... 8       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB2  ***********************************
+This function block is part of I/O Bank number:               1
+Number of function block inputs used/remaining:               26/14
+Number of function block control terms used/remaining:        1/3
+Number of PLA product terms used/remaining:                   52/4
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+timer2<10>                    7     FB2_1        (b)     (b)               
+fpga_tms                      1     FB2_2   14   I/O     O                 
+fpga_tck                      1     FB2_3   15   I/O     O                 
+fpga_tdi                      1     FB2_4   16   I/O     O                 
+timer2<5>                     3     FB2_5   17   I/O     I                 
+timer2<4>                     6     FB2_6   18   I/O     I                 
+timer2<9>                     6     FB2_7        (b)     (b)               
+timer2<11>                    6     FB2_8        (b)     (b)               
+timer2<12>                    5     FB2_9        (b)     (b)               
+timer2<13>                    4     FB2_10       (b)     (b)               
+gbe_tms                       2     FB2_11  19   I/O     O                  +  
+timer2<14>                    3     FB2_12       (b)     (b)               
+timer2<3>                     5     FB2_13  22   GCK/I/O (b)               
+gbe_tck                       2     FB2_14  23   GCK/I/O O                  +  
+gbe_tdi                       2     FB2_15  24   CDR/I/O O                  +  
+timer2<0>                     2     FB2_16  27   GCK/I/O GCK               
+
+Signals Used by Logic in Function Block
+  1: N_PZ_216                10: sw<1>             19: timer2<2> 
+  2: N_PZ_296                11: timer2<0>         20: timer2<3> 
+  3: fmcx_pg_c2m             12: timer2<10>        21: timer2<4> 
+  4: fpga_program_b_trigger  13: timer2<11>        22: timer2<5> 
+  5: jtag_header_tck         14: timer2<12>        23: timer2<6> 
+  6: jtag_header_tdo         15: timer2<13>        24: timer2<7> 
+  7: jtag_header_tms         16: timer2<14>        25: timer2<8> 
+  8: mmc_low_voltage_pok     17: timer2<15>        26: timer2<9> 
+  9: sram2_tdo               18: timer2<1>        
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+timer2<10>        XX.........XXXXXX.....XXXX.............. 12      
+fpga_tms          ......X................................. 1       
+fpga_tck          ....X................................... 1       
+fpga_tdi          .....X.................................. 1       
+timer2<5>         X.XX......XXXXXXXXXXXXXXXX.............. 19      
+timer2<4>         X.XX......XXXXXXXXXXX.XXXX.............. 18      
+timer2<9>         XX.........XXXXXX.....XXXX.............. 12      
+timer2<11>        XX.........XXXXXX.....XXXX.............. 12      
+timer2<12>        XX.........XXXXXX.....XXXX.............. 12      
+timer2<13>        XX.........XXXXXX.....XXXX.............. 12      
+gbe_tms           ......XX.X.............................. 3       
+timer2<14>        XX.........XXXXXX.....XXXX.............. 12      
+timer2<3>         X.XX......XXXXXXXXXX..XXXX.............. 17      
+gbe_tck           ....X..X.X.............................. 3       
+gbe_tdi           .......XXX.............................. 3       
+timer2<0>         XX........XXXXXXX.....XXXX.............. 13      
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB3  ***********************************
+This function block is part of I/O Bank number:               2
+Number of function block inputs used/remaining:               18/22
+Number of function block control terms used/remaining:        2/2
+Number of PLA product terms used/remaining:                   8/48
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+(unused)                      0     FB3_1        (b)           
+mmc_low_voltage_pok           3     FB3_2   2    GTS/I/O O                 
+(unused)                      0     FB3_3   1    GTS/I/O I     
+(unused)                      0     FB3_4   99   GSR/I/O       
+(unused)                      0     FB3_5   97   I/O     I     
+(unused)                      0     FB3_6   96   I/O     I     
+(unused)                      0     FB3_7   95   I/O           
+N_PZ_216                      1     FB3_8        (b)     (b)               
+configuration_error_latch     2     FB3_9        (b)     (b)        +      
+fpga_done_latch               2     FB3_10       (b)     (b)    +   +      
+(unused)                      0     FB3_11  94   I/O           
+N_PZ_296                      1     FB3_12       (b)     (b)               
+(unused)                      0     FB3_13  93   I/O           
+(unused)                      0     FB3_14  92   I/O           
+(unused)                      0     FB3_15  91   I/O           
+(unused)                      0     FB3_16  90   I/O     I     
+
+Signals Used by Logic in Function Block
+  1: N_PZ_296             7: fmcx_pg_c2m             13: timer2<0> 
+  2: error_check_enable   8: fpga_done               14: timer2<1> 
+  3: fmc_pg_m2c<1>        9: fpga_init_b             15: timer2<2> 
+  4: fmc_pg_m2c<2>       10: fpga_init_b_r           16: timer2<3> 
+  5: fmc_prsnt_m2c_l<1>  11: fpga_program_b.PIN      17: timer2<4> 
+  6: fmc_prsnt_m2c_l<2>  12: fpga_program_b_trigger  18: timer2<5> 
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+mmc_low_voltage_pok 
+                  ..XXXXX................................. 5       
+N_PZ_216          ............XXXXXX...................... 6       
+configuration_error_latch 
+                  XX......XXX............................. 5       
+fpga_done_latch   X......X................................ 2       
+N_PZ_296          ......X....X............................ 2       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB4  ***********************************
+This function block is part of I/O Bank number:               1
+Number of function block inputs used/remaining:               4/36
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   4/52
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+(unused)                      0     FB4_1   28   DGE/I/O I     
+(unused)                      0     FB4_2        (b)           
+(unused)                      0     FB4_3        (b)           
+(unused)                      0     FB4_4   29   I/O     I     
+(unused)                      0     FB4_5   30   I/O     I     
+(unused)                      0     FB4_6   32   I/O     I     
+(unused)                      0     FB4_7   33   I/O           
+(unused)                      0     FB4_8        (b)           
+(unused)                      0     FB4_9        (b)           
+(unused)                      0     FB4_10       (b)           
+v6_cpld<3>                    1     FB4_11  34   I/O     O                 
+fpga_program_b_trigger        0     FB4_12  35   I/O     I                 
+(unused)                      0     FB4_13  36   I/O           
+v6_cpld<0>                    1     FB4_14  37   I/O     O                 
+v6_cpld<1>                    1     FB4_15  39   I/O     O                 
+v6_cpld<2>                    1     FB4_16  40   I/O     O                 
+
+Signals Used by Logic in Function Block
+  1: rtm_12v_en         3: rtm_i2c_en         4: rtm_ps 
+  2: rtm_3v3_en       
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+v6_cpld<3>        ..X..................................... 1       
+v6_cpld<0>        ...X.................................... 1       
+v6_cpld<1>        X....................................... 1       
+v6_cpld<2>        .X...................................... 1       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB5  ***********************************
+This function block is part of I/O Bank number:               2
+Number of function block inputs used/remaining:               5/35
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   2/54
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+fmcx_pg_c2m                   1     FB5_1   65   I/O     O                 
+(unused)                      0     FB5_2   66   I/O     I     
+(unused)                      0     FB5_3   67   I/O           
+(unused)                      0     FB5_4        (b)           
+(unused)                      0     FB5_5   68   I/O           
+(unused)                      0     FB5_6        (b)           
+(unused)                      0     FB5_7   70   I/O           
+(unused)                      0     FB5_8        (b)           
+(unused)                      0     FB5_9        (b)           
+(unused)                      0     FB5_10       (b)           
+(unused)                      0     FB5_11  71   I/O           
+(unused)                      0     FB5_12  72   I/O           
+cpld_led<2>                   1     FB5_13  73   I/O     O                 
+(unused)                      0     FB5_14  74   I/O           
+cpld_led<3>                   0     FB5_15  76   I/O     O                 
+(unused)                      0     FB5_16       (b)           
+
+Signals Used by Logic in Function Block
+  1: pgood_1v0          3: pgood_2v5          5: sw<2> 
+  2: pgood_1v5          4: pgood_3v3        
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+fmcx_pg_c2m       XXXX.................................... 4       
+cpld_led<2>       ....X................................... 1       
+cpld_led<3>       ........................................ 0       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB6  ***********************************
+This function block is part of I/O Bank number:               1
+Number of function block inputs used/remaining:               6/34
+Number of function block control terms used/remaining:        1/3
+Number of PLA product terms used/remaining:                   5/51
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+(unused)                      0     FB6_1   64   I/O     I     
+(unused)                      0     FB6_2   63   I/O     I     
+fpga_program_b                1     FB6_3   61   I/O     I/O               
+(unused)                      0     FB6_4   60   I/O     I     
+(unused)                      0     FB6_5   59   I/O     I     
+sram1_tdi                     2     FB6_6   58   I/O     O                  +  
+(unused)                      0     FB6_7        (b)           
+(unused)                      0     FB6_8        (b)           
+(unused)                      0     FB6_9        (b)           
+(unused)                      0     FB6_10       (b)           
+(unused)                      0     FB6_11       (b)           
+sram1_tms                     2     FB6_12  56   I/O     O                  +  
+(unused)                      0     FB6_13       (b)           
+(unused)                      0     FB6_14  55   I/O     I     
+(unused)                      0     FB6_15       (b)           
+sram1_tck                     2     FB6_16  54   I/O     O                  +  
+
+Signals Used by Logic in Function Block
+  1: fpga_tdo           3: jtag_header_tms       5: state<0> 
+  2: jtag_header_tck    4: mmc_low_voltage_pok   6: sw<1> 
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+fpga_program_b    ....X................................... 1       
+sram1_tdi         X..X.X.................................. 3       
+sram1_tms         ..XX.X.................................. 3       
+sram1_tck         .X.X.X.................................. 3       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB7  ***********************************
+This function block is part of I/O Bank number:               2
+Number of function block inputs used/remaining:               3/37
+Number of function block control terms used/remaining:        0/4
+Number of PLA product terms used/remaining:                   2/54
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+(unused)                      0     FB7_1   77   I/O           
+(unused)                      0     FB7_2   78   I/O     I     
+(unused)                      0     FB7_3        (b)           
+(unused)                      0     FB7_4   79   I/O     I     
+(unused)                      0     FB7_5   80   I/O           
+(unused)                      0     FB7_6   81   I/O           
+(unused)                      0     FB7_7        (b)           
+(unused)                      0     FB7_8        (b)           
+(unused)                      0     FB7_9        (b)           
+(unused)                      0     FB7_10       (b)           
+(unused)                      0     FB7_11  82   I/O     I     
+(unused)                      0     FB7_12       (b)           
+(unused)                      0     FB7_13  85   I/O           
+jtag_header_tdi               2     FB7_14  86   I/O     O                 
+(unused)                      0     FB7_15  87   I/O     I     
+(unused)                      0     FB7_16  89   I/O     I     
+
+Signals Used by Logic in Function Block
+  1: fpga_tdo           2: gbe_tdo            3: sw<1> 
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+jtag_header_tdi   XXX..................................... 3       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*********************************** FB8  ***********************************
+This function block is part of I/O Bank number:               1
+Number of function block inputs used/remaining:               10/30
+Number of function block control terms used/remaining:        1/3
+Number of PLA product terms used/remaining:                   8/48
+Signal                        Total Loc     Pin  Pin     Pin   CTC CTR CTS CTE
+Name                          Pt            No.  Type    Use   
+(unused)                      0     FB8_1        (b)           
+sram2_tdi                     2     FB8_2   53   I/O     O                  +  
+sram2_tms                     2     FB8_3   52   I/O     O                  +  
+(unused)                      0     FB8_4   50   I/O     I     
+(unused)                      0     FB8_5        (b)           
+sram2_tck                     2     FB8_6   49   I/O     O                  +  
+(unused)                      0     FB8_7        (b)           
+(unused)                      0     FB8_8        (b)           
+(unused)                      0     FB8_9        (b)           
+(unused)                      0     FB8_10       (b)           
+(unused)                      0     FB8_11       (b)           
+(unused)                      0     FB8_12  46   I/O           
+(unused)                      0     FB8_13  44   I/O     I     
+(unused)                      0     FB8_14  43   I/O     I     
+cpld_a22_out                  3     FB8_15  42   I/O     O                 
+cpld_a21_out                  1     FB8_16  41   I/O     O                 
+
+Signals Used by Logic in Function Block
+  1: configuration_error_latch   5: jtag_header_tck       8: sram1_tdo 
+  2: cpld_a21_in                 6: jtag_header_tms       9: sw<1> 
+  3: cpld_a22_in                 7: mmc_low_voltage_pok  10: sw<2> 
+  4: fpga_done_latch           
+
+Signal                     1         2         3         4 FB      
+Name             0----+----0----+----0----+----0----+----0 Inputs  
+sram2_tdi         ......XXX............................... 3       
+sram2_tms         .....XX.X............................... 3       
+sram2_tck         ....X.X.X............................... 3       
+cpld_a22_out      X.XX.....X.............................. 4       
+cpld_a21_out      .X...................................... 1       
+                 0----+----1----+----2----+----3----+----4
+                           0         0         0         0
+*******************************  Equations  ********************************
+
+********** Mapped Logic **********
+
+
+N_PZ_216 <= (timer2(0) AND timer2(1) AND timer2(2) AND timer2(3) AND 
+	timer2(4) AND timer2(5));
+
+
+N_PZ_296 <= (fmcx_pg_c2m AND fpga_program_b_trigger);
+
+FDCPE_configuration_error_latch: FDCPE port map (configuration_error_latch,NOT '0',configuration_error_latch_C,NOT N_PZ_296,'0','1');
+configuration_error_latch_C <= (fpga_program_b.PIN AND NOT fpga_init_b AND 
+	error_check_enable AND fpga_init_b_r);
+
+
+cpld_a21_out_I <= cpld_a21_in;
+cpld_a21_out <= cpld_a21_out_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+cpld_a22_out_I <= NOT (((NOT cpld_a22_in AND configuration_error_latch)
+	OR (NOT cpld_a22_in AND fpga_done_latch)
+	OR (NOT configuration_error_latch AND NOT fpga_done_latch AND 
+	NOT sw(2))));
+cpld_a22_out <= cpld_a22_out_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+cpld_led_I(1) <= sw(1);
+cpld_led(1) <= cpld_led_I(1) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+cpld_led_I(2) <= sw(2);
+cpld_led(2) <= cpld_led_I(2) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+cpld_led_I(3) <= NOT ('0');
+cpld_led(3) <= cpld_led_I(3) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+FDCPE_error_check_enable: FDCPE port map (error_check_enable,error_check_enable_D,xtal_cpld,'0','0','1');
+error_check_enable_D <= ((fmcx_pg_c2m AND error_check_enable AND 
+	fpga_program_b_trigger)
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+
+fmcx_pg_c2m <= (pgood_3v3 AND pgood_2v5 AND pgood_1v5 AND pgood_1v0);
+
+FDCPE_fpga_done_latch: FDCPE port map (fpga_done_latch,NOT '0',fpga_done,NOT N_PZ_296,'0','1');
+
+FDCPE_fpga_init_b_r: FDCPE port map (fpga_init_b_r,fpga_init_b_r_D,xtal_cpld,'0','0','1');
+fpga_init_b_r_D <= (fmcx_pg_c2m AND fpga_init_b AND 
+	fpga_program_b_trigger);
+
+FDCPE_fpga_program_b: FDCPE port map (fpga_program_b,NOT state(0),xtal_cpld,'0','0','1'); -- Open Drain
+
+FDCPE_fpga_program_b_trigger: FDCPE port map (fpga_program_b_trigger,v6_cpld(5),xtal_cpld,'0','0','1');
+
+
+fpga_tck_I <= jtag_header_tck;
+fpga_tck <= fpga_tck_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+fpga_tdi_I <= jtag_header_tdo;
+fpga_tdi <= fpga_tdi_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+fpga_tms_I <= jtag_header_tms;
+fpga_tms <= fpga_tms_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+gbe_tck_I <= jtag_header_tck;
+gbe_tck <= gbe_tck_I when gbe_tck_OE = '1' else 'Z';
+gbe_tck_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+gbe_tdi_I <= sram2_tdo;
+gbe_tdi <= gbe_tdi_I when gbe_tdi_OE = '1' else 'Z';
+gbe_tdi_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+gbe_tms_I <= jtag_header_tms;
+gbe_tms <= gbe_tms_I when gbe_tms_OE = '1' else 'Z';
+gbe_tms_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+jtag_header_tdi_I <= NOT (((sw(1) AND NOT gbe_tdo)
+	OR (NOT sw(1) AND NOT fpga_tdo)));
+jtag_header_tdi <= jtag_header_tdi_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+mmc_low_voltage_pok <= NOT (((NOT fmcx_pg_c2m)
+	OR (NOT fmc_prsnt_m2c_l(2) AND NOT fmc_pg_m2c(2))
+	OR (NOT fmc_prsnt_m2c_l(1) AND NOT fmc_pg_m2c(1))));
+
+
+sram1_tck_I <= jtag_header_tck;
+sram1_tck <= sram1_tck_I when sram1_tck_OE = '1' else 'Z';
+sram1_tck_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+sram1_tdi_I <= fpga_tdo;
+sram1_tdi <= sram1_tdi_I when sram1_tdi_OE = '1' else 'Z';
+sram1_tdi_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+sram1_tms_I <= jtag_header_tms;
+sram1_tms <= sram1_tms_I when sram1_tms_OE = '1' else 'Z';
+sram1_tms_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+sram2_tck_I <= jtag_header_tck;
+sram2_tck <= sram2_tck_I when sram2_tck_OE = '1' else 'Z';
+sram2_tck_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+sram2_tdi_I <= sram1_tdo;
+sram2_tdi <= sram2_tdi_I when sram2_tdi_OE = '1' else 'Z';
+sram2_tdi_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+
+sram2_tms_I <= jtag_header_tms;
+sram2_tms <= sram2_tms_I when sram2_tms_OE = '1' else 'Z';
+sram2_tms_OE <= (sw(1) AND mmc_low_voltage_pok);
+
+FDCPE_state0: FDCPE port map (state(0),state_D(0),xtal_cpld,'0','0','1');
+state_D(0) <= NOT (((fpga_program_b_trigger AND NOT state(0))
+	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+	NOT timer1(3) AND NOT timer1(4) AND timer1(5))));
+
+FTCPE_timer10: FTCPE port map (timer1(0),state(0),xtal_cpld,'0','0','1');
+
+FTCPE_timer11: FTCPE port map (timer1(1),timer1_T(1),xtal_cpld,'0','0','1');
+timer1_T(1) <= (state(0) AND timer1(0));
+
+FTCPE_timer12: FTCPE port map (timer1(2),timer1_T(2),xtal_cpld,'0','0','1');
+timer1_T(2) <= (state(0) AND timer1(0) AND timer1(1));
+
+FTCPE_timer13: FTCPE port map (timer1(3),timer1_T(3),xtal_cpld,'0','0','1');
+timer1_T(3) <= ((state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+	timer1(3))
+	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+	timer1(4))
+	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+	NOT timer1(5)));
+
+FTCPE_timer14: FTCPE port map (timer1(4),timer1_T(4),xtal_cpld,'0','0','1');
+timer1_T(4) <= (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+	timer1(3));
+
+FTCPE_timer15: FTCPE port map (timer1(5),timer1_T(5),xtal_cpld,'0','0','1');
+timer1_T(5) <= ((state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+	timer1(3) AND timer1(4))
+	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+	NOT timer1(3) AND NOT timer1(4) AND timer1(5)));
+
+FTCPE_timer20: FTCPE port map (timer2(0),timer2_T(0),xtal_cpld,'0','0','1');
+timer2_T(0) <= NOT (((NOT timer2(0) AND NOT N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND 
+	N_PZ_296 AND timer2(14) AND timer2(15))));
+
+FDCPE_timer21: FDCPE port map (timer2(1),timer2_D(1),xtal_cpld,'0','0','1');
+timer2_D(1) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+	NOT timer2(1))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+	timer2(1))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FDCPE_timer22: FDCPE port map (timer2(2),timer2_D(2),xtal_cpld,'0','0','1');
+timer2_D(2) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+	timer2(2))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(1) AND 
+	timer2(2))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+	timer2(1) AND NOT timer2(2))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FDCPE_timer23: FDCPE port map (timer2(3),timer2_D(3),xtal_cpld,'0','0','1');
+timer2_D(3) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+	timer2(3))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(1) AND 
+	timer2(3))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(2) AND 
+	timer2(3))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+	timer2(1) AND timer2(2) AND NOT timer2(3))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FDCPE_timer24: FDCPE port map (timer2(4),timer2_D(4),xtal_cpld,'0','0','1');
+timer2_D(4) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+	timer2(4))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(1) AND 
+	timer2(4))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(2) AND 
+	timer2(4))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(3) AND 
+	timer2(4))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+	timer2(1) AND timer2(2) AND timer2(3) AND NOT timer2(4))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FDCPE_timer25: FDCPE port map (timer2(5),timer2_D(5),xtal_cpld,'0','0','1');
+timer2_D(5) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+	timer2(5))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+	timer2(0) AND timer2(1) AND timer2(2) AND timer2(3) AND timer2(4))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FDCPE_timer26: FDCPE port map (timer2(6),timer2_D(6),xtal_cpld,'0','0','1');
+timer2_D(6) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(6) AND 
+	NOT N_PZ_216)
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(6) AND 
+	N_PZ_216)
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FDCPE_timer27: FDCPE port map (timer2(7),timer2_D(7),xtal_cpld,'0','0','1');
+timer2_D(7) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(6) AND 
+	timer2(7))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+	timer2(7))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(6) AND 
+	N_PZ_216 AND NOT timer2(7))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FDCPE_timer28: FDCPE port map (timer2(8),timer2_D(8),xtal_cpld,'0','0','1');
+timer2_D(8) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(6) AND 
+	timer2(8))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+	timer2(8))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(7) AND 
+	timer2(8))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(6) AND 
+	N_PZ_216 AND timer2(7) AND NOT timer2(8))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+	timer2(15)));
+
+FTCPE_timer29: FTCPE port map (timer2(9),timer2_T(9),xtal_cpld,'0','0','1');
+timer2_T(9) <= NOT (((NOT timer2(6) AND N_PZ_296)
+	OR (NOT N_PZ_216 AND N_PZ_296)
+	OR (NOT timer2(7) AND N_PZ_296)
+	OR (NOT timer2(8) AND N_PZ_296)
+	OR (NOT timer2(9) AND NOT N_PZ_296)
+	OR (timer2(10) AND timer2(11) AND timer2(12) AND 
+	timer2(13) AND timer2(9) AND N_PZ_296 AND timer2(14) AND timer2(15))));
+
+FTCPE_timer210: FTCPE port map (timer2(10),timer2_T(10),xtal_cpld,'0','0','1');
+timer2_T(10) <= ((timer2(10) AND NOT N_PZ_296)
+	OR (NOT timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+	timer2(8) AND timer2(9) AND N_PZ_296)
+	OR (timer2(6) AND N_PZ_216 AND NOT timer2(11) AND timer2(7) AND 
+	timer2(8) AND timer2(9) AND N_PZ_296)
+	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND NOT timer2(12) AND 
+	timer2(8) AND timer2(9) AND N_PZ_296)
+	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND timer2(8) AND 
+	NOT timer2(13) AND timer2(9) AND N_PZ_296)
+	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND timer2(8) AND 
+	timer2(9) AND N_PZ_296 AND NOT timer2(14))
+	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND timer2(8) AND 
+	timer2(9) AND N_PZ_296 AND NOT timer2(15)));
+
+FTCPE_timer211: FTCPE port map (timer2(11),timer2_T(11),xtal_cpld,'0','0','1');
+timer2_T(11) <= ((timer2(11) AND NOT N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND NOT timer2(11) AND 
+	timer2(7) AND timer2(8) AND timer2(9) AND N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+	NOT timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+	timer2(8) AND NOT timer2(13) AND timer2(9) AND N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+	timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(14))
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+	timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(15)));
+
+FTCPE_timer212: FTCPE port map (timer2(12),timer2_T(12),xtal_cpld,'0','0','1');
+timer2_T(12) <= ((timer2(12) AND NOT N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND NOT timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(8) AND NOT timer2(13) AND timer2(9) AND N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(14))
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(15)));
+
+FTCPE_timer213: FTCPE port map (timer2(13),timer2_T(13),xtal_cpld,'0','0','1');
+timer2_T(13) <= ((timer2(13) AND NOT N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(12) AND timer2(8) AND NOT timer2(13) AND timer2(9) AND 
+	N_PZ_296)
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296 AND 
+	NOT timer2(14))
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296 AND 
+	NOT timer2(15)));
+
+FTCPE_timer214: FTCPE port map (timer2(14),timer2_T(14),xtal_cpld,'0','0','1');
+timer2_T(14) <= ((NOT N_PZ_296 AND timer2(14))
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND 
+	N_PZ_296 AND NOT timer2(14))
+	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+	timer2(7) AND timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND 
+	N_PZ_296 AND NOT timer2(15)));
+
+FDCPE_timer215: FDCPE port map (timer2(15),timer2_D(15),xtal_cpld,'0','0','1');
+timer2_D(15) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(15))
+	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14)));
+
+
+v6_cpld_I(0) <= rtm_ps;
+v6_cpld(0) <= v6_cpld_I(0) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+v6_cpld_I(1) <= rtm_12v_en;
+v6_cpld(1) <= v6_cpld_I(1) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+v6_cpld_I(2) <= rtm_3v3_en;
+v6_cpld(2) <= v6_cpld_I(2) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+v6_cpld_I(3) <= rtm_i2c_en;
+v6_cpld(3) <= v6_cpld_I(3) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+
+
+Register Legend:
+ FDCPE (Q,D,C,CLR,PRE,CE); 
+ FDDCPE (Q,D,C,CLR,PRE,CE); 
+ FTCPE (Q,D,C,CLR,PRE,CE); 
+ FTDCPE (Q,D,C,CLR,PRE,CE); 
+ LDCP  (Q,D,G,CLR,PRE); 
+
+******************************  Device Pin Out *****************************
+
+Device : XC2C128-7-VQ100
+
+
+   --------------------------------------------------  
+  /100 98  96  94  92  90  88  86  84  82  80  78  76  \
+ |   99  97  95  93  91  89  87  85  83  81  79  77    |
+ | 1                                               75  | 
+ | 2                                               74  | 
+ | 3                                               73  | 
+ | 4                                               72  | 
+ | 5                                               71  | 
+ | 6                                               70  | 
+ | 7                                               69  | 
+ | 8                                               68  | 
+ | 9                                               67  | 
+ | 10                                              66  | 
+ | 11                                              65  | 
+ | 12                                              64  | 
+ | 13                XC2C128-7-VQ100               63  | 
+ | 14                                              62  | 
+ | 15                                              61  | 
+ | 16                                              60  | 
+ | 17                                              59  | 
+ | 18                                              58  | 
+ | 19                                              57  | 
+ | 20                                              56  | 
+ | 21                                              55  | 
+ | 22                                              54  | 
+ | 23                                              53  | 
+ | 24                                              52  | 
+ | 25                                              51  | 
+ |   27  29  31  33  35  37  39  41  43  45  47  49    |
+  \26  28  30  32  34  36  38  40  42  44  46  48  50  /
+   --------------------------------------------------  
+
+
+Pin Signal                         Pin Signal                        
+No. Name                           No. Name                          
+  1 rtm_12v_en                       51 VCCIO-2.5                     
+  2 mmc_low_voltage_pok              52 sram2_tms                     
+  3 rtm_ps                           53 sram2_tdi                     
+  4 WPU                              54 sram1_tck                     
+  5 VCCAUX                           55 sram1_tdo                     
+  6 WPU                              56 sram1_tms                     
+  7 WPU                              57 VCC                           
+  8 cpld_led<1>                      58 sram1_tdi                     
+  9 WPU                              59 fpga_done                     
+ 10 WPU                              60 fpga_init_b                   
+ 11 WPU                              61 fpga_program_b                
+ 12 WPU                              62 GND                           
+ 13 WPU                              63 fmc_prsnt_m2c_l<2>            
+ 14 fpga_tms                         64 fmc_prsnt_m2c_l<1>            
+ 15 fpga_tck                         65 fmcx_pg_c2m                   
+ 16 fpga_tdi                         66 fmc_pg_m2c<1>                 
+ 17 fpga_tdo                         67 WPU                           
+ 18 gbe_tdo                          68 WPU                           
+ 19 gbe_tms                          69 GND                           
+ 20 VCCIO-2.5                        70 WPU                           
+ 21 GND                              71 WPU                           
+ 22 WPU                              72 WPU                           
+ 23 gbe_tck                          73 cpld_led<2>                   
+ 24 gbe_tdi                          74 WPU                           
+ 25 GND                              75 GND                           
+ 26 VCC                              76 cpld_led<3>                   
+ 27 xtal_cpld                        77 WPU                           
+ 28 pgood_2v5                        78 sw<1>                         
+ 29 pgood_3v3                        79 sw<2>                         
+ 30 pgood_1v0                        80 WPU                           
+ 31 GND                              81 WPU                           
+ 32 pgood_1v5                        82 fmc_pg_m2c<2>                 
+ 33 WPU                              83 TDO                           
+ 34 v6_cpld<3>                       84 GND                           
+ 35 v6_cpld<5>                       85 WPU                           
+ 36 WPU                              86 jtag_header_tdi               
+ 37 v6_cpld<0>                       87 jtag_header_tdo               
+ 38 VCCIO-2.5                        88 VCCIO-3.3                     
+ 39 v6_cpld<1>                       89 jtag_header_tck               
+ 40 v6_cpld<2>                       90 jtag_header_tms               
+ 41 cpld_a21_out                     91 WPU                           
+ 42 cpld_a22_out                     92 WPU                           
+ 43 cpld_a21_in                      93 WPU                           
+ 44 cpld_a22_in                      94 WPU                           
+ 45 TDI                              95 WPU                           
+ 46 WPU                              96 rtm_i2c_en                    
+ 47 TMS                              97 rtm_3v3_en                    
+ 48 TCK                              98 VCCIO-3.3                     
+ 49 sram2_tck                        99 WPU                           
+ 50 sram2_tdo                       100 GND                           
+
+
+Legend :  NC  = Not Connected, unbonded pin
+        PGND  = Unused I/O configured as additional Ground pin
+         KPR  = Unused I/O with weak keeper (leave unconnected)
+         WPU  = Unused I/O with weak pull up (leave unconnected)
+         TIE  = Unused I/O floating -- must tie to VCC, GND or other signal
+         VCC  = Dedicated Power Pin
+      VCCAUX  = Power supply for JTAG pins
+   VCCIO-3.3  = I/O supply voltage for LVTTL, LVCMOS33, SSTL3_I
+   VCCIO-2.5  = I/O supply voltage for LVCMOS25, SSTL2_I
+   VCCIO-1.8  = I/O supply voltage for LVCMOS18
+   VCCIO-1.5  = I/O supply voltage for LVCMOS15, HSTL_I
+        VREF  = Reference voltage for indicated input standard
+       *VREF  = Reference voltage pin selected by software
+         GND  = Dedicated Ground Pin
+         TDI  = Test Data In, JTAG pin
+         TDO  = Test Data Out, JTAG pin
+         TCK  = Test Clock, JTAG pin
+         TMS  = Test Mode Select, JTAG pin
+  PROHIBITED  = User reserved pin
+****************************  Compiler Options  ****************************
+
+Following is a list of all global compiler options used by the fitter run.
+
+Device(s) Specified                         : xc2c128-7-VQ100
+Optimization Method                         : DENSITY
+Multi-Level Logic Optimization              : ON
+Ignore Timing Specifications                : OFF
+Default Register Power Up Value             : LOW
+Keep User Location Constraints              : ON
+What-You-See-Is-What-You-Get                : OFF
+Exhaustive Fitting                          : OFF
+Keep Unused Inputs                          : OFF
+Slew Rate                                   : FAST
+Set Unused I/O Pin Termination              : PULLUP
+Global Clock Optimization                   : ON
+Global Set/Reset Optimization               : ON
+Global Ouput Enable Optimization            : ON
+Enable Input Registers                      : ON
+Function Block Fan-in Limit                 : 38
+Use DATA_GATE Attribute                     : ON
+Set Tristate Outputs to Termination Mode    : PULLUP
+Default Voltage Standard for All Outputs    : LVCMOS25
+Input Limit                                 : 32
+Pterm Limit                                 : 28
+</pre>
+<form><span class="pgRef"><table width="90%" align="center"><tr>
+<td align="left"><input type="button" onclick="javascript:parent.leftnav.showTop()" onmouseover="window.status='goto top of page'; return true;" onmouseout="window.status=''" value="back to top"></td>
+<td align="right"><input type="button" onclick="window.print()" onmouseover="window.status='print page'; return true;" onmouseout="window.status=''" value="print page"></td>
+</tr></table></span></form>
+</body></html>

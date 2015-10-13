@@ -1,0 +1,129 @@
+Release 8.1i - Fit P.20131013
+Copyright(c) 1995-2003 Xilinx Inc. All rights reserved
+
+10- 7-2015 12:31PM
+
+NOTE: This file is designed to be imported into a spreadsheet program
+such as Microsoft Excel for viewing, printing and sorting. The pipe '|'
+character is used as the data field separator.
+This file is also designed to support parsing.
+
+Input file:  glib_cpld.ngd
+output file: glib_cpld.pad
+Part type:   xc2c128
+Speed grade: -7
+Package:     vq100
+
+Pinout by Pin Number:
+
+-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+Pin Number|Signal Name|Pin Usage|Pin Name|Direction|IO Standard|IO Bank Number|{blank}|Slew Rate|Termination|{blank}|Voltage|Constraint|
+P1|rtm_12v_en|I|I/O/GTS2|INPUT|LVCMOS33|2||FAST||||
+P2|mmc_low_voltage_pok|O|I/O/GTS3|OUTPUT|LVCMOS33|2||FAST||||
+P3|rtm_ps|I|I/O/GTS0|INPUT|LVCMOS33|2||FAST||||
+P4|WPU||I/O/GTS1|||2|||||||
+P5||VCCAUX|VAUX||||||||||
+P6|WPU||I/O|||2|||||||
+P7|WPU||I/O|||2|||||||
+P8|cpld_led<1>|O|I/O|OUTPUT|LVCMOS33|2||FAST||||
+P9|WPU||I/O|||2|||||||
+P10|WPU||I/O|||2|||||||
+P11|WPU||I/O|||2|||||||
+P12|WPU||I/O|||2|||||||
+P13|WPU||I/O|||2|||||||
+P14|fpga_tms|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P15|fpga_tck|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P16|fpga_tdi|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P17|fpga_tdo|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P18|gbe_tdo|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P19|gbe_tms|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P20||VCCIO-2.5|VCCIO|||1|||||||
+P21|GND||GND||||||||||
+P22|WPU||I/O/GCK0|||1|||||||
+P23|gbe_tck|O|I/O/GCK1|OUTPUT|LVCMOS25|1||FAST||||
+P24|gbe_tdi|O|I/O/CDR|OUTPUT|LVCMOS25|1||FAST||||
+P25|GND||GND||||||||||
+P26||VCC|VCC||||||||||
+P27|xtal_cpld|GCK|I/O/GCK2||LVCMOS25|1||FAST||||
+P28|pgood_2v5|I|I/O/DGE0|INPUT|LVCMOS25|1||FAST||||
+P29|pgood_3v3|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P30|pgood_1v0|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P31|GND||GND||||||||||
+P32|pgood_1v5|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P33|WPU||I/O|||1|||||||
+P34|v6_cpld<3>|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P35|v6_cpld<5>|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P36|WPU||I/O|||1|||||||
+P37|v6_cpld<0>|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P38||VCCIO-2.5|VCCIO|||1|||||||
+P39|v6_cpld<1>|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P40|v6_cpld<2>|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P41|cpld_a21_out|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P42|cpld_a22_out|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P43|cpld_a21_in|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P44|cpld_a22_in|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P45|TDI||TDI||||||||||
+P46|WPU||I/O|||1|||||||
+P47|TMS||TMS||||||||||
+P48|TCK||TCK||||||||||
+P49|sram2_tck|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P50|sram2_tdo|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P51||VCCIO-2.5|VCCIO|||1|||||||
+P52|sram2_tms|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P53|sram2_tdi|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P54|sram1_tck|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P55|sram1_tdo|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P56|sram1_tms|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P57||VCC|VCC||||||||||
+P58|sram1_tdi|O|I/O|OUTPUT|LVCMOS25|1||FAST||||
+P59|fpga_done|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P60|fpga_init_b|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P61|fpga_program_b|I/O|I/O|BIDIR|LVCMOS25|1||FAST||||
+P62|GND||GND||||||||||
+P63|fmc_prsnt_m2c_l<2>|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P64|fmc_prsnt_m2c_l<1>|I|I/O|INPUT|LVCMOS25|1||FAST||||
+P65|fmcx_pg_c2m|O|I/O|OUTPUT|LVCMOS33|2||FAST||||
+P66|fmc_pg_m2c<1>|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P67|WPU||I/O|||2|||||||
+P68|WPU||I/O|||2|||||||
+P69|GND||GND||||||||||
+P70|WPU||I/O|||2|||||||
+P71|WPU||I/O|||2|||||||
+P72|WPU||I/O|||2|||||||
+P73|cpld_led<2>|O|I/O|OUTPUT|LVCMOS33|2||FAST||||
+P74|WPU||I/O|||2|||||||
+P75|GND||GND||||||||||
+P76|cpld_led<3>|O|I/O|OUTPUT|LVCMOS33|2||FAST||||
+P77|WPU||I/O|||2|||||||
+P78|sw<1>|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P79|sw<2>|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P80|WPU||I/O|||2|||||||
+P81|WPU||I/O|||2|||||||
+P82|fmc_pg_m2c<2>|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P83|TDO||TDO||||||||||
+P84|GND||GND||||||||||
+P85|WPU||I/O/DGE1|||2|||||||
+P86|jtag_header_tdi|O|I/O|OUTPUT|LVCMOS33|2||FAST||||
+P87|jtag_header_tdo|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P88||VCCIO-3.3|VCCIO|||2|||||||
+P89|jtag_header_tck|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P90|jtag_header_tms|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P91|WPU||I/O|||2|||||||
+P92|WPU||I/O|||2|||||||
+P93|WPU||I/O|||2|||||||
+P94|WPU||I/O|||2|||||||
+P95|WPU||I/O|||2|||||||
+P96|rtm_i2c_en|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P97|rtm_3v3_en|I|I/O|INPUT|LVCMOS33|2||FAST||||
+P98||VCCIO-3.3|VCCIO|||2|||||||
+P99|WPU||I/O/GSR|||2|||||||
+P100|GND||GND||||||||||
+
+To preserve the pinout above for future design iterations in
+Project Navigator simply execute the (Lock Pins) process
+located under the (Implement Design) process in a toolbox named
+(Optional Implementation Tools) or invoke PIN2UCF from the
+command line. The location constraints will be written into your
+specified UCF file
+
+

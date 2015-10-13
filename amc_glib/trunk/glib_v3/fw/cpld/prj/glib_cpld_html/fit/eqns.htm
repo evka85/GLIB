@@ -1,0 +1,695 @@
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script src="paths.js"></script><script src="eqns.js"></script><script>
+      var design = "glib_cpld";
+      var device = "XC2C128";
+      signals = new Array("N_PZ_216","N_PZ_296","configuration_error_latch","cpld_a21_out","cpld_a22_out","cpld_led1_SPECSIG","cpld_led2_SPECSIG","cpld_led3_SPECSIG","error_check_enable","fmcx_pg_c2m","fpga_done_latch","fpga_init_b_r","fpga_program_b","fpga_program_b_trigger","fpga_tck","fpga_tdi","fpga_tms","gbe_tck","gbe_tdi","gbe_tms","jtag_header_tdi","mmc_low_voltage_pok","sram1_tck","sram1_tdi","sram1_tms","sram2_tck","sram2_tdi","sram2_tms","state0_SPECSIG","timer10_SPECSIG","timer11_SPECSIG","timer12_SPECSIG","timer13_SPECSIG","timer14_SPECSIG","timer15_SPECSIG","timer20_SPECSIG","timer210_SPECSIG","timer211_SPECSIG","timer212_SPECSIG","timer213_SPECSIG","timer214_SPECSIG","timer215_SPECSIG","timer21_SPECSIG","timer22_SPECSIG","timer23_SPECSIG","timer24_SPECSIG","timer25_SPECSIG","timer26_SPECSIG","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","v6_cpld0_SPECSIG","v6_cpld1_SPECSIG","v6_cpld2_SPECSIG","v6_cpld3_SPECSIG");
+      sigNegs = new Array("OFF","OFF","ON","OFF","ON","OFF","OFF","ON","OFF","OFF","ON","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","ON","ON","OFF","OFF","OFF","OFF","OFF","OFF","ON","OFF","OFF","OFF","OFF","OFF","OFF","ON","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","OFF","ON","OFF","OFF","OFF","OFF");
+      sigTypes = new Array("","","DFF","","","","","","DFF","","DFF","DFF","DFF","DFF","","","","","","","","","","","","","","","DFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","TFF","DFF","DFF","DFF","DFF","DFF","DFF","DFF","DFF","DFF","TFF","","","","");
+
+      
+           iostyle["cpld_led1_SPECSIG"]=new Array("PU");
+        
+           iostyle["rtm_ps"]=new Array("PU");
+        
+           iostyle["fpga_tms"]=new Array("PU");
+        
+           iostyle["fpga_tck"]=new Array("PU");
+        
+           iostyle["fpga_tdi"]=new Array("PU");
+        
+           iostyle["fpga_tdo"]=new Array("PU");
+        
+           iostyle["gbe_tdo"]=new Array("PU");
+        
+           iostyle["gbe_tms"]=new Array("PU");
+        
+           iostyle["gbe_tck"]=new Array("PU");
+        
+           iostyle["gbe_tdi"]=new Array("PU");
+        
+           iostyle["xtal_cpld"]=new Array("PU");
+        
+           iostyle["rtm_12v_en"]=new Array("PU");
+        
+           iostyle["rtm_3v3_en"]=new Array("PU");
+        
+           iostyle["rtm_i2c_en"]=new Array("PU");
+        
+           iostyle["jtag_header_tms"]=new Array("PU");
+        
+           iostyle["pgood_2v5"]=new Array("PU");
+        
+           iostyle["pgood_3v3"]=new Array("PU");
+        
+           iostyle["pgood_1v0"]=new Array("PU");
+        
+           iostyle["pgood_1v5"]=new Array("PU");
+        
+           iostyle["v6_cpld3_SPECSIG"]=new Array("PU");
+        
+           iostyle["v6_cpld5_SPECSIG"]=new Array("PU");
+        
+           iostyle["v6_cpld0_SPECSIG"]=new Array("PU");
+        
+           iostyle["v6_cpld1_SPECSIG"]=new Array("PU");
+        
+           iostyle["v6_cpld2_SPECSIG"]=new Array("PU");
+        
+           iostyle["fmc_pg_m2c1_SPECSIG"]=new Array("PU");
+        
+           iostyle["cpld_led2_SPECSIG"]=new Array("PU");
+        
+           iostyle["cpld_led3_SPECSIG"]=new Array("PU");
+        
+           iostyle["fmc_prsnt_m2c_l1_SPECSIG"]=new Array("PU");
+        
+           iostyle["fmc_prsnt_m2c_l2_SPECSIG"]=new Array("PU");
+        
+           iostyle["fpga_program_b"]=new Array("PUOD_SPECSIG");
+        
+           iostyle["fpga_init_b"]=new Array("PU");
+        
+           iostyle["fpga_done"]=new Array("PU");
+        
+           iostyle["sram1_tdi"]=new Array("PU");
+        
+           iostyle["sram1_tms"]=new Array("PU");
+        
+           iostyle["sram1_tdo"]=new Array("PU");
+        
+           iostyle["sram1_tck"]=new Array("PU");
+        
+           iostyle["sw1_SPECSIG"]=new Array("PU");
+        
+           iostyle["sw2_SPECSIG"]=new Array("PU");
+        
+           iostyle["fmc_pg_m2c2_SPECSIG"]=new Array("PU");
+        
+           iostyle["jtag_header_tdi"]=new Array("PU");
+        
+           iostyle["jtag_header_tdo"]=new Array("PU");
+        
+           iostyle["jtag_header_tck"]=new Array("PU");
+        
+           iostyle["sram2_tdi"]=new Array("PU");
+        
+           iostyle["sram2_tms"]=new Array("PU");
+        
+           iostyle["sram2_tdo"]=new Array("PU");
+        
+           iostyle["sram2_tck"]=new Array("PU");
+        
+           iostyle["cpld_a22_in"]=new Array("PU");
+        
+           iostyle["cpld_a21_in"]=new Array("PU");
+        
+           iostyle["cpld_a22_out"]=new Array("PU");
+        
+           iostyle["cpld_a21_out"]=new Array("PU");
+        
+        specSig["fmc_prsnt_m2c_l2_SPECSIG"]=new Array("fmc_prsnt_m2c_l<2>");
+      
+        specSig["fmc_pg_m2c2_SPECSIG"]=new Array("fmc_pg_m2c<2>");
+      
+        specSig["fmc_prsnt_m2c_l1_SPECSIG"]=new Array("fmc_prsnt_m2c_l<1>");
+      
+        specSig["fmc_pg_m2c1_SPECSIG"]=new Array("fmc_pg_m2c<1>");
+      
+        specSig["fpga_program_bPIN_SPECSIG"]=new Array("fpga_program_b.PIN");
+      
+        specSig["sw2_SPECSIG"]=new Array("sw<2>");
+      
+        specSig["sw1_SPECSIG"]=new Array("sw<1>");
+      
+        specSig["v6_cpld5_SPECSIG"]=new Array("v6_cpld<5>");
+      
+        specSig["mmc_low_voltage_pokGLB_SPECSIG"]=new Array("mmc_low_voltage_pok.GLB");
+      
+        specSig["b_SPECSIG"]=new Array("(b)");
+      
+        specSig["timer22_SPECSIG"]=new Array("timer2<2>");
+      
+        specSig["timer21_SPECSIG"]=new Array("timer2<1>");
+      
+        specSig["timer28_SPECSIG"]=new Array("timer2<8>");
+      
+        specSig["timer27_SPECSIG"]=new Array("timer2<7>");
+      
+        specSig["cpld_led1_SPECSIG"]=new Array("cpld_led<1>");
+      
+        specSig["timer26_SPECSIG"]=new Array("timer2<6>");
+      
+        specSig["timer215_SPECSIG"]=new Array("timer2<15>");
+      
+        specSig["timer23_SPECSIG"]=new Array("timer2<3>");
+      
+        specSig["v6_cpld3_SPECSIG"]=new Array("v6_cpld<3>");
+      
+        specSig["v6_cpld0_SPECSIG"]=new Array("v6_cpld<0>");
+      
+        specSig["v6_cpld1_SPECSIG"]=new Array("v6_cpld<1>");
+      
+        specSig["v6_cpld2_SPECSIG"]=new Array("v6_cpld<2>");
+      
+        specSig["cpld_led2_SPECSIG"]=new Array("cpld_led<2>");
+      
+        specSig["cpld_led3_SPECSIG"]=new Array("cpld_led<3>");
+      
+        specSig["IO_SPECSIG"]=new Array("I/O");
+      
+        specSig["PUOD_SPECSIG"]=new Array("PU/OD");
+      
+        specSig["timer15_SPECSIG"]=new Array("timer1<5>");
+      
+        specSig["timer13_SPECSIG"]=new Array("timer1<3>");
+      
+        specSig["timer14_SPECSIG"]=new Array("timer1<4>");
+      
+        specSig["timer12_SPECSIG"]=new Array("timer1<2>");
+      
+        specSig["timer11_SPECSIG"]=new Array("timer1<1>");
+      
+        specSig["timer10_SPECSIG"]=new Array("timer1<0>");
+      
+        specSig["state0_SPECSIG"]=new Array("state<0>");
+      
+        specSig["timer20_SPECSIG"]=new Array("timer2<0>");
+      
+        specSig["timer210_SPECSIG"]=new Array("timer2<10>");
+      
+        specSig["timer211_SPECSIG"]=new Array("timer2<11>");
+      
+        specSig["timer212_SPECSIG"]=new Array("timer2<12>");
+      
+        specSig["timer213_SPECSIG"]=new Array("timer2<13>");
+      
+        specSig["timer214_SPECSIG"]=new Array("timer2<14>");
+      
+        specSig["timer29_SPECSIG"]=new Array("timer2<9>");
+      
+        specSig["timer25_SPECSIG"]=new Array("timer2<5>");
+      
+        specSig["timer24_SPECSIG"]=new Array("timer2<4>");
+      
+            pterms["FB1_0"]=new Array("state0_SPECSIG","timer10_SPECSIG","timer11_SPECSIG","timer12_SPECSIG","timer14_SPECSIG");
+          
+            pterms["FB1_1"]=new Array("state0_SPECSIG","timer10_SPECSIG","timer11_SPECSIG","timer12_SPECSIG","/timer15_SPECSIG");
+          
+            pterms["FB1_2"]=new Array("state0_SPECSIG","timer10_SPECSIG","timer11_SPECSIG","timer12_SPECSIG","timer13_SPECSIG","timer14_SPECSIG");
+          
+            pterms["FB1_3"]=new Array("state0_SPECSIG","timer10_SPECSIG","timer11_SPECSIG","timer12_SPECSIG","/timer13_SPECSIG","/timer14_SPECSIG","timer15_SPECSIG");
+          
+            pterms["FB1_4"]=new Array("fpga_program_b_trigger","/state0_SPECSIG");
+          
+            pterms["FB1_5"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer215_SPECSIG");
+          
+            pterms["FB1_6"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer213_SPECSIG","timer29_SPECSIG","timer214_SPECSIG");
+          
+            pterms["FB1_7"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer26_SPECSIG","N_PZ_216");
+          
+            pterms["FB1_8"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer213_SPECSIG","timer29_SPECSIG","timer214_SPECSIG","timer215_SPECSIG");
+          
+            pterms["FB1_9"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer26_SPECSIG","/N_PZ_216");
+          
+            pterms["FB1_10"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer26_SPECSIG","timer27_SPECSIG");
+          
+            pterms["FB1_11"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer26_SPECSIG","N_PZ_216","/timer27_SPECSIG");
+          
+            pterms["FB1_12"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/N_PZ_216","timer27_SPECSIG");
+          
+            pterms["FB1_13"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer26_SPECSIG","timer28_SPECSIG");
+          
+            pterms["FB1_14"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer27_SPECSIG","timer28_SPECSIG");
+          
+            pterms["FB1_15"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","/timer28_SPECSIG");
+          
+            pterms["FB1_16"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/N_PZ_216","timer28_SPECSIG");
+          
+            pterms["FB1_17"]=new Array("fmcx_pg_c2m","error_check_enable","fpga_program_b_trigger");
+          
+            pterms["FB1_18"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer20_SPECSIG","timer21_SPECSIG");
+          
+            pterms["FB1_19"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer20_SPECSIG","/timer21_SPECSIG");
+          
+            pterms["FB1_20"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer20_SPECSIG","timer22_SPECSIG");
+          
+            pterms["FB1_21"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer21_SPECSIG","timer22_SPECSIG");
+          
+            pterms["FB1_22"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer20_SPECSIG","timer21_SPECSIG","/timer22_SPECSIG");
+          
+            pterms["FB1_31"]=new Array("state0_SPECSIG","timer10_SPECSIG","timer11_SPECSIG","timer12_SPECSIG","timer13_SPECSIG");
+          
+            pterms["FB1_34"]=new Array("state0_SPECSIG","timer10_SPECSIG","timer11_SPECSIG");
+          
+            pterms["FB1_37"]=new Array("state0_SPECSIG","timer10_SPECSIG");
+          
+            pterms["FB1_40"]=new Array("sw1_SPECSIG");
+          
+            pterms["FB1_49"]=new Array("state0_SPECSIG");
+          
+            pterms["FB1_52"]=new Array("fmcx_pg_c2m","fpga_init_b","fpga_program_b_trigger");
+          
+            pterms["FB2_0"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer213_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer214_SPECSIG");
+          
+            pterms["FB2_1"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer213_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer215_SPECSIG");
+          
+            pterms["FB2_2"]=new Array("/N_PZ_296","timer214_SPECSIG");
+          
+            pterms["FB2_3"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","/timer213_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_4"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer214_SPECSIG");
+          
+            pterms["FB2_5"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer215_SPECSIG");
+          
+            pterms["FB2_6"]=new Array("timer213_SPECSIG","/N_PZ_296");
+          
+            pterms["FB2_7"]=new Array("sw1_SPECSIG","mmc_low_voltage_pok");
+          
+            pterms["FB2_8"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","/timer212_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_9"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer28_SPECSIG","/timer213_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_10"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer214_SPECSIG");
+          
+            pterms["FB2_11"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer215_SPECSIG");
+          
+            pterms["FB2_12"]=new Array("timer212_SPECSIG","/N_PZ_296");
+          
+            pterms["FB2_13"]=new Array("jtag_header_tms");
+          
+            pterms["FB2_14"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","/timer211_SPECSIG","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_15"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","/timer212_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_16"]=new Array("jtag_header_tck");
+          
+            pterms["FB2_17"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","timer28_SPECSIG","/timer213_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_18"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer214_SPECSIG");
+          
+            pterms["FB2_19"]=new Array("jtag_header_tdo");
+          
+            pterms["FB2_20"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer215_SPECSIG");
+          
+            pterms["FB2_21"]=new Array("timer211_SPECSIG","/N_PZ_296");
+          
+            pterms["FB2_22"]=new Array("/timer26_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_23"]=new Array("/timer27_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_24"]=new Array("/timer28_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_25"]=new Array("timer210_SPECSIG","timer211_SPECSIG","timer212_SPECSIG","timer213_SPECSIG","timer29_SPECSIG","N_PZ_296","timer214_SPECSIG","timer215_SPECSIG");
+          
+            pterms["FB2_26"]=new Array("/N_PZ_216","N_PZ_296");
+          
+            pterms["FB2_27"]=new Array("/timer29_SPECSIG","/N_PZ_296");
+          
+            pterms["FB2_28"]=new Array("/timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_29"]=new Array("timer26_SPECSIG","N_PZ_216","/timer211_SPECSIG","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_30"]=new Array("timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","/timer212_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_31"]=new Array("timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","timer28_SPECSIG","/timer213_SPECSIG","timer29_SPECSIG","N_PZ_296");
+          
+            pterms["FB2_32"]=new Array("timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer214_SPECSIG");
+          
+            pterms["FB2_33"]=new Array("timer26_SPECSIG","N_PZ_216","timer27_SPECSIG","timer28_SPECSIG","timer29_SPECSIG","N_PZ_296","/timer215_SPECSIG");
+          
+            pterms["FB2_34"]=new Array("timer210_SPECSIG","/N_PZ_296");
+          
+            pterms["FB2_35"]=new Array("timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer213_SPECSIG","timer29_SPECSIG","N_PZ_296","timer214_SPECSIG","timer215_SPECSIG");
+          
+            pterms["FB2_36"]=new Array("/timer20_SPECSIG","/N_PZ_296");
+          
+            pterms["FB2_37"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer20_SPECSIG","timer23_SPECSIG");
+          
+            pterms["FB2_38"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer21_SPECSIG","timer23_SPECSIG");
+          
+            pterms["FB2_39"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer22_SPECSIG","timer23_SPECSIG");
+          
+            pterms["FB2_40"]=new Array("jtag_header_tms");
+          
+            pterms["FB2_41"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer20_SPECSIG","timer21_SPECSIG","timer22_SPECSIG","/timer23_SPECSIG");
+          
+            pterms["FB2_42"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer210_SPECSIG","timer26_SPECSIG","N_PZ_216","timer211_SPECSIG","timer27_SPECSIG","timer212_SPECSIG","timer28_SPECSIG","timer213_SPECSIG","timer29_SPECSIG","timer214_SPECSIG","timer215_SPECSIG");
+          
+            pterms["FB2_43"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer20_SPECSIG","timer24_SPECSIG");
+          
+            pterms["FB2_44"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer21_SPECSIG","timer24_SPECSIG");
+          
+            pterms["FB2_45"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer22_SPECSIG","timer24_SPECSIG");
+          
+            pterms["FB2_46"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/timer23_SPECSIG","timer24_SPECSIG");
+          
+            pterms["FB2_47"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","timer20_SPECSIG","timer21_SPECSIG","timer22_SPECSIG","timer23_SPECSIG","/timer24_SPECSIG");
+          
+            pterms["FB2_48"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/N_PZ_216","timer20_SPECSIG","timer21_SPECSIG","timer22_SPECSIG","timer23_SPECSIG","timer24_SPECSIG");
+          
+            pterms["FB2_49"]=new Array("jtag_header_tck");
+          
+            pterms["FB2_50"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger","/N_PZ_216","timer25_SPECSIG");
+          
+            pterms["FB2_52"]=new Array("sram2_tdo");
+          
+            pterms["FB3_0"]=new Array("/fmc_prsnt_m2c_l2_SPECSIG","/fmc_pg_m2c2_SPECSIG");
+          
+            pterms["FB3_1"]=new Array("/fmc_prsnt_m2c_l1_SPECSIG","/fmc_pg_m2c1_SPECSIG");
+          
+            pterms["FB3_2"]=new Array("/fmcx_pg_c2m");
+          
+            pterms["FB3_4"]=new Array("fpga_done");
+          
+            pterms["FB3_5"]=new Array("/N_PZ_296");
+          
+            pterms["FB3_31"]=new Array("timer20_SPECSIG","timer21_SPECSIG","timer22_SPECSIG","timer23_SPECSIG","timer24_SPECSIG","timer25_SPECSIG");
+          
+            pterms["FB3_34"]=new Array("fpga_program_bPIN_SPECSIG","/fpga_init_b","error_check_enable","fpga_init_b_r");
+          
+            pterms["FB3_43"]=new Array("fmcx_pg_c2m","fpga_program_b_trigger");
+          
+            pterms["FB4_40"]=new Array("rtm_i2c_en");
+          
+            pterms["FB4_49"]=new Array("rtm_ps");
+          
+            pterms["FB4_52"]=new Array("rtm_12v_en");
+          
+            pterms["FB4_55"]=new Array("rtm_3v3_en");
+          
+            pterms["FB5_10"]=new Array("pgood_3v3","pgood_2v5","pgood_1v5","pgood_1v0");
+          
+            pterms["FB5_46"]=new Array("sw2_SPECSIG");
+          
+            pterms["FB6_7"]=new Array("sw1_SPECSIG","mmc_low_voltage_pok");
+          
+            pterms["FB6_16"]=new Array("/state0_SPECSIG");
+          
+            pterms["FB6_25"]=new Array("fpga_tdo");
+          
+            pterms["FB6_43"]=new Array("jtag_header_tms");
+          
+            pterms["FB6_55"]=new Array("jtag_header_tck");
+          
+            pterms["FB7_0"]=new Array("/sw1_SPECSIG","/fpga_tdo");
+          
+            pterms["FB7_1"]=new Array("sw1_SPECSIG","/gbe_tdo");
+          
+            pterms["FB8_0"]=new Array("/cpld_a22_in","configuration_error_latch");
+          
+            pterms["FB8_1"]=new Array("/cpld_a22_in","fpga_done_latch");
+          
+            pterms["FB8_2"]=new Array("/configuration_error_latch","/fpga_done_latch","/sw2_SPECSIG");
+          
+            pterms["FB8_7"]=new Array("sw1_SPECSIG","mmc_low_voltage_pok");
+          
+            pterms["FB8_13"]=new Array("sram1_tdo");
+          
+            pterms["FB8_16"]=new Array("jtag_header_tms");
+          
+            pterms["FB8_25"]=new Array("jtag_header_tck");
+          
+            pterms["FB8_55"]=new Array("cpld_a21_in");
+          
+          d2["timer22_SPECSIG"]=new Array("FB1_20","FB1_21","FB1_22","FB1_8");
+          
+              gblclk["timer22_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer22_SPECSIG"]="GND";
+          d2["timer15_SPECSIG"]=new Array("FB1_2","FB1_3");
+          
+              gblclk["timer15_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer15_SPECSIG"]="GND";
+          d2["timer21_SPECSIG"]=new Array("FB1_19","FB1_18","FB1_8");
+          
+              gblclk["timer21_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer21_SPECSIG"]="GND";
+          d2["error_check_enable"]=new Array("FB1_17","FB1_8");
+          
+              gblclk["error_check_enable"]=new Array("xtal_cpld");
+            prld["error_check_enable"]="GND";
+          d2["timer28_SPECSIG"]=new Array("FB1_13","FB1_16","FB1_14","FB1_15","FB1_8");
+          
+              gblclk["timer28_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer28_SPECSIG"]="GND";
+          d2["timer27_SPECSIG"]=new Array("FB1_10","FB1_12","FB1_11","FB1_8");
+          
+              gblclk["timer27_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer27_SPECSIG"]="GND";
+          d2["timer13_SPECSIG"]=new Array("FB1_31","FB1_0","FB1_1");
+          
+              gblclk["timer13_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer13_SPECSIG"]="GND";
+          d1["timer14_SPECSIG"]=new Array("FB1_31");
+          
+              gblclk["timer14_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer14_SPECSIG"]="GND";
+          d1["timer12_SPECSIG"]=new Array("FB1_34");
+          
+              gblclk["timer12_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer12_SPECSIG"]="GND";
+          d1["timer11_SPECSIG"]=new Array("FB1_37");
+          
+              gblclk["timer11_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer11_SPECSIG"]="GND";
+          d1["cpld_led1_SPECSIG"]=new Array("FB1_40");
+          
+              gbltrst["cpld_led1_SPECSIG"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d2["timer26_SPECSIG"]=new Array("FB1_9","FB1_7","FB1_8");
+          
+              gblclk["timer26_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer26_SPECSIG"]="GND";
+          d2["timer215_SPECSIG"]=new Array("FB1_5","FB1_6");
+          
+              gblclk["timer215_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer215_SPECSIG"]="GND";
+          d1["timer10_SPECSIG"]=new Array("FB1_49");
+          
+              gblclk["timer10_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer10_SPECSIG"]="GND";
+          d1["fpga_init_b_r"]=new Array("FB1_52");
+          
+              gblclk["fpga_init_b_r"]=new Array("xtal_cpld");
+            prld["fpga_init_b_r"]="GND";
+          d2["state0_SPECSIG"]=new Array("FB1_4","FB1_3");
+          
+              gblclk["state0_SPECSIG"]=new Array("xtal_cpld");
+            prld["state0_SPECSIG"]="GND";
+          d2["timer210_SPECSIG"]=new Array("FB2_34","FB2_28","FB2_29","FB2_30","FB2_31","FB2_32","FB2_33");
+          
+              gblclk["timer210_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer210_SPECSIG"]="GND";
+          d1["fpga_tms"]=new Array("FB2_13");
+          
+              gbltrst["fpga_tms"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["fpga_tck"]=new Array("FB2_16");
+          
+              gbltrst["fpga_tck"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["fpga_tdi"]=new Array("FB2_19");
+          
+              gbltrst["fpga_tdi"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d2["timer25_SPECSIG"]=new Array("FB2_50","FB2_48","FB2_42");
+          
+              gblclk["timer25_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer25_SPECSIG"]="GND";
+          d2["timer24_SPECSIG"]=new Array("FB2_43","FB2_44","FB2_45","FB2_46","FB2_47","FB2_42");
+          
+              gblclk["timer24_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer24_SPECSIG"]="GND";
+          d2["timer29_SPECSIG"]=new Array("FB2_22","FB2_26","FB2_23","FB2_24","FB2_27","FB2_25");
+          
+              gblclk["timer29_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer29_SPECSIG"]="GND";
+          d2["timer211_SPECSIG"]=new Array("FB2_21","FB2_14","FB2_15","FB2_17","FB2_18","FB2_20");
+          
+              gblclk["timer211_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer211_SPECSIG"]="GND";
+          d2["timer212_SPECSIG"]=new Array("FB2_12","FB2_8","FB2_9","FB2_10","FB2_11");
+          
+              gblclk["timer212_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer212_SPECSIG"]="GND";
+          d2["timer213_SPECSIG"]=new Array("FB2_6","FB2_3","FB2_4","FB2_5");
+          
+              gblclk["timer213_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer213_SPECSIG"]="GND";
+          d1["gbe_tms"]=new Array("FB2_13");
+          
+              trst["gbe_tms"]=new Array("FB2_7");
+              
+          d2["timer214_SPECSIG"]=new Array("FB2_2","FB2_0","FB2_1");
+          
+              gblclk["timer214_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer214_SPECSIG"]="GND";
+          d2["timer23_SPECSIG"]=new Array("FB2_37","FB2_38","FB2_39","FB2_41","FB2_42");
+          
+              gblclk["timer23_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer23_SPECSIG"]="GND";
+          d1["gbe_tck"]=new Array("FB2_16");
+          
+              trst["gbe_tck"]=new Array("FB2_7");
+              
+          d1["gbe_tdi"]=new Array("FB2_52");
+          
+              trst["gbe_tdi"]=new Array("FB2_7");
+              
+          d2["timer20_SPECSIG"]=new Array("FB2_36","FB2_35");
+          
+              gblclk["timer20_SPECSIG"]=new Array("xtal_cpld");
+            prld["timer20_SPECSIG"]="GND";
+          d2["mmc_low_voltage_pok"]=new Array("FB3_2","FB3_0","FB3_1");
+          
+          d1["N_PZ_216"]=new Array("FB3_31");
+          
+          d2["configuration_error_latch"]=new Array("GND");
+          
+              clk["configuration_error_latch"]=new Array("FB3_34");
+              
+              rst["configuration_error_latch"]=new Array("FB3_5");
+              prld["configuration_error_latch"]="GND";
+          d2["fpga_done_latch"]=new Array("GND");
+          
+              clk["fpga_done_latch"]=new Array("FB3_4");
+              
+              rst["fpga_done_latch"]=new Array("FB3_5");
+              prld["fpga_done_latch"]="GND";
+          d1["N_PZ_296"]=new Array("FB3_43");
+          
+          d1["v6_cpld3_SPECSIG"]=new Array("FB4_40");
+          
+              gbltrst["v6_cpld3_SPECSIG"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+              gblclk["fpga_program_b_trigger"]=new Array("xtal_cpld");
+            prld["fpga_program_b_trigger"]="GND";
+          inreg["fpga_program_b_trigger"]=new Array("v6_cpld5_SPECSIG");
+        
+          d1["v6_cpld0_SPECSIG"]=new Array("FB4_49");
+          
+              gbltrst["v6_cpld0_SPECSIG"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["v6_cpld1_SPECSIG"]=new Array("FB4_52");
+          
+              gbltrst["v6_cpld1_SPECSIG"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["v6_cpld2_SPECSIG"]=new Array("FB4_55");
+          
+              gbltrst["v6_cpld2_SPECSIG"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["fmcx_pg_c2m"]=new Array("FB5_10");
+          
+          d1["cpld_led2_SPECSIG"]=new Array("FB5_46");
+          
+              gbltrst["cpld_led2_SPECSIG"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d2["cpld_led3_SPECSIG"]=new Array("GND");
+          
+              gbltrst["cpld_led3_SPECSIG"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["fpga_program_b"]=new Array("FB6_16");
+          
+              gblclk["fpga_program_b"]=new Array("xtal_cpld");
+            prld["fpga_program_b"]="GND";
+          d1["sram1_tdi"]=new Array("FB6_25");
+          
+              trst["sram1_tdi"]=new Array("FB6_7");
+              
+          d1["sram1_tms"]=new Array("FB6_43");
+          
+              trst["sram1_tms"]=new Array("FB6_7");
+              
+          d1["sram1_tck"]=new Array("FB6_55");
+          
+              trst["sram1_tck"]=new Array("FB6_7");
+              
+          d2["jtag_header_tdi"]=new Array("FB7_1","FB7_0");
+          
+              gbltrst["jtag_header_tdi"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["sram2_tdi"]=new Array("FB8_13");
+          
+              trst["sram2_tdi"]=new Array("FB8_7");
+              
+          d1["sram2_tms"]=new Array("FB8_16");
+          
+              trst["sram2_tms"]=new Array("FB8_7");
+              
+          d1["sram2_tck"]=new Array("FB8_25");
+          
+              trst["sram2_tck"]=new Array("FB8_7");
+              
+          d2["cpld_a22_out"]=new Array("FB8_0","FB8_1","FB8_2");
+          
+              gbltrst["cpld_a22_out"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+          d1["cpld_a21_out"]=new Array("FB8_55");
+          
+              gbltrst["cpld_a21_out"]=new Array("mmc_low_voltage_pokGLB_SPECSIG");
+            
+
+      uimSignals = new Array();
+
+      uimSigNegs = new Array();
+
+      uimPterms = new Array();
+      
+
+      
+        function getEqnList() {
+          var str = "<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>";
+          str += "<center><h3>Equations</h3></center>";
+          str += "<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>";
+          for (s=0; s<uimSignals.length; s++) {
+            str += "<tr><td>";
+            str += retUimEqn(uimSignals[s]);
+            str += "</td></tr>";
+          }
+          for (s=0; s<signals.length; s++) {
+            str += "<tr><td>";
+            str += retEqn(signals[s]);
+            str += "</td></tr>";
+          }
+
+          var legend = retLegend();
+		      if (legend != "") {
+		        str += "<tr><td>" + legend + "</td></tr>";
+		      }
+
+          str += "</table>";
+          str += "<form><span class='pgRef'>";
+
+          if (!parent.leftnav.IsNS()) {
+            str += "<table width='90%' align='center'>";
+            str += "<tr><td align='left'><input type='button' value='back to top' ";
+            str += "onclick='javascript:parent.leftnav.showEqnAll()' ";
+            str += "onmouseover=\"window.status='goto top of page'; return true;\" ";
+            str += "onmouseout=\"window.status=''\">";
+            str += "</td>";
+            str += "<td align='right'>";
+            str += "<input type='button' value='print page' ";
+            str += "onclick='javascript:window.print()' ";
+            str += "onmouseover=\"window.status='print page'; return true;\" ";
+            str += "onmouseout=\"window.status=''\">";
+            str += "</td>";
+            str += "</tr></table>";
+          }
+          else {
+            str += "<table width='90%' align='center'>";
+            str += "<tr><td align='left'><a href='javascript:parent.leftnav.showEqnAll()'>back to top</a>";
+            str += "</td>";
+            str += "<td align='right'>";
+            str += "<a href='javascript:window.print()'>";
+            str += "print page</a>";
+            str += "</td>";
+            str += "</tr></table>";
+          }
+
+          str += "</span></form>";
+          str += "</body></html>";
+          return str;
+        }
+      
+    </script>
+</head></html>

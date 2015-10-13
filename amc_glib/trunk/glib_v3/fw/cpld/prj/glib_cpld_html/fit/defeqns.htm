@@ -1,0 +1,371 @@
+<html><head><link type='text/css' href='style.css' rel='stylesheet'></head><body class='pgBgnd'>
+<h3 align='center'>Equations</h3>
+<table width='90%' align='center' border='1' cellpadding='0' cellspacing='0'>
+<tr><td>
+</td></tr><tr><td>
+********** Mapped Logic **********
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_216 <= (timer2(0) AND timer2(1) AND timer2(2) AND timer2(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(4) AND timer2(5));
+</td></tr><tr><td>
+</td></tr><tr><td>
+N_PZ_296 <= (fmcx_pg_c2m AND fpga_program_b_trigger);
+</td></tr><tr><td>
+FDCPE_configuration_error_latch: FDCPE port map (configuration_error_latch,NOT '0',configuration_error_latch_C,NOT N_PZ_296,'0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;configuration_error_latch_C <= (fpga_program_b.PIN AND NOT fpga_init_b AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	error_check_enable AND fpga_init_b_r);
+</td></tr><tr><td>
+</td></tr><tr><td>
+cpld_a21_out_I <= cpld_a21_in;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpld_a21_out <= cpld_a21_out_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+cpld_a22_out_I <= NOT (((NOT cpld_a22_in AND configuration_error_latch)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT cpld_a22_in AND fpga_done_latch)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT configuration_error_latch AND NOT fpga_done_latch AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT sw(2))));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpld_a22_out <= cpld_a22_out_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+cpld_led_I(1) <= sw(1);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpld_led(1) <= cpld_led_I(1) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+cpld_led_I(2) <= sw(2);
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpld_led(2) <= cpld_led_I(2) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+cpld_led_I(3) <= NOT ('0');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cpld_led(3) <= cpld_led_I(3) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+FDCPE_error_check_enable: FDCPE port map (error_check_enable,error_check_enable_D,xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;error_check_enable_D <= ((fmcx_pg_c2m AND error_check_enable AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	fpga_program_b_trigger)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+fmcx_pg_c2m <= (pgood_3v3 AND pgood_2v5 AND pgood_1v5 AND pgood_1v0);
+</td></tr><tr><td>
+FDCPE_fpga_done_latch: FDCPE port map (fpga_done_latch,NOT '0',fpga_done,NOT N_PZ_296,'0','1');
+</td></tr><tr><td>
+FDCPE_fpga_init_b_r: FDCPE port map (fpga_init_b_r,fpga_init_b_r_D,xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fpga_init_b_r_D <= (fmcx_pg_c2m AND fpga_init_b AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	fpga_program_b_trigger);
+</td></tr><tr><td>
+FDCPE_fpga_program_b: FDCPE port map (fpga_program_b,NOT state(0),xtal_cpld,'0','0','1'); -- Open Drain
+</td></tr><tr><td>
+FDCPE_fpga_program_b_trigger: FDCPE port map (fpga_program_b_trigger,v6_cpld(5),xtal_cpld,'0','0','1');
+</td></tr><tr><td>
+</td></tr><tr><td>
+fpga_tck_I <= jtag_header_tck;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fpga_tck <= fpga_tck_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+fpga_tdi_I <= jtag_header_tdo;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fpga_tdi <= fpga_tdi_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+fpga_tms_I <= jtag_header_tms;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fpga_tms <= fpga_tms_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+gbe_tck_I <= jtag_header_tck;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gbe_tck <= gbe_tck_I when gbe_tck_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gbe_tck_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+gbe_tdi_I <= sram2_tdo;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gbe_tdi <= gbe_tdi_I when gbe_tdi_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gbe_tdi_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+gbe_tms_I <= jtag_header_tms;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gbe_tms <= gbe_tms_I when gbe_tms_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;gbe_tms_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+jtag_header_tdi_I <= NOT (((sw(1) AND NOT gbe_tdo)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT sw(1) AND NOT fpga_tdo)));
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jtag_header_tdi <= jtag_header_tdi_I when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+mmc_low_voltage_pok <= NOT (((NOT fmcx_pg_c2m)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT fmc_prsnt_m2c_l(2) AND NOT fmc_pg_m2c(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT fmc_prsnt_m2c_l(1) AND NOT fmc_pg_m2c(1))));
+</td></tr><tr><td>
+</td></tr><tr><td>
+sram1_tck_I <= jtag_header_tck;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram1_tck <= sram1_tck_I when sram1_tck_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram1_tck_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+sram1_tdi_I <= fpga_tdo;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram1_tdi <= sram1_tdi_I when sram1_tdi_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram1_tdi_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+sram1_tms_I <= jtag_header_tms;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram1_tms <= sram1_tms_I when sram1_tms_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram1_tms_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+sram2_tck_I <= jtag_header_tck;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram2_tck <= sram2_tck_I when sram2_tck_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram2_tck_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+sram2_tdi_I <= sram1_tdo;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram2_tdi <= sram2_tdi_I when sram2_tdi_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram2_tdi_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+</td></tr><tr><td>
+sram2_tms_I <= jtag_header_tms;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram2_tms <= sram2_tms_I when sram2_tms_OE = '1' else 'Z';
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sram2_tms_OE <= (sw(1) AND mmc_low_voltage_pok);
+</td></tr><tr><td>
+FDCPE_state0: FDCPE port map (state(0),state_D(0),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;state_D(0) <= NOT (((fpga_program_b_trigger AND NOT state(0))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer1(3) AND NOT timer1(4) AND timer1(5))));
+</td></tr><tr><td>
+FTCPE_timer10: FTCPE port map (timer1(0),state(0),xtal_cpld,'0','0','1');
+</td></tr><tr><td>
+FTCPE_timer11: FTCPE port map (timer1(1),timer1_T(1),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer1_T(1) <= (state(0) AND timer1(0));
+</td></tr><tr><td>
+FTCPE_timer12: FTCPE port map (timer1(2),timer1_T(2),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer1_T(2) <= (state(0) AND timer1(0) AND timer1(1));
+</td></tr><tr><td>
+FTCPE_timer13: FTCPE port map (timer1(3),timer1_T(3),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer1_T(3) <= ((state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer1(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer1(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer1(5)));
+</td></tr><tr><td>
+FTCPE_timer14: FTCPE port map (timer1(4),timer1_T(4),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer1_T(4) <= (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer1(3));
+</td></tr><tr><td>
+FTCPE_timer15: FTCPE port map (timer1(5),timer1_T(5),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer1_T(5) <= ((state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer1(3) AND timer1(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (state(0) AND timer1(0) AND timer1(1) AND timer1(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer1(3) AND NOT timer1(4) AND timer1(5)));
+</td></tr><tr><td>
+FTCPE_timer20: FTCPE port map (timer2(0),timer2_T(0),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_T(0) <= NOT (((NOT timer2(0) AND NOT N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_296 AND timer2(14) AND timer2(15))));
+</td></tr><tr><td>
+FDCPE_timer21: FDCPE port map (timer2(1),timer2_D(1),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(1) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer2(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(1))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer22: FDCPE port map (timer2(2),timer2_D(2),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(2) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(1) AND NOT timer2(2))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer23: FDCPE port map (timer2(3),timer2_D(3),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(3) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(1) AND timer2(2) AND NOT timer2(3))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer24: FDCPE port map (timer2(4),timer2_D(4),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(4) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(1) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(2) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(3) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(0) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(1) AND timer2(2) AND timer2(3) AND NOT timer2(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer25: FDCPE port map (timer2(5),timer2_D(5),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(5) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(5))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(0) AND timer2(1) AND timer2(2) AND timer2(3) AND timer2(4))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer26: FDCPE port map (timer2(6),timer2_D(6),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(6) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT N_PZ_216)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_216)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer27: FDCPE port map (timer2(7),timer2_D(7),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(7) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_216 AND NOT timer2(7))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer28: FDCPE port map (timer2(8),timer2_D(8),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(8) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT N_PZ_216 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND NOT timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND timer2(6) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_216 AND timer2(7) AND NOT timer2(8))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15)));
+</td></tr><tr><td>
+FTCPE_timer29: FTCPE port map (timer2(9),timer2_T(9),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_T(9) <= NOT (((NOT timer2(6) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT N_PZ_216 AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT timer2(7) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT timer2(8) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT timer2(9) AND NOT N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(11) AND timer2(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(13) AND timer2(9) AND N_PZ_296 AND timer2(14) AND timer2(15))));
+</td></tr><tr><td>
+FTCPE_timer210: FTCPE port map (timer2(10),timer2_T(10),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_T(10) <= ((timer2(10) AND NOT N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (NOT timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(6) AND N_PZ_216 AND NOT timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND NOT timer2(12) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND timer2(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer2(13) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND timer2(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(9) AND N_PZ_296 AND NOT timer2(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(6) AND N_PZ_216 AND timer2(7) AND timer2(8) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(9) AND N_PZ_296 AND NOT timer2(15)));
+</td></tr><tr><td>
+FTCPE_timer211: FTCPE port map (timer2(11),timer2_T(11),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_T(11) <= ((timer2(11) AND NOT N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND NOT timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(8) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8) AND NOT timer2(13) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(15)));
+</td></tr><tr><td>
+FTCPE_timer212: FTCPE port map (timer2(12),timer2_T(12),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_T(12) <= ((timer2(12) AND NOT N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND NOT timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(8) AND NOT timer2(13) AND timer2(9) AND N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(8) AND timer2(9) AND N_PZ_296 AND NOT timer2(15)));
+</td></tr><tr><td>
+FTCPE_timer213: FTCPE port map (timer2(13),timer2_T(13),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_T(13) <= ((timer2(13) AND NOT N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(12) AND timer2(8) AND NOT timer2(13) AND timer2(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_296)
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer2(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(12) AND timer2(8) AND timer2(9) AND N_PZ_296 AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	NOT timer2(15)));
+</td></tr><tr><td>
+FTCPE_timer214: FTCPE port map (timer2(14),timer2_T(14),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_T(14) <= ((NOT N_PZ_296 AND timer2(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_296 AND NOT timer2(14))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(7) AND timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	N_PZ_296 AND NOT timer2(15)));
+</td></tr><tr><td>
+FDCPE_timer215: FDCPE port map (timer2(15),timer2_D(15),xtal_cpld,'0','0','1');
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;timer2_D(15) <= ((fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(15))
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	OR (fmcx_pg_c2m AND fpga_program_b_trigger AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(10) AND timer2(6) AND N_PZ_216 AND timer2(11) AND timer2(7) AND 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	timer2(12) AND timer2(8) AND timer2(13) AND timer2(9) AND timer2(14)));
+</td></tr><tr><td>
+</td></tr><tr><td>
+v6_cpld_I(0) <= rtm_ps;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v6_cpld(0) <= v6_cpld_I(0) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+v6_cpld_I(1) <= rtm_12v_en;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v6_cpld(1) <= v6_cpld_I(1) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+v6_cpld_I(2) <= rtm_3v3_en;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v6_cpld(2) <= v6_cpld_I(2) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+v6_cpld_I(3) <= rtm_i2c_en;
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;v6_cpld(3) <= v6_cpld_I(3) when mmc_low_voltage_pok.GLB = '1' else 'Z';
+</td></tr><tr><td>
+</td></tr><tr><td>
+Register Legend:
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FDDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FTDCPE (Q,D,C,CLR,PRE,CE); 
+<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; LDCP  (Q,D,G,CLR,PRE); 
+</td></tr><tr><td>
+</td></tr>
+</table>
+<form><span class="pgRef"><table width="90%" align="center"><tr>
+<td align="left"><input type="button" onclick="javascript:parent.leftnav.showTop()" onmouseover="window.status='goto top of page'; return true;" onmouseout="window.status=''" value="back to top"></td>
+<td align="right"><input type="button" onclick="window.print()" onmouseover="window.status='print page'; return true;" onmouseout="window.status=''" value="print page"></td>
+</tr></table></span></form>
+</body></html>

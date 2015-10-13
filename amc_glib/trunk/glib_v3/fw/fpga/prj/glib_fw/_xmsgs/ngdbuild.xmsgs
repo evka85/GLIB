@@ -24,11 +24,7 @@
 </msg>
 
 <msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk125_2_p</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clk125_2_p</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
-<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_clknetwork_clkout1 = PERIOD &quot;usr_clknetwork_clkout1&quot; TS_clk125_2_p / 2 HIGH 50%&gt;</arg>
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk125_2_p</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clk125_2_p</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
-<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_clknetwork_clkout0 = PERIOD &quot;usr_clknetwork_clkout0&quot; TS_clk125_2_p / 0.2 HIGH 50%&gt;</arg>
+<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_daq_daq_clocks_clkout0 = PERIOD &quot;usr_daq_daq_clocks_clkout0&quot; TS_clk125_2_p / 0.2 HIGH 50%&gt;</arg>
 </msg>
 
 <msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk125_2_p</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clk125_2_p</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
@@ -44,11 +40,7 @@
 </msg>
 
 <msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk125_2_n</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clk125_2_n</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
-<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_clknetwork_clkout1_0 = PERIOD &quot;usr_clknetwork_clkout1_0&quot; TS_clk125_2_n / 2 HIGH 50%&gt;</arg>
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk125_2_n</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clk125_2_n</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
-<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_clknetwork_clkout0_0 = PERIOD &quot;usr_clknetwork_clkout0_0&quot; TS_clk125_2_n / 0.2 HIGH 50%&gt;</arg>
+<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_daq_daq_clocks_clkout0_0 = PERIOD &quot;usr_daq_daq_clocks_clkout0_0&quot; TS_clk125_2_n / 0.2 HIGH 50%&gt;</arg>
 </msg>
 
 <msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">clk125_2_n</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_clk125_2_n</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
@@ -72,11 +64,7 @@
 </msg>
 
 <msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">user_clk125_2</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_user_clk125_2</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
-<arg fmt="%s" index="7">CLKOUT1</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_clknetwork_clkout1_1 = PERIOD &quot;usr_clknetwork_clkout1_1&quot; TS_user_clk125_2 / 2 HIGH 50%&gt;</arg>
-</msg>
-
-<msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">user_clk125_2</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_user_clk125_2</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
-<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_clknetwork_clkout0_1 = PERIOD &quot;usr_clknetwork_clkout0_1&quot; TS_user_clk125_2 / 0.2 HIGH 50%&gt;</arg>
+<arg fmt="%s" index="7">CLKOUT0</arg>: <arg fmt="%s" index="8">&lt;TIMESPEC TS_usr_daq_daq_clocks_clkout0_1 = PERIOD &quot;usr_daq_daq_clocks_clkout0_1&quot; TS_user_clk125_2 / 0.2 HIGH 50%&gt;</arg>
 </msg>
 
 <msg type="info" file="ConstraintSystem" num="178" delta="old" ><arg fmt="%s" index="1">TNM</arg> &apos;<arg fmt="%s" index="2">user_clk125_2</arg>&apos;, used in period specification &apos;<arg fmt="%s" index="3">TS_user_clk125_2</arg>&apos;, was traced into <arg fmt="%s" index="4">MMCM_ADV</arg> instance <arg fmt="%s" index="5">mmcm_adv_inst</arg>. The following new TNM groups and period specifications were generated at the <arg fmt="%s" index="6">MMCM_ADV</arg> output(s): 
@@ -1107,9 +1095,6 @@
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">sram2_bwd_OBUF</arg>&apos; has no driver
 </msg>
 
-<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">fpga_clkout_OBUF</arg>&apos; has no driver
-</msg>
-
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">user_sram_rdata&lt;1&gt;&lt;35&gt;</arg>&apos; has no driver
 </msg>
 
@@ -1678,6 +1663,9 @@
 </msg>
 
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">usr/rx_error&lt;3&gt;</arg>&apos; has no driver
+</msg>
+
+<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">usr/request_tri&lt;2&gt;</arg>&apos; has no driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">usr/link_tracking_2_inst/vi2c_tx_data&lt;31&gt;</arg>&apos; has no driver
@@ -26830,9 +26818,6 @@
 </msg>
 
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">usr/link_tracking_1_inst/request_tri_o&lt;3&gt;</arg>&apos; has no driver
-</msg>
-
-<msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">usr/link_tracking_1_inst/request_tri_o&lt;2&gt;</arg>&apos; has no driver
 </msg>
 
 <msg type="warning" file="NgdBuild" num="452" delta="old" ><arg fmt="%s" index="1">logical</arg> net &apos;<arg fmt="%s" index="2">usr/link_tracking_0_inst/vi2c_tx_data&lt;31&gt;</arg>&apos; has no driver

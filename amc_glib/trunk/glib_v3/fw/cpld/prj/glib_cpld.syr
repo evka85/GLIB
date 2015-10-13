@@ -1,0 +1,304 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.16 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.17 secs
+ 
+--> 
+Reading design: glib_cpld.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "glib_cpld.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "glib_cpld"
+Output Format                      : NGC
+Target Device                      : CoolRunner2 CPLDs
+
+---- Source Options
+Top Module Name                    : glib_cpld
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+
+---- Target Options
+Add IO Buffers                     : YES
+MACRO Preserve                     : YES
+XOR Preserve                       : YES
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Verilog 2001                       : YES
+
+---- Other Options
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/src/glib_cpld.vhd" in Library work.
+Entity <glib_cpld> compiled.
+Entity <glib_cpld> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <glib_cpld> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <glib_cpld> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/src/glib_cpld.vhd" line 228: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <glib_pgood>, <jtag_header_tck>, <jtag_header_tms>, <gbe_tdo>, <sram2_tdo>, <sram1_tdo>, <fpga_tdo>, <jtag_header_tdo>
+    Set user-defined property "INIT =  0" for instance <config_err_fdce> in unit <glib_cpld>.
+    Set user-defined property "INIT =  0" for instance <fpga_done_fdce> in unit <glib_cpld>.
+Entity <glib_cpld> analyzed. Unit <glib_cpld> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <glib_cpld>.
+    Related source file is "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/cpld/src/glib_cpld.vhd".
+WARNING:Xst:647 - Input <mmc_tck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mmc_tdi> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <mmc_tdo> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2565 - Inout <mmc_fpga1_init_done> is never assigned.
+WARNING:Xst:2565 - Inout <fmc1_tck> is never assigned.
+WARNING:Xst:647 - Input <mmc_tms> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2565 - Inout <fmc1_tdi> is never assigned.
+WARNING:Xst:2565 - Inout <fmc1_tdo> is never assigned.
+WARNING:Xst:2565 - Inout <mmc_fpga2_init_done> is never assigned.
+WARNING:Xst:647 - Input <cpld_rs_in> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2565 - Inout <mmc_pe6> is never assigned.
+WARNING:Xst:2565 - Inout <mmc_reset_fpga_n> is never assigned.
+WARNING:Xst:2565 - Inout <mmc_pg4> is never assigned.
+WARNING:Xst:2565 - Inout <sw<3>> is never assigned.
+WARNING:Xst:2565 - Inout <amc_tck> is never assigned.
+WARNING:Xst:2565 - Inout <sw<4>> is never assigned.
+WARNING:Xst:2565 - Inout <amc_tdi> is never assigned.
+WARNING:Xst:2565 - Inout <fmc2_tck> is never assigned.
+WARNING:Xst:2565 - Inout <fpga_reset_b> is never assigned.
+WARNING:Xst:2565 - Inout <fmc2_tdi> is never assigned.
+WARNING:Xst:2565 - Inout <amc_tdo> is never assigned.
+WARNING:Xst:2565 - Inout <fmc2_tdo> is never assigned.
+WARNING:Xst:2565 - Inout <fmc1_tms> is never assigned.
+WARNING:Xst:2565 - Inout <mmc_reload_fpgas_n> is never assigned.
+WARNING:Xst:2565 - Inout <amc_tms> is never assigned.
+WARNING:Xst:2565 - Inout <fmc2_tms> is never assigned.
+WARNING:Xst:2565 - Inout <v6_cpld<4>> is never assigned.
+WARNING:Xst:1780 - Signal <i2c_bridge_en> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+    Found 1-bit tristate buffer for signal <fpga_program_b>.
+    Found 3-bit tristate buffer for signal <cpld_led>.
+    Found 1-bit tristate buffer for signal <cpld_a22_out>.
+    Found 1-bit tristate buffer for signal <cpld_a21_out>.
+    Found 1-bit tristate buffer for signal <gbe_tck>.
+    Found 1-bit tristate buffer for signal <gbe_tdi>.
+    Found 1-bit tristate buffer for signal <gbe_tms>.
+    Found 1-bit tristate buffer for signal <sram1_tck>.
+    Found 1-bit tristate buffer for signal <sram1_tms>.
+    Found 1-bit tristate buffer for signal <sram1_tdi>.
+    Found 1-bit tristate buffer for signal <sram2_tck>.
+    Found 1-bit tristate buffer for signal <sram2_tms>.
+    Found 1-bit tristate buffer for signal <sram2_tdi>.
+    Found 1-bit tristate buffer for signal <fpga_tms>.
+    Found 1-bit tristate buffer for signal <fpga_tck>.
+    Found 1-bit tristate buffer for signal <fpga_tdi>.
+    Found 1-bit tristate buffer for signal <jtag_header_tdi>.
+    Found 1-bit tristate buffer for signal <v6_cpld<3>>.
+    Found 1-bit tristate buffer for signal <v6_cpld<2>>.
+    Found 1-bit tristate buffer for signal <v6_cpld<1>>.
+    Found 1-bit tristate buffer for signal <v6_cpld<0>>.
+    Found 1-bit register for signal <error_check_enable>.
+    Found 1-bit register for signal <fpga_init_b_r>.
+    Found 1-bit register for signal <fpga_program_b_trigger>.
+    Found 1-bit register for signal <Mtridata_fpga_program_b> created at line 371.
+    Found 1-bit register for signal <Mtrien_fpga_program_b> created at line 371.
+    Found 1-bit register for signal <state<0>>.
+    Found 6-bit up counter for signal <timer1>.
+    Found 16-bit up counter for signal <timer2>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred   4 D-type flip-flop(s).
+	inferred  23 Tristate(s).
+Unit <glib_cpld> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 16-bit up counter                                     : 1
+ 6-bit up counter                                      : 1
+# Registers                                            : 6
+ 1-bit register                                        : 6
+# Tristates                                            : 23
+ 1-bit tristate buffer                                 : 23
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1710 - FF/Latch <0> (without init value) has a constant value of 0 in block <Mtridata_fpga_program_b>. This FF/Latch will be trimmed during the optimization process.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 16-bit up counter                                     : 1
+ 6-bit up counter                                      : 1
+# Registers                                            : 6
+ Flip-Flops                                            : 6
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1710 - FF/Latch <Mtridata_fpga_program_b> (without init value) has a constant value of 0 in block <glib_cpld>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <glib_cpld> ...
+  implementation constraint: IOB=auto	 : Mtridata_fpga_program_b
+  implementation constraint: IOB=auto	 : Mtrien_fpga_program_b
+  implementation constraint: INIT=0	 : config_err_fdce
+  implementation constraint: INIT=0	 : fpga_done_fdce
+  implementation constraint: INIT=r	 : state_0
+  implementation constraint: INIT=r	 : timer2_15
+  implementation constraint: INIT=r	 : timer1_4
+  implementation constraint: INIT=r	 : timer2_0
+  implementation constraint: INIT=r	 : timer2_1
+  implementation constraint: INIT=r	 : timer2_2
+  implementation constraint: INIT=r	 : timer1_1
+  implementation constraint: INIT=r	 : timer2_3
+  implementation constraint: INIT=r	 : timer2_4
+  implementation constraint: INIT=r	 : timer2_5
+  implementation constraint: INIT=r	 : timer1_2
+  implementation constraint: INIT=r	 : timer2_6
+  implementation constraint: INIT=r	 : timer2_7
+  implementation constraint: INIT=r	 : timer2_8
+  implementation constraint: INIT=r	 : timer1_3
+  implementation constraint: INIT=r	 : timer2_9
+  implementation constraint: INIT=r	 : timer2_10
+  implementation constraint: INIT=r	 : timer2_11
+  implementation constraint: INIT=r	 : timer2_12
+  implementation constraint: INIT=r	 : timer2_13
+  implementation constraint: INIT=r	 : timer2_14
+  implementation constraint: INIT=r	 : timer1_0
+  implementation constraint: INIT=r	 : timer1_5
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : glib_cpld.ngr
+Top Level Output File Name         : glib_cpld
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+Target Technology                  : CoolRunner2 CPLDs
+Macro Preserve                     : YES
+XOR Preserve                       : YES
+Clock Enable                       : YES
+wysiwyg                            : NO
+
+Design Statistics
+# IOs                              : 80
+
+Cell Usage :
+# BELS                             : 121
+#      AND2                        : 58
+#      AND3                        : 1
+#      AND4                        : 2
+#      AND8                        : 2
+#      GND                         : 1
+#      INV                         : 28
+#      OR2                         : 8
+#      VCC                         : 1
+#      XOR2                        : 20
+# FlipFlops/Latches                : 29
+#      FD                          : 3
+#      FDCE                        : 26
+# Clock Buffers                    : 1
+#      BUFG                        : 1
+# IO Buffers                       : 51
+#      IBUF                        : 26
+#      IOBUFE                      : 1
+#      OBUF                        : 2
+#      OBUFE                       : 22
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 12.26 secs
+ 
+--> 
+
+
+Total memory usage is 535800 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   31 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

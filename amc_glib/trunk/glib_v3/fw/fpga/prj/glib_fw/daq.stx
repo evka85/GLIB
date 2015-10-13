@@ -1,0 +1,111 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.03 secs
+ 
+--> 
+Parameter xsthdpdir set to /home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: daq.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/daq_input_fifo.vhd" into library work
+Parsing entity <daq_input_fifo>.
+Parsing architecture <daq_input_fifo_a> of entity <daq_input_fifo>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/ipcore_dir/daq_event_fifo.vhd" into library work
+Parsing entity <daq_event_fifo>.
+Parsing architecture <daq_event_fifo_a> of entity <daq_event_fifo>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/RAM32x6Db.vhd" into library work
+Parsing entity <RAM32x6Db>.
+Parsing architecture <Behavioral> of entity <ram32x6db>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/Hamming.vhd" into library work
+Parsing entity <Hamming>.
+Parsing architecture <my_arch> of entity <hamming>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/TTS_TRIG_if.vhd" into library work
+Parsing entity <TTS_TRIG_if>.
+Parsing architecture <Behavioral> of entity <tts_trig_if>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/fifo66X512.vhd" into library work
+Parsing entity <fifo66X512>.
+Parsing architecture <Behavioral> of entity <fifo66x512>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/EthernetCRCD32.vhd" into library work
+Parsing entity <EthernetCRCD32>.
+Parsing architecture <Behavioral> of entity <ethernetcrcd32>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/crc16D16.vhd" into library work
+Parsing entity <crc16D16>.
+Parsing architecture <my_arch> of entity <crc16d16>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/DAQ_Link_V6.vhd" into library work
+Parsing entity <DAQ_Link_V6>.
+Parsing architecture <Behavioral> of entity <daq_link_v6>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/release-1.9/DAQLINK_gtx.vhd" into library work
+Parsing entity <DAQLINK_gtx>.
+Parsing architecture <RTL> of entity <daqlink_gtx>.
+Parsing VHDL file "/home/evka/code/GLIB/ipbus_2_0_v1/firmware/ipbus_core/hdl/ipbus_package.vhd" into library work
+Parsing package <ipbus>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/src/system/sys/system_package.vhd" into library work
+Parsing package <system_package>.
+Parsing package body <system_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/user_package_basic.vhd" into library work
+Parsing package <user_package>.
+Parsing package body <user_package>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/data_types.vhd" into library work
+Parsing package <data_types>.
+Parsing package body <data_types>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/daq_clocks.vhd" into library work
+Parsing entity <daq_clocks>.
+Parsing architecture <xilinx> of entity <daq_clocks>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daqlink/daqlink_wrapper.vhd" into library work
+Parsing entity <daqlink_wrapper>.
+Parsing architecture <Behavioral> of entity <daqlink_wrapper>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/clock_bridge_simple.vhd" into library work
+Parsing entity <clock_bridge_simple>.
+Parsing architecture <behavioral> of entity <clock_bridge_simple>.
+Parsing VHDL file "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/src/daq/daq.vhd" into library work
+Parsing entity <daq>.
+Parsing architecture <Behavioral> of entity <daq>.
+
+
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 3.25 secs
+ 
+--> 
+
+
+Total memory usage is 351440 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    0 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

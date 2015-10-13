@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="glib_cpld.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="glib_cpld.bld"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_CHK" xil_pn:name="glib_cpld.chk"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="glib_cpld.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_CXT" xil_pn:name="glib_cpld.cxt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_GYD" xil_pn:name="glib_cpld.gyd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_JEDEC" xil_pn:name="glib_cpld.jed"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="glib_cpld.log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="glib_cpld.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MFD" xil_pn:name="glib_cpld.mfd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGA" xil_pn:name="glib_cpld.nga"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="glib_cpld.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="glib_cpld.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="glib_cpld.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="glib_cpld.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PNX" xil_pn:name="glib_cpld.pnx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="glib_cpld.prj"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="glib_cpld.rpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="glib_cpld.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="glib_cpld.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_VM6" xil_pn:name="glib_cpld.vm6"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="glib_cpld.xml"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="glib_cpld.xst"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="glib_cpld_build.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="glib_cpld_html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="glib_cpld_ngdbuild.xrpt"/>
+    <file xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="glib_cpld_pad.csv"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="glib_cpld_summary.html"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="glib_cpld_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1444213870" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1444213870">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1444213870" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="5523264917934413214" xil_pn:start_ts="1444213870">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1444213890" xil_pn:in_ck="-4188054566119388046" xil_pn:name="TRANEXT_xstsynthesize_xbr" xil_pn:prop_ck="125951504075385285" xil_pn:start_ts="1444213870">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="glib_cpld.lso"/>
+      <outfile xil_pn:name="glib_cpld.ngc"/>
+      <outfile xil_pn:name="glib_cpld.ngr"/>
+      <outfile xil_pn:name="glib_cpld.prj"/>
+      <outfile xil_pn:name="glib_cpld.stx"/>
+      <outfile xil_pn:name="glib_cpld.syr"/>
+      <outfile xil_pn:name="glib_cpld.xst"/>
+      <outfile xil_pn:name="glib_cpld_xst.xrpt"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1444213890" xil_pn:in_ck="-4188054566119389298" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-6838187244709408936" xil_pn:start_ts="1444213890">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1444213905" xil_pn:in_ck="3133215480656782484" xil_pn:name="TRAN_ngdbuild" xil_pn:prop_ck="1690418988910260344" xil_pn:start_ts="1444213890">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="glib_cpld.bld"/>
+      <outfile xil_pn:name="glib_cpld.ngd"/>
+      <outfile xil_pn:name="glib_cpld_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1444213927" xil_pn:in_ck="-7050771097495419321" xil_pn:name="TRANEXT_vm6File_xbr" xil_pn:prop_ck="-9097330086063972784" xil_pn:start_ts="1444213905">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="glib_cpld.chk"/>
+      <outfile xil_pn:name="glib_cpld.cxt"/>
+      <outfile xil_pn:name="glib_cpld.gyd"/>
+      <outfile xil_pn:name="glib_cpld.log"/>
+      <outfile xil_pn:name="glib_cpld.mfd"/>
+      <outfile xil_pn:name="glib_cpld.nga"/>
+      <outfile xil_pn:name="glib_cpld.pad"/>
+      <outfile xil_pn:name="glib_cpld.pnx"/>
+      <outfile xil_pn:name="glib_cpld.rpt"/>
+      <outfile xil_pn:name="glib_cpld.vm6"/>
+      <outfile xil_pn:name="glib_cpld.xml"/>
+      <outfile xil_pn:name="glib_cpld_build.xml"/>
+      <outfile xil_pn:name="glib_cpld_html"/>
+      <outfile xil_pn:name="glib_cpld_pad.csv"/>
+    </transform>
+    <transform xil_pn:end_ts="1444213931" xil_pn:in_ck="-7050771097495410457" xil_pn:name="TRANEXT_crtProg_xbr" xil_pn:prop_ck="5245363024343" xil_pn:start_ts="1444213927">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="glib_cpld.jed"/>
+    </transform>
+    <transform xil_pn:end_ts="1444213927" xil_pn:in_ck="-7050771097495410457" xil_pn:name="TRAN_timRpt" xil_pn:prop_ck="111903974446" xil_pn:start_ts="1444213922">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+  </transforms>
+
+</generated_project>
