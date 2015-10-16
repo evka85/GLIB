@@ -176,21 +176,40 @@ architecture Behavioral of daq is
     -- Debug flags for ChipScope
     attribute MARK_DEBUG : string;
     attribute MARK_DEBUG of daq_reset : signal is "TRUE";
-    attribute MARK_DEBUG of reset_pwrup : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_data : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_write_en : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_header : signal is "TRUE";
-    attribute MARK_DEBUG of daq_event_trailer : signal is "TRUE";
-    attribute MARK_DEBUG of daq_ready : signal is "TRUE";
-    attribute MARK_DEBUG of daq_almost_full : signal is "TRUE";
-    attribute MARK_DEBUG of daq_tts_state : signal is "TRUE";
     attribute MARK_DEBUG of daq_gtx_clk : signal is "TRUE";
-    attribute MARK_DEBUG of daq_state : signal is "TRUE";
-    attribute MARK_DEBUG of daq_trigger : signal is "TRUE";
-    attribute MARK_DEBUG of daq_clock_locked : signal is "TRUE";
     attribute MARK_DEBUG of daq_clk_bufg : signal is "TRUE";
-    attribute MARK_DEBUG of ttc_clk_i : signal is "TRUE";
-    attribute MARK_DEBUG of clk125_i : signal is "TRUE";
+
+    attribute MARK_DEBUG of track_rx_clk_i : signal is "TRUE";
+    attribute MARK_DEBUG of track_rx_en_i : signal is "TRUE";
+    attribute MARK_DEBUG of track_rx_data_i : signal is "TRUE";
+
+    attribute MARK_DEBUG of infifo_din : signal is "TRUE";
+    attribute MARK_DEBUG of infifo_dout : signal is "TRUE";
+    attribute MARK_DEBUG of infifo_rd_en : signal is "TRUE";
+    attribute MARK_DEBUG of infifo_wr_en : signal is "TRUE";
+    attribute MARK_DEBUG of infifo_full : signal is "TRUE";
+    attribute MARK_DEBUG of infifo_empty : signal is "TRUE";
+    attribute MARK_DEBUG of infifo_valid : signal is "TRUE";
+    attribute MARK_DEBUG of infifo_underflow : signal is "TRUE";
+    
+    attribute MARK_DEBUG of evtfifo_din : signal is "TRUE";
+    attribute MARK_DEBUG of evtfifo_dout : signal is "TRUE";
+    attribute MARK_DEBUG of evtfifo_rd_en : signal is "TRUE";
+    attribute MARK_DEBUG of evtfifo_wr_en : signal is "TRUE";
+    attribute MARK_DEBUG of evtfifo_full : signal is "TRUE";
+    attribute MARK_DEBUG of evtfifo_empty : signal is "TRUE";
+    attribute MARK_DEBUG of evtfifo_valid : signal is "TRUE";
+    attribute MARK_DEBUG of evtfifo_underflow : signal is "TRUE";
+    
+    attribute MARK_DEBUG of eb_last_ec : signal is "TRUE";
+    attribute MARK_DEBUG of eb_last_bc : signal is "TRUE";
+    attribute MARK_DEBUG of eb_last_oh_bc : signal is "TRUE";
+    attribute MARK_DEBUG of eb_first_block : signal is "TRUE";
+    attribute MARK_DEBUG of eb_event_num_short : signal is "TRUE";
+    attribute MARK_DEBUG of corrupted_vfat_data : signal is "TRUE";
+    attribute MARK_DEBUG of daq_state : signal is "TRUE";
+    attribute MARK_DEBUG of daq_curr_vfat_block : signal is "TRUE";
+    attribute MARK_DEBUG of daq_curr_block_word : signal is "TRUE";
 
 begin
 
@@ -510,7 +529,7 @@ begin
                     e_vfat_oh_bx_mismatch := evtfifo_dout(4);
                     e_event_too_big       := evtfifo_dout(3);
 
-                    daq_curr_vfat_block <= unsigned(evtfifo_dout(23 downto 12));
+                    daq_curr_vfat_block <= unsigned(evtfifo_dout(23 downto 12)) - 3;
                 
                     daq_event_data <= x"00" & e_id & e_bx & std_logic_vector(e_payload_size + 3);
                     daq_event_header <= '1';

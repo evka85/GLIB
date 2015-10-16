@@ -1,11 +1,11 @@
 Release 14.7 - par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-Tue Oct 13 15:30:15 2015
+Fri Oct 16 18:55:57 2015
 
 All signals are completely routed.
 
-WARNING:ParHelpers:361 - There are 38 loadless signals in this design. This design will cause Bitgen to issue DRC
+WARNING:ParHelpers:361 - There are 40 loadless signals in this design. This design will cause Bitgen to issue DRC
    warnings.
 
    amc_port_rx_in<17>_IBUF
@@ -42,8 +42,10 @@ WARNING:ParHelpers:361 - There are 38 loadless signals in this design. This desi
    system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_RAMD_D1_O
    system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_RAMD_D1_O
    system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RAMD_D1_O
-   usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0
-   usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/BC0_l
+   usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/comp1_gae.comp2_OR_7_o
+   usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_almost_full_i_GND_1686_o_MUX_19_o
+   usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<0>
+   usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<1>
    usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMC_D1_DPO
    usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMD_D1_O
 
