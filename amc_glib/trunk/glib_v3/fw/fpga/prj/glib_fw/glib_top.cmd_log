@@ -763,3 +763,4 @@ xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/
 xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
 xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
 xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 

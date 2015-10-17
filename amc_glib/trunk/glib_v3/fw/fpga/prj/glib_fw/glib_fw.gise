@@ -209,8 +209,8 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1445048206" xil_pn:in_ck="-6176204095520932195" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-506015847959341496" xil_pn:start_ts="1445048196">
-      <status xil_pn:value="FailedRun"/>
+    <transform xil_pn:end_ts="1445080774" xil_pn:in_ck="-6176204095520932195" xil_pn:name="TRANEXT_xstsynthesize_virtex6" xil_pn:prop_ck="-506015847959341496" xil_pn:start_ts="1445080612">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
@@ -218,6 +218,7 @@
       <outfile xil_pn:name="glib_top.ngc"/>
       <outfile xil_pn:name="glib_top.ngr"/>
       <outfile xil_pn:name="glib_top.prj"/>
+      <outfile xil_pn:name="glib_top.stx"/>
       <outfile xil_pn:name="glib_top.syr"/>
       <outfile xil_pn:name="glib_top.xst"/>
       <outfile xil_pn:name="glib_top_xst.xrpt"/>
@@ -232,7 +233,8 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
       <outfile xil_pn:name="glib_top.bld"/>

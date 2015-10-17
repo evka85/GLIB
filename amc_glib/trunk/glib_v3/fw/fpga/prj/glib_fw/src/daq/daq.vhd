@@ -217,11 +217,22 @@ architecture Behavioral of daq is
     attribute MARK_DEBUG of ep_last_ec : signal is "TRUE";
     attribute MARK_DEBUG of ep_first_ever_block : signal is "TRUE";
     attribute MARK_DEBUG of ep_end_of_event : signal is "TRUE";
+    attribute MARK_DEBUG of ep_invalid_vfat_block : signal is "TRUE";
     
     attribute MARK_DEBUG of eb_vfat_ec : signal is "TRUE";
     attribute MARK_DEBUG of eb_bc : signal is "TRUE";
     attribute MARK_DEBUG of eb_oh_bc : signal is "TRUE";
     attribute MARK_DEBUG of eb_event_num_short : signal is "TRUE";
+    attribute MARK_DEBUG of eb_vfat_words_64 : signal is "TRUE";
+    attribute MARK_DEBUG of eb_counters_valid : signal is "TRUE";
+    
+    attribute MARK_DEBUG of eb_invalid_vfat_block : signal is "TRUE";
+    attribute MARK_DEBUG of eb_event_too_big : signal is "TRUE";
+    attribute MARK_DEBUG of eb_event_bigger_than_24 : signal is "TRUE";
+    attribute MARK_DEBUG of eb_vfat_bx_mismatch : signal is "TRUE";
+    attribute MARK_DEBUG of eb_oos_oh : signal is "TRUE";
+    attribute MARK_DEBUG of eb_vfat_oh_bx_mismatch : signal is "TRUE";
+    attribute MARK_DEBUG of eb_oos_glib_vfat : signal is "TRUE";
     
     attribute MARK_DEBUG of gs_corrupted_vfat_data : signal is "TRUE";
     attribute MARK_DEBUG of daq_state : signal is "TRUE";
