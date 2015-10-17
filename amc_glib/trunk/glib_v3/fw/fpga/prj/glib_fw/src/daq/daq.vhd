@@ -239,6 +239,13 @@ architecture Behavioral of daq is
     attribute MARK_DEBUG of daq_curr_vfat_block : signal is "TRUE";
     attribute MARK_DEBUG of daq_curr_block_word : signal is "TRUE";
 
+    attribute MARK_DEBUG of daq_event_data : signal is "TRUE";
+    attribute MARK_DEBUG of daq_event_write_en : signal is "TRUE";
+    attribute MARK_DEBUG of daq_event_header : signal is "TRUE";
+    attribute MARK_DEBUG of daq_event_trailer : signal is "TRUE";
+    attribute MARK_DEBUG of daq_ready : signal is "TRUE";
+    attribute MARK_DEBUG of daq_almost_full : signal is "TRUE";
+
 begin
 
     --================================--
@@ -377,13 +384,13 @@ begin
             -- fill in last data
             ep_last_rx_data <= track_rx_data_i; -- TOTO Optimization: instead of duplicating all the data you could only retain the OH 32bits, others you can get form infifo_din
             ep_last_rx_data_valid <= track_rx_en_i;
-
-            -- monitor the input FIFO
-            if (infifo_full = '1') then
-                gs_input_fifo_full <= '1';
-            end if;
         
-            if (track_rx_en_i = '1') then
+            if ((track_rx_en_i = '1') and (fifo_reset = '0')) then
+            
+                -- monitor the input FIFO
+                if (infifo_full = '1') then
+                    gs_input_fifo_full <= '1';
+                end if;
                 
                 -- push to input FIFO
                 if (infifo_full = '0') then
@@ -599,33 +606,36 @@ begin
                 -- send the first header
                 
                 if (daq_state = x"1") then
-                
-                    e_id := evtfifo_dout(59 downto 36);
-                    e_bx := evtfifo_dout(35 downto 24);
-                    e_payload_size(11 downto 0) := unsigned(evtfifo_dout(23 downto 12));
-                    e_evtfifo_almost_full := evtfifo_dout(11);
-                    e_evtfifo_full        := evtfifo_dout(10);
-                    e_infifo_full         := evtfifo_dout(9);
-                    e_evtfifo_near_full   := evtfifo_dout(8);
-                    e_infifo_near_full    := evtfifo_dout(7);
-                    e_event_too_big       := evtfifo_dout(6);
-                    e_invalid_vfat_block  := evtfifo_dout(5);
-                    e_event_bigger_than_24:= evtfifo_dout(4);                    
-                    e_oos_glib_vfat       := evtfifo_dout(3);
-                    e_oos_oh              := evtfifo_dout(2);
-                    e_vfat_bx_mismatch    := evtfifo_dout(1);
-                    e_vfat_oh_bx_mismatch := evtfifo_dout(0);
                     
-                    -- TODO: check OH bx vs. L1A bx
-                    e_oos_glib_oh         := '0';
+                    -- wait for the evtfifo_valid flag and then populate the variables
+                    if (evtfifo_valid = '1') then
+                        e_id := evtfifo_dout(59 downto 36);
+                        e_bx := evtfifo_dout(35 downto 24);
+                        e_payload_size(11 downto 0) := unsigned(evtfifo_dout(23 downto 12));
+                        e_evtfifo_almost_full := evtfifo_dout(11);
+                        e_evtfifo_full        := evtfifo_dout(10);
+                        e_infifo_full         := evtfifo_dout(9);
+                        e_evtfifo_near_full   := evtfifo_dout(8);
+                        e_infifo_near_full    := evtfifo_dout(7);
+                        e_event_too_big       := evtfifo_dout(6);
+                        e_invalid_vfat_block  := evtfifo_dout(5);
+                        e_event_bigger_than_24:= evtfifo_dout(4);                    
+                        e_oos_glib_vfat       := evtfifo_dout(3);
+                        e_oos_oh              := evtfifo_dout(2);
+                        e_vfat_bx_mismatch    := evtfifo_dout(1);
+                        e_vfat_oh_bx_mismatch := evtfifo_dout(0);
+                        
+                        -- TODO: check OH bx vs. L1A bx
+                        e_oos_glib_oh         := '0';
 
-                    daq_curr_vfat_block <= unsigned(evtfifo_dout(23 downto 12)) - 3;
-                
-                    daq_event_data <= x"00" & e_id & e_bx & std_logic_vector(e_payload_size + 3);
-                    daq_event_header <= '1';
-                    daq_event_trailer <= '0';
-                    daq_event_write_en <= '1';
-                    daq_state <= x"2";
+                        daq_curr_vfat_block <= unsigned(evtfifo_dout(23 downto 12)) - 3;
+                    
+                        daq_event_data <= x"00" & e_id & e_bx & std_logic_vector(e_payload_size + 3);
+                        daq_event_header <= '1';
+                        daq_event_trailer <= '0';
+                        daq_event_write_en <= '1';
+                        daq_state <= x"2";
+                    end if;
                     
                 -- send the second header
                 elsif (daq_state = x"2") then
@@ -652,6 +662,9 @@ begin
                     elsif ((daq_curr_block_word = 0) and (daq_curr_vfat_block = x"0")) then
                         infifo_rd_en <= '0';
                         daq_state <= x"4";
+                    -- we've just asserted infifo_rd_en, if the valid is still 0, then just wait (make sure infifo_rd_en is 0)
+                    elsif ((daq_curr_block_word = 2) and (infifo_valid = '0')) then
+                        infifo_rd_en <= '0';
                     -- lets move to the next vfat word
                     else
                         infifo_rd_en <= '0';
@@ -659,11 +672,15 @@ begin
                     end if;
                     
                     -- send the data!
-                    daq_event_data <= infifo_dout((((daq_curr_block_word + 1) * 64) - 1) downto (daq_curr_block_word * 64));
-                    daq_event_header <= '0';
-                    daq_event_trailer <= '0';
-                    daq_event_write_en <= '1';
-                    word_count := word_count + 1;
+                    if ((daq_curr_block_word < 2) or (infifo_valid = '1')) then
+                        daq_event_data <= infifo_dout((((daq_curr_block_word + 1) * 64) - 1) downto (daq_curr_block_word * 64));
+                        daq_event_header <= '0';
+                        daq_event_trailer <= '0';
+                        daq_event_write_en <= '1';
+                        word_count := word_count + 1;
+                    else
+                        daq_event_write_en <= '0';
+                    end if;
                     
                 -- send the trailer
                 elsif (daq_state = x"4") then
@@ -770,8 +787,29 @@ begin
     -- Monitoring
     --================================--
     
-    daq_status1_reg_o <= std_logic_vector(sent_event_cnt(11 downto 0)) & std_logic_vector(eb_event_num(11 downto 0)) & x"0" & ttc_ready_i & daq_clock_locked & daq_almost_full & daq_ready;
-    daq_status2_reg_o <= daq_critical_error & "000" & daq_tts_state & x"000" & infifo_empty & evtfifo_empty & gs_oos_glib_vfat & gs_oos_glib_oh & gs_oos_oh_vfat & gs_input_fifo_full & gs_input_fifo_near_full & gs_input_fifo_underflow & gs_event_fifo_full & gs_event_fifo_near_full & gs_corrupted_vfat_data & gs_event_too_big;
+    daq_status1_reg_o <= std_logic_vector(sent_event_cnt(11 downto 0)) &
+                         std_logic_vector(eb_event_num(11 downto 0)) & 
+                         x"0" & 
+                         ttc_ready_i & 
+                         daq_clock_locked & 
+                         daq_almost_full & 
+                         daq_ready;
+    daq_status2_reg_o <= daq_critical_error & 
+                         "000" & 
+                         daq_tts_state & 
+                         x"000" & 
+                         infifo_empty & 
+                         evtfifo_empty & 
+                         gs_oos_glib_vfat & 
+                         gs_oos_glib_oh & 
+                         gs_oos_oh_vfat & 
+                         gs_input_fifo_full & 
+                         gs_input_fifo_near_full & 
+                         gs_input_fifo_underflow & 
+                         gs_event_fifo_full & 
+                         gs_event_fifo_near_full & 
+                         gs_corrupted_vfat_data & 
+                         gs_event_too_big;
     daq_enable <= daq_config_reg_i(0);
 
     -- quick and dirty check of frequency of some clocks

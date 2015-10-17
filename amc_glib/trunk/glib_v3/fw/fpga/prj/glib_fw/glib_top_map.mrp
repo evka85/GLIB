@@ -9,25 +9,25 @@ Target Device  : xc6vlx130t
 Target Package : ff1156
 Target Speed   : -1
 Mapper Version : virtex6 -- $Revision: 1.55 $
-Mapped Date    : Fri Oct 16 18:47:49 2015
+Mapped Date    : Sat Oct 17 21:38:02 2015
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:  449
 Slice Logic Utilization:
-  Number of Slice Registers:                21,296 out of 160,000   13%
-    Number used as Flip Flops:              21,109
+  Number of Slice Registers:                21,563 out of 160,000   13%
+    Number used as Flip Flops:              21,380
     Number used as Latches:                    182
     Number used as Latch-thrus:                  0
-    Number used as AND/OR logics:                5
-  Number of Slice LUTs:                     16,736 out of  80,000   20%
-    Number used as logic:                   15,310 out of  80,000   19%
-      Number using O6 output only:          10,139
-      Number using O5 output only:           1,506
-      Number using O5 and O6:                3,665
+    Number used as AND/OR logics:                1
+  Number of Slice LUTs:                     16,845 out of  80,000   21%
+    Number used as logic:                   15,413 out of  80,000   19%
+      Number using O6 output only:          10,171
+      Number using O5 output only:           1,556
+      Number using O5 and O6:                3,686
       Number used as ROM:                        0
-    Number used as Memory:                     545 out of  27,840    1%
+    Number used as Memory:                     603 out of  27,840    2%
       Number used as Dual Port RAM:              8
         Number using O6 output only:             0
         Number using O5 output only:             3
@@ -36,24 +36,24 @@ Slice Logic Utilization:
         Number using O6 output only:             0
         Number using O5 output only:             2
         Number using O5 and O6:                 46
-      Number used as Shift Register:           489
-        Number using O6 output only:           207
+      Number used as Shift Register:           547
+        Number using O6 output only:           221
         Number using O5 output only:             1
-        Number using O5 and O6:                281
-    Number used exclusively as route-thrus:    881
-      Number with same-slice register load:    734
-      Number with same-slice carry load:       147
+        Number using O5 and O6:                325
+    Number used exclusively as route-thrus:    829
+      Number with same-slice register load:    733
+      Number with same-slice carry load:        96
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                 7,501 out of  20,000   37%
-  Number of LUT Flip Flop pairs used:       23,794
-    Number with an unused Flip Flop:         5,349 out of  23,794   22%
-    Number with an unused LUT:               7,058 out of  23,794   29%
-    Number of fully used LUT-FF pairs:      11,387 out of  23,794   47%
-    Number of unique control sets:             747
+  Number of occupied Slices:                 7,524 out of  20,000   37%
+  Number of LUT Flip Flop pairs used:       23,928
+    Number with an unused Flip Flop:         5,181 out of  23,928   21%
+    Number with an unused LUT:               7,083 out of  23,928   29%
+    Number of fully used LUT-FF pairs:      11,664 out of  23,928   48%
+    Number of unique control sets:             748
     Number of slice register sites lost
-      to control set restrictions:           2,360 out of 160,000    1%
+      to control set restrictions:           2,371 out of 160,000    1%
 
   A LUT Flip Flop pair for this architecture represents one LUT paired with
   one Flip Flop within a slice.  A control set is a unique combination of
@@ -75,11 +75,11 @@ IO Utilization:
       Number of LOCed OPADs:                     6 out of      14   42%
 
 Specific Feature Utilization:
-  Number of RAMB36E1/FIFO36E1s:                239 out of     264   90%
-    Number using RAMB36E1 only:                239
+  Number of RAMB36E1/FIFO36E1s:                250 out of     264   94%
+    Number using RAMB36E1 only:                250
     Number using FIFO36E1 only:                  0
-  Number of RAMB18E1/FIFO18E1s:                  4 out of     528    1%
-    Number using RAMB18E1 only:                  4
+  Number of RAMB18E1/FIFO18E1s:                  5 out of     528    1%
+    Number using RAMB18E1 only:                  5
     Number using FIFO18E1 only:                  0
   Number of BUFG/BUFGCTRLs:                     17 out of      32   53%
     Number used as BUFGs:                       14
@@ -113,11 +113,11 @@ Specific Feature Utilization:
   Number of TEMAC_SINGLEs:                       2 out of       4   50%
 
   Number of RPM macros:           16
-Average Fanout of Non-Clock Nets:                3.57
+Average Fanout of Non-Clock Nets:                3.56
 
-Peak Memory Usage:  1791 MB
-Total REAL time to MAP completion:  5 mins 40 secs 
-Total CPU time to MAP completion (all processors):   6 mins 2 secs 
+Peak Memory Usage:  1799 MB
+Total REAL time to MAP completion:  5 mins 51 secs 
+Total CPU time to MAP completion (all processors):   6 mins 14 secs 
 
 Table of Contents
 -----------------
@@ -1027,56 +1027,31 @@ WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load
    The load component should be of clock buffer type.
 WARNING:Place - MMCM comp system/pll/mmcm_adv_inst is driving load system/ipb_from_slaves[2]_ipb_ack (type FF)
    The load component should be of clock buffer type.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net icon_control0<13> is sourced by a combinatorial pin. This is not
-   good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][0]_AND_837_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[0]_AND_115_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][0]_AND_773_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][1]_AND_771_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[3]_AND_109_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/spi/reset_i_cpol_i_AND_934_o is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[1]_AND_177_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][1]_AND_835_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[1]_AND_113_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<129> is sourced by a combinatorial pin. This
+   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][2]_AND_769_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<133> is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   usr/link_tracking_1_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<129> is sourced by a combinatorial pin. This
-   is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[2]_AND_175_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][3]_AND_767_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][2]_AND_833_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[0]_AND_115_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][3]_AND_831_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[1]_AND_113_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[2]_AND_111_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][2]_AND_769_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[3]_AND_173_o is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][0]_AND_773_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
@@ -1088,42 +1063,47 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    usr/link_tracking_2_inst/ipb_info_inst/register_select[7]_Decoder_2_OUT<13> is sourced by a combinatorial pin. This
    is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[6][3]_AND_767_o is sourced by a
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_mac_addr_i[3]_AND_109_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/spi/reset_i_cpol_i_AND_934_o is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net icon_control0<13> is sourced by a combinatorial pin. This is not
+   good design practice. Use the CE pin to control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][0]_AND_837_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[1]_AND_177_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][1]_AND_835_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[2]_AND_175_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][2]_AND_833_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/i2c_s/reset_regs_i[10][3]_AND_831_o is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[3]_AND_173_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net system/ip_mac/reset_i_user_ip_addr_i[0]_AND_179_o is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the
    flip-flop.
-WARNING:PhysDesignRules:367 - The signal
-   <usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/comp1_gae.c
-   omp2_OR_7_o> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<0>> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<1>> is
+   incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.wr/gwas.wsts/ram_almost_
    full_i_GND_1686_o_MUX_19_o> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1
-   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3
-   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
-   AMC_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
-   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_R
-   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_R
-   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2
-   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_
-   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+   <usr/daq/daq_input_fifo_inst/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.gl0.rd/gras.rsts/comp1_gae.c
+   omp2_OR_7_o> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
    MC_D1_O> is incomplete. The signal does not drive any load pins in the design.
@@ -1131,26 +1111,46 @@ WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_RA
    MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_RA
-   MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_
+   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_
+   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_RA
    MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_
-   RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+   <system/gbt_phase_monitoring/sfp_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_RA
+   MD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <system/gbt_phase_monitoring/sfp_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_
    RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<0>> is
-   incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/TTC_FIFO_wa_sync3<1>> is
-   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3
+   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1_R
+   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2_R
+   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram2
+   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMC_D1_DPO> is incomplete. The signal does not
    drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <usr/daq/daq_link/DAQ_Link_V6_i/i_TTS_TRIG_if/i_TTS_FIFO/RAM32M_inst_RAMD_D1_O>
    is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
+   AMC_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/ctrl_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram3_R
+   AMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <system/gbt_phase_monitoring/fmc1_cdce_pm/status_dpram/U0/xst_options.dist_mem_inst/gen_sdp_ram.sdpram_inst/Mram_ram1
+   _RAMD_D1_O> is incomplete. The signal does not drive any load pins in the design.
 
 Section 3 - Informational
 -------------------------
@@ -1183,7 +1183,7 @@ INFO:Pack:1650 - Map created a placed design.
 Section 4 - Removed Logic Summary
 ---------------------------------
 1281 block(s) removed
- 995 block(s) optimized away
+1098 block(s) optimized away
 1383 signal(s) removed
 
 Section 5 - Removed Logic
@@ -6294,6 +6294,7 @@ GND 		system/sram2_if/sramInterfaceIoControl/XST_GND
 VCC 		system/sram2_if/sramInterfaceIoControl/XST_VCC
 GND 		usr/XST_GND
 VCC 		usr/XST_VCC
+GND 		usr/daq/XST_GND
 VCC 		usr/daq/XST_VCC
 GND 		usr/daq/daq_clocks/XST_GND
 VCC 		usr/daq/daq_clocks/XST_VCC

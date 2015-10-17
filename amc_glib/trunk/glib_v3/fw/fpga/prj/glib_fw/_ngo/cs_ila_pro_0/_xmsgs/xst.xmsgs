@@ -56,6 +56,9 @@
 <msg type="warning" file="HDLCompiler" num="1127" delta="new" >"/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/_ngo/cs_ila_pro_0/tmp/_cg/_bbx/chipscope_ila_v1_05_a/ila_cap_storage.vhd" Line 184: Assignment to <arg fmt="%s" index="1">logic_0</arg> ignored, since the identifier is never used
 </msg>
 
+<msg type="warning" file="HDLCompiler" num="89" delta="new" >"/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/_ngo/cs_ila_pro_0/tmp/_cg/_bbx/chipscope_lib_v1_03_a/cs_bram_simple_v6_ramb18.vhd" Line 68: &lt;<arg fmt="%s" index="1">ramb18e1</arg>&gt; remains a black-box since it has no binding entity.
+</msg>
+
 <msg type="warning" file="HDLCompiler" num="746" delta="new" >"/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/_ngo/cs_ila_pro_0/tmp/_cg/_bbx/chipscope_ila_v1_05_a/ila_trace_buffer.vhd" Line 201: Range is empty (null range)
 </msg>
 
@@ -273,6 +276,48 @@
 </msg>
 
 <msg type="warning" file="Xst" num="647" delta="new" >Input &lt;<arg fmt="%s" index="1">WR_RESET_I</arg>&gt; is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/_ngo/cs_ila_pro_0/tmp/_cg/_bbx/chipscope_lib_v1_03_a/cs_bram_simple_v6_ramb18.vhd</arg>&quot; line <arg fmt="%s" index="2">418</arg>: Output port &lt;<arg fmt="%s" index="3">DOBDO</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U_RAMB18E1</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/_ngo/cs_ila_pro_0/tmp/_cg/_bbx/chipscope_lib_v1_03_a/cs_bram_simple_v6_ramb18.vhd</arg>&quot; line <arg fmt="%s" index="2">418</arg>: Output port &lt;<arg fmt="%s" index="3">DOPADOP</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U_RAMB18E1</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="3210" delta="new" >&quot;<arg fmt="%s" index="1">/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/_ngo/cs_ila_pro_0/tmp/_cg/_bbx/chipscope_lib_v1_03_a/cs_bram_simple_v6_ramb18.vhd</arg>&quot; line <arg fmt="%s" index="2">418</arg>: Output port &lt;<arg fmt="%s" index="3">DOPBDOP</arg>&gt; of the instance &lt;<arg fmt="%s" index="4">U_RAMB18E1</arg>&gt; is unconnected or connected to loadless signal.
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[80].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[80].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[79].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[79].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[78].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[78].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[77].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[77].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[76].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[76].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[75].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[75].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[74].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[74].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[73].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[73].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[72].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[72].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[71].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[71].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
+</msg>
+
+<msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[70].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[70].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
 </msg>
 
 <msg type="info" file="Xst" num="1901" delta="new" >Instance <arg fmt="%s" index="1">I_B36KGT0.G_RAMB36[69].u_ramb36/U_RAMB36</arg> in unit <arg fmt="%s" index="2">I_B36KGT0.G_RAMB36[69].u_ramb36/U_RAMB36</arg> of type <arg fmt="%s" index="3">RAMB36</arg> has been replaced by <arg fmt="%s" index="4">RAMB36E1</arg>
