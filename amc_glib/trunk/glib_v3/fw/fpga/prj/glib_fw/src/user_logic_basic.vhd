@@ -558,7 +558,7 @@ begin
 
         -- Track data
         track_rx_clk_i              => gtx_clk,
-        track_rx_en_i               => track_rx_en,
+        track_rx_en_i               => track_rx_en(0),
         track_rx_data_i             => track_rx_data0,
         
         -- Monitoring and control

@@ -64,7 +64,7 @@ port(
 
     -- Track data
     track_rx_clk_i              : in std_logic;
-    track_rx_en_i               : in std_logic_vector(2 downto 0);
+    track_rx_en_i               : in std_logic;
     track_rx_data_i             : in std_logic_vector(223 downto 0);
 --    track_rx_data_i             : in track_data;
     
@@ -121,17 +121,17 @@ architecture Behavioral of daq is
 
     
     -- DAQ global state
-    signal oos_glib_vfat        : std_logic := '0'; -- GLIB is out of sync with vfat(s)
-    signal oos_glib_oh          : std_logic := '0'; -- GLIB is out of sync with OH
-    signal oos_oh_vfat          : std_logic := '0'; -- OH is out of sync with vfat(s)
-    signal input_fifo_full      : std_logic := '0';
-    signal input_fifo_near_full : std_logic := '0';
-    signal input_fifo_underflow : std_logic := '0'; -- Tried to read too many blocks from the input fifo when sending events to the DAQlink (indicates a problem in the vfat block counter)
-    signal event_fifo_full      : std_logic := '0';
-    signal event_fifo_near_full : std_logic := '0';
-    signal corrupted_vfat_data  : std_logic := '0'; -- detected at least one invalid VFAT block
-    signal event_too_big        : std_logic := '0'; -- detected an event with too many VFAT blocks (more than 4095 blocks!)
-    signal event_bigger_than_24 : std_logic := '0'; -- there was an event which had more than 24 VFAT blocks
+    signal gs_oos_glib_vfat        : std_logic := '0'; -- GLIB is out of sync with vfat(s)
+    signal gs_oos_glib_oh          : std_logic := '0'; -- GLIB is out of sync with OH
+    signal gs_oos_oh_vfat          : std_logic := '0'; -- OH is out of sync with vfat(s)
+    signal gs_input_fifo_full      : std_logic := '0';
+    signal gs_input_fifo_near_full : std_logic := '0';
+    signal gs_input_fifo_underflow : std_logic := '0'; -- Tried to read too many blocks from the input fifo when sending events to the DAQlink (indicates a problem in the vfat block counter)
+    signal gs_event_fifo_full      : std_logic := '0';
+    signal gs_event_fifo_near_full : std_logic := '0';
+    signal gs_corrupted_vfat_data  : std_logic := '0'; -- detected at least one invalid VFAT block
+    signal gs_event_too_big        : std_logic := '0'; -- detected an event with too many VFAT blocks (more than 4095 blocks!)
+    signal gs_event_bigger_than_24 : std_logic := '0'; -- there was an event which had more than 24 VFAT blocks
     
     signal daq_critical_error   : std_logic := '0'; -- critical error detected - NEED RESET
     
@@ -158,20 +158,33 @@ architecture Behavioral of daq is
     signal evtfifo_valid        : std_logic := '0';
     signal evtfifo_underflow    : std_logic := '0';
 
+    -- Event processor
+    signal ep_last_ec            : std_logic_vector(7 downto 0) := (others => '0');
+    signal ep_first_ever_block   : std_logic := '1'; -- it's the first ever event
+    signal ep_end_of_event       : std_logic := '0';
+    signal ep_last_rx_data       : std_logic_vector(223 downto 0) := (others => '0');
+    signal ep_last_rx_data_valid : std_logic := '0';
+    signal ep_invalid_vfat_block : std_logic := '0';
+        
     -- Event builder
-    signal eb_last_ec            : std_logic_vector(7 downto 0) := (others => '0');
-    signal eb_last_bc            : std_logic_vector(11 downto 0) := (others => '0');
-    signal eb_last_oh_bc         : std_logic_vector(31 downto 0) := (others => '0');
-    signal eb_first_block        : std_logic := '1'; -- it's the first ever event
+    signal eb_vfat_words_64      : unsigned(11 downto 0) := (others => '0');
+    signal eb_bc                 : std_logic_vector(11 downto 0) := (others => '0');
+    signal eb_oh_bc              : std_logic_vector(31 downto 0) := (others => '0');
+    signal eb_vfat_ec            : std_logic_vector(7 downto 0) := (others => '0');
+    signal eb_counters_valid     : std_logic := '0';
     signal eb_event_num          : unsigned(23 downto 0) := x"000001";
     signal eb_event_num_short    : unsigned(7 downto 0) := x"00"; -- used to double check with VFAT EC
     
+    signal eb_invalid_vfat_block    : std_logic := '0';
+    signal eb_event_too_big         : std_logic := '0';
+    signal eb_event_bigger_than_24  : std_logic := '0';
+    signal eb_vfat_bx_mismatch      : std_logic := '0';
+    signal eb_oos_oh                : std_logic := '0';
+    signal eb_vfat_oh_bx_mismatch   : std_logic := '0';
+    signal eb_oos_glib_vfat         : std_logic := '0';
+    
     -- Clocks
     signal daq_clk_bufg          : std_logic;
-    
-    -- Test
-    signal last_rx_data          : std_logic_vector(255 downto 0) := (others => '0');
-    
     
     -- Debug flags for ChipScope
     attribute MARK_DEBUG : string;
@@ -201,12 +214,16 @@ architecture Behavioral of daq is
     attribute MARK_DEBUG of evtfifo_valid : signal is "TRUE";
     attribute MARK_DEBUG of evtfifo_underflow : signal is "TRUE";
     
-    attribute MARK_DEBUG of eb_last_ec : signal is "TRUE";
-    attribute MARK_DEBUG of eb_last_bc : signal is "TRUE";
-    attribute MARK_DEBUG of eb_last_oh_bc : signal is "TRUE";
-    attribute MARK_DEBUG of eb_first_block : signal is "TRUE";
+    attribute MARK_DEBUG of ep_last_ec : signal is "TRUE";
+    attribute MARK_DEBUG of ep_first_ever_block : signal is "TRUE";
+    attribute MARK_DEBUG of ep_end_of_event : signal is "TRUE";
+    
+    attribute MARK_DEBUG of eb_vfat_ec : signal is "TRUE";
+    attribute MARK_DEBUG of eb_bc : signal is "TRUE";
+    attribute MARK_DEBUG of eb_oh_bc : signal is "TRUE";
     attribute MARK_DEBUG of eb_event_num_short : signal is "TRUE";
-    attribute MARK_DEBUG of corrupted_vfat_data : signal is "TRUE";
+    
+    attribute MARK_DEBUG of gs_corrupted_vfat_data : signal is "TRUE";
     attribute MARK_DEBUG of daq_state : signal is "TRUE";
     attribute MARK_DEBUG of daq_curr_vfat_block : signal is "TRUE";
     attribute MARK_DEBUG of daq_curr_block_word : signal is "TRUE";
@@ -217,7 +234,7 @@ begin
     -- TTS
     --================================--
     
-    daq_critical_error <= event_too_big or event_fifo_full or input_fifo_underflow or input_fifo_full;
+    daq_critical_error <= gs_event_too_big or gs_event_fifo_full or gs_input_fifo_underflow or gs_input_fifo_full;
     daq_tts_state <= x"8" when (daq_critical_error = '0') else x"c"; -- for now READY all the time but ERROR when daq_critical_error = '1'
     
     --================================--
@@ -317,7 +334,7 @@ begin
         almost_empty => infifo_almost_empty,
         valid => infifo_valid,
         underflow => infifo_underflow,
-        prog_full => input_fifo_near_full
+        prog_full => gs_input_fifo_near_full
     );
 
     -- Event FIFO
@@ -335,129 +352,181 @@ begin
         empty => evtfifo_empty,
         valid => evtfifo_valid,
         underflow => evtfifo_underflow,
-        prog_full => event_fifo_near_full
+        prog_full => gs_event_fifo_near_full
     );
 
     --================================--
-    -- Event building
+    -- Input processor
     --================================--
     
     process(track_rx_clk_i)
-        variable vfat_words_64          : unsigned(11 downto 0) := (others => '0');
-        variable end_of_event           : std_logic := '0';
-        
-        -- Flags
-        variable f_invalid_vfat_block   : std_logic := '0';
-        variable f_vfat_bx_mismatch     : std_logic := '0'; -- BX mismatch between VFATs in the same event
-        variable f_vfat_oh_bx_mismatch  : std_logic := '0'; -- BX mismatch between OH and VFAT
-        variable f_oos_glib_vfat        : std_logic := '0'; -- GLIB is out of sync with vfat(s)
-        variable f_oos_glib_oh          : std_logic := '0'; -- GLIB is out of sync with OH
-        variable f_oos_oh               : std_logic := '0'; -- OH is out of sync (OH BC has changed between different blocks inside the same event)
-        variable f_fifo_full            : std_logic := '0';   
-        variable f_event_too_big        : std_logic := '0'; -- this event is too big - vfat_words_64 counter has maxed out (will discard the data)
-        variable f_event_bigger_than_24 : std_logic := '0'; -- this event has more than 24 VFAT blocks
     begin
         if (rising_edge(track_rx_clk_i)) then
-            if (track_rx_en_i(0) = '1') then
-                last_rx_data(223 downto 0) <= track_rx_data_i;
+
+            -- fill in last data
+            ep_last_rx_data <= track_rx_data_i; -- TOTO Optimization: instead of duplicating all the data you could only retain the OH 32bits, others you can get form infifo_din
+            ep_last_rx_data_valid <= track_rx_en_i;
+
+            -- monitor the input FIFO
+            if (infifo_full = '1') then
+                gs_input_fifo_full <= '1';
+            end if;
+        
+            if (track_rx_en_i = '1') then
                 
                 -- push to input FIFO
                 if (infifo_full = '0') then
-                    if (f_event_too_big = '0') then
-                        infifo_din <= track_rx_data_i(191 downto 0);
-                        infifo_wr_en <= '1';
-                    end if;
-                else
-                    input_fifo_full <= '1';
+                    infifo_din <= track_rx_data_i(191 downto 0);
+                    infifo_wr_en <= '1';
                 end if;
                 
-                -- Fill flags
-                -- invalid vfat block?
+                -- invalid vfat block? if yes, then just attach it to current event
                 if ((track_rx_data_i(191 downto 144) and x"f000f000f000") /= vfat_block_marker) then
-                    f_invalid_vfat_block := '1';
-                    corrupted_vfat_data <= '1';
+                    ep_invalid_vfat_block <= '1';
+                    ep_end_of_event <= '0'; -- a corrupt block will never be an end of event - just attach it to current event
+                    gs_corrupted_vfat_data <= '1';
                     corrupted_vfat_cnt <= std_logic_vector(unsigned(corrupted_vfat_cnt) + 1);
                 else -- valid block
-                    if (eb_first_block = '1') then
-                        eb_first_block <= '0';
+                    ep_invalid_vfat_block <= '0';
+                    ep_last_ec <= track_rx_data_i(171 downto 164);                    
+                    
+                    if (ep_first_ever_block = '1') then
+                        ep_first_ever_block <= '0';
                     end if;
                     
-                    if ((eb_first_block = '0') and (eb_last_ec /= track_rx_data_i(171 downto 164))) then
-                        end_of_event := '1';
-                    end if;
-                    
-                    eb_last_ec <= track_rx_data_i(171 downto 164);
-                    eb_last_bc <= track_rx_data_i(187 downto 176);
-                    eb_last_oh_bc <= track_rx_data_i(223 downto 192);
-                    
-                end if;
-                
-                -- Fill the event flags
-                if (end_of_event = '0') then
-                    evtfifo_wr_en <= '0';
-                    if (f_event_too_big = '0') then
-                        vfat_words_64 := vfat_words_64 + 3;
-                    end if;
-                    if (vfat_words_64 = x"fff") then
-                        event_too_big <= '1';
-                        f_event_too_big := '1';
-                    end if;
-                    if (vfat_words_64 > x"18") then
-                        f_event_bigger_than_24 := '1';
-                        event_bigger_than_24 <= '1';
-                    end if;
-                    if (infifo_full = '1') then
-                        f_fifo_full := '1';
-                    end if;
-                    if (eb_first_block = '0') then -- only do the checks if you already have populated the eb_last_* signals
-                        if (eb_last_bc /= track_rx_data_i(187 downto 176)) then
-                            f_vfat_bx_mismatch := '1';
-                        end if;
-                        if (eb_last_oh_bc /= track_rx_data_i(223 downto 192)) then
-                            f_oos_oh := '1';
-                        end if;
-                        if (eb_last_oh_bc(11 downto 0) /= track_rx_data_i(187 downto 176)) then
-                            f_vfat_oh_bx_mismatch := '1';
-                            oos_oh_vfat <= '1';
-                        end if;
-                        if (eb_last_ec /= std_logic_vector(eb_event_num_short)) then
-                            f_oos_glib_vfat := '1';
-                            oos_glib_vfat <= '1';
-                        end if;
-                        -- TODO: f_oos_glib_oh (need to record bx, ec, orbit exactly when you get an l1a -- push that info to the l1a fifo)
-                        -- push to L1A fifo as soon as you get L1A and pop from it only when sending an event to DAQ (not here)
-                    end if;
-                else -- Push to event FIFO
-                    eb_event_num <= eb_event_num + 1;
-                    eb_event_num_short <= eb_event_num_short + 1;
-                    -- ....... PUSH HERE .......
-                    if (evtfifo_full = '0') then
-                        evtfifo_wr_en <= '1';
-                        evtfifo_din <= std_logic_vector(eb_event_num) & eb_last_bc & std_logic_vector(vfat_words_64) & evtfifo_almost_full & f_fifo_full & f_invalid_vfat_block & f_oos_glib_vfat & f_oos_glib_oh & f_oos_oh & f_vfat_bx_mismatch & f_vfat_oh_bx_mismatch & f_event_too_big & "000";
+                    if ((ep_first_ever_block = '0') and (ep_last_ec /= track_rx_data_i(171 downto 164))) then
+                        ep_end_of_event <= '1';
                     else
-                        event_fifo_full <= '1';
+                        ep_end_of_event <= '0';
                     end if;
                     
-                    -- reset event flags
-                    end_of_event := '0';
-                    f_invalid_vfat_block := '0';
-                    f_vfat_bx_mismatch := '0';
-                    f_vfat_oh_bx_mismatch := '0';
-                    f_oos_glib_vfat := '0';
-                    f_oos_glib_oh := '0';
-                    f_oos_oh := '0';
-                    f_fifo_full := '0';
-                    f_event_too_big := '0';
-                    f_event_bigger_than_24 := '0';
-                    vfat_words_64 := (others => '0');
                 end if;
                 
+            -- no data
             else
                 infifo_wr_en <= '0';
-                evtfifo_wr_en <= '0';
             end if;
+            
         end if;
     end process;    
+    
+    --================================--
+    -- Event Builder
+    --================================--
+    process(track_rx_clk_i)
+    begin
+        if (rising_edge(track_rx_clk_i)) then
+        
+            -- Continuation of the current event - update flags and counters
+            if ((ep_last_rx_data_valid = '1') and (ep_end_of_event = '0')) then
+            
+                -- do not write to event fifo
+                evtfifo_wr_en <= '0';
+
+                -- is this block a valid VFAT block?
+                if (ep_invalid_vfat_block = '1') then
+                    eb_invalid_vfat_block <= '1';
+                end if;
+                
+                -- increment the word counter if the counter is not full yet
+                if (eb_vfat_words_64 < x"fff") then
+                    eb_vfat_words_64 <= eb_vfat_words_64 + 3;
+                else
+                    eb_event_too_big <= '1';
+                    gs_event_too_big <= '1';
+                end if;
+                
+                -- do we have more than 24 VFAT blocks?
+                if (eb_vfat_words_64 > x"17") then
+                    eb_event_bigger_than_24 <= '1';
+                    gs_event_bigger_than_24 <= '1';
+                end if;
+                      
+                -- if we don't have valid bc, fill them in now (this is the case of first ever vfat block or after a timeout)
+                if (eb_counters_valid = '0') then
+                    eb_bc <= ep_last_rx_data(187 downto 176);
+                    eb_oh_bc <= ep_last_rx_data(223 downto 192);
+                    eb_vfat_ec <= ep_last_rx_data(171 downto 164);
+                    eb_counters_valid <= '1';
+                else -- we do have a valid bc
+                    
+                    -- is the current vfat bc different than the previous (in the same event)
+                    if (eb_bc /= ep_last_rx_data(187 downto 176)) then
+                        eb_vfat_bx_mismatch <= '1';
+                    end if;
+                    
+                    -- is the current OH bc different than the previous (in the same event)
+                    if (eb_oh_bc /= ep_last_rx_data(223 downto 192)) then
+                        eb_oos_oh <= '1';
+                    end if;
+                    
+                    -- is the OH bc different from the VFAT bc?
+                    if (eb_oh_bc(11 downto 0) /= ep_last_rx_data(187 downto 176)) then
+                        eb_vfat_oh_bx_mismatch <= '1';
+                        gs_oos_oh_vfat <= '1';
+                    end if;
+                    
+                    -- is the VFAT ec different from our event counter (short version and starting from 0)
+                    if (eb_vfat_ec /= std_logic_vector(eb_event_num_short)) then
+                        eb_oos_glib_vfat <= '1';
+                        gs_oos_glib_vfat <= '1';
+                    end if;
+                    
+                end if;
+                
+            -- End of event - push to event fifo, reset the flags and populate the new event ids (event num, bx, etc)
+            elsif ((ep_last_rx_data_valid = '1') and (ep_end_of_event = '1')) then
+            
+                -- Push to event FIFO
+                if (evtfifo_full = '0') then
+                    evtfifo_wr_en <= '1';
+                    evtfifo_din <= std_logic_vector(eb_event_num) & 
+                                   eb_bc & 
+                                   std_logic_vector(eb_vfat_words_64) & 
+                                   evtfifo_almost_full & 
+                                   gs_event_fifo_full & 
+                                   gs_input_fifo_full & 
+                                   gs_event_fifo_near_full & 
+                                   gs_input_fifo_near_full & 
+                                   eb_event_too_big &
+                                   eb_invalid_vfat_block & 
+                                   eb_event_bigger_than_24 &
+                                   eb_oos_glib_vfat & 
+                                   eb_oos_oh & 
+                                   eb_vfat_bx_mismatch & 
+                                   eb_vfat_oh_bx_mismatch;
+                else
+                    gs_event_fifo_full <= '1';
+                end if;
+
+                -- Increment the event number, set bx
+                eb_event_num <= eb_event_num + 1;
+                eb_event_num_short <= eb_event_num_short + 1;
+                eb_bc <= ep_last_rx_data(187 downto 176);
+                eb_oh_bc <= ep_last_rx_data(223 downto 192);
+                eb_vfat_ec <= ep_last_rx_data(171 downto 164);
+                eb_counters_valid <= '1';
+                
+                -- reset event flags
+                eb_invalid_vfat_block <= '0';
+                eb_vfat_words_64 <= x"003"; -- minimum number of VFAT blocks = 1 block (3 64bit words)
+
+                eb_vfat_bx_mismatch <= '0';
+                eb_vfat_oh_bx_mismatch <= '0';
+                eb_oos_glib_vfat <= '0';
+                eb_oos_oh <= '0';
+                eb_event_too_big <= '0';
+                eb_event_bigger_than_24 <= '0';
+                
+            else
+            
+                -- hmm
+                evtfifo_wr_en <= '0';
+                
+            end if;
+            
+        end if;
+    end process;
     
     --================================--
     -- Event shipping to DAQLink
@@ -470,7 +539,10 @@ begin
         variable e_bx                  : std_logic_vector(11 downto 0) := (others => '0');
         variable e_payload_size        : unsigned(19 downto 0) := (others => '0');
         variable e_evtfifo_almost_full : std_logic := '0';
+        variable e_evtfifo_full        : std_logic := '0';
         variable e_infifo_full         : std_logic := '0';
+        variable e_evtfifo_near_full   : std_logic := '0';
+        variable e_infifo_near_full    : std_logic := '0';
         variable e_invalid_vfat_block  : std_logic := '0';
         variable e_oos_glib_vfat       : std_logic := '0';
         variable e_oos_glib_oh         : std_logic := '0';
@@ -478,6 +550,7 @@ begin
         variable e_vfat_bx_mismatch    : std_logic := '0';
         variable e_vfat_oh_bx_mismatch : std_logic := '0';
         variable e_event_too_big       : std_logic := '0';
+        variable e_event_bigger_than_24: std_logic := '0';
         
         -- counters
         variable word_count            : unsigned(19 downto 0) := (others => '0');
@@ -520,14 +593,20 @@ begin
                     e_bx := evtfifo_dout(35 downto 24);
                     e_payload_size(11 downto 0) := unsigned(evtfifo_dout(23 downto 12));
                     e_evtfifo_almost_full := evtfifo_dout(11);
-                    e_infifo_full         := evtfifo_dout(10);
-                    e_invalid_vfat_block  := evtfifo_dout(9);
-                    e_oos_glib_vfat       := evtfifo_dout(8);
-                    e_oos_glib_oh         := evtfifo_dout(7);
-                    e_oos_oh              := evtfifo_dout(6);
-                    e_vfat_bx_mismatch    := evtfifo_dout(5);
-                    e_vfat_oh_bx_mismatch := evtfifo_dout(4);
-                    e_event_too_big       := evtfifo_dout(3);
+                    e_evtfifo_full        := evtfifo_dout(10);
+                    e_infifo_full         := evtfifo_dout(9);
+                    e_evtfifo_near_full   := evtfifo_dout(8);
+                    e_infifo_near_full    := evtfifo_dout(7);
+                    e_event_too_big       := evtfifo_dout(6);
+                    e_invalid_vfat_block  := evtfifo_dout(5);
+                    e_event_bigger_than_24:= evtfifo_dout(4);                    
+                    e_oos_glib_vfat       := evtfifo_dout(3);
+                    e_oos_oh              := evtfifo_dout(2);
+                    e_vfat_bx_mismatch    := evtfifo_dout(1);
+                    e_vfat_oh_bx_mismatch := evtfifo_dout(0);
+                    
+                    -- TODO: check OH bx vs. L1A bx
+                    e_oos_glib_oh         := '0';
 
                     daq_curr_vfat_block <= unsigned(evtfifo_dout(23 downto 12)) - 3;
                 
@@ -595,8 +674,8 @@ begin
             end if;
 
             -- check for underflows and set the permanent flag if it happens
-            if (evtfifo_underflow = '1') then
-                input_fifo_underflow <= '1';
+            if (infifo_underflow = '1') then
+                gs_input_fifo_underflow <= '1';
             end if;
             
         end if;
@@ -681,7 +760,7 @@ begin
     --================================--
     
     daq_status1_reg_o <= std_logic_vector(sent_event_cnt(11 downto 0)) & std_logic_vector(eb_event_num(11 downto 0)) & x"0" & ttc_ready_i & daq_clock_locked & daq_almost_full & daq_ready;
-    daq_status2_reg_o <= daq_critical_error & "000" & daq_tts_state & x"000" & infifo_empty & evtfifo_empty & oos_glib_vfat & oos_glib_oh & oos_oh_vfat & input_fifo_full & input_fifo_near_full & input_fifo_underflow & event_fifo_full & event_fifo_near_full & corrupted_vfat_data & event_too_big;
+    daq_status2_reg_o <= daq_critical_error & "000" & daq_tts_state & x"000" & infifo_empty & evtfifo_empty & gs_oos_glib_vfat & gs_oos_glib_oh & gs_oos_oh_vfat & gs_input_fifo_full & gs_input_fifo_near_full & gs_input_fifo_underflow & gs_event_fifo_full & gs_event_fifo_near_full & gs_corrupted_vfat_data & gs_event_too_big;
     daq_enable <= daq_config_reg_i(0);
 
     -- quick and dirty check of frequency of some clocks

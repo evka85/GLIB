@@ -757,3 +757,9 @@ map -intstyle ise -p xc6vlx130t-ff1156-1 -w -logic_opt off -ol high -t 1 -xt 0 -
 par -w -intstyle ise -ol high -mt 4 glib_top_map.ncd glib_top.ncd glib_top.pcf 
 trce -intstyle ise -v 3 -s 1 -n 3 -fastpaths -xml glib_top.twx glib_top.ncd -o glib_top.twr glib_top.pcf -ucf user_fabric_clk.ucf 
 bitgen -intstyle ise -f glib_top.ut glib_top.ncd 
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
+xst -intstyle ise -ifn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.xst" -ofn "/home/evka/code/GLIB/amc_glib/trunk/glib_v3/fw/fpga/prj/glib_fw/glib_top.syr" 
